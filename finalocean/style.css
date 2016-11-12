@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  color: navy;
+  background-color: aqua;
+}
+
+.jumbotron {
+  background: url("Images/minecraft.jpg");
+  background-size: cover;
+}
