@@ -1,0 +1,48 @@
+h1 {
+  text-align: left;
+  color:red;
+  margin: 20px;
+}
+
+h2 {
+  margin: 20px;
+  
+}
+
+p {
+ text-align: left;
+ padding-left: 20px;
+}
+
+button {
+  margin: 20px;
+  
+}
+.images {
+  text-align: center;
+}
+
+iframe{
+  text-align: center;
+  
+}
+
+.jumbotron {
+  background: url(penguinbackground.jpg);
+  background-size: cover;
+  
+  
+}
+
+img {
+  max-width: 300px;
+  max-height: 200px;
+  
+}
+
+.row {
+  padding: 20px;
+  border: 5px solid blue;
+  margin: 10px;
+  
+}
