@@ -1,0 +1,17 @@
+h1  {
+  text-align: center;
+  color: orange;
+  background-color: yellow;
+}
+
+.everything {
+  text-align:center;
+}
+
+.jumbotron {
+  background: url("http://fanaru.com/doge/image/14009-doge-its-full-of-doge.jpg")
+}
+
+.secondline {
+  color: white;
+}
