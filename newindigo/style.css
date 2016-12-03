@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    color:red;
+    background-color: blue;
+}
+
+.cat{
+    text-align: center;
+}
+
+p {
+    background-image: "img src="Images/turtle.jpg" ;
+}
+
+.jumbotron {
+  background:url("https://upload.wikimedia.org/wikipedia/commons/7/7b/Black_Panther_by_Bruce_McAdam.jpg")
+}
