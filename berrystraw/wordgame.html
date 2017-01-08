@@ -3,18 +3,17 @@
  var words = ["penguin"];
  var word = words[Math.floor(Math.random() * words.length)];
  var answerArray = [];
-
  for (var i=0; i < word.length; i++) {
-   answerArray [i] = "_";
+   answerArray[i] = "_";
  }
-
- var remainingLetters = word.length
+ var remainingLetters = word.length;
  var maxGuesses = 10;
  var numberGuesses = 0;
  
  while (remainingLetters>0 && numberGuesses<maxGuesses )  {
+   alert(answerArray.join(" "));
    alert ("You have "+(maxGuesses - numberGuesses)+" guesses left");
-   var guess = prompt ("Guess a letter or click cancel to stop");
+   var guess = prompt("Guess a letter or click cancel to stop");
   if (guess=== null)  {
 break;
 } else if (guess.length !== 1) {
@@ -30,6 +29,4 @@ break;
 }
 alert(answerArray.join(" "));
 alert("Good job! The answer was "+ word);
-
 </script>
-
