@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Christmas Hangman</title>
+  </head>
+  <body>
+    <h1>Christmas Hangman</h1>
+    <script>
+      
+      var words=["holiday","wreath","mistletoe","family","red","green","food", "love", "presents", "santa", "elves", "christmas"];
+      var word=words[Math.floor(Math.random()* words.length)];
+      var answerArray=[];
+      
+      for(var i=0; i<word.length; i++){
+        answerArray[i]="_"
+      }
+      
+      var remainingLetters= word.length;
+      var maxGuesses= 10;
+      var numberGuesses=0;
+      
+      while (remainingLetters>0 && numberGuesses<maxGuesses){
+        alert(answerArray.join(" "));
+        alert("You only have " + (maxGuesses-numberGuesses) + " guesses left until Santa thinks you are naughty")
+        
+      var guess = prompt("guess a letter click CANCEL to quit the game");
+      if (guess=== null){
+        break;
+      }
+      else if(guess.length!==1){
+        alert("Please enter only one letter");}
+        else{
+          numberGuesses++;
+          for(var j=0; j<word.length; j++){
+            if (word[j]=== guess) {
+              answerArray[j]=guess;
+            }
+            }
+          }
+          }
+      
+      alert(answerArray.join(" "));
+      alert("The answer was " + word + ". Maybe next time you will please Santa and his crew.");
+      
+    </script>
+  </body>
+</html>
