@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>hangman</title>
+</head>
+<body>
+<h1>Hangman of death!</h1>
+<script>
+ var words = ["cat", "supercrajafrajalisticexpialodoshas","gorilla","strawberry", ];
+ var word = words[Math.floor(Math.random()*words.length)];
+ 
+ var answerArray = [];
+ 
+ for (var i = 0; i <word.length; i++) {
+   answerArray[i] = "_"
+ }
+var remainingLetters = word.length
+var maxGuesses = 24;
+var numberGuesses = 0;
+while (remainingLetters >0 && numberGuesses<maxGuesses) {
+  alert(answerArray.join(" "));
+  alert("you have"+(maxGuesses - numberGuesses)+"guesses left");
+  var guess = prompt("guess a letter or type cancel to stop game")
+  
+  if (guess === null) {
+    alert("please type a letter or type cancel");
+    break;
+  }else if (guess.length !==1){
+    alert ("please enter one letter only")
+  } else {
+    //Update the game state with guess
+    numberGuesses++;
+    for (var j = 0; j<word.length; j++){
+      if (word[j] === guess){
+        answerArray[j] === guess;
+      }
+    }
+  }
+}
+alert (answerArray.join(" "));
+alert("if you guessed"+ word +" you were correct");
+</script>
+</body>
