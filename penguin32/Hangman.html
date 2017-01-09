@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title> Hangman</title>
+  </head>
+  <body>
+    <h1> HANGMAN GAME</h1>
+    
+    <script>
+      var words= ["bird","monkey","dog","batman","amazing"]
+      var word = words[Math.floor(Math.random()*words.length)];
+      var answerArray= [];
+      
+      for (var i=0; i < word.length; i++) {
+      answerArray[i]="_";
+      }
+      
+      var remainingletters = word.length;
+      var maxGuesses = 10;
+      var numberGuesses = 0;
+      
+      while (remainingletters>0 && numberGuesses<maxGuesses) {
+        alert(answerArray.join(" "));
+        alert("you have"+(maxGuesses-numberGuesses)+" guesses left");
+        
+        var guess = prompt("Guess a letter or quit game by clicking cancel");
+        
+        if(guess=== null) {
+          break;
+        } else if (guess.length !==1) {
+          alert("please enter just one letter");
+        } else {
+          numberGuesses++;
+          for (var j =0; j<word.length; j++) {
+            if (word[j] ===guess) {
+              answerArray[j] = guess;
+            }
+          }
+        }
+      }
+      alert(answerArray.join(" "));
+      alert("Nice Job! The answer was "+ word);
+    </script>
+</body></html>
