@@ -1,61 +1,67 @@
 <head>
-  <link href="bootstrap.css" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="bootstrap.css" rel="stylesheet">
+
+  
+  
 </head>
 
+<!--#include file="header.htm" -->
 
-<div class="jumbotron">
-<h1>Penguins Are Awesome</h1>
-<h2>Awesome penguins images & links</h2>
-<button type="button" class="btn btn-primary">Press Me</button>
+<div class="everything">
+<div class ="jumbotron">
+<h1>Title of my site</h1>
 
+<b>Penguins are awesome.</b>
+<i>They love the cold</i>
+
+<p> how are you?</p>
+
+<a href="http://www.google.com">Facebool</a>
+
+<button type = "button" class="btn btn-default">Press me</button>
+
+</div>
+<img src="https://cdn.pixabay.com/photo/2013/12/12/03/08/kitten-227009_960_720.jpg">
+
+<div class="mars">
+<img src="Images/Mars1.jpg" height="400px" width="600px">
+</div>
+
+</div>
+<div>
+  <button onclick="prev()">Prev</button>
+  <img id="slider" src ="https://penguincodingschool.github.io/images/Penguin1.jpg" width="600px" height="400px" />
+  <button onclick="next()">Next</button>
 </div>
 
 
-<p>This webpage is going to be about <b>penguins</b></p>
-<p>I <i>LOVE</i> penguins!</p>
-<p><ins>Question:</ins>How many penguins are there in the world?</p>
-<p>Answer: <mark>Not Enough!</mark></p>
-<p><del>False!</del></p>
+<script>
+  var images = [
+  "https://penguincodingschool.github.io/images/Penguin1.jpg",
+  "https://penguincodingschool.github.io/images/Penguin2.jpg",
+  "https://penguincodingschool.github.io/images/Penguin3.jpg",
+];
 
-<h3>Reasons Penguins Are Awesome</h3>
-<ul>
-<li><a href="https://seaworld.org/animal-info/animal-infobooks/penguin/adaptations">swims very fast</a></li>
-<li>soooo cute</li>
-<li>father warms the eggs</li>
-</ul>
+var num = 0;
 
-<div class="row">
-  <div class="col-md-4">
-    <img src="Penguin1.jpg">
-  </div>
-  <div class="col-md-4">
-    <img src="Penguin2.jpg">
-  </div>
+function next(){
+  var slider = document.getElementById("slider");
+  num++;
+  if(num>=images.length) {
+    num = 0;
+  }
+  slider.src=images[num];
+}
+
+function prev(){
+  var slider = document.getElementById("slider");
+  num--;
+  if(num<0) {
+    num = images.length-1;
+  }
+  slider.src = images[num];
+}
+
   
-  <div class="col-md-4">
-    <img src="Penguin3.jpg">
-  </div>
-</div>
-
-
-<table>
-  <tr>
-    <td><img src="Penguin1.jpg"></td>
-    <td><img src="Penguin2.jpg"></td>
-    <td><img src="Penguin3.jpg"></td>
-  </tr>
-</table>
-
-
-<div class="images">
-<img src="http://www.barransclass.com/phys1090/circus/Haynes_K/penguin.jpg">
-</div>
-<br>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/ZyBiiWwBbTg">
-</iframe>
-
-
-=======
-=======
-
+</script>
