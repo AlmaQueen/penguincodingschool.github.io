@@ -29,4 +29,46 @@
 <p>This is a site about how <mark>awesome</mark> videogames are</p>
 <a href="https://en.wikipedia.org/wiki/Doom_3">Link to Doom 3 Wikipedia</a>
 <img src="http://fabiensanglard.net/doom3/icons/doom3_icon_desaturated.png" width="700" height="500">
+
+
+<script>
+  var words = ["pneumonoultramicroscopicsilicovolcanoconiosis","californium","ununquadium"];
+  var word = words[Math.floor(Math.random() *words.length)];
+  var answerArray=[];
+  
+  for (var i=0; i<word.length; i++) {
+    answerArray[i] = "_";
+  }
+  
+  var remainingLetters = word.length;
+  var maxGuesses = 45;
+  var numberGuesses = 0;
+  
+  while(remainingLetters >0 && numberGuesses<maxGuesses) {
+    alert(answerArray.join(" "));
+    alert("You have "+(maxGuesses - numberGuesses)+ " guesses left");
+    
+    var guess = prompt("Guess a letter or click cancel to quit");
+    
+    if(guess===null) {
+      break;
+    } else if (guess.length !==1) {
+      alert("please only enter one letter");
+    } else {
+      numberGuesses++;
+      for (var j =0; j<word.length; j++) {
+        if( word[j] === guess) {
+          answerArray[j] = guess;
+          remainingLetters--
+        }
+      }
+    }
+  }
+  
+  alert(answerArray.join(" "));
+  alert("Good Job! The answer was " + word );
+  
+  
+</script>
+
 </body>
