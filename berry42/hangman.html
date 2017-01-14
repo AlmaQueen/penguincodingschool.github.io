@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      var words = ["penguin", "igloo", "candy", "pizza","Berry", "football","tennis", "maps", "United States", "eyeballs", "soccer", "Josué", "cat", "fish bowl", "chicken leg"]
+      var word = words[Math.floor(Math.random()*words.length)];
+      var answerArray = [];
+      
+      for (var i=0; i<word.length; i++) {
+        answerArray[i]= "_";
+      }
+      
+      var remainingLetters = word.length;
+      var maxGuesses = 10;
+      var numberGuesses = 0;
+      
+      while (remainingLetters>0 && numberGuesses<maxGuesses ) {
+        alert(answerArray.join(" "));
+        alert ("You have "+(maxGuesses - numberGuesses) +" guesses left");
+        
+        var guess = prompt("Guess a letter or click Cancel to stop");
+        if (guess=== null) {
+          break;
+        } else if (guess.length !==1) {
+        alert("Please enter a single letter");
+        } else {
+        numberGuesses++;
+        for (var j = 0; j<word.length; j++) {
+          if (word[j] === guess)  {
+            answerArray[j]= guess;
+            remainingLetters--;
+          }
+        }
+        }
+      }
+      alert(answerArray.join(" "));
+      alert("Good job! The answer was " + word);
+        
+      
+    </script>
+  </body>
+</html>
