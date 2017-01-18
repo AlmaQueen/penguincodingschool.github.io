@@ -1,0 +1,81 @@
+<head>
+  <title>canvas</title>
+  
+</head>
+
+<body>
+  <canvas id="drawingpad" width ="1000" height="1000"></canvas>
+  <script>
+    
+    var drawingpad = document.getElementById("drawingpad");
+    var ctx = drawingpad.getContext("2d");
+    
+    ctx.strokeStyle="SteelBlue";
+    ctx.lineWidth = 5;
+    
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.lineTo(100,300);
+    ctx.lineTo(300,300);
+    ctx.closePath();
+    ctx.stroke();
+    
+    var cir = function(x,y,radius) {
+      ctx.beginPath();
+      ctx.arc(x,y,radius,0,Math.PI*2, false);
+      ctx.stroke();
+    }
+    
+    ctx.strokeStyle="Black";
+    cir(500,500,100);
+    cir(500,350,50);
+    ctx.strokeStyle="Red";
+    cir(475,350,5);
+    
+    cir(525,350,5);
+    cir(500,375,10);
+    ctx.strokeStyle="Orange";
+    cir(500,450,5);
+    cir(500,500,5);
+    cir(500,550,5);
+    
+    ctx.fillRect(75,20,50,50);
+ctx.fillRect(50,70,100,100);
+ctx.fillRect(0,90,50,20);
+ctx.fillRect(150,90,50,20);
+ctx.fillRect(75,170,20,50);
+ctx.fillRect(105,170,20,50);
+ctx.fillStyle = "Cyan";
+ctx.fillRect(85,40,5,5);
+ctx.fillRect(105,40,5,5);
+ctx.fillStyle = "Fuchsia";
+ctx.fillRect(92,55,10,5);
+ 
+ 
+ function draw(x,y){
+ ctx.fillStyle = "LightGray";
+ ctx.fillRect(x+100,500-y,50,200);
+ ctx.fillStyle = "Chocolate";
+ ctx.fillRect (x+75,650-y,100,25)
+ ctx.fillStyle = "Blue"
+ ctx.fillRect(x+100,675-y,50,25)
+ }
+ 
+ function clearCanvas() {
+   ctx.clearRect(0,0,drawingpad.width, drawingpad.height);
+ }
+ x=0;
+ y=0;
+ function moveSword() {
+   clearCanvas();
+   draw(x,y);
+   y=y+.5;
+   x=x+.5
+ }
+ 
+ var myVar = setInterval(moveSword, 1);
+  </script>
+  
+  
+  
+</body>
