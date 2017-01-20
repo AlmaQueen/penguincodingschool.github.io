@@ -1,0 +1,53 @@
+<head>
+  <style>
+    h1 {
+      
+      text-align: center;
+      color: red;
+      background-color: blue;
+    }
+    body {
+
+    }
+    
+    
+  </style>
+  
+  
+</head>
+ 
+ 
+ 
+ <body>
+ <h1>U.S.A. Presidents</h1>
+ <h2>The 43 presidents of the world! Learn about presidents history, where they lived, and beyond!</h2>
+ <a href="http://www.whitehouse.gov">Helpful Links for more president info</a>
+ 
+ <br> <br>
+ 
+ <img src="http://i.ebayimg.com/images/g/BtEAAOxy4dNS2VSl/s-l300.jpg" width="300" height="350">
+ <button onclick="prev()" >Back</button>
+<img id="slider" src="http://www.emersonkent.com/images/george_washington_portrait.jpg" width="400" height="300">
+
+ <button onclick="next()">Forward</button>
+ <script>
+   var images = ["http://a4.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE1ODA0OTcxMjc3MzIxNzQx.jpg","http://www.famousinventors.org/images/thomas-jefferson.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/James_Madison.jpg/220px-James_Madison.jpg"];
+ var counter=0;
+ function next(){
+ var slider = document.getElementById("slider");
+counter++;
+if (counter>images.length)
+counter=0
+ slider.src=images[counter];
+ }
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ </body>
