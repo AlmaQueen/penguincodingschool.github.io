@@ -1,16 +1,71 @@
 <head>
-  <style>
-  h1 {
-    text-align:center;
-    color: red;
-    background-color:black;
-    
-    
-    
-    
-  </style>
+ <link href="bootstrap.css" rel="stylesheet" type="text/css">
+ <link href="style.css"  rel="stylesheet" type="text/css">
+ <style>
+   h1 {
+     text-align:center;
+     color:red;
+     background-color:black;
+   }
+ </style>
 </head>
-<h1>pokemon</h1>
- learn how to play pokemon go!see awesome pokemon pictures and learn about them!
- <a href="http://www.google.com">link to google</a>
- <img src="http://digitalspyuk.cdnds.net/16/08/980x490/landscape-1456483171-pokemon2.jpg">
+ 
+<h1>Learn about famous soccer players and teams</h1>
+
+
+  <p>
+     Messi, Neymar, Ronaldo, Beckham, these are a few of the soccer players you will learn about.
+  </p>
+
+<div align=center>
+  <iframe width ="420px" height="315"
+   src="https://www.youtube.com/embed/1B_7JxGsK7Y">
+  </iframe>
+</div>
+
+<table class="table table-bordered" style="width: auto;">
+  <caption>These are pictures of famous soccer players</caption>
+  <tr>
+    <td class="col-md-6" align="center" valign="center">
+      <img id="slider" src="image/messi.jpg"/>
+    </td>
+    <td class="col-md-6" align="center" valign="center">
+      <img src="image/neymar.jpg">
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="col-md-6">
+      <img src="image/ronaldo.jpg"/>
+    </td>
+    <td class="col-md-6">
+      <img src="image/marodona.jpg"/>
+    </td>
+  </tr>
+</table>
+
+<button onclick="prev()">previos</button>
+
+<img id="slider" src="image/messi.jpg"/>
+
+<button onclick="next()">next</button>
+
+
+<script>
+var images =[ "http://www.topfm.pt/wp-content/uploads/2015/07/cr7.jpg","http://images.performgroup.com/di/library/goal_es/55/65/lionel-messi-barcelona-celt","http://i.dailymail.co.uk/i/pix/2015/12/31/16/2FB0FE4C00000578-0-image-m-43_1451" ]
+
+
+var counter=0;
+function next(){
+var slider = document.getElementById ("slider");
+counter++;
+slider.src=images[counter];
+}
+
+function prev(){
+  var slider = document.getElementById ("slider");
+counter--;
+slider.src=images[counter];
+}
+
+</script>
