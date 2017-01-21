@@ -2,7 +2,7 @@
   <style>
   h1 {
     text-align: center;
-    color:
+    color:blue
   }
 </style>
 </head>
@@ -12,9 +12,35 @@
 
 <h1>PAWsome Animals!</h1>
 
- this website is a site that tells you about animals, adoptions and more things!
+ This website is a site that tells you about animals, adoptions and more things! here is a website that may help you with adoptions!
  <a href="http here is a website if you are looking to look into adopting an animal">
- ://www.sftsrescue.org/">sf rescut</a>
+ ://www.sftsrescue.org/">sf rescue</a>
+ <br>
+ >
 
- <img src= "http://topofohiopetshelter.org/wp-content/uploads/dog-shelter.jpg" width="400" height="400">
+ <img src="http://topofohiopetshelter.org/wp-content/uploads/dog-shelter.jpg" width="400" height="400">
+
+<button onclick="prev()">prev</button>
+  <img id=slider src="https://lh5.ggpht.com/WLSUWqj9TsA2T5gcaWe4zpNJq1i81kRHIGDSm5aJ9wM1QijBqlnVSkV7V_f9Oy3S1Lg=h310" width="400" height="400">
+ 
+ <button onclick="next()" >next</button>
+ 
+ 
+ <script>
+   var images=[
+     "http://www.petful.com/wp-content/uploads/2015/03/animal-shelter-puppies.jpg",
+     "https://s-media-cache-ak0.pinimg.com/originals/47/78/85/47788511c44edc79755fb890f9fbf59b.jpg",
+     "http://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg"
+     ];
+     var counter=0;
+     function next(){
+     var slider = document.getElementById("slider");
+     counter++;
+     slider.src=images[counter];
+     
+     if (counter>=images.length){
+       counter=0;
+     }
+ </script>
+ 
  

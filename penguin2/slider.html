@@ -1,0 +1,47 @@
+<head>
+
+<title>Picture Slider</title>
+  
+</head>
+
+<body>
+<h1>Picture Slider</h1>
+
+<div>
+  <button onclick="prev()">Prev</button>
+  <img id="slider" src ="https://penguincodingschool.github.io/images/Penguin1.jpg" width="600px" height="400px" />
+  <button onclick="next()">Next</button>
+</div>
+
+
+<script>
+  var images = [
+  "https://penguincodingschool.github.io/images/Penguin1.jpg",
+  "https://penguincodingschool.github.io/images/Penguin2.jpg",
+  "https://penguincodingschool.github.io/images/Penguin3.jpg",
+];
+
+var num = 0;
+
+function next(){
+  var slider = document.getElementById("slider");
+  num++;
+  if(num>=images.length) {
+    num = 0;
+  }
+  slider.src=images[num];
+}
+
+function prev(){
+  var slider = document.getElementById("slider");
+  num--;
+  if(num<0) {
+    num = images.length-1;
+  }
+  slider.src = images[num];
+}
+
+  
+</script>
+
+</body>
