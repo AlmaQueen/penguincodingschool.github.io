@@ -1,5 +1,8 @@
 <head>
   <title>canvas</title>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -10,8 +13,8 @@ var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 
 x=0;y=0;
-var xSpeed=100;
-var ySpeed=100;
+var xSpeed=0;
+var ySpeed=0;
 
 //Sword
 function drawSword() {
@@ -30,14 +33,54 @@ function clearCanvas() {
 //drawSword();
 function moveSword() {
   clearCanvas();
-  drawSword(x);
-  x+=15;y+=10;
+  drawSword(x,y );
+  x+=xSpeed;y+=ySpeed;
  }
 
-setInterval(moveSword,1000);
 
+//Key Commands
+function setDirection (dir) {
+  if (dir=== "up") {
+    xSpeed=0;
+    ySpeed=-5;}
+  else if (dir==="down") {
+    xSpeed=0;
+    ySpeed=5;}
+  else if (dir==="left") {
+    xSpeed=-5;
+    ySpeed=0;}
+  else if (dir==="right") {
+    xSpeed=5;
+    ySpeed=0;}
+  else if (dir==="stop") {
+    xSpeed=0;
+    ySpeed=0;}
+  else if (dir==="diagonal-down-right") {
+    xSpeed=5;
+    ySpeed=5;}
+  else if (dir==="diagonal-up-left") {
+    xSpeed=-5;
+    ySpeed=-5;}
+}
 
+////Key Codes or Dictionary for jQuery. Other Keycode dictionaries or on keycode.info
+var keyActions = {
+  32:"stop",
+  37:"left",
+  38:"up",
+  39:"right",
+  40:"down",
+  8:"diagonal-down-right",
+  13:"digonal-up-left"
+};
+//jQuery Syntax
 
+$("body").keydown(function(event) {
+  var dir=keyActions[event.keyCode];
+  setDirection(dir)
+});
+
+setInterval(moveSword,100);
 
 </script>
 </body>
