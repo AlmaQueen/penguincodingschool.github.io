@@ -1,47 +1,38 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slider</title>
+    <link rel="stylesheet" href="slider.css" />
+  </head>
+  <body>
 
-<title>Picture Slider</title>
-  
-</head>
+    <header><h1>Picture Slider</h1></header>
+    <section>
 
-<body>
-<h1>Picture Slider</h1>
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="http://powellong.com/data/wallpapers/217/WDF_2538219.jpg" />
+            </div>
+            <div class="slide slide-2">
+              <img src="https://s-media-cache-ak0.pinimg.com/236x/93/fa/c0/93fac00692c54e9df0327528967f4741.jpg"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="http://www.wallpapers13.com/wp-content/uploads/2016/03/Polar-Bear-Family-Three-cute-teddy-bears-Desktop-Wallpapers-Hd-915x515.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="http://www.lovethispic.com/uploaded_images/53451-Cute-Dog.jpg"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
 
-<div>
-  <button onclick="prev()">Prev</button>
-  <img id="slider" src ="https://penguincodingschool.github.io/images/Penguin1.jpg" width="600px" height="400px" />
-  <button onclick="next()">Next</button>
-</div>
+    </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
 
-<script>
-  var images = [
-  "https://penguincodingschool.github.io/images/Penguin1.jpg",
-  "https://penguincodingschool.github.io/images/Penguin2.jpg",
-  "https://penguincodingschool.github.io/images/Penguin3.jpg",
-];
-
-var num = 0;
-
-function next(){
-  var slider = document.getElementById("slider");
-  num++;
-  if(num>=images.length) {
-    num = 0;
-  }
-  slider.src=images[num];
-}
-
-function prev(){
-  var slider = document.getElementById("slider");
-  num--;
-  if(num<0) {
-    num = images.length-1;
-  }
-  slider.src = images[num];
-}
-
-  
-</script>
-
-</body>
+  </body>
+</html>
