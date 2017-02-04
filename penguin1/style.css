@@ -1,0 +1,25 @@
+
+    h1 {
+      
+      text-align: center;
+      color: red;
+      background-color: blue;
+    }
+    body {
+
+    }
+    #navbar li a {
+      display:block;
+      text-decoration:none;
+      padding:15px 15px;
+      font-size:45px;
+    }
+    
+    #navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color:lightblue;
+    }
+    
