@@ -1,0 +1,19 @@
+
+   h1 {
+     text-align:center;
+     color:red;
+     background-color:black;
+   }
+   #navbar li a {
+   display:block;
+   text-decoration:none;
+   padding:14px 16px;
+   font-size:20px;
+   color:white;
+   text-align:center;
+   }
+   #navbar li {
+     float:left;
+   }
+   
+   
