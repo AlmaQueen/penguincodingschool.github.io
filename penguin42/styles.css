@@ -1,0 +1,13 @@
+  
+    body {
+      background: url("http://www.crestedgeckocare.net/wp-content/uploads/2010/03/crested-gecko-water.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    #snickerdude {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: Cyan;
+    }
