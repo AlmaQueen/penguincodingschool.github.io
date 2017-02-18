@@ -1,8 +1,12 @@
 <head>
-  <link rel="stylesheet" href="style.css">
- <link href="bootstrap.css" rel="stylesheet" type="text/css">
- <link href="style.css"  rel="stylesheet" type="text/css">
- </head>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="slider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
 <ul id="navbar">
   <li><a href="index.html">Home</a></li>
   <li><a href="video.html">video</a></li>
@@ -13,16 +17,10 @@
 <h1>Learn about famous soccer players and teams</h1>
 
 
-  <p>
+ <h3>
      Messi, Neymar, Ronaldo, Beckham, these are a few of the soccer players you will learn about.
-  </p>
-
-<div align=center>
-  <iframe width ="420px" height="315"
-   src="https://www.youtube.com/embed/1B_7JxGsK7Y">
-  </iframe>
-</div>
-
+  </h3>
+<!--
 <table class="table table-bordered" style="width: auto;">
   <caption>These are pictures of famous soccer players</caption>
   <tr>
@@ -44,12 +42,8 @@
   </tr>
 </table>
 
-<button onclick="prev()">previos</button>
-
-<img id="slider" src="image/messi.jpg"/>
-
-<button onclick="next()">next</button>
-
+-->
+<!--
 
 <script>
 var images =[ "http://www.topfm.pt/wp-content/uploads/2015/07/cr7.jpg","http://images.performgroup.com/di/library/goal_es/55/65/lionel-messi-barcelona-celt","http://i.dailymail.co.uk/i/pix/2015/12/31/16/2FB0FE4C00000578-0-image-m-43_1451" ]
@@ -69,3 +63,44 @@ slider.src=images[counter];
 }
 
 </script>
+
+-->
+ 
+      
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="image/messi.jpg" />
+            </div>
+            <div class="slide slide-2">
+              <img src="image/ronaldo.jpg"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="image/Roberto%20Carlos.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="image/beckham.jpg"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
+
+
+<script src="slider.js"></script>
+
+<div class="player">
+<h1>MESSI</h1>
+<table>
+<tr><td><img src="https://i.ytimg.com/vi/GJ-k3mG0R5A/hqdefault.jpg"></td><td><h3>Young Messi</h3>
+<p>Lionel Messi was born in Santa Fe Province on 24 June 1987. At the age of five, he started playing football for Grandoli, a club coached by his father. In 1995, Messi switched to Newell's Old Boys. At the age of 11, he was diagnosed with a growth hormone deficiency. At age 13, he relocated to Spain to join Barcelona, who agreed to pay for his medical treatment.</p>
+</td></tr>
+</table>
+
+<h3>Messi for Argentina</h3>
+
+</div>
+<iframe src="https://www.youtube.com/embed/kckcnxdJ5EI"></iframe>
+
+</body>

@@ -21,7 +21,10 @@
 
 .slide:first-child {
     display: block;}
-
+.slider img {
+  width: 800;
+  height: 600;
+}
 
 /********** BUTTONS **********/
 .slide-buttons {

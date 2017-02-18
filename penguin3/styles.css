@@ -16,4 +16,16 @@
      float:left;
    }
    
+   .player h1 {
+     color: red;
+   }
    
+   .player h3, p {
+     padding: 10px;
+   }
+   
+   .jumbotron {
+     background: url(https://i.ytimg.com/vi/GJ-k3mG0R5A/hqdefault.jpg);
+     background-repeat: no-repeat;
+     
+   }
