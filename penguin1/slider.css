@@ -1,7 +1,12 @@
 /********** SLIDER **********/
 .slider {
-  max-width:940;
+  max-width:920;
   margin: 0px auto 30px auto;}
+
+.slider img {
+  width:800px;
+  height: 450px;
+}
 
 .slide-viewer {
     position: relative; /* needed for IE7 */

@@ -1,11 +1,8 @@
 <head>
   <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="slider.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   
-<style>
-
-
-
-</style>
 
 
 
@@ -14,9 +11,10 @@
  
  
  <body>
- <h1>Presidents</h1>
- <h2>Find all about the 43 Presidents Of The World! Their childhood,where they lived, and beyond!
- </h2>
+   
+  
+ <h1>Cat Island</h1>
+ <h2>Find out about the amazing stray cats of Aoshima, Japan (Cat Island)!!! </h2>
  
  <ul id="navbar">
    <li><a href="index.html">Home</a></li>
@@ -25,36 +23,31 @@
  </ul>
  
  
+ <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="https://cdn.theatlantic.com/assets/media/img/photo/2015/03/aoshima-japans-cat-island/c01_RTR4RUGT/main_1500.jpg" />
+            </div>
+            <div class="slide slide-2">
+              <img src="http://goinjapanesque.com/wpos/wp-content/uploads/2016/02/Cat-Island-tashirojima2.jpg" width="500px" height="400px" />
+            </div>
+            <div class="slide slide-3">
+              <img src="https://i.ytimg.com/vi/rvXfYw5niCw/hqdefault.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="https://i.ytimg.com/vi/0hBE2bVKeHY/maxresdefault.jpg" width="500px" height="400"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
  
  
- 
- <a href="http://www.whitehouse.gov">Helpful Links for more president info</a>
- 
+ <a href="https://www.hisgo.com/us/destination-japan/hiroshima/cat_island_aoshima.html">
+ Helpful Links for more Cat Island info</a>
+ <script src="slider.js"></script>
+
  <br> <br>
+</body>
  
- <img src="http://i.ebayimg.com/images/g/BtEAAOxy4dNS2VSl/s-l300.jpg" width="300" height="350">
- <button onclick="prev()" >Back</button>
-<img id="slider" src="http://www.emersonkent.com/images/george_washington_portrait.jpg" width="400" height="300">
-
- <button onclick="next()">Forward</button>
- <script>
-   var images = ["http://a4.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE1ODA0OTcxMjc3MzIxNzQx.jpg","http://www.famousinventors.org/images/thomas-jefferson.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/James_Madison.jpg/220px-James_Madison.jpg"];
- var counter=0;
- function next(){
- var slider = document.getElementById("slider");
-counter++;
-if (counter>images.length)
-counter=0
- slider.src=images[counter];
- }
- </script>
- <ul>
-  
- 
- 
- 
- 
- 
-
-
-</ul>

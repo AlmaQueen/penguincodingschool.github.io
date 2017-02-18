@@ -1,0 +1,66 @@
+
+    h1 {
+      
+      text-align: center;
+      color: #151B8D;
+      background-color: #767676;
+      font-size: 80px;
+    }
+    
+    body {
+      background-color: aqua;
+
+    }
+    
+
+    
+    
+      
+  
+    
+    #navbar {
+      list-style-type: none;
+      margin:0;
+      padding:0;
+      overflow: hidden;
+      background-color: #6960EC;
+    }
+    
+    #navbar li {
+       float: left;
+    }
+    
+    
+    #navbar li a {
+      display:block;
+      text-decoration:none;
+      padding:15px 15px;
+      font-size:45px;
+    }
+    
+    #myfavlist {
+      list-style-type:none;
+      margin:20px;
+      padding:16px;
+      overflow:hidden;
+    }
+    
+  #myfavlist li {
+    float: left;
+  }
+   #myfavlist{
+     max-width:1750px;
+    
+   }
+   #myfavlist img{
+     display: block;
+     width:400px;
+     height:370px;
+   }
+  #myfavlist {
+      list-style-type: none;
+      margin:50;
+      padding:100;
+      overflow: hidden;
+    
+    }
