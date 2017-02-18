@@ -1,0 +1,77 @@
+h1 {
+      text-align: center;
+      color: purple;
+      font-size: 70;
+    }
+body {
+    /*  background: url("https://aos.iacpublishinglabs.com/question/aq/700px-394px/cats-noses-wet_756a0c5cb206e0c3.jpg?domain=cx.aos.ask.com");
+      background-size: cover;
+      background-repeat: no-repeat;*/
+      background-color: #ff80ff ;
+      
+    }
+    
+    #picturepage {
+      background-color: #80ff80;
+    }
+    
+    #videopage {
+      background-color: #80ff80;
+    }
+    
+    #catbarhome {
+      color: purple;
+    }
+    
+    
+    #CatBar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: HotPink;
+    }
+    
+    #CatBar li{
+      float: left;
+    }
+    
+    #CatBar li a {
+      display: block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    
+      #CatBar li a:hover {
+        background-color: Goldenrod;
+      }
+      
+      #CatBar .active {
+        background-color: black;
+      }
+      
+      #Catlist {
+        list-style-type: none;
+        
+      }
+      
+        #Catlist li img {
+    width: 500;
+    height: 400;
+        }
+    
+    #Catlist li iframe {
+    width: 500;
+    height: 400;
+        }
+    
+    figure {
+      text-align: center;
+    }
+    
+    figcaption {
+      font-size: 40px;
+      color: red;
+    }
