@@ -1,51 +1,49 @@
 <head>
  <link rel="stylesheet" href="style.css"/>
+ <link rel="stylesheet" href="slider.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
  
- 
-  <style>
-  
-  
-  h1 {
-    text-align: center;
-    color:blue
-  }
-</style>
 </head>
 
+<body>
 
+<ul id="navbar">
+   <li><a href="index.html">home</a></li>
+   <li><a href="list.html">pictures</a></li>
+   <li><a href="video.html">videos</a></li>
+</ul>
 
 
 <h1>PAWsome Animals!</h1>
 
- This website is a site that tells you about animals, adoptions and more things! here is a website that may help you with adoptions!
- <a href="http here is a website if you are looking to look into adopting an animal">
- ://www.sftsrescue.org/">sf rescue</a>
+<p> This website is a site that tells you about animals, adoptions and more things!</p>
+ <p>
+ here is a website that you can adopt cats and dogs from! shelter from the storm(the link) is a cat and dog shelter. if you don't want to adopt an animal you can also donate to shelter from the storm! you can alos volunteer there if you want! there are a lot of ways to help shelters.</p>
+ <p>this is a website that you can donate to an animal in the wild! you can also adopt an animal but you won't be able to take it hom. you can also volunteer. i hope you donate or adopt or volunteer there!</p>
+ 
  <br>
- >
-
- <img src="http://topofohiopetshelter.org/wp-content/uploads/dog-shelter.jpg" width="400" height="400">
-
-<button onclick="prev()">prev</button>
-  <img id=slider src="https://lh5.ggpht.com/WLSUWqj9TsA2T5gcaWe4zpNJq1i81kRHIGDSm5aJ9wM1QijBqlnVSkV7V_f9Oy3S1Lg=h310" width="400" height="400">
+  <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="photo.jpg" />
+            </div>
+            <div class="slide slide-2">
+              <img src="photopresentation.jpg"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="polarbear.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="http://www.lovethispic.com/uploaded_images/53451-Cute-Dog.jpg"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
  
- <button onclick="next()" >next</button>
+  <script src="slider.js"></script>
  
- 
- <script>
-   var images=[
-     "http://www.petful.com/wp-content/uploads/2015/03/animal-shelter-puppies.jpg",
-     "https://s-media-cache-ak0.pinimg.com/originals/47/78/85/47788511c44edc79755fb890f9fbf59b.jpg",
-     "http://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg"
-     ];
-     var counter=0;
-     function next(){
-     var slider = document.getElementById("slider");
-     counter++;
-     slider.src=images[counter];
-     
-     if (counter>=images.length){
-       counter=0;
-     }
- </script>
+ </body>
  
  
