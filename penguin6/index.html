@@ -1,37 +1,46 @@
 <html>
+
 <head>
-<style>
-h1 {
-  text-align: center;
-  color: blue;
-  background-color: red;
-}
-body {
-background: url("http://pngimg.com/upload/small/snowman_PNG9936.png");
-background-size: cover;
-}
-</style>
+<link rel="stylesheet" href="bootstrap.css"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="slider.css"/>
 </head>
-
-
 <body>
-  <h1> Snow! </h1>
-    
-    <p> Links!</p>
+  <h1> Phobias! </h1>
+    <section>
+
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+             <img src="https://s-media-cache-ak0.pinimg.com/originals/e3/3d/ff/e33dff24a0b7d39f948a3aa3d492ca18.jpg" width: 200 height: 400 />
+            </div>
+            <div class="slide slide-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Clynotis_severus,_AF_2.jpg" width: 200 height: 400  />
+            </div>
+            <div class="slide slide-3">
+              <img src="https://s4.postimg.org/66qeqfajx/41981a4c8cff433b3c2e55906f608e11b3268a7adab5dde3.jpg" width: 200 height: 400 />
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons">
+      </div>
+      <div class="jumbotron">
+       <button type="button" class="btn btn-primary">Know Your Fear Quiz</button>
+      </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
+
+
+
+
+<p> Links!</p>
     <a href="https://en.wikipedia.org/wiki/Snow">snow</a>
+  <script src="slider.js"></script>
+  </body>
     
-<script>
-var age = prompt("How many years old are you?");
-if (age<13){
-  alert("You can watch PG movies and PG 13 movies if you have parental guidance.");
-} else if (age>13){
-  alert("You can watch PG and PG 13 movies!");
-} else{
-  alert("You can watch all movies!");
-}
-  
-</script>
-    
-    </body>
-    
-    
+

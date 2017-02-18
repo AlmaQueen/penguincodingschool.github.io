@@ -1,0 +1,49 @@
+<head>
+  <title>canvas</title>
+</head>
+
+<body>
+  <canvas id="canvas" width ="800" height="800"></canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var cx = canvas.getContext("2d");
+xSpeed=25;
+ySpeed=10;
+//SWORD
+x=0;
+y=0;
+function drawSword(x){
+cx.fillStyle = "LightGray";
+cx.fillRect(100+x,200+y,50,200);
+cx.fillStyle = "Chocolate";
+cx.fillRect (75+x,350+y,100,25)
+cx.fillStyle = "Blue"
+cx.fillRect(100+x,375+y,50,25)
+}
+function clearCanvas() {
+  cx.clearRect(0,0,canvas.width, canvas.height);
+}
+
+function moveSword() {
+  x+=xSpeed;
+  y+=ySpeed;
+  if (x>(canvas.width-100)||(x+100)<0){
+    xSpeed = -xSpeed;
+  };
+  if (y>(canvas.height-275)|| y<0){
+    ySpeed = -ySpeed;
+  };
+clearCanvas();
+drawSword(x);
+x+=100;
+  
+ }
+
+
+setInterval(moveSword,1000);
+
+
+
+</script>
+</body>

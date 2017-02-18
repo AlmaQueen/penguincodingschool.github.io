@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+  color: blue;
+  background-color: red;
+}
+
+body {
+background: blue;
+background-size: cover;
+}
+
+#myfavlist li img{
+    width:250;
+    height:250;
+  }
