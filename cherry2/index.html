@@ -20,6 +20,9 @@
       font-size: 25px;
       color: white;
     }
+    button {
+      background-color: white;
+    }
   </style>
 </head>
 
@@ -27,9 +30,26 @@
 
 
 <body>
+<button onclick="ask()">Click Me</button>
+
 <h1>Vegetarianism</h1>
 <p>A great way to live without having to harm others. It is also a great way to get healthy. This website will teach you about <mark>vegetarianism</mark>.</p>
 
 <a href="https://en.wikipedia.org/wiki/Vegetarianism">Vegetarianism-Wikipedia</a>
 
+<script>
+  function ask() {
+    alert("Hello! Welcome to my site!");
+    var name = prompt("What is your name?");
+    alert("Hello "+name+ " What a wonderful name!");
+    var age = prompt("How old are you?");
+    if (age>16) {
+      alert("You are too old to use my site. Sorry.");
+      window.location = "http://www.google.com";
+    } else {
+      alert("Welcome!");
+    }
+    }
+  
+</script>
 </body>
