@@ -15,10 +15,24 @@
 
 
 <body>
+  <button onclick="ask()">ask me</button>
 <h1>Golden state warriors</h1>
 
 <a href="http://www.nba.com/warriors/">All about the Golden state warriors</a>
 <br>
 <img src="http://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/warriors/images/logo-gsw-primary-yellow.svg" width =400 height = 250>
-
+<script>
+ function ask() {
+ alert("hello welcome to my site");
+ var name = prompt("What is your name?");
+ alert("Hello "+name)
+ var age = prompt("How old are you?");
+ if(age>70) {
+   alert("you are too old to to use this page" )
+   window.location="http://www.google.com";
+ } else {
+   alert("have fun!!");
+ }
+ }
+</script>
 </body>
