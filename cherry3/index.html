@@ -20,6 +20,7 @@
   a {
     color: white;
   }
+
   </style>
 </head>
 
@@ -27,11 +28,28 @@
 
 
 <body>
-
+<button onclick="ask()">Click Me</button>
 
 <h1>Chocolate</h1>
 <p>Chocolate is a rich creamy yummy treat. This website will tell you all about chocolate. </p>
 <a href="https://en.wikipedia.org/wiki/Chocolate">Wikipedia-Chocolate</a>
 <br>
 <img src="http://www.chocbox.co.uk/media/catalog/category/chocolate-bar.png" width = 550 height=400>
-</body>
+
+
+<script>
+function ask() {
+  alert("Hello! Welcome to my site!");
+var name = prompt("What is your name?");
+  alert("Hello " +name+" !  That is a nice name.");
+var answer = prompt("Do you like chocolate?");
+if (answer==="yes") {
+  alert("Great!");
+  
+} else {
+  alert('My sight is all about chocolate! Bye!')
+  window. location = "http://www.google.com";
+}
+}
+  </script>
+  </body>
