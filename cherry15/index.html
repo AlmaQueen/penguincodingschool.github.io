@@ -1,56 +1,49 @@
-<h1>Treasure Game</h1>
-This is my treasure map.
-
-<img id="map" src="http://www.timvandevall.com/wp-content/uploads/printable-treasure-map-for-kids-1.jpg" width=400 height=400>
+<h1>Treasure Hunt</h1>
+<img id="map" src="https://good360.org/wp-content/uploads/2015/08/shutterstock_139068827-1.jpg" width=600 height=400>
 <p id="hint"></p>
 
 <script>
-var map = document.getElementById("map");
-var width = 400;
-var height = 400;
-
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width = 600;
+  var height = 400;
   
-function getRandomNumber(size) {
-  return Math.floor(Math.random()*size);
-};
- 
-var target= {
-  x: getRandomNumber(width),
-  y: getRandomNumber(height)
-};
-  
-  function getDistance(event, target) {
-  var diffx =event.offsetX - target.x;
-  var diffy = event.offsetY - target.y;
-  return Math.sqrt((diffx*diffx)+(diffy*diffy));
+  function getRandom(size){
+    return Math.floor(Math.random()*size)
   };
   
-  var clicks = 0;
+  var treasure= {
+    x:getRandom(width),
+    y:getRandom(height),
+  }
+function getDistance(event,treasure){
+  var diffx = event.offsetX - treasure.x;
+  var diffy = event.offsetY - treasure.y;
+  return Math.sqrt((diffx*diffx)+(diffy*diffy));
+}
+ 
+ function getDistanceHint(distance){
+   if (distance<20){
+     return "Hot"
+     
+   } else if (distance <160){
+     return "warm"
+   } else {
+     return "freezing"
+     
+   }
+ }
+  var clicks =  0;
   
   map.addEventListener('click',function(event){
     clicks++;
-  var distance = getDistance(event, target);
-  var dhint = getDistanceHint(distance);
-  var hint = document.getElementById("hint");
-  hint.textContent = dhint;
-  console.log(distance, dhint)
-  if (distance<8) {
-    hint.textContent = "Found it!" ;
-  }
-  }) ;
-  
-  function getDistanceHint(distance) {
-    if (distance< 40) {
-      return "Boiling Hot";
-    } else if (distance< 60){
-    return "warm";
-    } else if (distance< 75){
-      return "Freezing";
-    } else if (distance< 250{
-      return "Ice Cube"
+    var distance = getDistance(event, treasure);
+    var dhint = getDistanceHint(distance);
+    hint.textContent = dhint;
+    console.log(event, treasure, distance);
+    if(distance<8){
+      hint.textContent = "Found it"
     }
-}
-
-  
-  
+    
+  });
 </script>
