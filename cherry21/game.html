@@ -1,0 +1,49 @@
+<body>
+<h1>Treasure Hunt</h1>
+This is a treasure hunt game. To find the treasure, click around on the picture of the island.
+<img id="map" src="https://img.clipartfox.com/10a730673357f9c1fc3fc5f0c912082d_island-small-island-in-the-ocean-island-clipart_1300-924.jpeg" width=600 height=400>
+<p id="hint"></p>
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width = 400;
+  var height = 400;
+  function getRandom(size) {
+    return Math.floor(Math.random()*size)
+  }
+  var treasure = {
+    x: getRandom(width),
+    y: getRandom(height),
+  }
+  function getDistance(event, treasure) {
+    var diffX = event.offsetX - treasure.x;
+    var diffY = event. offsetY - treasure.y;
+    return Math.sqrt((diffX*diffX)+(diffY*diffY));
+  }
+  
+  function getDistanceHint(distance) {
+    if (distance<20) {
+      return "Found treasure!!";
+    } else if (distance <50){
+    return "Hot";
+  }else if (distance <100){
+    return "Warm";
+  }else if (distance <150){
+    return "Cold";
+  }else{
+    return "Freezing"
+  }
+  }
+  var clicks = 0;
+  
+  map.addEventListener("click", function(event) {
+    clicks++;
+    var distance = getDistance(event, treasure);
+    var dhint = getDistanceHint(distance);
+    hint.textContent = dhint;
+    console.log(distance, dhint);
+  });
+
+
+</script>
+</body>
