@@ -1,0 +1,54 @@
+<h1>Treasure Hunt</h1>
+<p1>Find the treasure from the abandoned island of skulls.</p1>
+<p2> Will you pass this amazingly hard challenege ............... Or Not.</p2>
+<img id="map" src="https://backyardphilosophy01.files.wordpress.com/2013/03/treasure_map__skull_island_by_pumpkinjack6-d30me8q.jpg" width=400 height=400>
+<h2 id="hint"></h2>
+
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width = 400;
+  var height = 400;
+  
+function getRandom(size) {
+  return Math.floor(Math.random()*size);
+};
+
+var treasure = {
+  x: getRandom(width),
+  y: getRandom(height),
+}
+
+function getDistance(event, treasure) {
+  var diffX = event.offsetX - treasure.x;
+  var diffY = event.offsetY - treasure.y;
+  return Math.sqrt((diffX*diffX)+(diffY*diffY));
+}
+
+function getDistanceHint(distance) {
+  if (distance<20) {
+    return "Hot!!"
+  } else if (distance <160) {
+    return "Warm"
+  } else {
+    return "Freezing"
+  }
+}
+
+var clicks = 0;
+
+map.addEventListener('click', function(event) {
+  clicks++;
+  var distance = getDistance(event, treasure);
+  var dhint = getDistanceHint(distance);
+  hint.textContent = dhint;
+  console.log(event,distance)
+  if (distance<10) {
+    hint.textContent = "Found the Treasure!!!";
+    var audio = new Audio('bells001.wav');
+    audio.play();
+  }
+})
+
+  
+</script>
