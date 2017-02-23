@@ -1,54 +1,24 @@
-<h1>Treasure Hunt</h1>
-<p1>Find the treasure from the abandoned island of skulls.</p1>
-<p2> Will you pass this amazingly hard challenege ............... Or Not.</p2>
-<img id="map" src="https://backyardphilosophy01.files.wordpress.com/2013/03/treasure_map__skull_island_by_pumpkinjack6-d30me8q.jpg" width=400 height=400>
-<h2 id="hint"></h2>
-
+<head><style>h1{text-align:center;
+color: orange;font-size:80;
+}
+body {
+  background: url(https://overwatch-a.akamaihd.net/img/logos/overwatch-share-3d5a268515283007bdf3452e877adac466d579f4b44abbd05aa0a98aba582eeaebc4541f1154e57ec5a43693345bebda953381a7b75b58adbd29d3f3eb439ad2.jpg); background-repeat: no-repeat; background-size: cover;
+  </style>
+  </head>
+<body>
+<button onclick="ask()">Answer Me</button>
+<h1>Overwatch.</h1>
+<p>Welcome to my opinion on overwatch.</p>
+<a href="https://playoverwatch.com/en-us/">Play Overwatch</a>
+<br>
+<img src="http://www.goombastomp.com/wp-content/uploads/2016/11/overwatch.png" width=652 height=271.2>
 <script>
-  var map = document.getElementById("map");
-  var hint = document.getElementById("hint");
-  var width = 400;
-  var height = 400;
-  
-function getRandom(size) {
-  return Math.floor(Math.random()*size);
-};
-
-var treasure = {
-  x: getRandom(width),
-  y: getRandom(height),
+function ask() {
+var answer = prompt("Are you new to Overwatch");
+if (answer ==="yes") { alert("Here is a video giving tips"); window.location = "https://www.youtube.com/watch?v=e9lBs0ST7vQ"
+} else { alert("here are some tips for advanced players");
+window.location= "https://www.youtube.com/watch?v=ZPHL2iyCa-w";
 }
-
-function getDistance(event, treasure) {
-  var diffX = event.offsetX - treasure.x;
-  var diffY = event.offsetY - treasure.y;
-  return Math.sqrt((diffX*diffX)+(diffY*diffY));
 }
-
-function getDistanceHint(distance) {
-  if (distance<20) {
-    return "Hot!!"
-  } else if (distance <160) {
-    return "Warm"
-  } else {
-    return "Freezing"
-  }
-}
-
-var clicks = 0;
-
-map.addEventListener('click', function(event) {
-  clicks++;
-  var distance = getDistance(event, treasure);
-  var dhint = getDistanceHint(distance);
-  hint.textContent = dhint;
-  console.log(event,distance)
-  if (distance<10) {
-    hint.textContent = "Found the Treasure!!!";
-    var audio = new Audio('bells001.wav');
-    audio.play();
-  }
-})
-
-  
 </script>
+</body>
