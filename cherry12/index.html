@@ -1,0 +1,46 @@
+<h1>Treasure Hunt</h1>
+<img id= "map" src= "http://www.wxaviation.com/Map_of_USA.png" width=500 height=350>
+<h2 id="hint"></h2>
+
+<script>
+
+var map =document.getElementById('map');
+var hint= document.getElementById('hint');
+var width=500;
+var height=350;
+
+function getrandom(size) {
+    return Math.floor(Math.random()*size);
+}
+ var treasure = {
+  x: getrandom(width),
+  y: getrandom(height),
+}
+
+function getdistance(event, treasure) {
+ var diffx = event.offsetX - treasure.x;
+ var diffy = event.offsetY - treasure.y;
+ return Math.sqrt((diffx*diffx)+(diffy*diffy));
+}
+
+function getdistancehint(distance) {
+  if(distance<20){
+  return 'hot'
+  }else if (distance<160) {
+  return 'warm'
+  } else {
+  return 'freezing'}
+}
+
+var clicks = '8'
+
+map.addEventListener('click', function(event) {
+ clicks++;
+ var distance = getdistance(event, treasure);
+ var dhint = getdistancehint(distance);
+ hint.textContent = dhint
+ console.log(event,distance)
+});
+ 
+ 
+ </script>
