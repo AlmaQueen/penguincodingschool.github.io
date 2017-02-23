@@ -1,0 +1,59 @@
+<body>
+<h1>Hunt For Treasure</h1>
+
+<h1>The game meant for Treasure.</h1>
+
+<br>
+
+<p id="hint"></p>
+
+<img id="map" src="http://cliparts.co/cliparts/zcX/5kk/zcX5kka9i.png" width=900 height=900>
+
+
+<script>
+  var map= document.getElementById("map");
+  var hint= document.getElementById("hint");
+  var width=900;
+  var height=900;
+
+
+  function getRandom(size) {
+    return Math.floor(Math.random()*size)
+  }
+
+  var treasure = {
+    x: getRandom(width),
+    y: getRandom(height),
+  
+  }
+  
+  function getDistance(event, treasure){
+    var diffX = event.offsetX- treasure.x;
+    var diffY = event.offsetY- treasure.y;
+    return Math.sqrt((diffX*diffX) + (diffY* diffY));
+    
+  }
+  
+  function getDistanceHint(distance){
+    if (distance<20){
+      return "Found the Treasure!!!!!!! Hip!! Hip!! Horray!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    } else if(distance<200){
+      return "Boilin' Hot Hot Hot Hot Hot";
+  }   else {
+      return "Freez'n Cold";
+  }
+    }
+    
+    var clicks=0;
+    
+    map.addEventListener("click", function(event) {
+      clicks++;
+      var distance = getDistance(event,treasure);
+      var dhint = getDistanceHint(distance);
+      hint.textContent = dhint;
+      console.log(distance, dhint)
+    });
+
+
+</script>
+</body>
