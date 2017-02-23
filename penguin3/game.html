@@ -5,7 +5,7 @@
  var map = document.getElementById("map");
  var hint = document.getElementById("hint");
  var width = 900;
- var heght = 800;
+ var height = 800;
   
   function getRandom(size){
     return Math.floor(Math.random()*size);
@@ -13,21 +13,25 @@
   
   var treasure = {
     x: getRandom(width),
-    y:getRandom(height),
+    y: getRandom(height),
   };
   function getDistance(event,treasure) {
-    var diffx = event.offsetX - treasurex;
-      var diffy = event.offsetY - treasurey;
+    var diffx = event.offsetX - treasure.x;
+      var diffy = event.offsetY - treasure.y;
       return Math.sqrt ((diffx*diffx)+(diffy*diffy))
   }
   function getDistanceHint(distance) {
-    if (distance<20)
-    return "Boiling Hot!"
+    if (distance<20){
+    return "Boiling Hot!";
   }else if(distance<40) {
-    return "Warm"
+    return "Warm";
   }else if(distance<80){
-    return "Freezing"
+    return "Freezing";
+  } else {
+    return "you're not even close";
   }
+  }
+  
   var clicks= 0;
   
   map.addEventListener('click', function(event) {
@@ -35,8 +39,11 @@
     var distance = getDistance(event, treasure);
     var dhint = getDistanceHint(distance) ;
     hint.textContent = dhint;
+    console.log(distance, dhint);
     if (distance<8) {
-        hint.textContent = "FOUND IT!!!!!!!";
+        hint.textContent = "FOUND IT!!!!!!!"
+    
+  }
   });
 </script>
 
