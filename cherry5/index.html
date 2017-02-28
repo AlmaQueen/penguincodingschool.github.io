@@ -34,20 +34,21 @@ var target= {
   var hint = document.getElementById("hint");
   hint.textContent = dhint;
   console.log(distance, dhint)
-  if (distance<8) {
-    hint.textContent = "Found it!" ;
-  }
   }) ;
   
   function getDistanceHint(distance) {
-    if (distance< 40) {
+    if (distance<8) {
+      return "Found it!"
+    } else if (distance< 40) {
       return "Boiling Hot";
     } else if (distance< 60){
     return "warm";
     } else if (distance< 75){
       return "Freezing";
-    } else {
+    } else if (distance< 250){
       return "Ice Cube"
+    } else {
+      return "Ice Cube x 2"
     }
 }
 
