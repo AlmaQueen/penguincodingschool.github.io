@@ -1,15 +1,20 @@
 
-   h1 {
+  h1 {
      text-align:center;
      color:red;
-     background-color:black;
+   /*  background-color:black;*/
    }
-   #navbar li a {
+   
+   #title {
+     color: red;
+   }
+   
+  #navbar li a {
    display:block;
    text-decoration:none;
    padding:14px 16px;
    font-size:20px;
-   color:white;
+   color: blue;
    text-align:center;
    }
    #navbar li {
