@@ -17,16 +17,15 @@ Try to find the <mark>Treasure!</mark>
 <a href="http://www.treasurology.com/treasure/types/">Types of treasures you might find.</a>
 <br>
 <br>
-<img src="http://www.timvandevall.com/wp-content/uploads/2013/09/Pirate-Treasure-Map.jpg" width=375 height=300>
+<img src="http://www.timvandevall.com/wp-content/uploads/2013/09/Pirate-Treasure-Map.jpg" width=400 height=400>
 
 
 <script>
+var map = document.getElementById("map")
+var hint = document.getElementById("hint")
 
-var map =document.getELemtById("map")
-var hint.getELementById("hint")
-
-var width = 375
-var height = 300
+var width = 400
+var height = 400
 
 function getRamdom(size) {
   return Math.floor(Math.ramdom() * size);
@@ -34,7 +33,12 @@ function getRamdom(size) {
 
 var target = {
   x:getRamdom (width),
+  y:getRamdom(height),
+};
 
+function getDistanceHint(distance) {
+if (distance<20){
+};
 </script>
 
 </body>
