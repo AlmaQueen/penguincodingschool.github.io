@@ -1,0 +1,29 @@
+ h1  {
+      text-align: center;
+      color: blue;
+      background-color: purple;
+      }
+  body{
+    background: url("http://londonbeep.com/wp-content/uploads/2015/04/Funny-Dog-Pictures-12.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:blue;
+  }
+#navbar {
+  list-style-type:none;
+  overflow: hidden;
+  background-color: darkcyan;
+}
+
+#navbar li{
+  float:left;
+}
+#navbar li a{
+  display:block;
+  color:indigo;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+ #navbar li a:hover{
+   background-color:lightseagreen;
+ }
