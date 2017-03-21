@@ -45,7 +45,7 @@ var spriteW = 30;
 var spriteH = 35;
 var cycle = 5;
 var img_sprite = document.createElement("img");
-img_sprite.src="img/toad_sprite.png"
+img_sprite.src="img/luigi_sprite.png"
 
 //function section
 function clearCanvas(){
