@@ -1,0 +1,71 @@
+    h1 {
+      text-align: center;
+      color: navy;
+      background-color: lavender;
+    }
+    
+    body {
+      /*background-color: purple;
+      background: url("http://orig00.deviantart.net/2cab/f/2012/181/8/9/nom_cat_by_ocarinaplaya-d55ijnq.gif");
+      background-size: cover;
+      background-repeat: no-repeat;*/
+      background-color: Cornflowerblue;
+  
+        }
+    
+    h2 {
+      text-align: center;
+      color: pink;
+      background-color: lavender;
+      
+    }
+    /*#bg {
+      width: 100%;
+      margin:0;
+    }*/
+    
+    #kitkatbar {
+      list-style-type:none;
+      margin: 1;
+      padding: 0;
+      background-color: lavender;
+      
+      
+    }
+    
+    #kitkatbar li {
+      float: left;
+      
+    }
+    
+    #kitkatbar li a {
+      display: block;
+      color: white;
+      font-size: 20px;
+      font-family:"Josefin Sans";
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      opacity: 2;
+    }
+    
+    #kitkatbar li a:hover {
+      background-color: lavender;
+      
+    }
+    
+    #kitkatbar .active {
+      background-color: purple;
+    }
+      
+      
+    
+      
+    }
+    
+    iframe {
+      frameborder: "0";
+      allowfullscreen;
+    }
+      
+    
