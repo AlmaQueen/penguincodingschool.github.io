@@ -1,16 +1,89 @@
 <head>
-  <link rel = "stylesheet" href="styles.css"/>
-  
-  
-  
-  
-  
+  <link rel = "stylesheet" href="styles-f.css"/>
+  <link rel = "stylesheet" href="http://fonts.googleapis.com/css?family=Oswald" />
 </head>
+
+  
+
 <body>
+
+  <ul id="navbar">
+    <li><a href="index-f.html">Home</a></li>
+    <li><a href="list.html">Pictures</a></li>
+    <li><a href="video.html">Videos</a></li>
+    <li><a href="About.html">About</a></li>
+  </ul>
+  
   <h1>Gamer's guide</h1>
+  <button onclick= "ask()">Questions about Yourself</button>
+  <a href="quiz.html"><button> Take my quiz</button></a>
+
+  <h2>Welcome to gamers paradise. Undecided on which game to choose?</h2>
+  <p>Well I am here to guide you with the top 10 gaming applications on Android and iOS.</p>
+
+
+
+<html>
   
-  <h2>
-    Counfused?Stuck on what game you want to choose?</h2>
- <p> Well I am here for you to guide for the top 10 gaming applications on android and ios.</p>
+    <title>Slider</title>
+    <link rel="stylesheet" href="slider.css" />
   
-</body>
+  
+    <h3> Top 5 games.</h3>
+
+    <section>
+
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="https://lh3.googleusercontent.com/ELisKFfztcEeRW3Wmk5pIqLrGyC5NBTuc_WvaASL9OBc1-JGNC2M-bSz3O296FxueYY=h900" height=475 width=300/>
+            </div>
+            <div class="slide slide-2">
+              <img src="https://i.ytimg.com/vi/RHDrDOJwQ1A/hqdefault.jpg"/>
+            </div>
+            <div class="slide slide-3">
+              <img src="http://www.softcracks.us/wp-content/uploads/2016/10/PewDiePie-Tuber-Simulator-HacksCheats.jpg" height=475 width=500  />
+            </div>
+            <div class="slide slide-4">
+              <img src="https://i.ytimg.com/vi/1J1UXGz_hHo/hqdefault.jpg"/>
+            </div>
+            <div class="slide slide-5">
+              <img src="https://upload.wikimedia.org/wikipedia/en/0/0e/Adventure-capitalist-theres-a-new-iphone-game-that-lets-you-play-a-startup-investor-and-apple-keeps-promoting-it.png">
+            </div>
+              
+            
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+
+    </section>
+     
+            
+            
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
+  
+    <script>
+      function ask() {
+        alert("Hi I am the creater of this site speaking");
+        var name = prompt("What is your name?");
+        alert("nice to meet you " +name)
+        var age = prompt("how old are you?");
+        if (age>20) {
+          alert("you are too old to use my site.");
+          var answer = prompt("Do you want to continue?");
+          if (answer==="yes"){
+          var answer2 = prompt("Do you like gaming?");
+          }
+          }
+          }
+          
+          </script>
+          
+  </body>
+</html>

@@ -1,0 +1,63 @@
+  h1 {
+    color: darkblue;
+    text-align: left;
+    font-size: 80px;
+  }
+  
+  h2 {
+    color: darkblue;
+    text-align: left;
+  }
+  
+  body {
+      text-align: left;
+      color: yellow;
+      background-color: indigo;
+      /*background: url(https://lh3.googleusercontent.com/7TNp06BMU1ksJCRIo64lVMXvOPdIw2uCEwFhXcLLrAJ1x8mUonh1i6XCPlvfoSFpFJmPv-Y=s630-fcrop64=1,06800000f93affff);*/
+      background: url(http://media.nintendo.com/nintendo/bin/SQIftAWq3jK76LLLzwj77zHR1-Mzf1re/cbQaDBLQXvJlHJP2lWkHN_-nYMDl85OH.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+  
+  }
+  
+  #myfavlist li img {
+      width: 100;
+      height: 100;
+    }
+    
+  #navbar {
+    width:500;
+    height:60;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    background-color: lightblue;
+    
+    font-family: Oswald;
+	  font-size: 12px;
+	  font-style: normal;
+	  font-variant: normal;
+	  font-weight: 500;
+}
+
+#navbar li {
+   float: left;
+}
+
+#navbar li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding:14px 16px;
+   text-decoration: none;
+   font-size: 20px;
+}
+
+#navbar li a: hover {
+     background-color:black;
+}
+
+#navbar .active {
+  background-color:green;
+}

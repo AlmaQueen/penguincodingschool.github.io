@@ -1,14 +1,24 @@
-body {
-      text-align: center;
-      color: yellow;
-      background-color: indigo;
-  }
   h1 {
     font-size: 80px;
   }
   body {
-      background: url("https://lh3.googleusercontent.com/7TNp06BMU1ksJCRIo64lVMXvOPdIw2uCEwFhXcLLrAJ1x8mUonh1i6XCPlvfoSFpFJmPv-Y=s630-fcrop64=1,06800000f93affff");
+      text-align: center;
+      color: yellow;
+      background-color: indigo;
+      background: url(https://lh3.googleusercontent.com/7TNp06BMU1ksJCRIo64lVMXvOPdIw2uCEwFhXcLLrAJ1x8mUonh1i6XCPlvfoSFpFJmPv-Y=s630-fcrop64=1,06800000f93affff);
       background-size: cover;
       background-repeat: no-repeat;
   
   }
+  
+  #myfavlist li img {
+      width: 300;
+      height: 400;
+      
+      
+    }
+    #navbar {
+      list-style-type
+    }
+    
+    
