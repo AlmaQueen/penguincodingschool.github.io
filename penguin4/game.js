@@ -9,7 +9,7 @@ var y = 0;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity= 5;
-var interval = 80;
+var interval = 50;
 var ground = false;
 
 var xCoin = 500;
@@ -51,7 +51,19 @@ var img_sprite =  document.createElement("img");
  plat.push({x: 300, y: 40, w:100, h:10});
  plat.push({x: 370, y: 100, w:100, h:10});
  plat.push({x: 340, y: 70, w:100, h:10});
- plat.push({x: 450, y: 150, w:100, h:10});
+ plat.push({x: 420, y: 140, w:100, h:10});
+ plat.push({x: 530, y: 170, w:80, h:10});
+ plat.push({x: 670, y: 170, w:80, h:10});
+ plat.push({x: 510, y: 250, w:80, h:5});
+ plat.push({x: 450, y: 280, w:80, h:5});
+ plat.push({x: 590, y: 215, w:80, h:5});
+ plat.push({x: 690, y: 300, w:80, h:5});
+ plat.push({x: 745, y: 275, w:80, h:5});
+ plat.push({x: 785, y: 245, w:80, h:5});
+ plat.push({x: 300, y: 275, w:80, h:5});
+ plat.push({x: 225, y: 245, w:80, h:5});
+ plat.push({x: 100, y: 210, w:80, h:5});
+ 
  plat.push({x: 0, y: canvas.height-spriteH, w:canvas.width, h:10});
  
 //functions section
@@ -123,8 +135,8 @@ for (var i = 0; i<plat.length; i++) {
    if(x+spriteW > xCoin && xCoin + coinW> x &&
   yCoin+coinH >y && y+spriteH > yCoin) {
     score += 10;
-    xCoin = Math.floor(Math.random()*canvas.width);
-    yCoin = Math.floor(Math.random()*canvas.height);
+    xCoin = Math.floor(Math.random()*(canvas.width-100));
+    yCoin = Math.floor(Math.random()*(canvas.height-50));
  }
  }
 
