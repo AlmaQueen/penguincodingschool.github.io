@@ -1,39 +1,41 @@
 <head>
-  <style>
-    body {
-      background: url("http://s3.amazonaws.com/product-images.imshopping.com/nimblebuy/50-off-candy-and-sweets-941712-regular.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-    
-      color: black;
-    }
-    h1{
-      text-align:center;
-      color:indigo;
-      font-size: 80px;
-      
-    }
-    p{
-      color:darkblue;
-      font-size:45px;
-      <ins>
-      
-    }
-    ol{
-      color:mediumvioletred;
-      font-size:30px;
-    }
-    
-  </style>
+<link rel="stylesheet" href="style.css"/>
   
   
 </head>
 
 <body>
+<ul id="navbar">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="list.html">New Candies</a></li>
+  <li><a href="video.html">Video</a></li>
+  <li><a href="quiz.html">Quiz</a></li>
+</ul>
 
-<h1><b>Candy Stuff</b></h1>
+<button onclick="askQuestion()">Click Me</button>
+<script>
+  function askQuestion() {
+  alert("CANDY, CANDY, AND MORE CANDY!");
+  var name = prompt ("What is your name?");
+  alert ("Hello, "+ name + "!");
+  alert ("What do you want to find today? On the website, you'll find videos about candy, pictures of candy, info about candy, and candy about candy!!!");
+ var favcandy = prompt ("What is your favorite candy?");
+ alert (" "+ favcandy +" taste DELICIOUS!" );
+  }
+</script>
 
+<br>
 
+<h1 id= "audey"> The Crazy About Candy Corner </h1>
+<p id="audge">
+  Think about the yumminess and deliciousness of candy. Is your mouth watering yet? Probably not. To learn more about candy, dig deep into this website and find yourself craving delightful and sugary treats.
+  </p>
+<h2 id="aud">
+  Funfact of the Month: Hershey, Pennsylvania is the home to the Hershey Factory.
+<br>
+<br>
+  Funfact of the Day: Dylan's Candy Shop, located in New York City, is one of the largest candy shops in the world: it has three floors of all candy!
+</h2>
 <p><ins>Top 10 Candies</ins></p>
 <ol>
   <li>Skittles</li>
@@ -43,28 +45,13 @@
   <li>M & M's</li>
   <li>Snickers</li>
   <li>Hershey Bar</li>
-  <li>Jolly Ranchers</li>
+  <li>Sour Patch Kids</li>
   <li>Kit Kat</li>
+  <li>Jolly Ranchers</li>
   
 </ol>
 
-<p><ins>Newest Candies</ins></p>
-<ol>
-  <li>M & M's Crispy</li>
-  <li>Three Musketeers Bites</li>
-  <li>Snickers Mixed Nuts Bar</li>
-  <li>Haribo Sour Gold-Bears</li>
-</ol>
 
 
-
-<button onclick="askQuestion()">Click Me</button>
-<script>
-  function askQuestion() {
-  alert("CANDY, CANDY, AND MORE CANDY!");
-  var name = prompt ('What is your name?');
-  alert ("Hello, "+ name!);
-  }
-</script>
 
 </body>

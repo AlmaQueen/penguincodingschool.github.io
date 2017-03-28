@@ -1,0 +1,66 @@
+body {
+      background: url("http://az616578.vo.msecnd.net/files/2016/11/20/636152703232186750-181967836_candy.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+   }
+
+    h1{
+      text-align:center;
+      color:#F400FB;
+      font-size: 80px;
+      
+    }
+    p{
+      color:navy;
+      font-size:45px;
+    }
+#audey{
+  color:#00ffff;
+  background-color: #20138E;
+}
+#audge {
+      color:#00ffff;
+  background-color: #20138E;
+  
+}
+#aud{
+ color:#00ffff;
+  background-color: #20138E;
+}
+    mark {
+     color: navy;
+    }
+    h2 {
+      color:#00ffff;
+    }
+    
+    ol{
+      color:navy;
+      font-size:30px;
+    }
+   #navbar {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     background-color: aqua ;
+   }
+   #navbar li {
+     float: left;
+   }
+   #navbar li a{
+     display: block;
+     color:black;
+     padding: 14px 16px;
+     text-decoration: none;
+     font-size: 20px;
+     
+   }
+   
+   #listbody {
+     background: url(https://s-media-cache-ak0.pinimg.com/236x/74/4c/e6/744ce6f62b4f8de089d9f87ab7a856fc.jpg);
+     background-size: contain;
+     background-repeat:repeat;
+   }
+   
