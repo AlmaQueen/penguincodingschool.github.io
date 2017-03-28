@@ -1,0 +1,51 @@
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel = "stylesheet" href = "styles.css">
+<link rel="stylesheet" href="slider.css">
+</head>
+
+    
+<body>
+
+<ul id="navbar">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="list.html">Pictures</a></li>
+  <li><a href="video.html">Videos</a></li>
+  <li><a href="quiz.html">Quiz</a></li>
+</ul>
+
+<button onclick="ask()">Click me</button>
+
+<h1>SkiNATION</h1>
+<div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            
+            <div class="slide slide-1">
+              <img src="https://media.giphy.com/media/RoSddicQRDZqE/giphy.gif" />
+            </div>
+          
+            <div class="slide slide-2">
+              <img src="http://www.teamusa.org/~/media/TeamUSA/AlpineSkiing/Ligety_Ted/ligety_ted_102614_800x375.jpg?la=en"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="http://www2.pictures.zimbio.com/gi/Winter+Games+NZ+Day+5+Alpine+Skiing+PPxGdLlELDHl.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="https://i.ytimg.com/vi/bgzrsI_EI_g/hqdefault.jpg"/>
+            </div>
+      </div>
+  </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
+<script>
+     function ask(){
+       var answer = prompt("Do you like to ski or snowboard? Yes or No");
+       if (answer === "Yes") {window.location="quiz.html"
+     } else if (answer ==="No") {window.location = "http://www.google.com"}
+     else {alert("please answer Yes or No");
+     }
+     }
+</script>
+
+</body>

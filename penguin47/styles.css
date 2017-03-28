@@ -1,0 +1,31 @@
+ #ski eveywhere li img {
+         width:400;
+        height:400;
+}
+ #ski everywhere{
+   list-style-type: none;
+    }
+body {
+   background: url(http://www.telegraph.co.uk/content/dam/Travel/leadAssets/35/20/Ischgl_3520358a-large.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+ }
+ #navbar {
+   overflow: hidden;
+   background-color: darkgrey;
+ }
+ 
+ #navbar li {
+   float: left;
+ }
+ 
+ #navbar li a{
+   
+   display: block;
+   color:red;
+   text-align:center;
+   padding: 14px 16px;
+   text-decoration: bold;
+   font: 100px;
+ }
