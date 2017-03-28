@@ -1,0 +1,42 @@
+<body><h1>Hogwarts Treasure Hunt</h1>
+
+<img src=https://s-media-cache-ak0.pinimg.com/564x/47/e5/39/47e539dddcf1efae4aa0917873a89106.jpg width=564 height=750 id="map">
+<p id="hint"></p>
+
+<script>
+  var map=document.getElementById('map')
+  var hint=document.getElementById('hint')
+  
+  var width=564;
+  var height=740;
+  
+  function getRandom(size) {
+    return Math.floor(Math.random() * size)
+  }
+  
+  function getDistance(event,target) {
+    var diffX= event.offsetX - target.x;
+    var diffY= event.offsetY - target.y;
+    return Math.sqrt((diffX*diffX)+(diffY*diffY))
+  }
+  
+  var target = {x:getRandom(width), y:getRandom(height)}
+  
+  function getDistanceHint(distance) {
+    if(distance<20)
+      { return "Right on target!"}
+    else if (distance<50) {return "Close...harness your inner Ravenclaw!"}
+    else if (distance<100) {return "Getting there...keep trying!"}
+    else if (distance<200) {return "Eh...you can do better."}
+    else {return "Brains like that, you could be a Death Eater."}
+  }
+  
+  
+    map.addEventListener('click', function(event) {
+      var distance = getDistance(event,target);
+      var dhint = getDistanceHint(distance);
+      hint.textContent = dhint;
+      
+    });
+  
+</script></body>
