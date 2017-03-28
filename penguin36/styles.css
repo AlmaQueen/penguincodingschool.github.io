@@ -1,0 +1,80 @@
+
+body {
+    font-family: Open Sans;
+}
+
+h1{text-align: center;
+      color:#ffd1dc;
+      font-size: 80px;
+    }
+    
+  h2{color:#f4d1ff;}
+#soph {
+   float: right;
+   font-size: 78px;
+   padding: 45px;
+   color: #f4d1ff;
+ }
+ 
+ ul {
+   list-style-type: none;
+   
+ }
+ 
+ #navbar {
+   font-family: Open Sans;
+   list-style-type: none;
+   overflow: hidden;
+   background-color:#f4d1ff;
+ }
+ 
+ #navbar li {
+   float:left;
+ }
+ 
+ #navbar li a{
+   display:block;
+   color:#d1fff4;
+   text-align:center;
+   padding:14px 16px;
+   text-decoration:none;
+   font-size:20px
+ }
+  body{
+    background-color:#d1fff4;
+  }
+  
+ #navbar li a:hover {
+   background-color:#ffd1dc;
+ }
+
+  
+  
+  
+  
+  
+  #DIYIDEAS li img {
+    width:400;
+    height:400;
+  }
+  #DIYIDEAS {
+    list-styles-type: none;
+  }
+
+  /*#listpage {*/
+  /*  background-color:#FCDFFF;*/
+  /*}*/
+
+  
+  
+  
+  
+  
+  
+  #DIYIDEAS li img {
+    width:400;
+    height:400;
+  }
+  #DIYIDEAS {
+    list-styles-type: none;
+  }

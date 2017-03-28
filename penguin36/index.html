@@ -1,29 +1,56 @@
-
 <head>
-  <style>
-    h1{text-align: center;
-      color:#ffd1dc;
-      font-size: 80px;
-    }
-    h2{color:#f4d1ff;}
- 
-  body{
-    background-color:#d1fff4;
-  }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="slider.css">
   </head>
-  
+
 <body>
+  <ul id="navbar" style="font-family:Open Sans">
+    <li><a href="index.html">Home </a></li>
+    <li><a href="list.html">Pictures  </a></li>
+    <li><a href="video.html">Videos </a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+  
+  
+  
 <button onclick="askQuestion()">Click me</button>
   
 <h1>DIY VIDEOS</h1>
+
 <h2>This site "DIY VIDEOS" is pretty self-explainitory. On this website, there are many different videos on different diy videos
   from youtube.
 </h2>
 
 
+ <section>
+
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="https://s-media-cache-ak0.pinimg.com/736x/cc/86/ec/cc86ecf35d9fb2392b5d956d585a79f4.jpg" />
+            </div>
+            <div class="slide slide-2">
+              <img src="https://i.ytimg.com/vi/2kCLD5nR0-0/maxresdefault.jpg"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="https://i.ytimg.com/vi/EhO8Q9Dtnhw/maxresdefault.jpg"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="https://i.ytimg.com/vi/8qcU5uYK4oQ/maxresdefault.jpg"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
+<!--
 <iframe width="420" height="315" src="https://www.youtube.com/embed/h2V5LejYVW8">
-</iframe> 
+</iframe>
   
 <iframe width="420" height="315" src="https://www.youtube.com/embed/j47-l9r_wNQ">
 </iframe>
@@ -35,8 +62,8 @@
 </iframe>
   
 <iframe width="420" height="315" src="https://www.youtube.com/embed/1CwfDeHM0ss">
- <iframe>
-   
+ </iframe>
+-->
    <script>
     function askQuestion() {
       alert("hi dude");
