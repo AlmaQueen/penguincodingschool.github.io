@@ -1,0 +1,36 @@
+body {
+    background-color:white;
+    color:black;
+    text-align: center;
+    
+  }
+  
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    background-color: #dbfcff;
+  }
+
+#navbar li a {
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+}
+
+#navbar li {
+    float: left;
+  }
+    
+
+#navbar li a:hover {
+    background-color: #DCDCDC;
+}
+#Top8 {
+
+  list-style-type: none;
+}

@@ -1,26 +1,56 @@
 <head>
-  <style>
-  body {
-    background-color:black;
-    color:white;
-    text-align: center;
-    
-  }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="slider.css" >
  </head>
 
 <body>
-<h1>Cool World</h1>
-<h3>On this webpage you will get to learn about </h3>
-<h3> some of the many cool places on earth! </h3>
- <img src="https://media1.britannica.com/eb-media/63/153463-004-16814E3A.jpg" width="300px" height="200px">
- <h3> This is Venice Italy. One of the few water citys. </h3>
+  <ul id="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="list.html">Top 8</a></li>
+    <li><a href="video.html">Videos</a></li>
+  </ul>
+  
+  
+<h1>Cool World </h1>
+<h2>On this webpage you will get to learn about </h2>
+<h2> some of the many cool places on earth! </h2>
+ <!--<img src="https://media1.britannica.com/eb-media/63/153463-004-16814E3A.jpg" width="300px" height="200px">
+
  <a href = "https://en.wikipedia.org/wiki/Venice"> Link to wikipedia</a>
 <br>
  <img src="https://s-media-cache-ak0.pinimg.com/736x/36/03/2a/36032a1980d305e45478b0d97b7d1178.jpg" width="300px" height="400px">
- 
-<h3> This is a picture of a sea turtle</h3>
-<h3>that lives near the Galapagos Islands</h3>
+
+    <section>-->
+
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="https://www.azamaraclubcruises.com/sites/default/files/heros/113-nights-and-cool-places-with-azamara.jpg" width="1200px" height="400px"
+              />
+            </div>
+            <div class="slide slide-2">
+              <img src="https://a1.r9cdn.net/rimg/dimg/34/33/25112091-City-2258-5404334e.jpg?width=1200&height=630&crop=true&xhint=1424&yhint=1903"
+              height="500px" width="1300px"              />
+              
+            </div>
+            <div class="slide slide-3">
+              <img src="http://lh3.googleusercontent.com/-v_KXTO-bIqU/UqHtuQzFuNI/AAAAAAAASBA/Ot2wyn3SRwk/s1600/Northern+Lights.jpg" height="400px" width="1100px" />
+            </div>
+            <div class="slide slide-4">
+              <img src="http://media.salon.com/2015/10/shutterstock_269208791.jpg"  height="400px" width="1000px"/>
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
+      </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="slider.js"></script>
+
+  
 
 
 
@@ -33,3 +63,4 @@
   function askQuestion(){var place= prompt("What's your favorite place to visit")};
 </script>
 </body>
+
