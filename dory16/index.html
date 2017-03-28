@@ -1,0 +1,49 @@
+<body>
+<h1>Around The World Treasure Hunt</h1>
+
+<img src=http://data.whicdn.com/images/62594902/original.jpg width=800 height=400 id="map">
+<p id="hint"></p>
+
+<script>
+
+ var map=document.getElementById('map')
+ var hint=document.getElementById('hint')
+  
+  
+ var width=800;
+ var height=400;
+  
+   function getRandom(size) {
+     return Math.floor(Math.random()*size)
+   }
+  
+  function getDistance(event,target) {
+    var diffx= event.offsetX - target.x;
+    var diffy= event.offsetY - target.y;
+    return Math.sqrt((diffx*diffx)+(diffy*diffy))
+  }
+  
+  var target= {x:getRandom(width), y:getRandom(height)}
+  
+  function getDistanceHint(distance) {
+    if(distance<20) { return "You Found The Treasure!!!!!"}
+    else if (distance<40) {return "Hot! Almost there!"}
+    else if (distance<80) {return "Warm"}
+    else if (distance<100) {return "Getting warmer. Keep hunting for the treasure!"}
+    else if (distance<150) {return "Cool, but keep trying!"}
+    else if (distance<180) {return "Cold"}
+    else if (distance<200) {return "Freezing!"}
+    else {return "Not even close :( You might want to go the other way..."}
+    
+  }
+  
+  map.addEventListener('click', function(event) {
+    var distance= getDistance(event,target);
+    var dhint= getDistanceHint(distance);
+    hint.textContent=dhint;
+    
+    
+  });
+  
+ </script>
+</body>
