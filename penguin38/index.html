@@ -1,23 +1,47 @@
 <head>
-  <style>
-  h1 {
-  text-align:center;
-  color:black;
-  }
-  body {
-  background: url("http://www.highresolutiontextures.com/wp-content/uploads/2010/09/brick-wall-free-textures-01.jpg") }
-  p {
-    color:black;
-    font-size: 60px;
-  }
   
-  
-  </style>
+<link rel="stylesheet" href="slider.css">
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
+ 
+ 
+ 
+ 
+  <ul id="navbar">
+ 
+   <li><a href="index.html">Home</a></li>
+   <li><a href="list.html">Pictures</a></li>
+   <li><a href="video.html">Videos</a></li>
+ <li><a href="quiz.html">Quiz</a></li>
+ </ul>
+ 
 <h1>maddie is awesome</h1>
-<p>this is about how maddie was awesome <i>(and stil is)</i></p>
+<p>this is about how maddie was awesome <i>(and still is)</i></p>
+<p>CLEARLY Maddie got her awesome-ness from her awesome PERSONALITY </p>
 
 <img src="http://slca-ctp.org/wp-content/uploads/2016/09/awesome.jpg" width="600" height="500">
+
+
+<button onclick="askQuestion()">awseome test!</button>
+<script>
+  function askQuestion() {
+    alert (" Hi! this is a test to see how awesome you are!")
+    var name = prompt ('how awesome are you? (on a scale of 1-10)')
+    if (name<5 ) {
+      alert("oof,you need to work on your awesome mode, so you can do that by talking awesomer, dressing awesomer, or look at awesomer stuff!")
+    } else if (name<10) {
+      alert("CORRECT! you are that awesome! so STAY that awesome!")
+    } else {
+    alert("yay! you are that awesome! on the a scale of awesome-ness (but I am the AWESOME-EST person ever so yah..sorry you can't top my awesome-ness) ")
+  }
+  
+  }
+  
+</script>
+
+
+
 </body>

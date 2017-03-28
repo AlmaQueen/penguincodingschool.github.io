@@ -1,0 +1,45 @@
+
+ 
+ h1 {
+  text-align:center;
+  color:white;
+  font-size: 60px;
+  }
+  body {
+  background: url("http://xboxhut.com/wp-content/uploads/2016/06/white-brick-wallpaper-tumblr-wall-coverings-building-designers.jpg") }
+  p {
+    text-align:center;
+    color:black;
+    font-size: 40px;
+  }
+  
+    #navbar{
+      list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgrey;
+    
+  }
+  
+   
+   
+   #navbar li {
+     float: left;
+   }
+  
+      
+      #navbar li a {
+        display: block;
+        color: white;
+      text-align: center;
+      padding: 14px 16px;
+        }
+        
+        #navbar li a:hover {
+          display: block;
+        }
+        
+        #navbar .active {
+          background-color:green;
+        }
