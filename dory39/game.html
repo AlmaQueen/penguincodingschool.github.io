@@ -1,0 +1,52 @@
+<body>
+<h1>Middle Earth Treasure Hunt</h1>
+Find the ring to rule them all.
+
+<img src="
+http://vignette2.wikia.nocookie.net/lotr/images/5/5e/Middle-earth-film.jpg/revision/latest?cb=20091103162232" width=600 height=600 id="map">
+
+<p id="hint"></p>
+
+<script>
+  var map=document.getElementById("map");
+  var hint=document.getElementById("hint");
+  
+  var width=600;
+  var height=600;
+  
+  function getRandom(size){
+    return Math.random()*size;
+  }
+  
+  var treasure={
+    x:getRandom(width),
+    y:getRandom(height)}
+  
+  function getDistance(event,treasure){
+    var dX=event.offsetX-treasure.x;
+    var dY=event.offsetY-treasure.y;
+    return Math.sqrt((dX*dX)+(dY*dY))
+  }
+  
+  function getHint(distance){
+    if(distance<20){
+      return"You found it"
+    }else if(distance<40){
+      return"One does not simply be this close and not try again"
+    }else if(distance<80){
+      return "You must have stopped for a second breakfast"
+    }else if(distance<160){
+      return"*Gandalf frowns disapointedly*"
+    }else{
+      return "Have you left yet?"
+    }
+  }
+  
+  map.addEventListener('click',function(event){
+    var distance=getDistance(event,treasure);
+    var dhint=getHint(distance);
+    hint.textContent=dhint;
+  })
+  
+</script>
+</body>
