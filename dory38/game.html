@@ -1,0 +1,50 @@
+<body>
+<h1>Treasure Hunt</h1>
+
+Click to find the treasure!
+<img src=
+https://img.clipartfest.com/8736e65bf22ad0c21da0379e311d6483_free-pirate-treasure-maps-and-clipart-island-map_1500-1159.jpeg width=500 height=500 id="map">
+
+
+<p id="hint"></p>
+
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  
+  var width = 500;
+  var height = 500;
+  
+  function getRandom(size) {
+    return Math.random()*size
+  }
+  
+ var treasure = {
+   x:getRandom(width),
+   y:getRandom(height)}
+  
+  function getDistance(event,treasure) {
+    var dX = event.offsetX - treasure.x;
+    var dY = event.offsetY - treasure.y;
+    return Math.sqrt((dX*dX))+((dY*dY))
+  }
+  
+function getHint(distance) {
+ if (distance<30) {return "You found the treasure!"}
+else if (distance<50) {return "Hot!"}
+else if (distance<85) {return "Warm"}
+else if (distance<200) {return "Cold"}
+else {return "Freezing!"}
+}
+
+map.addEventListener('click',function(event){
+  var distance = getDistance(event,treasure);
+  var dhint = getHint(distance);
+  hint.textContent = dhint;
+})
+
+
+
+
+</script>
+</body>
