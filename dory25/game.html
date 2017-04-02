@@ -1,0 +1,66 @@
+
+<head>
+  <style>
+    h1 {
+      text-align: center;
+      color: blue;
+      font-size:70px;
+    }
+    h2 {
+      text-align: center;
+      color: red;
+      font-size:50px;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Treasure hunt</h1>
+<br>
+<h2>click to find the treasure</h2>
+
+<img src="http://www.timvandevall.com/wp-content/uploads/Pirate-Treasure-Map.png"
+width=400 height=400 id="map">
+
+<p id="hint"></p>
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width = 400;
+  var height = 400;
+  
+  function getrandom(size) {return Math.random()*size}
+  
+  var treasure = { x:getrandom(width), y:getrandom(height)};
+  
+  function getDistance(event, treasure) {
+    var dX = event.offsetX - treasure.x;
+    var dY = event.offsetY - treasure.y;
+    return Math.sqrt((dX*dX)+(dY*dY));
+  }
+  
+  function getHint(distance) {
+    if(distance<15) {
+      return "You found it"
+    }else if (distance<40) {
+      return "Hot"
+    }else if (distance<80) {
+      return "Lukewarm"
+    }else if (distance<120) {
+      return "A little chilly"
+    }else if (distance<160) {
+      return "Freezing"
+    }else  {
+      return "Absolute zero!"
+    }
+  }
+  
+  map.addEventListener('click',function(event) {
+    var distance = getDistance(event, treasure);
+    var dhint = getHint(distance);
+    hint.textContent = dhint + " , you are " + Math.floor(distance) + " pixels away";
+    console.log(event, distance, dhint);
+  })
+  
+</script>
+</body>
