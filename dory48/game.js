@@ -4,7 +4,7 @@ canvas.width=1000;
 canvas.height=1000;
 
 var img_player=document.createElement("img")
-img_player.src="http://cliparting.com/wp-content/uploads/2016/06/Unicorn-silhouette-cliparts.jpg"
+img_player.src="unicorn.jpg"
 
 var x =100;
 var y =1000;
