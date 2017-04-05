@@ -5,15 +5,14 @@ canvas.height=1000;
 
 var img_player=document.createElement("img")
 img_player.src="unicorn.jpg"
-
-var x =100;
-var y =1000;
+var x =0;
+var y =0;
 
 function animate ()   {
 requestAnimationFrame(animate);
 cx.clearRect(0,0,canvas.width,canvas.height);
 cx.drawImage(img_player,x,y);
-x-=3;y+=3
+x+=3;y+=3;
 }
 
 
