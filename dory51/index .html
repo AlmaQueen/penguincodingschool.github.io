@@ -1,0 +1,44 @@
+<body><h1>treasure hunt</h1>
+<i>this is my <mark><b>game</b></mark></i>
+<h1>treasure hunt</h1>
+<img src="http://dungeonsmaster.com/wp-content/uploads/2012/10/treasue-map.jpg"
+width=400 height=400 id ="map">
+
+
+<p id="die"></p>
+
+<script>
+
+var map =document.getElementById("map")
+var hint =document.getElementById("die")
+var width=400;
+var height=400 ;
+
+function getRandom(size) {
+  return Math.random()*size;
+}
+
+var treasure = {x: getRandom(width), y: getRandom(height)}
+
+function getDistance(event,treasure) {
+  var diffX = event.offsetX - treasure.x;
+  var diffY = event.offsetY - treasure.y;
+  return Math.sqrt((diffX*diffX)+(diffY*diffY))
+}
+
+function getDistanceHint(distance) {
+  if (distance <20) {return " arrr you found it"}
+  else if (distance <40) {return "hot"}
+  else if (distance <80) {return "warm"}
+  else if (distance <160) {return "cold"}
+  else  {return "freezing"}
+}
+
+map.addEventListener('click',function(event) {
+  var distance = getDistance(event, treasure);
+  var dhint = getDistanceHint(distance);
+  hint.textContent = dhint;
+})
+
+</script>
+</body>
