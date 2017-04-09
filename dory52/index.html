@@ -1,0 +1,43 @@
+<body>
+<h1>Savage Pirate Treasure Game!</h1>
+<i>This <mark>game</mark> is <b>my game</b></i>
+<br>
+<img src="https://img.clipartfest.com/cb877977164fade98b5ade5269704074_treasure-map-bird-s-eye-view-see-treasure-map-clipart_1472-998.jpeg" width=400 height=400 id="map">
+
+<p id="savage"></p>
+
+<script>
+var map =document.getElementById("map")
+var hint=document.getElementById("savage")
+
+var width =400;
+var height=400;
+
+function getrandom(size) {
+return Math.random()*size
+}
+
+var treasure = {x: getrandom(width), y: getrandom(height)};
+
+function getdistance(event, treasure) {
+var diffx = event.offsetX - treasure.x;
+var diffy = event.offsetY - treasure.y;
+return Math.sqrt((diffx*diffx)+(diffy*diffy))}
+
+function getdistanceHint(distance) {
+if (distance<20 ){return "arrgh you found me treshah"}
+else if (distance <40) {return "Uh oh"}
+else if (distance <80) {return "Hmmmmmm"}
+else if (distance <160) {return "Ha ha ha ha"}
+else {return "You ah fah behind"}
+}
+
+map.addEventListener('click', function(event) {
+  var distance = getdistance(event,treasure);
+  var dhint = getdistanceHint(distance);
+  hint.textContent=dhint;
+});
+
+</script>
+
+</body>
