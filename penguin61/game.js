@@ -37,6 +37,18 @@ function setDirection (dir) {
   } else if (dir === "stop") {
     xSpeed = 0;
     ySpeed = 0;
+  } else if (dir === "rDiagonalUp") {
+    xSpeed = 5;
+    ySpeed = -5;
+  } else if (dir === "rDiagonalDown") {
+    xSpeed = 5;
+    ySpeed = 5;
+  } else if (dir === "lDiagonalDown") {
+    xSpeed = -5;
+    ySpeed = 5;
+  } else if (dir === "lDiagonalUp") {
+    xSpeed = 5;
+    ySpeed = -5;
   }
 }
 
