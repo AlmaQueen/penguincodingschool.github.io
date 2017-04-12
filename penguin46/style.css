@@ -1,0 +1,45 @@
+h1 {
+  text-align: center;
+  color: white;
+  font-size:80;
+  
+}
+
+#home {
+  background: url(https://cdn.pixabay.com/photo/2015/09/18/11/36/woods-945405_960_720.jpg);
+  background-size:cover;
+  background-repeat:no-repeat
+  ;
+}
+#maincat {
+  width:300;
+  height:400;
+}
+
+#textbox {
+  color:white;
+}
+
+#road1 {
+  background: url(https://images.fineartamerica.com/images-medium-large/road-thru-woods-spring-1-john-brueske.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.button {
+background-color:#4A5B34;
+border:none;
+color:white;
+margin:5;
+padding:15 32;
+text-align:center;
+text-decoration:none;
+display:inline-block;
+font-size:16;
+}
+
+#forest {
+  background: url(http://wallpapercave.com/wp/8xghT8f.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
