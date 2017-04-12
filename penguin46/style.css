@@ -6,7 +6,7 @@ h1 {
 }
 
 #home {
-  background: url(https://cdn.pixabay.com/photo/2015/09/18/11/36/woods-945405_960_720.jpg);
+  background: url(forest.jpg);
   background-size:cover;
   background-repeat:no-repeat
   ;
@@ -40,6 +40,11 @@ font-size:16;
 
 #forest {
   background: url(http://wallpapercave.com/wp/8xghT8f.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+#hitchhike {
+  background: url(https://www.howtogeek.com/wp-content/uploads/2011/09/theopenhighwaywallpapercollection02.jpg);
   background-size:cover;
   background-repeat:no-repeat;
 }
