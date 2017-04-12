@@ -1,0 +1,59 @@
+h1 {
+  text-align: center;
+  color: blue;
+  font-size: 60;
+}
+
+body {
+  background: url(http://freedesignfile.com/upload/2014/03/3D-square-abstract-background-vector-material-03.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#background1 {
+  background: url("more");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#background2 {
+  background: url("stuff");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.align-left {
+  float: left;
+  margin-right: 10;
+}
+
+.align-center {
+  display: block;
+  margin: 0px auto;
+}
+
+.button {
+  background-color: lightblue;
+  border: none;
+  color: red;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20;
+  border-radius: 12px;
+}
+
+#choices {
+  list-style: none;
+}
+
+#Cheep {
+  width: 200;
+  height: 200;
+}
+
+#textbox {
+  color: white;
+}
