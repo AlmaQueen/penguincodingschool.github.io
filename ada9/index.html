@@ -15,6 +15,7 @@
 </style></head>
 
 <body>
+<button onclick="ask()">Ask me</button>
 <h1>Ballet</h1>
 <p>This website is about ballet. You will learn about some of the vocabulary, and the attire.</p>
 
@@ -22,4 +23,16 @@
 <br><a href="https://en.wikipedia.org/wiki/Ballet">Link to Wiki</a>
 <br>
 <h2>Vocabulary</h2>
+
+<script>
+function ask() {
+ alert("Welcome!");
+ var answer = prompt("Have you ever taken ballet?");
+ if (answer=="yes" || answer=="Yes") {alert ("That's great!")}
+ else if (answer=="no" || answer=="No") {alert ("Well this website will help you learn about it!");
+ }
+ }
+ 
+</script>
+
 </body>
