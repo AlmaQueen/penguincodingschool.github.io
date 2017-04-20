@@ -1,0 +1,40 @@
+<body>
+ <h1>Treasure Hunt!</h1>
+<img src="http://www.timvandevall.com/wp-content/uploads/2013/09/Pirate-Treasure-Map.jpg" width=700 height=600 id="map">
+<p id="hint"></p>
+
+<script>
+  var map =document.getElementById("map")
+  var hint = document.getElementById("hint")
+  
+  var width = 700;
+  var height = 600;
+  function getRandom(size) {
+    return Math.random()*size
+  }
+  
+  var treasure={ x:getRandom(width),y:getRandom(height)}
+
+
+function getDistance(event, treasure){
+var dX= event.offsetX-treasure.x;
+var dY=event.offsetY-treasure.y;
+return Math.sqrt((dX*dX)+(dY*dY));
+}
+
+function getHint(distance){
+if (distance<20) {return "You found the treasure!"}
+else if (distance <40) { return "Really Close!"}
+else if (distance <80) {return " Getting Closer!"}
+else if (distance <180) {return" Cold"}
+else {return "FAR!"}
+}
+
+map.addEventListener("click", function(event){
+  var distance = getDistance(event, treasure);
+  var dhint = getHint(distance);
+  hint.textContent = dhint;
+})
+
+</script>
+</body>
