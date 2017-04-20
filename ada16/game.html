@@ -1,0 +1,60 @@
+<body>
+  <h1>The Treasure Game: Gravity Falls Edition</h1>
+  <img src="https://img.youtube.com/vi/rRMOQVk-dMk/hqdefault.jpg" width=960 height=720 id="map">
+  <p id="hint"></p>
+  
+  <script>
+    var map = document.getElementById("map");
+    
+    var hint = document.getElementById("hint");
+    
+    var width = 960;
+    var height = 720;
+    
+    function getRandom(size)
+    {
+      return Math.random() * size;
+    };
+    
+    var treasure = {x: getRandom(width), y:
+      getRandom(height)}
+      
+      function getDistance(event, treasure)
+      {
+        var dX = event.offsetX - treasure.x;
+        var dY = event.offsetY - treasure.y;
+        return Math.sqrt((dX*dX) + (dY*dY))
+      }
+      function getHint(distance)
+      {
+        if (distance<140) {return "YAY! You got it!"}
+        else if (distance<240)
+        {
+          return "you're on fire"
+        }
+        else if (distance<440)
+        {
+        return "Gettin' close"
+        }
+        else if (distance<640)
+        {
+        return "mmm, not quite"
+        }
+        else
+        {
+        return "Nuh uh"
+        }
+      }
+      
+      map.addEventListener('click', function(event)
+      {
+      var distance = getDistance(event, treasure);
+      var dhint = getHint(distance);
+      hint.textContent = dhint;
+      //console.log(clicks, event, distance, dhint);
+      })
+  </script>
+  
+  
+  
+  </body>
