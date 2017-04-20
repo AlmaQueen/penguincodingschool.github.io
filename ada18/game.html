@@ -1,0 +1,59 @@
+<head>
+ <style>
+   body{
+      background-color:#f2dee2;
+    }
+   
+   </style>
+</head>
+
+
+<body>
+  <a href="game.html">Game</a>
+ <h1> Find dat duck</h1>
+  <img src="https://brokendogmas.files.wordpress.com/2013/05/evil-duck.gif" width="500" height="500" id="map">
+  
+  <p id="hint"></p>
+  
+  <script>
+    var map= document.getElementById("map");
+    var hint= document.getElementById("hint");
+    
+    var width= 500;
+    var height=500;
+  
+  function getRandom(size){
+    return Math.random()*size
+  }
+  
+  var treasure={ x: getRandom(width), y: getRandom(height)}
+  
+  
+  function getDistance(event, treasure){
+    var dX = event.offsetX - treasure.x;
+    var dY = event.offsetY - treasure.y;
+    return Math.sqrt((dX*dX)+(dY*dY))
+  }
+  
+  function getHint(distance){
+    if (distance<20){return "you found dat savage duck"}
+    else if (distance<40){return "smoking hot ;)"}
+    else if(distance<80){return "its liek a warm burrito"}
+    else if(distance<160){return"I need a fire"}
+    else {return "u in the artic boi?"}
+  }
+  
+  map.addEventListener("click", function(event){
+    var distance= getDistance(event,treasure);
+    var dhint = getHint(distance);
+    hint.textContent = dhint + "The distance is "+distance;
+    
+  })
+  
+  
+  </script>
+  
+  
+  
+  
+</body>
