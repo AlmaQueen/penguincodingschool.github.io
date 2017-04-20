@@ -30,13 +30,19 @@ width=600 height=400>
 
 <p id="caption">Dinosaurs: A diverse group of reptiles that first appeared during the Triassic. They were the dominant terrestrial vertebrates after the Triassic–Jurassic extinction event 201 million years ago. Their dominance continued through the Jurassic and Cretaceous periods and ended when the Cretaceous–Paleogene extinction event led to the extinction of most dinosaur groups.</p>
 
+Now that you know what dinosaurs are (or maybe you already knew...), take a quiz to test your skills!
+
+prompt("Take the quiz?")
+if (answer == no) {alert("TOO BAD.Your loss!")}
+else if (answer == "yes") {window.location="https://docs.google.com/a/penguincodingschool.com/forms/d/e/1FAIpQLSeqtLKbao4AumVdPxIQcEdD3AFPH3JyPdsgZTs3al4DiLcY_w/viewform"}
+
 <script>
   alert("Hello Visitor. Welcome");
   var answer = prompt("Are you over the age of 6?");
   if (answer == "yes") {alert("You may enter this website.")}
   else if (answer == "no") {window.location="http://www.google.com"}
   else {alert("Please answer yes or no in lowercase letters.");
-    
+    window.location="file:///home/chronos/u-e27acaba784fe3979413932d43f339af657d4ebd/Downloads/ada20/index.html"
   }
   
   prompt("And do you like dinosaurs?");
