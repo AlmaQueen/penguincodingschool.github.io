@@ -1,24 +1,22 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-
 canvas.width=1000;
 canvas.height=1000;
 
 var img_player = document.createElement("img");
-img_player.src = "https://t2.rbxcdn.com/39e183ed6cf88b19a00ec07b42b3e04d"
-img_player.width=50
-img_player.height=50
+img_player.src = "https://t2.rbxcdn.com/39e183ed6cf88b19a00ec07b42b3e04d";
 var x=0;
 var y=0;
-var xSpeed =10;
-var ySpeed =10;
+var xSpeed =0;
+var ySpeed =0;
+var gravity =1;
 
 function animate () {
   requestAnimationFrame(animate);
   cx.clearRect (0,0,canvas.width, canvas.height);
-  cx.drawImage(img_player, x, y,300,300);
+  cx.drawImage(img_player, x, y,100,100);
   x+=xSpeed;
-  y+=ySpeed;
+  y+=ySpeed+gravity;
 if (x>canvas.width-250 ||x<0) {xSpeed=-xSpeed}
 if (y>canvas.height-250 || y<0) {ySpeed = -ySpeed}
   
@@ -50,9 +48,15 @@ var keyActions = {
   40: "down"
 };
 
-document.addEventListener('keydown',function(event) {
+document.addEventListener('keydown', function(event) {
   var dir = keyActions[event.keyCode];
-  setDirection(dir);
-
+setDirection("dir");
 });
+
+document.addEventListener('keyup', function(event) {
+  var dir = keyActions[event.keyCode];
+  setDirection("stop");
+});
+function
+
 animate();
