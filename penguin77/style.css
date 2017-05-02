@@ -10,7 +10,7 @@ body {
   background-repeat: no-repeat;
 }
 
-#background1 {
+#background {
   background: url("more");
   background-size: cover;
   background-repeat: no-repeat;
@@ -50,6 +50,16 @@ body {
 }
 
 #Cheep {
+  width: 200;
+  height: 200;
+}
+
+#Chick {
+  width: 200;
+  height: 200;
+}
+
+#Housegirl {
   width: 200;
   height: 200;
 }
