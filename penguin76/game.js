@@ -10,17 +10,33 @@ var y=0;
 var xSpeed =0;
 var ySpeed =0;
 var gravity =1;
+var playerW = 50;
+var playerH = 50;
 
 function animate () {
   requestAnimationFrame(animate);
   cx.clearRect (0,0,canvas.width, canvas.height);
-  cx.drawImage(img_player, x, y,100,100);
+  cx.drawImage(img_player, x, y,playerW,playerH);
   x+=xSpeed;
   y+=ySpeed+gravity;
+  platform();
 if (x>canvas.width-250 ||x<0) {xSpeed=-xSpeed}
 if (y>canvas.height-250 || y<0) {ySpeed = -ySpeed}
-  
 }
+
+
+function platform() {
+  cx.fillStyle = "grey";
+  cx.fillRect(0,500,100,10);
+  if (y==500-playerH) {
+    gravity = 0;
+  }
+ else {
+   gravity = 1;
+ }
+ }
+  
+ 
 function setDirection(dir) {
   if (dir=="up") {
     xSpeed = 0;
@@ -37,11 +53,14 @@ function setDirection(dir) {
   }  else if (dir=="stop") {
     xSpeed = 0;
     ySpeed = 0;
+  } else if (dir=== "jump" && gravity ===0) {
+   ySpeed = -10;
   }
+
 }
 
 var keyActions = {
-  32: "stop",
+  32: "jump",
   37: "left",
   38: "up",
   39: "right",
@@ -57,6 +76,8 @@ document.addEventListener('keyup', function(event) {
   var dir = keyActions[event.keyCode];
   setDirection("stop");
 });
-function
+
+
+
 
 animate();
