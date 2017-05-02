@@ -1,28 +1,114 @@
 
-<head><style>
+<head>
+
+<style>
+#giraffe {
+  list-style:none;
+  background-color:lightblue;
+  overflow:hidden;
+  margin:0;
+}
+
+#giraffe li {
+  float:right;
+}
+
+#giraffe li a {
+  display:block;
+  padding:14;
+  Color:purple;
+  text-decoration:none;
+}
+
+
+
   h1{
-    text-align:center;
-    Color:black;
     font-size:80;
   }
   body {
-    background:url(https://cdn.kinsights.com/cache/2f/a0/2fa05bebbd843b9aa91e348a7e77d5c2.jpg);
-    background-repeat:no-repeat;
-    background-size:cover;
+   
+    
   }
   h3 {
-    Color:black;
+    font-size:20;
+    
+  }
+  .hero-image {
+    height:50%;
+    /*background: url(http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg);*/
+    background-repeat:no-repeat;
+    background-size:cover;
+    position:relative;
+    
+  }
+  
+  .hero-text {
+    text-align:center;
+    position:absolute;
+    margin-top:10%;
+    margin-left:30%;
+    transform:translate (-50%, -50%);
+    color:white;
   }
   
   
-</style></head>
+  
+  
+</style>
+
+</head>
 
 
 
 <body>
-<h1>All About Cats</h1>
-<h3>Cats are the greatest creatures on earth.</h3>
-<a href="https://en.wikipedia.org/wiki/Cat">click here to learn about cats</a>
+  
+  <ul id="giraffe">
+    <li><a href="index.html"> Home </a></li>
+    <li><a href="pictures.html"> Pictures </a></li>
+    <li><a href="videos.html"> Videos </a></li>
+    
+    
+  </ul>
+  
+  
+  
+<div class= "hero-image">
+  
+  <div class = "slider-holder">
+  <span id="zebra1"></span>
+  <span id="zebra2"></span>
+  <span id="zebra3"></span>
+  <span id="zebra4"></span>
+  
+<div class = "image-holder">
+  
+ <img src="http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg" width=800 height=400 class="slider-image">
+ 
+ <img src="https://s-media-cache-ak0.pinimg.com/736x/27/cf/cd/27cfcd2fefc4db6d3de473e3f7c7f00b.jpg" width=650 height=500 class="slider-image">
+  
+  <img src="http://www.kotiki.ru/photos/hugging_cats/1.jpg" width=800 height=400 class="slider-image">
+  
+   <img src="https://i.ytimg.com/vi/G1oGIZmNeXk/hqdefault.jpg" width=800 height=400 class="slider-image">
+   </div>
+  <div class = "button-holder">
+    <a href="#zebra1" class="slider-image"></a>
+    <a href="#zebra2" class="slider-image"></a>
+    <a href="#zebra3" class="slider-image"></a>
+    <a href="#zebra4" class="slider-image"></a>
+  </div>
+  </div>
+
+  <div class= "hero-text">
+  <h1>All About Cats</h1>
+  <h3>Cats are the greatest creatures on earth</h3>
+  </div>
+  </div>
+  
+<img src="http://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-4-57b30a939dff5__605.jpg">
+
+<a href="https://en.wikipedia.org/wiki/Cat">Click here to learn about cats</a>
 <br>
 <iframe src="https://www.youtube.com/embed/ZGl8vrceu1E"></iframe>
+
+
 </body>
