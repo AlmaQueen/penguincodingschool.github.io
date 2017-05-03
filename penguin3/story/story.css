@@ -1,0 +1,52 @@
+h1 {
+  text-align: center;
+  color: red;
+  font-size:80;
+
+}
+#home {
+  background: url(grassy3.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#dog {
+  width:200;
+  height:200;
+  
+}
+
+#textbox {
+  color: white;
+  width:25%;
+  
+}
+
+#school {
+  background: url(teacher.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+  
+}
+
+.align-left {
+  float: left;
+  margin-right: 10;
+}
+
+.button {
+  background-color:#42f4f4;
+  border: none;
+  color:#f44141;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  border-radius: 12;
+}
+
+
+
+
