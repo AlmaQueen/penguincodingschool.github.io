@@ -9,3 +9,10 @@ function talk() {
     el.textContent = "Of course! Where is your nest?";
   } else {el.textContent = "I'm not sure what you mean."}
 }
+
+<script>
+function ask() {
+  alert ("")
+}
+
+//ughhhhhhhhhhhhhh
