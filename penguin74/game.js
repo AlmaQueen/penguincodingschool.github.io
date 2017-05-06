@@ -2,19 +2,25 @@ var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 
 canvas.width=750;
-canvas.height=750;
+canvas.height=770;
 
 var img_player = document.createElement("img");
-img_player.src="http://vignette1.wikia.nocookie.net/mario/images/5/5a/Mario3DWorld.png/revision/latest?cb=20140422130632";
-var playerW = 100;
-var playerH = 125;
+img_player.src="http://vignette1.wikia.nocookie.net/supre-smesh-bras/images/4/43/Ssbsanic.png/revision/latest?cb=20150501065043";
+var playerW = 70;
+var playerH = 90;
 
 var x = 0;
 var y = 0;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity = 5;
+var plat=[];
 
+plat.push({x: 0, y:100 , w:100, h:10});
+plat.push({x: 200, y: 80, w:100, h:10});
+plat.push({x: 400, y: 60, w:100, h:10});
+plat.push({x: 600, y: 200, w:100, h:10});
+plat.push({x: 0, y:770, w:canvas.width, h:10});
 
 function animate() {
   requestAnimationFrame(animate);
@@ -45,13 +51,8 @@ function platform() {
   }
 
 function setDirection(dir) {
-  if (dir === "up") {
-    xSpeed = 0;
-    ySpeed = -5;
-  } else if (dir === "down") {
-    xSpeed = 0;
-    ySpeed = 5;
-  } else if (dir === "left") {
+ 
+   if (dir === "left") {
     xSpeed = -5;
     ySpeed = 0;
   } else if (dir === "right") {
@@ -60,10 +61,8 @@ function setDirection(dir) {
   } else if (dir === "stop") {
     xSpeed = 0;
     ySpeed = 0;
-  } else if (dir==="jump") {
-    y = y-100;
   } else if (dir === "jump" && gravity===0) {
-    ySpeed = -10;
+    y = y-80;
   }
        
 }
@@ -71,9 +70,8 @@ function setDirection(dir) {
 var keyActions = {
   32: "jump",
   37: "left",
-  38: "up",
   39: "right",
-  40: "down",
+  
 };
 
 document.addEventListener('keydown', function(event) {
@@ -87,5 +85,3 @@ document.addEventListener('keyup', function(event) {
 });
 
 animate();
-
-
