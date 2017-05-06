@@ -1,0 +1,39 @@
+#textbox{
+  color:white;
+  font-weight: bold;
+  font-size:16 px;
+}
+
+#bedroom{
+  background:url("bedroom.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+
+.align-left{
+  float:left;
+  margin-right:10;
+  width:140;
+  height:200;
+}
+
+.button{
+  background-color:purple;
+  border:none;
+  color:white;
+  margin:5;
+  padding: 15 32;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:16;
+  border-radius:8 px;
+}
+
+#behind-the-scene{
+  color:red;
+  float:right;
+  font-weight: bold;
+  font-size:16 px;
+}
