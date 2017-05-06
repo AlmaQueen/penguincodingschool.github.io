@@ -1,0 +1,69 @@
+body {
+  background: url(https://s-media-cache-ak0.pinimg.com/564x/a5/42/af/a542aff3cffe603bdf5020cf1561f63e.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+#Daisy {
+  width:200;
+  height:200;
+}
+
+#unicornpusheen {
+  width:200;
+  height: 200;
+}
+
+#rainforest {
+background: url(https://il2.picdn.net/shutterstock/videos/8161651/thumb/1.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+  
+  
+}
+
+#desert {
+background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_4898_2560x1600.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+  
+  
+}
+
+.button {
+  background-color: purple;
+  border: none;
+  color: white;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  border-radius: 13px;
+  width: 25%;
+}
+
+#choices {
+ list-style: none;
+}
+
+#textbox {
+  color: purple;
+  font-size: 20;
+  font-family: Arial;
+}
+#textbox1 {
+  color: purple;
+  font-size: 20;
+  font-family: Arial;
+}
+
+
+
+
+
+.align-left {
+  float:left;
+  margin-right: 10;
+}
