@@ -1,0 +1,29 @@
+body {
+  background: url(http://kingofwallpapers.com/the-jungle/the-jungle-009.jpg);
+}
+
+.button {
+  background-color:lightgreen;
+  border:none;
+  color:white;
+  margin:5;
+  padding: 15 32;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:16;
+}
+
+#la {
+   background:url(https://media.timeout.com/images/100541963/image.jpg);
+   background-size: cover;
+}
+
+#la-talk {
+  background:url(http://images.all-free-download.com/images/graphicthumb/a_few_urban_night_hd_picture_166143.jpg);
+  background-size: cover;
+}
+#magicalkingdom {
+  background:url(http://www.axgig.com/images/75212871195142500058.jpg);
+  background-size: cover;
+}
