@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+
+#home {
+  background: url(wallpaper.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+
+}
+
+#airport {
+  background: url(airport.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+
+}
+
+#california {
+  background: url(wallpaper.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+
+  
+  
+}
+
+#airporttextbox {
+  color:white;
+}
+
+.align-right {
+  float: right;
+  margin-right: 10;
+}
+
+.button {
+  background-color: cyan;
+  border: none;
+  color: white;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24;
+  border-radius: 12px;
+  
+}
