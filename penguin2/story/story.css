@@ -1,0 +1,28 @@
+#rainforest {
+  background: url(http://wallpapercave.com/wp/R6KOnaz.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  color: white;
+}
+#rockyterrain {
+  background: url(https://i1.wp.com/www.skywardeyes.com/wp-content/uploads/2016/10/IMG_8739.jpg?fit=1080%2C720);
+  background-size: cover;
+ background-repeat: no-repeat;
+}
+
+
+#character {
+  width:250;
+  
+}
+
+.align-left {
+  float:left;
+  margin-right:10;
+  
+}
+
+#textbox {
+ color: white;
+}
