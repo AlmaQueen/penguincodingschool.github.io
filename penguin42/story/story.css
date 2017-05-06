@@ -1,0 +1,79 @@
+#stage {
+  background: url("stage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#party {
+  background: url("party.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#sing {
+  background: url("losangeles.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#hollywood {
+  background: url("hollywood.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#beach {
+  background: url("beach.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#speaker {
+  width:150 ;
+  height: 200;
+}
+
+.align-left {
+  float: left;
+  margin-right: 10;
+}
+
+.align-center {
+  display: block;
+  margin: 0px auto;
+}
+
+.button {
+  background-color: aqua;
+  border: none;
+  color: teal;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20;
+  border-radius: 12px;
+  width: 40%;
+}
+
+.button:hover {
+  background-color: blue;
+  color: white;
+}
+
+#button {
+  list-style: none;
+  
+}
+
+#character1 {
+  width: 800;
+  height: 600;
+}
+
+#textbox {
+  color: white;
+  font-size:24;
+  font-family: Sans Serif;
+}
