@@ -1,19 +1,19 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width=1000;
-canvas.height=1000;
+canvas.width=1597;
+canvas.height=1101;
 
 var img_player= document.createElement("img");
-img_player.src="http://images.vectorhq.com/images/thumbs/f92/hedgehog-vector-graphics-eps-80908.jpg"
+img_player.src="http://shmector.com/_ph/8/228098179.png"
 
 var x =0;
 var y=0;
 var xspeed = 0;
 var yspeed = 0;
 var gravity = 5;
-var playerW = 100
-
-var playerH = 100;
+var playerW = 30;
+var playerH = 35;
+var req;
 function animate() {
   requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
@@ -21,11 +21,17 @@ function animate() {
   x+=xspeed;
   y+=yspeed + gravity;
   platform();
-
+  obstacle();
   if (x>canvas.width||x<0) {xspeed=-xspeed}
   if (y>canvas.height ||y<0) {yspeed=-yspeed}
   }
-
+function stop() {
+  if(req === true){
+    cancelAnimationFrame(req);
+    req = undefined;
+    
+  }
+}
 
 function setDirection(dir) {
   if(dir==="up") {
@@ -40,9 +46,13 @@ function setDirection(dir) {
  } else if(dir==="right") {
   xspeed =5;
   yspeed =0;
+ } else if(dir==="stop") {
+  xspeed =0;
+  yspeed =0;
+  
  } else if(dir==="jump"&& gravity ===0) {
   xspeed =0;
-  yspeed =10;
+  yspeed =-10;
  }
 }
 var keyActions = {
@@ -50,7 +60,7 @@ var keyActions = {
   37: "left",
   38: "up",
   39: "right",
-  40: "down"
+ 
 };
 
 document.addEventListener ('keydown',function(event) {
@@ -62,38 +72,46 @@ document.addEventListener ('keydown',function(event) {
   setDirection("stop");
 });
 
-
-function platform(){
-cx.fillStyle ="grey";
-cx.fillRect (0,500,100,10);
-if (y==500-playerH) {gravity=0}
  
- else { gravity=1}
-}
- 
-animate();
+
+var lava=[];
 
 
+ lava.push({x: 100,y: 100,w:100,h:10});
 
- var plat=[]
+
+var plat=[];
 
 
  plat.push({x: 0,y: 100,w:100,h:10});
- plat.push({x: 100,y: 80,w:100,h:10});
- plat.push({x: 200,y: 60,w:100,h:10});
- plat.push({x: 300,y: 40,w:100,h:10});
+ plat.push({x: 100,y: 180,w:100,h:10});
+ plat.push({x: 200,y: 160,w:100,h:10});
+ plat.push({x: 300,y: 140,w:100,h:10});
  plat.push({x: 0,y: 350,w:canvas.width,h:10});
 
 
 function platform () {
-gravoty =5;
-cx.fillStyle= "fuchsia"
-for (var i = 0; i<plat.lenath; i++) {
+gravity =5;
+cx.fillStyle= "grey";
+for (var i = 0; i<plat.length; i++) {
  cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
 if (y==plat[i].y-playerH &&
-   x>=plat[i].y-playerw &&
-   x<=plat[i].y + plat[i].w)
+   x>=plat[i].x-playerW &&
+   x<=plat[i].x + plat[i].w)
   {gravity=0}
-  else {}
 }
 }
+
+function obstacle() {
+cx.fillStyle= "red";
+for (var i = 0; i<plat.length; i++) {
+ cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+if (y==lava[i].y-playerH &&
+   x>=lava[i].x-playerW &&
+   x<=lava[i].x + lava[i].w)
+  {gameOver()}
+}
+}
+
+
+animate();
