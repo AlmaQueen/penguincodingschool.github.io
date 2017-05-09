@@ -50,12 +50,26 @@
     transform: translate(-50%, -50%);
     color: blue;
   }
-
-
-
-
-
-
+  .image-holder {
+             width: 2400;
+             height: 400;
+             clear: both;
+             position:relative;
+             -webkit-transition: left 2s;
+             -moz-transition: left 2s;
+             -o-transition: left 2s;
+             animation: slide 15s infinite
+  }
+  @keyframes slide
+  {
+  0%{left: Opx;}
+  30% {left: Oxp;}
+  33% {left: -800px;}
+  63% {left: -800px;}
+  66% {left: -1600px;}
+  97% {left: -1600px;}
+  100% {left: 0px;}
+  
 </style></head>
 
 <body>
@@ -66,12 +80,24 @@
   
 </ul>
   
+<div class="slider-holder">
+  <span id="image1"></span>
+  <span id="image2"></span>
+  <span id="image3"></span>
+<div class="image-holder">
+  <img src="pic1.jpg" width=800 height=400 class="slider-image">
+  <img src="pic2.jpg" width=800 height=400 class="slider-image">
+  <img src="pic3.jpg" width=800 height=400 class="slider-image">
+  </div>
+ <div class = "button-holder"></div>
+   <a href="#image1"
   
   
   
   
   
-  
+</div>
+</div>
   
   
   
@@ -86,5 +112,4 @@ This is a <b>website</b> about the <b>New England patriots</b>
 </div>
 <a href="https://en.wikipedia.org/wiki/New_England_Patriots">link to patriots</a>
 <br>
-></iframe>
 </body>
