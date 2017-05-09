@@ -13,16 +13,21 @@ var ySpeed = 0;
 var gravity = 5;
 var playerH = 25;
 var playerW = 25;
+var req;
 
 function animate() {
-  requestAnimationFrame(animate);
+  req = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y,playerW,playerH);
   x+=xSpeed;
   y+=ySpeed+gravity;
   platform();
+  obstacle();
   if (x>canvas.width||x<0) {xSpeed=-xSpeed}
   if (y>canvas.height||y<0) {ySpeed=-ySpeed}
+  if (x>canvas.width) {
+    gameWin();
+  }
 }
 
 function setDirection(dir) {
@@ -44,6 +49,26 @@ function setDirection(dir) {
   } else if (dir =="jump" ) {
     ySpeed = -15;
   }
+}
+
+function stop() {
+  if(req) {
+     cancelAnimationFrame(req);
+     req = undefined;
+  }}
+
+function gameOver() {
+  cx.fillStyle = "Red";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Game Over",10,50)
+  stop();
+}
+
+function gameWin() {
+  cx.fillStyle = "Green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("You Won!",10,50)
+  stop();
 }
 
 var keyActions = {
@@ -71,7 +96,23 @@ plat.push({x: 0, y: 500, w:100, h:10});
 plat.push({x: 100, y: 480, w:100, h:10});
 plat.push({x: 200, y: 460, w:100, h:10});
 plat.push({x: 300, y: 440, w:100, h:10});
+plat.push({x: 400, y: 420, w:100, h:10});
+plat.push({x: 500, y: 400, w:100, h:10});
+plat.push({x: 600, y: 380, w:100, h:10});
+plat.push({x: 700, y: 360, w:100, h:10});
+plat.push({x: 800, y: 340, w:100, h:10});
+plat.push({x: 900, y: 320, w:100, h:10});
+plat.push({x: 1000, y: 340, w:100, h:10});
+plat.push({x: 1100, y: 360, w:100, h:10});
+plat.push({x: 1200, y: 380, w:100, h:10});
+plat.push({x: 1300, y: 400, w:100, h:10});
+plat.push({x: 1400, y: 420, w:100, h:10});
+plat.push({x: 1500, y: 440, w:100, h:10});
+plat.push({x: 1600, y: 460, w:100, h:10});
+plat.push({x: 1700, y: 480, w:100, h:10});
+plat.push({x: 1800, y: 500, w:100, h:10});
 plat.push({x: 0, y:750, w:canvas.width, h:10});
+
 
 function platform() {
 gravity =5;
@@ -86,5 +127,21 @@ for (var i = 0; i<plat.length; i++) {
 
 }
 }
+
+function obstacle() {
+cx.fillStyle="red";
+for (var i = 0; i<lava.length; i++) {
+  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+  if (y==lava[i].y-playerH &&
+      x>=lava[i].x-playerW &&
+      x<=lava[i].x + lava[i].w)
+     {gameOver()}
+}
+}
+
+var lava=[]
+
+lava.push({x: 0, y: 600, w:canvas.width, h:10});
+lava.push({x: 100, y: 100, w:100, h:10});
 
 animate();
