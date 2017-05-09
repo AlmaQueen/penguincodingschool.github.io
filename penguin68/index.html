@@ -46,6 +46,46 @@ h1 {
   color:  white;
 }
 
+.slider-holder  {
+            width:  800;
+            height: 400
+            background-color: gray;
+            margin-left:  auto;
+            margin-right  auto;
+            margin-top  0;
+            text-align: center;
+            overflow: hidden;
+}
+
+.image-holder {
+            Width:2400;
+            height:400;
+            clear:both;
+            position: relative;
+            -webkit-transition: left  2s;
+            -moz-transition:  left  2s;
+            -o-transition:  left  2s;
+            transition: left  2s;
+            animation:  slide 15s infinite;
+}
+.slider-image {
+            float:  left;
+            margin: 0;
+            padding 0;
+            position: relative;
+}
+
+@keyframes  slide
+{
+  0%  {left:  0px;}
+  30% {left:  0px;}
+  33% {left:  -800px;}
+  63% {left:  -800px;}
+  66% {left:  -1600px;}
+  97% {left:  -1600px;}
+  100%  {left:  0px;}
+  }
+
 </style></head>
 
 
@@ -65,19 +105,26 @@ h1 {
 
 
 <h2>This is a website about teslas</h2>
+<h2>57 59</h2>
 
 </div>
 </div>
-<div-class="slider holder"
+<div class="slider-holder">
   <span id="image1"></span>
   <span id="image2"></span>
   <span id="image3"></span>
   <div  class = "image-holder">
-    <imgsrc="pic1 .jpg "  width=800  height=400 class="slider-image">
-    <imgsrc="pic2 .jpg "  width=800  height=400 class="slider-image">
-    <imgsrc="pic3 .jpg "  width=800  height=400 class="slider-image">
-    
-    
+    <img src="pic1.jpg "  width=800  height=400 class="slider-image">
+    <img src="pic2.jpg "  width=800  height=400 class="slider-image">
+    <img src="pic3.jpg "  width=800  height=400 class="slider-image">
+  </div>
+  <div class  = "button-holder">
+    <a href="#image1" class="slider-change"></a>
+    <a href="#image2" class="slider-change"></a>
+    <a href="#image3" class="slider-change"></a>
+  </div>
+ </div>
+ 
 <a href=https://www.tesla.com/modelx>link to tesla.com[model x]</a>
 
 <img src="https://www.tesla.com/tesla_theme/assets/img/modelx/section-hero-background.jpg?20161201" width=600 height=260>
