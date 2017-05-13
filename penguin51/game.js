@@ -2,11 +2,13 @@ var canvas = document.getElementById ("canvas")
 var cx = canvas.getContext("2d")
 
 canvas.width=1000
-canvas.height=1000
+canvas.height=800
 
 var img_player = document.createElement("img")
 img_player.src = "http://static.tvtropes.org/pmwiki/pub/images/sans_sprite.jpg"
 
+var lava = [];
+var rek;
 var x = 0;
 var y = 0;
 var xspeed = 0;
@@ -21,15 +23,18 @@ plat.push({x: 0, y:100, w:100, h: 10});
 plat.push({x: 0, y:100, w:100, h: 10});
 plat.push({x: 200, y:200, w:30, h: 30});
 plat.push({x: 0, y:100, w:100, h: 10});
-plat.push({x: 0, y:990, w:1000, h: 10});
+
+lava.push({x: 0, y:790, w:1000, h: 10});
 
 function animate () {
-  requestAnimationFrame(animate)
+  rek=requestAnimationFrame(animate);
  cx.clearRect(0,0,canvas.width, canvas.height)
  cx.drawImage(img_player, x,y, playerW, playerH);
   x+=xspeed;
   y+=yspeed+gravity;
   platform();
+  //gameover();
+  obstacle();
   
   if (x>canvas.width || x<0) {xspeed = -xspeed}
   if (y>canvas.height || y<0) {yspeed = -yspeed}
@@ -47,7 +52,7 @@ if (dir=== "down") {
   yspeed=0;
   
 } else if (dir=== "platmake") {
-  plat.push({x: x, y:y, w:1000, h: 10});
+  plat.push({x: x, y:y+playerH+5, w:50, h: 10});
 
   
 } else if (dir=== "jump") {
@@ -55,9 +60,10 @@ if (dir=== "down") {
   yspeed=-20;
   }
   
-} else if (dir=== "left") {
-  xspeed=0;
-  yspeed=5;
+else if (dir=== "left") {
+  xspeed=-5;
+  yspeed=0;
+}
   
  else if (dir=== "stop") {
   xspeed=0;
@@ -65,7 +71,13 @@ if (dir=== "down") {
   }
   
 }
+function stop () {
+  if (rek) {
 
+    cancelAnimationFrame(rek);
+    rek = undefined;
+  }
+}
 
 
 var keyActions = {
@@ -126,7 +138,24 @@ gravity=5;
 
 }
 
+function obstacle(){
+  cx.fillStyle="red";
+ for (var i=0 ; i<plat.length; i++){
+   cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h );
+   if(y==lava[i].y-playerH &&
+   x>=lava[i].x-playerW &&
+   x<=lava[i].x + lava[i].w)
+  
+   {gameover()}
+ }
+}
 
+function gameover() {
+cx.fillStyle = "red";
+cx.font = "40px Comic Sans MS"
+cx.fillText ("XD u just got rekd",10,50);
+stop();
+}
 
 
 animate();
