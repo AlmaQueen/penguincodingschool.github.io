@@ -20,17 +20,29 @@ plat.push({x: 100, y: 80, w:100, h:10});
 plat.push({x: 0, y:300, w:100, h:10});
 plat.push({x: 400, y:500, w:100, h:10});
 plat.push({x: 200, y:400, w:100, h:10});
+plat.push({x: 750, y:300, w:100, h:10});
 
+var lava=[];
+
+lava.push({x: 0,y: 600, w:canvas.width, h: 10});
+lava.push({x: 100,y: 500, w: 100, h: 100});
+
+
+var req;
 function animate() {
-  requestAnimationFrame(animate);
+  req = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y, playerW, playerH);
   x+=xspeed;
   y+=(yspeed+gravity);
   platform();
-  console.log(gravity);
+  obstacle();
   if (x>canvas.width|| x<0) {xspeed= -xspeed}
   if (y>canvas.width|| y<0) {yspeed= -yspeed}
+  if (x>800) {
+  gameWin();
+}
+
 }
   
   function setDirection(dir) {
@@ -79,13 +91,43 @@ gravity =5;
 cx.fillStyle ="blue";
 for (var i = 0; i<plat.length; i++) {
   cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
-//  if (y==100) {gravity = 0}
   if (y==plat[i].y-playerH &&
   x>=plat[i].x-playerW &&
   x<plat[i].x + plat[i].w) {gravity=0;}
-  else{}
-
 }
 }
 
+function obstacle(){
+cx.fillStyle ="red";
+for (var i = 0; i<lava.length; i++) {
+  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+//  if (y==100) {gravity = 0}
+  if (y==lava[i].y-playerH &&
+  x>=lava[i].x-playerW &&
+  x<lava[i].x + lava[i].w)
+{gameOver()}
+}
+}
+
+function stop() {
+  if(req){
+    cancelAnimationFrame(req);
+    req = undefined;
+  }
+}
+
+
+function gameOver() {
+  cx.fillstyle = "Red";
+  cx.font = "100px Comic Sans MS";
+  cx.fillText("You died!",300,300);
+  stop();
+}
+
+function gameWin() {
+  cx.fillstyle = "Green";
+  cx.font = "100px Comic Sans MS";
+  cx.fillText("You Won!",300,300);
+  stop();
+}
 animate()
