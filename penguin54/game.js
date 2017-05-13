@@ -22,7 +22,11 @@ plat.push ({x: 100, y: 270, w:800, h:100});
 plat.push ({x: 0, y: 570, w:400, h:100});
 plat.push ({x: 700, y: 570, w:500, h:100});
 plat.push ({x: 400, y: 670, w:600, h:1});
+plat.push ({x: 500, y: 570, w:100, h:1000});
 
+
+var lava = [];
+lava.push ({x: 0, y: 600, w:1000, h:1000});
 
 
 
@@ -34,6 +38,7 @@ function animate() {
   x+=xSpeed;
   y+=ySpeed+gravity;
   platform();
+  obstacle();
  if (x>canvas.width||x<0) {xSpeed=-xSpeed}
  if (y>canvas.height || y<0) {ySpeed = -ySpeed}
 }
@@ -79,7 +84,7 @@ setDirection("stop");
 
 
 function platform() {
-  cx.fillStyle = "blue";
+  cx.fillStyle = "gray";
   gravity =5;
   for (var i = 0; i<plat.length; i++) {
     cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
@@ -87,16 +92,40 @@ function platform() {
     && x>=plat[i].x -playerW
     && x<=plat[i].x + plat[i].w)
   {gravity = 0}
-  
-    
-    
   }
-  
-  
-  //cx.fillRect(0,500,1000,10)
-//  if (y==500-playerH && x<1000) { gravity = 0; }
-//  else { gravity = 1; }
 }
+
+function obstacle() {
+  cx.fillStyle = "red";
+  for (var i = 0; i<lava.length; i++) {
+    cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+    if (y==lava[i].y - playerH
+    && x>=lava[i].x -playerW
+    && x<=lava[i].x + lava[i].w)
+  {youDied()}
+  }
+}
+
+
+function youDied() {
+   cx.fillStyle = "pink";
+   cx.font = "30px Comic Sans MS";
+   cx.fillText("You Died",10,50);
+   stop();
+   
+function stop() {
+  if(req) {
+    cancelAnimationFrame(req);
+    req = undefined;
+  }
+}
+   
+   
+   
+ }
+  
+  
+
 
 animate()
 
