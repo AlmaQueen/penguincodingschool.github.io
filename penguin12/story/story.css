@@ -28,6 +28,12 @@
   color:white;
 }
 
+#Jetblue {
+  background: url(JetblueMint.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+}
+
 .align-right {
   float: right;
   margin-right: 10;
