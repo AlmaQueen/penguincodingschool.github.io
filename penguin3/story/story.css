@@ -26,7 +26,12 @@ h1 {
   background: url(teacher.jpg);
   background-size:contain;
   background-repeat: no-repeat;
-  
+}
+
+#beach {
+  background: url(beach.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
 }
 
 .align-left {

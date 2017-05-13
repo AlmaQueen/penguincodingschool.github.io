@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+  color: red;
+  font-size:80;
+
+}
+body {
+  background: url(grassy3.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#dog {
+  width:200;
+  height:200;
+  
+}
