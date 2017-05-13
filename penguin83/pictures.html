@@ -1,18 +1,54 @@
+<head><style>
+ .slider-holder {
+   width: 800;
+   height: 600;
+   margin-left: auto;
+   margin-right:auto;
+   margin-top: 0;
+   text-align:center;
+   overflow: hidden;
+ }
+  
+.image-holder {
+    width: 2400;
+    height:600;
+    position: relative;
+    animation:slide 10s infinite;
+  }
+
+.slider-image{
+     float: left;
+     margin: 0;
+     padding:0;
+     position:relative;
+     width:800;
+     height:600;
+   }
+
+@keyframes slide {
+    0% {left: 0px;}
+    30% {left: 0px;}
+    33% {left: -800px;}
+    63% {left: -800px;}
+    66% {left: -1600px;}
+    97% {left: -1600px;}
+    100% {left: 0px;}
+  }
+  
+.slider-holder:hover  .image-holder {animation-play-state: paused;}
+  
+</style></head>
+
 
 <body>
-<div class="slider-hold">
+<div class="slider-holder">
   <span id=image1></span>
   <span id=image2></span>
   <span id=image3></span>
 <div class="image-holder">
-  <img src="pic1.png" width=800 hight=400 class="slider-image">
-  <img src="image2.jpg" width=800 hight=400 class="slider-image">
-  <img src="pic3.png" width=800 hight=400 class="slider-image">
+  <img src="image1.jpg"  class="slider-image">
+  <img src="image2.jpg"  class="slider-image">
+  <img src="image3.gif"  class="slider-image">
  </div>
-<div class="button-holder">
-  <a href="#image1" class="slider-change"></a>
-  <a href="#image2" class="slider-change"></a>
-  <a href="#image3" class="slider-change"></a>
-</div>
 </div>
 </body>
