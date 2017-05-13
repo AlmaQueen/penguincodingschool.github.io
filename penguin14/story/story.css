@@ -14,6 +14,12 @@ body {
   height: 200;
 }
 
+#school {
+background: url(http://smithsystem.wpengine.netdna-cdn.com/wp-content/uploads/2012/06/classrooms.jpeg);
+background-repeat: no-repeat;
+background-size: cover;
+
+}
 #rainforest {
 background: url(https://il2.picdn.net/shutterstock/videos/8161651/thumb/1.jpg);
  background-size: cover;
@@ -22,6 +28,7 @@ background: url(https://il2.picdn.net/shutterstock/videos/8161651/thumb/1.jpg);
   
 }
 
+
 #desert {
 background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_4898_2560x1600.jpg);
  background-size: cover;
@@ -29,6 +36,9 @@ background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_48
   
   
 }
+
+
+
 
 .button {
   background-color: purple;
