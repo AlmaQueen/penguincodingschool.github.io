@@ -23,6 +23,7 @@ function animate() {
   y+=ySpeed+gravity;
   platform();
   obstacle();
+  monster();
   if (x>canvas.width||x<0) {xSpeed=-xSpeed}
   if (y>canvas.height||y<0) {ySpeed=-ySpeed}
   if (x>canvas.width) {
@@ -143,5 +144,26 @@ var lava=[]
 
 lava.push({x: 0, y: 600, w:canvas.width, h:10});
 lava.push({x: 100, y: 100, w:100, h:10});
+
+var xM = 0;
+var yM = 500;
+var xMsp = -10;
+var yMsp = -0.05;
+
+var mW = 10;
+var mH = 10;
+
+function monster() {
+  cx.fillStyle = "orange"
+  cx.fillRect(xM,yM,mW,mH);
+  yM+=yMsp
+  xM+=xMsp
+  if (x+playerW > xM && xM+mW >x && yM+mH>y && y+playerH>yM)
+  {gameOver()}
+  else if (xM<0 || xM>canvas.width) {
+    xMsp = -xMsp;
+  }
+}
+
 
 animate();
