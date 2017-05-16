@@ -12,9 +12,9 @@ var ySpeed =0;
 var gravity =5;
 var playerW = 50;
 var playerH = 50;
-
+var req;
 function animate () {
-  requestAnimationFrame(animate);
+  req = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player, x, y,playerW,playerH);
   x+=xSpeed;
@@ -25,15 +25,36 @@ if (x>canvas.width-25 ||x<0) {xSpeed=-xSpeed}
 if (y>canvas.height-25 || y<0) {ySpeed = -ySpeed}
 }
 
+function gameOver() {
+  cx.fillStyle = "Red";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Game Over",10,50);
+  stop()
+}
+var xM = 800;
+var yM = 180;
+var xMsp = -5;
+var yMsp = 0;
+
+var mW =10;
+var mH =10;
+
+function stop() {
+  if(req ) {
+    cancelAnimationFrame(req);
+    req = undefined
+  }
+}
+
 var plat=[];
 plat.push({x: 0, y: 100, w:100, h:10});
 plat.push({x: 100, y: 180, w:250, h:10});
 plat.push({x: 300, y: 160, w:100, h:10});
 plat.push({x: 450, y: 140, w:150, h:10});
 plat.push({x: 250, y: 100, w:100, h:10});
-
+plat.push({x: 200, y: 200, w:300, h:10})
 var lava=[];
-lava.push({x: 300, y: 100, w:100, h:10});
+lava.push({x: 0, y: 350, w:1000, h:30});
 
 function platform() {
 gravity =5;
