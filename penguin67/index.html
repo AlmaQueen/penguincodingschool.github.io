@@ -1,0 +1,117 @@
+<head><style>
+  h1 {
+    color: turquoise;
+    text-align: center;
+    font-size:69;
+    
+  }
+  body{
+    background: url("https://s-media-cache-ak0.pinimg.com/736x/a7/e3/bf/a7e3bf367a2086926dc0e77731f9393c.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-size:55;
+  }
+#myfavlist li img {
+    width: 450 px;
+    height: 450 px;
+    list-style-type: upper-roman;
+  }
+  
+.slider-holder   {
+         width:800;
+         height:400;
+         margin-left:auto;
+         margin-right:auto;
+         margin-top:10;
+         text-align:center;
+         overflow:hidden;
+  }
+  
+  
+.image-holder   {
+        width:2400;
+        height:400;
+        position:relative;
+        animation: slide 18s infinite;
+  }
+
+@keyframes slide {
+ 0% {left:0px;}
+ 30% {left:0px;}
+ 33% {left:-800px;}
+ 63% {left:-800px;}
+ 66% {left:-1600px;}
+ 97% {left:-1600px;}
+100% {left:0px;}
+}
+
+.slider-image {
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+#image1:target ~ .image-holder {
+    left: 0px;
+  }
+#image2:target ~ .image-holder {
+    left: -800px;
+  }
+#image3:target ~ .image-holder {
+    left: -1600px;
+  }
+
+.button-holder {
+   position: relative;
+  top: -40px;
+  }
+
+.slider-change {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color:  brown;
+  }
+  
+  
+</style></head>
+
+<body>
+  <div class="slider-holder">
+  <span id="image1"></span>
+  <span id="image2"></span>
+  <span id="image3"></span>
+  <div class="image-holder">
+    <img src="pic1.jpg" width=800 height=400 class="slider-image">
+    <img src="pic2.jpg" width=800 height=400 class="slider-image">
+    <img src="pic3.jpg" width=800 height=400 class="slider-image">
+  </div>
+</div>
+<h1>Cats</h1>
+
+Cats are very cute.
+There are lots of types of cats.Most are cute.Most of them.The only ugly looking ones are sphinxes,and they have a lively personality.Dog lovers,Beware!
+Cats=Life and Love!!:D
+
+<br>
+<a href="https://en.wikipedia.org/wiki/Cat">Information on cats</a>
+<br>
+<img src="https://pbs.twimg.com/profile_images/602729491916435458/hSu0UjMC.jpg">
+<br>
+<iframe src="https://www.youtube.com/embed/p5Vsg1CrhrI"></iframe>
+
+<br>
+<ul id="myfavlist">
+  <li><img src="https://pbs.twimg.com/profile_images/848395594590814208/_TtPuzHs.jpg"><br>The fat cat</li>
+  <li><img src="https://s-media-cache-ak0.pinimg.com/originals/2c/be/00/2cbe00901071e12de1ff846dc4bd9576.jpg"><br>The adventerous cat</li>
+  <li><img src="https://s-media-cache-ak0.pinimg.com/736x/c9/02/f7/c902f783dcf11e4f376e884694710d2c.jpg"><br>The sleepy cat</li>
+</ul>
+
+
+
+
+
+</body>
