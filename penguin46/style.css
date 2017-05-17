@@ -37,6 +37,9 @@ text-decoration:none;
 display:inline-block;
 font-size:16;
 }
+.align-right {
+  float:right;
+}
 
 #forest {
   background: url(http://wallpapercave.com/wp/8xghT8f.jpg);
@@ -48,3 +51,10 @@ font-size:16;
   background-size:cover;
   background-repeat:no-repeat;
 }
+
+#convo {
+  background: url(http://wallpapercave.com/wp/8xghT8f.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+

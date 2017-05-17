@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body id="convo">
+  
+<img id="maincat" src="http://pngimg.com/uploads/cat/cat_PNG100.png">
+<img id="wildcat" src="http://freepngimages.com/wp-content/uploads/2014/04/cat1_2.png" class="align-right">
+<p id="textbox" class="align-right"></p>
+<form>
+  <select id="reply" onchange="talk()">
+    <option> Choose what you want to say.</option>
+    <option> Hello. What's your name?</option>
+    <option> Are you the only wild cat or are there more?</option>
+    <option> Can you help me find a home?</option>
+    <option> Can I live with you?</option>
+  </select>
+</form>
+<script src="story.js"></script>
+<form id="helpform" style="display:none">
+  <ul id="choices">
+    <li><a class="button" href="javascript:helpzippy()"> Tell him</a></li>
+    <li><a class="button" href="home.html"> Decline telling him and go back.</a></li>
+  </ul>
+</form>
+<script src="story.js"></script>
+</body>
