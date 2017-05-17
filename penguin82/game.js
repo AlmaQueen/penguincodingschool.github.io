@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 canvas.width = 1000;
@@ -40,7 +39,7 @@ for (var i = 0; i<plat.length; i++) {
   if (y==plat[i].y-playerH &&
       x>=plat[i].x-playerW &&
       x<plat[i].x + plat[i].w)
-      {gravity=0}
+      {gravity=0;}
 }
 }
 
@@ -48,7 +47,7 @@ for (var i = 0; i<plat.length; i++) {
 function obstacle() {
 cx.fillStyle="green";
 for (var i = 0; i<lava.length; i++) {
-  cx.fillRect(plat[i].x, lava[i].y, lava[i].w, lava[i].h);
+  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
   if (y==lava[i].y-playerH &&
       x>=lava[i].x-playerW &&
       x<=lava[i].x + lava[i].w)
@@ -57,10 +56,13 @@ for (var i = 0; i<lava.length; i++) {
 }
 
 function gameOver() {
+  stop();
   cx.fillStyle = "Red";
   cx.font = "30px Comic Sans MS";
+  //Strokestyle will make sure that your platforms don't turn red as well. Please let me know if you dislike the way it looks, let us know.
   cx.fillText("Game Over",10,50);
-  stop();
+  cx.fillStyle = "Green";
+
 }
 
 function stop() {
@@ -90,11 +92,6 @@ function setDirection(dir) {
   y = y-50;
 }
 }
-
-
-
-
-
 
 plat.push({x: 100, y: 100, w:100, h:10});
 plat.push({x: 0, y: 100, w:100, h:10});
