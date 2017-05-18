@@ -1,23 +1,129 @@
-<head>
+    <head>
   <style>
   h1 {
    color:blue;
    text-align:center;
    font-size:54.3;
+   
   }
+    
+  #menu {
+    list-style:none;
+    background-color:#1dcda4;
+    overflow:hidden;
+    margin:0;
+  }
+  #menu li {
+    float:left;
+  }
+  
+  #menu li a {
+    display:block;
+    padding:14;
+    color:blue;
+    text-decoration:none;
+  }
+  
+  #menu li:hover  {
+    background-color:orange;
+  }
+  
+  .slider-holder  {
+    width: 800;
+    height: 400;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:10;
+    text-align:center;
+    overflow:hidden;
+      
+  }
+  
+  .image-holder {
+    
+    width:2400;
+    height:400;
+    position:relative;
+    animation: slide 13s infinite
+    
+  }
+  
+  .slider-image {
+      float:left;
+      width:800;
+      height:400;
+      margin:0;
+      padding:0;
+      position:relative;
+  }
+   @keyframes slide
+  {
+    0% {left:0px;}
+    30% {left:0px;}
+    33% {left:-800px;}
+    63% {left:-800px;}
+    66% {left:-1600px;}
+    97% {left:-1600px;}
+    100%{left:0px;}
+    }
+    
+    .slider-holder:hover .image-holder{animation-play-state: paused;}
+    
+    h1 {
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80%;
+    }
+    
+    h2 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80%;
+    }
+      
+      
+  
+  
+  
   body {
-    background: url("http://www.newhamrecorder.co.uk/polopoly_fs/1.1482765.1345044634!/image/523656691.jpg_gen/derivatives/landscape_630/523656691.jpg");
+    background: url("http://media.vocativ.com/photos/2016/06/2016_06_24-Premier-League-ILL_homepage-3-2594193788.png");
     background-size:cover;
   }
   </style>
 </head>
-
-
-<body>
+  
+  <body>
+  <ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li> <a href="list.html">Pictures</a></li>
+<li><a href="video.html">Videos</a></li>
+  </ul>
+  <div class="slider-holder">
+  <div class= "image-holder">
+  <img src= "http://m.files.bbci.co.uk/modules/bbc-morph-sport-predictor-index/1.0.4/images/premier-league.jpg" class="slider-image">
+  <img src="http://s3.india.com/wp-content/uploads/2016/11/barclays-premier-league-logo-wallpaper-2014-2015.jpg" class="slider-image">
+  <img src="http://intervpn.com/wp-content/uploads/2015/12/watch-barclays-premier-league-live-online-free-banner-860x395.jpg" class="slider-image">
+  </div>
+</div>
 <h1>Premier League Fantasy.</h1>
- This is a website that will quiz you and show you the lastest news on Premier League Fantasy
+ This is a website that will you and show you the lastest news on Premier League Fantasy
  <br>
  <a href=https://www.premierleague.com/>link to Premier League</a>
  <br>
 <img src="http://grandetipster.com/wp-content/uploads/2017/01/pl-newlogo.png" width=610>
+
+ <div class="slider-holder">
+  <div class= "image-holder">
+  <iframe src= "https://www.youtube.com/embed/5wl4cFVX61o" class="slider-image"></iframe>
+  <iframe src="https://www.youtube.com/embed/q2hDi3rpgpE" class="slider-image"></iframe>
+ 
+  </div>
+</div>
+
 </body>
+
+
+
