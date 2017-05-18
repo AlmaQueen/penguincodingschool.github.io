@@ -8,6 +8,40 @@ h1 {
  background-size:cover;
  background-repeat: no-repeat;
 }
+.slider-holder   {
+   width: 800;
+   height: 400;
+   margin-left:auto;
+   margin-right: auto;
+   margin-top: 10;
+   text-align: center;
+   overflow: hidden;
+ }
+ .image-holder {
+   width:2400;
+   height: 400;
+   position: relative;
+   animation: slide 30s infinite;
+ }
+ 
+  .slider-image {
+    float: left;
+    width: 800;
+    height: 400;
+    margin: 0 ;
+    padding: 0;
+     position: relative;
+ }
+ @keyframes slide
+ {
+   0% {left: 0px;}
+   30% {left: 0px;}
+   33% {left: -800px;}
+   63% {left:: -800px;};
+   66% {left: -1600px;}
+   97% {left: -1600px;}
+   100% {left: 0px;}
+}
 
   </style>
 </head>
@@ -15,8 +49,20 @@ h1 {
 
 <body>
                       <h1>Terraria</h1>
-Hello,this is a website about Terraria. If you do not know about Terraria, <b> <mark>LEARN ABOUT IT NOW</mark></b> <a href=https://terraria.org/>Link to the Terraria Website</a> <img src =https://gamefaqs.akamaized.net/screens/a/0/2/gfs_210318_2_20.jpg " width = 300 height = 300>
+Hello,this is a website about Terraria. If you do not know about Terraria, <b> <mark>LEARN ABOUT IT NOW</mark></b> <a href=https://terraria.org/>Link to the Terraria Website</a>
+
+<div class="slider-holder">
+<div class = "image-holder">
+<img src ="http://www.hbc333.com/data/out/222/47608974-terraria-wallpaper.png" class="slider-image">
+<img src="http://img11.deviantart.net/b956/i/2015/333/7/d/terraria_wallpaper___ixlu_by_xludo8d-d9if1sh.png" class="slider-image">
+<img src="http://steamuserimages-a.akamaihd.net/ugc/832448860123154870/6D8B8A2F2D30ADF4F5EF2F5E26F8B9EB92F6138E/" class="slider-image">
+
+</div>
+</div>
 </body>
+
+
+
                       
 
 
