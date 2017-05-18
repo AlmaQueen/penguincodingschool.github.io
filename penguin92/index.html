@@ -5,8 +5,87 @@
       text-align:center;
       font-size:80;
     }
+    
+    #menu {
+      list-style:none;
+      background-color:gold;
+      overflow:hidden;
+      margin:0;
+    }
+    #menu li{
+      float: left;
+       }
+      
+      #menu li a {
+        display: block;
+        padding: 14;
+        color:blue;
+        text-decoration:none;
+      }
+      #menu li:hover {
+        background-color :white;
+      }
+      
+    .hero-image {
+        width: 1600;
+        height: 600;
+        background-color:#9dc5e8;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        font-family :"Comic Sans MS";
+      }
+      .hero-text {
+        text-align:center;
+        position:absolute;
+        top:10%;
+        left:20%;
+        color: white;
+      }
+      
+  .slider-holder{
+      width:1600;
+      height:600;
+      margin-left: auto;
+      margin-top: 10;
+      text-align: center;
+      overflow: hidden;
+      }
+      
+  .image-holder{
+        width:4800;
+        height:600;
+        position: relative;
+        animation: pictures 15s infinite;
+        animation-play-state: running;
+      }
+        .slider-image{
+          float: left;
+          margin: 0;
+          padding:0;
+          width:1600;
+          height:600;
+          position: relative;
+        }
+        
+        @keyframes pictures {
+          0% {left: 0px;}
+          30% {left 0px}
+          33%{ left: -1600px}
+          60%{left:-1600px;}
+          66%{left:-3200px;}
+          97%{left:-3200px;}
+          100%{left:0px;}
+        
+        }
+
+.slider-holder:hover .image-holder
+      { animation-play-state: paused;
+      }
+    
     body {
-      background: url(http://cdn.playbuzz.com/cdn/23651551-a1f5-47ad-8709-f3535f0defaf/973dfb63-f694-4062-a9ac-444107fd2ee5.jpg);
+      background: url(http://findtattoodesign.net/images/design/harry-potter-golden-snitch.jpg);
       background-size:cover;
       background-repeat: repeat;
     }
@@ -18,18 +97,31 @@
 
 
 <body>
-  <ul>
+  <ul id=menu>
     <li><a href="index.html">home</a></li>
     <li><a href="pictures.html">pictures</a></li>
-    <li><a href="video.html">videos</a></li>
-    
+    <li><a href="videos.html">videos</a></li>
   </ul>
   
+<div class="hero-image">
+    
+  <div class="slider-holder">
+    <div class="image-holder">
+    <img src= "http://vignette2.wikia.nocookie.net/harrypotter/images/a/a8/Order_of_the_Phoenix_%28close-up_at_Harry_Potter%27s_parents%29.JPG/revision/latest?cb=20150206145638" class="slider-image" >
+  
+    <img src="https://vignette3.wikia.nocookie.net/harrypotter/images/7/7b/Voldemort-Nagini.jpg/revision/latest/scale-to-width-down/200?cb=20130219220030" class="slider-image">
+    <img src="http://i716.photobucket.com/albums/ww165/savannahbanana4ever/Harry%20Potter/harry-potter-4.png" class="slider-image">
+    
+     </div>
+    </div>
+   </div>
+  
+  
 <h1>Harry potter fun!</h1>
-<p>This is a website about harry potter and fun facts about the book</p>
+<p>This is a website about harry potter and fun facts about the book! <br>Did you know that some people belive that J.K Rowling is Reeta Skeeter?<br/> </p>
 <br>
 <a href=https://www.pottermore.com/> harry potter websight</a>
 <br>
-<img src="http://i.ebayimg.com/images/i/251589941958-0-1/s-w300.jpg" width=400 hight300>
+<img src= "https://img0.etsystatic.com/165/0/12270039/il_340x270.1141417248_h8gw.jpg" width=400 height=300>
 </body>
 
