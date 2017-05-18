@@ -10,19 +10,94 @@ background: url(http://mms.businesswire.com/media/20160602006554/en/512909/5/Ove
 background-size:contain;
 background-repeat:no-repeat;
 }
+#menu {
+  list-style: none;
+  background-color:red;
+  overflow: hidden;
+  margin:0;
+}
+#menu li {
+  float: left;
+}
+#menu li a {
+  display: block;
+  padding: 14;
+  color: green;
+  text-decoration: none;
+}
+#menu li:hover {
+  background-color: yellow;
+}
+p{
+  color: red;
+}
+  
+.slider-holder {
+  width: 800;
+  height: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10;
+  text-align: center;
+  overflow: hidden;
+}
+.image-holder {
+  position: relative;
+  width: 2400;
+  height: 400;
+  animation: picture 30s
+  infinite;
+  
+}
+.slider-image {
+  float: left;
+  width: 800;
+  height: 400;
+  margin: 0;
+  padding: 0;
+  
+}
+@keyframes picture {
+  0% {left: 0px;}
+  30% {left: 0px;}
+  33% {left: -800px;}
+  60% {left: -800px;}
+  66% {left: -1600px;}
+97% {left: -1600px;}
+100% {left: 0px;}
+}
+.slider-holder:hover .image-holder
+{ animation-play-state: paused;}
+
+
+
+  
+
 </style>
 </head>
 
 
 <body>
   <ul id="menu">
+    <li><a href="index.html">menu</a></li>
     <li><a href="pictures.html">pictures</a></li>
     <li><a href="videos.html">videos</a></li>
     
   </ul>
   
+  <div class="slider-holder">
+    <span id="image1"></span>
+    <span id="image2"></span>
+    <span id="image3"></span>
+    <div class = "image-holder">
+      <img src="https://thumbs.gfycat.com/WideAntiqueKouprey-size_restricted.gif" class="slider-image">
+    <img src="https://thumbs.gfycat.com/CostlyLargeBluegill-size_restricted.gif" class="slider-image">
+    <img src="https://thumbs.gfycat.com/AnyWellwornGreatargus-size_restricted.gif" class="slider-image">
+    </div>
+  </div>
+  
 <h1>overwatch tricks</h1>
-this is a website to teach and show you how to flank and do tricks.
+<p>this is a website to teach and show you how to flank and do tricks.</p>
 <a href=https://playoverwatch.com/en-us/> link if you want to buy the game.</a>
 <img src="https://i.ytimg.com/vi/GJDyYiHY6us/maxresdefault.jpg" width=700>
 </body>
