@@ -14,8 +14,8 @@ var ySpeed = 0;
 var gravity = 5;
 var playerH = 70;
 var playerW = 65;
-var plat=[]
-var lava=[]
+var plat=[];
+var lava=[];
 var req;
 
 function stop() {
@@ -32,10 +32,10 @@ function gameOver() {
   stop();
 }
 
-lava.push({x: 0, y: 600, w:1000, h:10})
+lava.push({x: 0, y: 500, w:1000, h:10})
 
 function obstacle() {
-  cx.fillStyle="gold";
+  cx.fillStyle="crimson";
   for (var i = 0; i<lava.length; i++) {
   cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
   if (y==lava[i].y-playerH &&
@@ -54,13 +54,13 @@ plat.push({x: 0, y: 500, w:canvas.width, h:10});
 
 function animate() {
   req = requestAnimationFrame(animate);
-  requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player, x,y, playerW, playerH);
   x+=xSpeed;
   y+=ySpeed+gravity;
   platform();
   obstacle();
+  monster();
   if (x>canvas.width||x<0) {xSpeed= -xSpeed}
   if (y>canvas.height|| y<0) {ySpeed = -ySpeed}
 }
@@ -119,10 +119,24 @@ function platform() {
   }
 }
  
-  
+var xM = 800;
+var yM = 180;
+var xMsp = -5;
+var yMsp = 0;
+
+var mW = 10;
+var mH = 10;
+
+function monster() {
+  cx.fillStyle="red";
+  cx.fillRect(xM,yM,mW,mH);
+  xM+=xMsp;
+  if (x+playerW > xM && xM+mW >x && yM+mH>y && y+playerH>yM)
+  {gameOver()}
+  else if (xM<0 || xM>canvas.width){
+  }
+}
+
+
 
   animate();
-    
-  
-  
-  
