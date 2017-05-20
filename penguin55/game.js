@@ -5,29 +5,50 @@ canvas.width = 2000;
 canvas.height=850;
 
 var img_player = document.createElement("img");
-img_player.src = "http://orig14.deviantart.net/4845/f/2016/129/0/1/genji_by_robert93nww-da1w1wl.png"
-
+img_player.src = "https://s-media-cache-ak0.pinimg.com/originals/b8/03/be/b803becf10c28afad61b6f3e5a394d5c.jpg"
+var mp = document.getElement("img");
+mp.src = "https://s-media-cache-ak0.pinimg.com/originals/0a/1f/89/0a1f897921a2e94cb3621199f2adef19.jpg"
 var x = 0;
 var y = 440;
 
 var xspeed = 0;
 var yspeed = 0;
 
-var gravity = -2;
+var gravity = -5;
 var req;
 var playerH = 50;
 var playerW = 50;
 var plat =[];
 var lava=[];
 var lavaImg = document.createElement("img");
-lavaImg.src = "https://s-media-cache-ak0.pinimg.com/736x/6a/52/5e/6a525ed90375e6f4f760985d5700f3f8.jpg"
+var xM = 500;
+var yM = 0;
+var xMS = -5;
+var yMS = 0;
+var mW = 50;
+var mH = 50;
+lavaImg.src = "http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-Transparent-Image.png"
 
 plat.push({x :0, y: 100, w:100, h:10});
+plat.push({x :125, y: 125, w:100, h:10});
+plat.push({x :250, y: 150, w:100, h:10});
+plat.push({x :375, y: 175, w:100, h:10});
+plat.push({x :500, y: 200, w:100, h:10});
+plat.push({x :625, y: 225, w:100, h:10});
+plat.push({x :750, y: 250, w:100, h:10});
+plat.push({x :875, y: 275, w:100, h:10});
+plat.push({x :1000, y: 350, w:400, h:10});
+plat.push({x :875, y: 425, w:100, h:10});
+plat.push({x :750, y: 450, w:100, h:10});
+plat.push({x :625, y: 475, w:100, h:10});
+plat.push({x :500, y: 500, w:100, h:10});
+plat.push({x :375, y: 525, w:100, h:10});
+plat.push({x :250, y: 550, w:100, h:10});
+plat.push({x :125, y:575, w:100, h:10});
+plat.push({x :0, y: 600, w:100, h:10});
 
-plat.push({x :0, y: 500, w:100, h:10});
 
-
-lava.push({x :0, y: 550, w:canvas.width, h:300});
+lava.push({x :0, y: 650, w:canvas.width, h:300});
 function stop(){
   if (req){
     cancelAnimationFrame(req);
@@ -43,7 +64,7 @@ function gameOver(){
 }
 function gameWin(){
   cx.fillStyle = "blue";
-  cx.font = "50 px Comic Sans MS";
+  cx.font = "50px Comic Sans MS";
   cx.fillText("You Won",850, 100);
   stop();
 }
@@ -57,8 +78,11 @@ function animate(){
   if (x>canvas.width || x<0){xspeed=-xspeed}
     if (y>canvas.height || y<0){yspeed=-yspeed}
     if(x<100 && y< 100){
-      gameWin()
+      gameWin();
     }
+}
+function monster() {
+  
 }
 
 
@@ -103,7 +127,7 @@ document.addEventListener("keyup", function(event) {
 });
 
 function platform() {
-  gravity =-2;
+  gravity =-5;
   cx.fillStyle="blue";
 for (var i = 0; i<plat.length; i++) {
   cx.fillRect(plat[i].x,plat[i].y,plat[i].w,plat[i].h);
