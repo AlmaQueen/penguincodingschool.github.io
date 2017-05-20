@@ -5,10 +5,9 @@ canvas.width=2000;
 canvas.height=850;
 
 var img_player = document.createElement("img");
-img_player.src="http://vignette1.wikia.nocookie.net/supre-smesh-bras/images/4/43/Ssbsanic.png/revision/latest?cb=20150501065043";
-var playerW = 70;
-var playerH = 90;
-
+img_player.src="https://s-media-cache-ak0.pinimg.com/originals/b8/03/be/b803becf10c28afad61b6f3e5a394d5c.jpg";
+var playerW = 50;
+var playerH = 50;
 var x = 0;
 var y = 0;
 var xSpeed = 0;
@@ -18,11 +17,19 @@ var plat=[];
 var img_lava = document.createElement("img");
 img_lava.src="http://img00.deviantart.net/fe4a/i/2014/059/8/0/sre_design_texture_test_lava_floor_test_1_by_wakaflockaflame1-d78e6wm.png";
 var req;
+var xM = 500;
+var yM = 0;
+var xMS = -5;
+var yMS = 0;
+var mW = 50; //monster width
+var mH = 50; //monster height
+var img_monster = document.createElement("img");
+img_monster.src="http://www.clipartbest.com/cliparts/Kij/gjd/Kijgjd5iq.png"
 
-plat.push({x: 0, y:100 , w:100, h:10});
-plat.push({x: 200, y: 80, w:100, h:10});
-plat.push({x: 400, y: 60, w:100, h:10});
-plat.push({x: 600, y: 200, w:100, h:10});
+plat.push({x: 0, y:100 , w:110, h:10});
+plat.push({x: 200, y: 80, w:110, h:10});
+plat.push({x: 400, y: 60, w:110, h:10});
+plat.push({x: 600, y: 200, w:10, h:10});
 plat.push({x: 0, y:770, w:canvas.width, h:10});
 
 function animate() {
@@ -33,6 +40,7 @@ function animate() {
    y+=ySpeed+gravity;
    platform();
    obstacle();
+   monster();
 if (x>canvas.width || x<0) {
   xSpeed = -xSpeed;}
 if (y>canvas.width || y<0) {
@@ -65,6 +73,8 @@ function platform() {
   }
   }
   
+  
+  
 var lava = [];
 lava.push ({x:0, y:600, w:1000, h:100});
 
@@ -80,6 +90,18 @@ for (var i = 0; i<lava.length; i++)  {
       x<=lava[i].x + lava[i].w)
       {gameOver()}
 }
+}
+
+function monster() {
+  cx.drawImage(img_monster, xM, yM, mW, mH);
+  xM += xMS;
+  yM += yMS;
+  if (x+playerW > xM && xM+mW >x && yM+mH > y && y+playerH > yM)
+  {gameOver()}
+  else if (xM<0 || xM>700) {
+    xMS = -xMS;
+  
+  }
 }
 
 function gameOver() {
@@ -114,9 +136,9 @@ function setDirection(dir) {
 }
 
 var keyActions = {
-  32: "jump",
-  37: "left",
-  39: "right",
+  87: "jump",
+  65: "left",
+  68: "right",
   
 };
 
