@@ -1,0 +1,31 @@
+<head>
+ <link rel="stylesheet" href="story.css">
+</head>
+<body>
+  
+<img id="seagull1" src="https://s-media-cache-ak0.pinimg.com/originals/17/fd/93/17fd93d656f302a69bead4b77577dfa7.jpg" class="align-left">
+<p id="textbox">Hi moose.</p>
+
+<img id="moose1" src="http://previewcf.turbosquid.com/Preview/2014/05/12__21_58_21/hd1.jpg13ca5825-9263-4cd0-a787-d839b5ba2763Original.jpg" class="align-left">
+  <p id="moosetalk" class="align-left"></p>
+
+<form class="align-left">
+<select id="reply" onchange="talk()">
+  <option>--Pick Your Response--</option>
+  <option>Can you help me?</option>
+  <option>What is your name?</option>
+  <option>Have you seen my family? </option>
+  
+  </select>
+</form>
+<form id="familyform" style="display:none">
+<ul id="choices">
+  <li><a class="button" href="javascript:family1()">Yes</a></li>
+<li><a class="button" href="javascript:family()">Run Away</a></li>
+</ul>
+</form>
+
+
+
+  <script src="story.js"></script>
+</body>

@@ -1,0 +1,56 @@
+body {
+  background: url(https://cdn.pixabay.com/photo/2016/11/18/13/46/desert-1834636_960_720.jpg);
+background-size:cover;
+background-repeat:no-repeat;
+}
+
+#arctic {
+  
+  background: url();
+background-size:cover;
+background-repeat:no-repeat;
+  
+}
+
+#seagull1{
+  width: 75;
+  height: 75;
+}
+
+
+#moose1{
+  width:200;
+  height:300;
+}
+
+#textbox {
+  background-color:#FFD700;
+ }#moosetalk{
+ background-color:#FFD700;
+ }
+
+
+.button {
+  background-color: #00FF00;
+  border: none;
+  color: black;
+  margin: 4;
+  padding: 10 25;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 12;
+}
+.align-left{
+  float: left;
+  margin-right: 10;
+}
+.align-right{
+  float: right;
+  margin-left: 10;
+}
+
+.button:hover {
+  background-color: green;
+  color: black;
+}
