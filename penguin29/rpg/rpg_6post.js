@@ -1,19 +1,20 @@
+//'use strict';
 enchant();
 window.onload=function() {
-  var game = new Core(300,300);
+  var game = new Core(400,400);
   game.keybind(32,'a');
   game.spriteSheetWidth = 256;
   game.spriteSheetHeight = 16;
   game.itemSpriteSheetWidth = 64;
+  game.preload(['sprites.png', 'items.png']);
   game.items = [{price: 1000, description: "Hurter", id: 0},
-               {price: 5000, description: "Drg. Paw", id: 1},
+               {price: 5000, description: "Dragon  Paw", id: 1},
                {price: 1, description: "Ice Magic", id: 2},
                {price: 60, description: "Chess Set", id: 3}];
   game.fps = 15;
   game.spriteWidth=16;
   game.spriteHeight=16;
-  game.preload(['sprites.png','items.png']);
-  var map = new Map(game.spriteWidth, game.spriteHeight);
+    var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
 
 function setMaps() {
@@ -26,7 +27,7 @@ function setMaps() {
   for (var i=0; i<foregroundData.length; i++) {
     collisionData.push([]);
     for(var j=0; j<foregroundData[0].length;j++) {
-      if (foregroundData[i][j]==2 || foregroundData[i][j]==15 || foregroundData[i][j]==4 || foregroundData[i][j]==3) {
+      if (foregroundData[i][j] == 2 || foregroundData[i][j] == 4 ||foregroundData[i][j] == 15 ||foregroundData[i][j] === 0 || foregroundData[i][j]==3) {
         var collision = 1;
       collisionData[i][j] = collision;
     }
@@ -57,41 +58,43 @@ function setPlayer() {
   player.frame = player.spriteOffset + player.direction;
   player.image = new Surface(game.spriteSheetWidth,game.spriteSheetHeight);
   player.image.draw(game.assets['sprites.png']);
-  //new player status info
-  player.name = "Arhip";
-  player.charClass = "Awesome";
-  player.exp = 1000;
-  player.level=5;
-  player.gold = 100000;
-  player.hp = 150;
+  player.name = "Knight of Shining Armor";
+  player.charClass = "Rockhopper";
+  player.exp = 0;
+//  player.level=1;
+  player.gold = 1000;
+  player.hp = 100;
+  player.mp= 100;
   player.maxHp =100;
+  //ADD NEW player attribute
   player.attack = 10;
-  player.statusLabel= new Label("welcome");
+  player.statusLabel= new Label("");
+  
 }
 
 player.displayStatus = function() {
   player.statusLabel.width = game.width;
-  player.statusLabel.height = 170;
+  player.statusLabel.height=170;
   player.statusLabel.x = undefined;
   player.statusLabel.y = undefined;
   player.statusLabel.color = "white";
   player.statusLabel.backgroundColor = "black";
   player.statusLabel.text =
-  "--" + player.name + " the " + player.charClass+
+  "--" + player.name + " " + player.charClass+
   "<br>--HP: "+player.hp + "/" + player.maxHp +
   "<br>--Exp: "+player.exp +
   "<br>--Level: "+player.level+
   "<br>--Gold: "+player.gold+
-  "<br>--INVENTORY"+player.showInventory(0);
+  "<br>--INVENTORY:<br>"+
+  player.showInventory(0);
 };
 
-//NEW
 player.clearStatus = function () {
   player.statusLabel.text = " ";
   player.statusLabel.height = 0;
+//NEW
   player.hideInventory();
-}
-
+};
 
 
 
@@ -145,42 +148,37 @@ var npc = {
   say: function(message) {
     player.statusLabel.height=12;
     player.statusLabel.text = message;
-  },
-  ask: function(question) {
-    var name = prompt(question);
-    npc.say("that's nice " + name);
   }
 };
 
 var greeter = {
   action: function() {
-    npc.say("hello you look buitifull"+player.name+" the "+player.charClass+player.name);
+    npc.say("hello you look amazing");
   }
-}
-
-var battleScene = new Scene();
-var warrior = {
-  maxHP: 100,
-  hp:100,
-  sprite: 15,
-  attack: 0,
-  exp:50000,
-  gold:30000,
-  action: function() {
-    player.currentEnemy = this;
-    game.pushScene(battleScene);
-  }
-}
+};
 var shopScene = new Scene();
 var cat = {
   action: function() {
     game.pushScene(shopScene);
     
   }
-}
+};
+//NEW battlescene and Fighter Character
+var battleScene = new Scene();
+var dude = {
+  maxHP: 20,
+  hp:20,
+  sprite: 15,
+  attack: 3,
+  exp:3,
+  gold:5,
+  action: function() {
+    player.currentEnemy = this;
+    game.pushScene(battleScene);
+  }
+};
 
-var spriteRoles = [,,greeter,,cat,,,,,,,,,,,warrior];
-
+var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
 
 var setBattle = function(){
   //BASIC SETUP for a SCENE
@@ -216,16 +214,16 @@ var setBattle = function(){
     battle.over = true;
     player.hp = player.maxHp;
     player.mp = player.maxMp;
-    player.gold = Math.round(player.gold-20000);
+    player.gold = Math.round(player.gold/2);
     player.statusLabel.text = "You lost."
     player.statusLabel.height = 12;
   }
   //ATTACK SEQUENCE
   battle.playerAttack = function(){
     var currentEnemy = player.currentEnemy;
-    var playerHit = battle.hitStrength(player.attack);
+    var playerHit = battle.hitStrength(player.attack)
     currentEnemy.hp = currentEnemy.hp - playerHit;
-    battle.menu.text = "You hit do "+playerHit+" damag!"
+    battle.menu.text = "Your hit did "+playerHit+" damage!"
     if(currentEnemy.hp<=0){
       battle.won();
     }
@@ -234,7 +232,7 @@ var setBattle = function(){
     var currentEnemy = player.currentEnemy;
     var enemyHit = battle.hitStrength(currentEnemy.attack);
     player.hp = player.hp - enemyHit;
-    battle.menu.text = "u tak "+enemyHit+" damag!"
+    battle.menu.text = "Your took "+enemyHit+" damage!"
     if(player.hp<=0){
       battle.lost();
     }
@@ -261,7 +259,7 @@ var setBattle = function(){
     },1000);
   }},
     {name: "Magic", action:function(){
-      battle.menu.text = "error 40401195673476283XXXx#$%^&*&^%$#@";
+      battle.menu.text = "You don't know any magic spells";
       battle.wait = true;
       battle.activeAction = 0;
       setTimeout(function(){
@@ -346,6 +344,8 @@ var setBattle = function(){
   battle.addChild(battle.player);
   battleScene.addChild(battle);
 };
+
+  
 
 var setShopping = function(){
     var shop = new Group();
@@ -445,9 +445,9 @@ var setShopping = function(){
       }
     };
     
-    shop.greeting = "Hi!  I Cat. Meow. I sell.";
-    shop.apology = "Sorry, you no have money.";
-    shop.sale = "Here go!";
+    shop.greeting = "Hi!  I'm a Cat. Meow. I sell things.";
+    shop.apology = "Sorry, you don't have enough money.";
+    shop.sale = "Here ya go!";
     shop.farewell = "Come again! Meow!";
     shop.message = new Label(shop.greeting);
     shop.drawCat();
@@ -460,8 +460,6 @@ var setShopping = function(){
     shopScene.backgroundColor = '#000';
     shopScene.addChild(shop);
   };
-
-//NEW - player.square, facingSquare, facing
 player.square = function() {
   return {x: Math.floor(this.x/game.spriteWidth),y: Math.floor(this.y/game.spriteHeight)};
 };
@@ -484,7 +482,8 @@ player.facingSquare = function(){
       return facingSquare;
     }
   }
-  player.facing = function(){
+
+player.facing = function(){
     var facingSquare = player.facingSquare();
     if (!facingSquare){
       return null;
@@ -521,6 +520,8 @@ player.showInventory = function(yOffset) {
  }
 };
 
+  
+
 game.focusViewport = function() {
   var x = Math.min((game.width -16)/2 - player.x,0);
   var y = Math.min((game.height -16)/2 - player.y,0);
@@ -531,18 +532,15 @@ game.focusViewport = function() {
 };
 
 game.onload = function() {
-  //alert("game loadin'");
-  //prompt(" guard says why are you here ");
-  //alert(" guard says nice you may enter");
-  //alert("game starting")
-  //alert("bzzzzzzzzzzzzzzzzz")
   setPlayer();
   setMaps();
   setStage();
   setShopping();
+  //NEW
   setBattle();
   player.on('enterframe', function() {
-    player.move(); if (game.input.a) {
+    player.move();
+    if (game.input.a) {
       var playerFacing = player.facing();
       if(!playerFacing || !spriteRoles[playerFacing]) {
       player.displayStatus();
@@ -551,11 +549,11 @@ game.onload = function() {
     }
     }
   });
-
   game.rootScene.on('enterframe', function(e) {
     game.focusViewport();
   });
-  };
+};
+
 game.start();
-;
+
 };
