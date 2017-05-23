@@ -29,6 +29,7 @@ function animate( )
  y+=ySpeed+gravity;
  obstacle();
  platform();
+ monster();
  if (x>canvas.width ||x<0){xSpeed= -xSpeed}
  if (y>canvas.height || y<0) {ySpeed = -ySpeed}
 }
@@ -116,25 +117,30 @@ function gameOver() {
   stop();
 }
  
-animate();
+
 
 var xM = 800;
 var yM = 180;
 var xMsp = -5;
 var yMsp = 0;
 
-var xW =10;
+var mW =10;
 var mH = 10;
 
-function moster() {
+function monster() {
   cx.fillStyle = "orange";
   cx.fillRect(xM,yM,mW,mH);
   xM+=xMsp;
-  if (x+playerw > xM && xM+mH>y && y+playerH>ym)
+  if (x+playerW > xM && xM+mW>x && y+playerH>yM)
+  {gameOver();}
+  else if (xM<0)  {
+    xMsp = -xMsp;
   
+ }
 }
 
-}
+
+animate();
 
 
 
