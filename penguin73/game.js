@@ -14,13 +14,7 @@ var gravity = 5;
 var playerW = 30;
 var playerH = 35;
 var req;
-var xM = 800;
-var yM = 180;
-var xMsp = -5;
-var yMsp = 0;
 
-var mW = 10;
-var mH = 10;
 
 
 function animate() {
@@ -31,6 +25,9 @@ function animate() {
   y+=ySpeed+gravity;
   platform();
   obstacle();
+  monster();
+  coin();
+  scoreDisplay();
   if (x>canvas.width||x<0) {xSpeed=-xSpeed}
   if (y>canvas.height || y<0) {ySpeed = -ySpeed}
   if (x>1000) {gameWin()}
@@ -60,7 +57,7 @@ function setDirection(dir) {
     xSpeed = 0;
     ySpeed = 0;
   } else if (dir =="jump" && gravity===0 ) {
-    ySpeed = -100;
+    ySpeed = -10;
   }
 }
 
@@ -75,6 +72,12 @@ function gameWin() {
   cx.font = "30px Comic Sans MS";
   cx.fillText("You Win",500,150);
   stop();
+}
+
+function scoreDisplay() {
+  cx.fillStyle = "Green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Score"+score,500,150);
 }
 
 var keyActions = {
@@ -101,7 +104,19 @@ plat.push ({x:200, y:200, w:100,h:10});
 plat.push ({x:400, y:200, w:100,h:10});
 plat.push ({x:600, y:200, w:100,h:10});
 plat.push ({x:100, y:550, w:400,h:10});
- 
+plat.push ({x:300, y:750, w:600,h:10});
+plat.push ({x:480, y:320, w:50,h:10});
+plat.push ({x:250, y:390, w:50,h:10});
+plat.push ({x:210, y:920, w:50,h:10});
+plat.push ({x:630, y:480, w:50,h:10});
+plat.push ({x:440, y:460, w:50,h:10});
+plat.push ({x:930, y:820, w:50,h:10});
+plat.push ({x:345, y:640, w:50,h:10});
+plat.push ({x:382, y:489, w:50,h:10});
+plat.push ({x:495, y:731, w:50,h:10});
+plat.push ({x:625, y:820, w:50,h:10});
+plat.push ({x:265, y:940, w:50,h:10});
+plat.push ({x:175, y:820, w:50,h:10});
 
 function platform() {
 gravity = 5;
@@ -119,7 +134,7 @@ for (var i = 0; i<plat.length; i++) {
 var lava = [];
 lava.push ({x:0, y:600, w:1000,h:100});
 lava.push ({x:300, y:400, w:1000,h:100});
-
+lava.push ({x:300, y:750, w:600,h:10});
 //plat.push ({x:200, y:200, w:100,h:10});
 //plat.push ({x:400, y:200, w:100,h:10});
 //plat.push ({x:600, y:200, w:100,h:10});
@@ -135,11 +150,43 @@ for (var i = 0; i<lava.length; i++) {
       {gameOver()}
 }
 }
+
+var xM = 800;
+var yM = 180;
+var xMsp = -5;
+var yMsp = -5;
+
+var mW = 10;
+var mH = 10;
 function monster() {
   cx.fillStyle = "orange";
-  cx.fillRect (xM,yM,mW,mH);
+  cx.fillRect(xM,yM,mW,mH);
   xM+=xMsp;
-  if (x=playerW> xM && xM+mW >x && ym+mH>y && y+playerH>yM)
+  yM+=yMsp;
+  if(x+playerW> xM && xM+mW >x && yM+mH>y && y+playerH>yM)
   {gameOver()}
   else if (xM<0 || xM>canvas.width) {
+    xMsp = -xMsp
+  }
+  else if (yM<0 || yM>canvas.height) {
+    yMsp = -yMsp
+  }
+}
+
+var xC = 100;
+var yC = 300;
+var wC = 20
+var hC = 20;
+var score =0;
+
+function coin() {
+  cx.fillStyle = "gold";
+  cx.fillRect(xC,yC,wC,hC);
+  if(xC+playerW> xC && xC+wC >x && yC+hC>y && y+playerH>yC)
+  {
+    score+=10;
+  xC =Math.random()*canvas.width;
+  yC =Math.random()*canvas.height;
+  }
+}
 animate();
