@@ -1,3 +1,4 @@
+'use strict';
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 canvas.width =2000;
@@ -22,11 +23,22 @@ function animate(){
   y+=ySpeed+gravity;
   platform();
   obstacle();
-  if (x>canvas.width || x <0){
-  xSpeed = -xSpeed;}
-  if (y>canvas.height || y <0){
-  ySpeed = -ySpeed;}
+  if (x <0 || x>canvas.width-playerW){
+  xSpeed=-xSpeed;}
+  if (y <0 || y>canvas.height-playerH){
+  ySpeed=-ySpeed;}
 }
+if (x>800) {
+  gameWin();
+}
+var xMonster = 500;
+var yMonster = 0;
+var xMonsterSpeed = -5;
+var yMonster = 0;
+var monsterW = 10; //monster width
+var monsterH = 10; //monster height
+
+
 
 function setDirection(dir) {
   if (dir === "left")
@@ -92,12 +104,18 @@ function stop() {
   }
 }
 function gameOver() {
-  cx.fillstyle = "Red";
+  cx.fillStyle = "orange";
   cx.font = "30px Jazzy";
-  cx.fillText("Game Over!!!!!!!!!!!!!!!! to bad for you ha ha ha ha ha ha ha ha ha you failed!!!!! ha ha ha ha ha ha ha ha",10,50);
+  cx.fillText("Game Over!!!!!!!!!!!!!!!! to bad for you. did you know your name is in a dictionary? it's under... FAILURE!!!!!",10,50);
   stop();
 }
 
+function gameWin() {
+  cx.fillStyle = "orange";
+  cx.font = "30px Jazzy";
+  cx.fillText("Good job you won... THE FIRST LEVEL Try beating the second HAR HAR HAR",10,50);
+  stop();
+}
 
 function obstacle() {
   cx.fillStyle="orange";
@@ -117,5 +135,26 @@ lava.push({x: 620, y: 800, w: 300, h: 10});
 lava.push({x: 920, y: 850, w: 1000, h: 10});
 
 function monster() {
+  cx.fillStyle = "green";
+  cx.fillRect(xMonster, yMonster, monsterW, monsterH);
+  xMonster += xMonsterSpeed;
+  yMonster += yMonsterSpeed;
+  if (x+playerW>xMonster&&xMonster+monsterW>x && yMonster+monsterH>y&&y+playerH>yMonster){
+    gameOver();
+   }
+   else if (xMonster<0) {
+     xMonsterSpeed = -xMonsterSpeed;
+   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 animate();
+
