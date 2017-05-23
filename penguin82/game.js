@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 canvas.width = 1000;
@@ -6,6 +7,15 @@ canvas.height = 700;
 var img_player = document.createElement("img");
 img_player.src = "https://static.giantbomb.com/uploads/original/0/3683/1120634-penguin_chick.jpg";
 
+var xM = 800;
+var yM = 180;
+var xMsp = -5;
+var yMsp = -5;
+
+var mW =100;
+var mH = 100;
+
+
 var x = 0;
 var y = 0;
 var xSpeed = 0;
@@ -13,9 +23,24 @@ var ySpeed = 0;
 var gravity = 5;
 var playerW = 50;
 var playerH = 50;
-var plat=[];
 var req;
-var lava=[];
+var plat = [];
+var lava = [];
+
+var xMonster = 500;
+var yMonster = 0;
+
+var xMonsterSpeed = -5;
+var yMonsterSpeed =0;
+
+var monsterW = 10;
+var monsterH = 10;
+
+
+var xC = 500;
+var yC = 300;
+var wC = 20;
+var hC = 20;
 
 
 function animate() {
@@ -24,9 +49,10 @@ function animate() {
   cx.drawImage(img_player, x, y,playerW,playerH);
   x+=xSpeed;
   y+=ySpeed + gravity;
-  
   platform();
   obstacle();
+  monster();
+  coin();
   if (x>canvas.width||x<0) {xSpeed=-xSpeed}
   if (y>canvas.height || y<0) {ySpeed = -ySpeed}
   }
@@ -39,9 +65,26 @@ for (var i = 0; i<plat.length; i++) {
   if (y==plat[i].y-playerH &&
       x>=plat[i].x-playerW &&
       x<plat[i].x + plat[i].w)
-      {gravity=0;}
+      {gravity=0}
+  }
 }
-}
+
+//plat.push({x:100, y:100, w:100, h:10});
+plat.push({x:0, y:200, w:100, h:10});
+plat.push({x:200, y: 200, w:400, h:10});
+lava.push({x:0, y:500, w:100, h:10});
+lava.push({x:0, y:500, w:100, h:10});
+
+//plat.push({x: 100, y: 100, w:100, h:10});
+//plat.push({x: 0, y: 100, w:100, h:10});
+//plat.push({x: 300, y: 100, w:100, h:10});
+//plat.push({x: 200, y: 300, w:100, h:10});
+//plat.push({x: 300, y: 300, w:100, h:10});
+
+//lava.push({x: 700, y: 300, w:100, h:10});
+//lava.push({x: 100, y: 400, w:100, h:100});
+//lava.push({x: 500, y: 400, w:100, h:100});
+//lava.push({x: 350, y: 10, w:100, h:10});
 
 
 function obstacle() {
@@ -56,13 +99,11 @@ for (var i = 0; i<lava.length; i++) {
 }
 
 function gameOver() {
-  stop();
   cx.fillStyle = "Red";
   cx.font = "30px Comic Sans MS";
-  //Strokestyle will make sure that your platforms don't turn red as well. Please let me know if you dislike the way it looks, let us know.
   cx.fillText("Game Over",10,50);
-  cx.fillStyle = "Green";
-
+  cx.fillStyle = "none";
+  stop();
 }
 
 function stop() {
@@ -89,15 +130,35 @@ function setDirection(dir) {
   xSpeed = 0;
   ySpeed = 0;
 } else if (dir ==="jump" && gravity ===0){
-  y = y-50;
+  y = y-100;
 }
 }
 
-plat.push({x: 100, y: 100, w:100, h:10});
-plat.push({x: 0, y: 100, w:100, h:10});
-plat.push({x: 300, y: 100, w:100, h:10});
-plat.push({x: 200, y: 300, w:100, h:10});
-plat.push({x: 300, y: 300, w:100, h:10});
+function coin() {
+   cxc.fillStyle = "pink";
+   cx.fillRect(xC,yC,wC,hC);
+  if (x+playerW > xC && xC+wC > x && yC+hC>y && y+playerH>yC)
+  
+}
+
+
+
+function monster() {
+  cx.fillStyle = "orange";
+  cx.fillRect(xM,yM,mW,mH);
+  xM+=xMsp;
+  yM+=yMsp;
+  if (x+playerW > xM && xM+mW >x && yM+mH>y && y+playerH>yM)
+  {gameOver()}
+  else if (xM<0 || xM>canvas.width-mW) {
+    xMsp = -xMsp;
+  }else if(yM<0 || yM>canvas.height-mH) {
+    yMsp = -yMsp;
+    
+  }
+}
+
+
 
 var keyActions = {
   32: "jump",
@@ -109,16 +170,12 @@ var keyActions = {
 
 document.addEventListener('keydown',function(event) {
 var dir = keyActions[event.keyCode];
-setDirection(dir) ;
+setDirection(dir);
 });
 document.addEventListener('keyup',function(event) {
 var dir = keyActions[event.keyCode];
 setDirection("stop") ;
 });
 
-lava.push({x: 700, y: 300, w:100, h:10});
-lava.push({x: 100, y: 400, w:100, h:100});
-lava.push({x: 500, y: 400, w:100, h:100});
-lava.push({x: 350, y: 10, w:100, h:10});
 
 animate();
