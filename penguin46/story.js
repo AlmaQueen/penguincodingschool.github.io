@@ -19,12 +19,20 @@ function help() {
     ele.style.display ="block"
   } else {}
 }
+function home() {
+  var ele = document.getElementById("homeform");
+  if(ele.style.display =="none") {
+    ele.style.display ="block"
+  } else {}
+}
+
 function helpzippy() {
   var el = document.getElementById("textbox");
   var x = document.getElementById("reply");
   var ele = document.getElementById("helpform");
   var help = prompt("I want to live with:");
   el.textContent = "I saw some "+help+"! They are this way!";
+  home();
   ele.style.display = "none";
   x.style.display = "none";
 }

@@ -57,4 +57,35 @@ font-size:16;
   background-size:cover;
   background-repeat:no-repeat;
 }
+#newhome {
+  background:url(https://newevolutiondesigns.com/images/freebies/city-wallpaper-2.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
 
+.align-bottomright {
+  margin-top: 650;
+  float: right;
+}
+
+.align-bottomleft {
+  position: absolute;
+  margin-top:450;
+}
+
+#warrior {
+  float: right;
+  color: white;
+  font-size:25;
+}
+
+#elsewhere {
+  background:url(http://eskipaper.com/images/savannah-desert-background-1.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+#sign {
+  font-size:40;
+  color:green;
+}
