@@ -11,28 +11,43 @@
 }
 
 #sing {
-  background: url("losangeles.jpg");
+  background: url("telephone.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#hollywood {
-  background: url("hollywood.jpg");
+#hide {
+  background: url("couch.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#beach {
-  background: url("beach.jpg");
+#invite {
+  background: url("dog2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#speaker {
-  width:150 ;
-  height: 200;
+#no {
+  background: url("angry.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
+#yes {
+  background: url("train.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#talk {
+  background: url("pitbullpack.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#dinner {
+  background: url("smile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .align-left {
   float: left;
   margin-right: 10;
@@ -71,9 +86,37 @@
   width: 800;
   height: 600;
 }
-
+#question {
+  width: 550;
+  height: 550;
+}
+#couch {
+  width: 800;
+  height: 600;
+}
 #textbox {
   color: white;
   font-size:24;
   font-family: Sans Serif;
+}
+#evelope {
+  width: 500;
+  height: 500;
+}
+#pitbull {
+  width: 600;
+  height: 600;
+}
+#textbox2 {
+  color: black;
+  font-size:24;
+  font-family: Sans Serif;
+}
+#textbox3 {
+  color:purple;
+  font-size:24;
+  font-family: Sans Serif;
+}
+#reply {
+  font-size:50;
 }
