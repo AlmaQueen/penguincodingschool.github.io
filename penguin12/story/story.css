@@ -19,9 +19,27 @@
   background: url(wallpaper.jpg);
   background-size: cover;
   font-family: Comfortaa;
+  
+}
+  
+#Washingtondc {
+  background: url(Washingtondc.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+}
 
-  
-  
+
+#shuttle {
+  background: url(shuttle.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
+}
+
+
+#hotel {
+  background:url(hotel.jpg);
+  background-size: cover;
+  font-family: Comfortaa;
 }
 
 #airporttextbox {
