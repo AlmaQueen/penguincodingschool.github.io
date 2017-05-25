@@ -1,0 +1,53 @@
+<body>
+  <h1>Penguin Quiz</h1>
+  
+  <form id="form1" action=" ">
+    
+    <p>Are penguins bird, fish, or mammal?</p>
+    <input type="radio" name="q1" value=0>
+    Fish<br>
+    <input type="radio" name="q1" value=1>
+    Bird<br>
+    <input type="radio" name="q1" value=0>
+    Mammal<br>
+    
+    <p>How many species of penguins are there?</p>
+    <input type="radio" name="q2" value=1>
+    17<br>
+    <input type="radio" name="q2" value=0>
+    42<br>
+    <input type="radio" name="q2" value=0>
+    33<br>
+    
+    <p>Which of these are real name of penguins?</p>
+    <input type="radio" name="q3" value=0>
+    Spaghetti<br>
+    <input type="radio" name="q3" value=0>
+    Fatty Goose<br>
+    <input type="radio" name="q3" value=1>
+    Macaroni<br>
+    <input type="radio" name="q3" value=0>
+    Lasagna<br>
+    
+    <input type="submit" value="I'm done">
+    
+  </form>
+  
+  <p>You got <span id="grade"> </span> correct out of 3.</p>
+  <p id="grade2"></p>
+  
+<script>
+  document.getElementById("form1").onsubmit=function() {
+    
+    q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+    q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+    q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+        result = q1 + q2 + q3;
+        document.getElementById("grade").innerHTML = result;
+   
+   return false;
+    
+  }
+</script>
+
+</body>
