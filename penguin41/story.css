@@ -1,0 +1,47 @@
+body {
+  background: url(http://kingofwallpapers.com/the-jungle/the-jungle-009.jpg);
+}
+
+.button {
+  background-color:lightgreen;
+  border:none;
+  color:white;
+  margin:5;
+  padding: 15 32;
+  text-align:center;
+  text-decoration:none;
+  display:inline-block;
+  font-size:16;
+}
+
+#la {
+   background:url(https://media.timeout.com/images/100541963/image.jpg);
+   background-size: cover;
+}
+
+#la-talk {
+  background:url(https://media.timeout.com/images/100541963/image.jpg);
+  background-size: cover;
+}
+#magicalkingdom {
+  background:url(http://www.axgig.com/images/75212871195142500058.jpg);
+  background-size: cover;
+}
+
+#gotham {
+  
+  background: url("http://vignette1.wikia.nocookie.net/batman/images/3/32/BatmanArkhamKnightGothamCity.jpg/revision/latest?cb=20140530010522;");
+  background-size: cover;
+}
+
+#beach {
+  background: url(beach.jpg);
+  background-size: cover;
+}
+
+#hawaii {
+  background:url(https://www.ncl.com/sites/default/files/DestinationGalleries.Hawaii.SnorkelingBay900x400.jpg);
+  background-size: cover;
+  
+  
+}
