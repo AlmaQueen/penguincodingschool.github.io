@@ -1,0 +1,66 @@
+<body>
+<hl>Dank Quiz</hl>
+
+<form id="form1" action=" ">
+<p>What is the font Memes use?</p>
+<input type="radio" name="q1" value=1>
+Impact font<br>
+<input type="radio" name="q1" value=0>
+Times new roman<br>
+<input type="radio" name="q1" value=0>
+Indie Flower<br>
+
+<p>Which meme is true?</p>
+<input type="radio" name="q2" value=0>
+The Rock<br>
+<input type="radio" name="q2" value=0>
+Spongebob<br>
+<input type="radio" name="q2" value=0>
+Tom Brady<br>
+<input type="radio" name="q2" value=1>
+All of them
+
+<p>Which Meme is Dankier?</p>
+<input type="radio" name="q3" value=0>
+Dinklebert<br>
+<input type="radio" name="q3" value=1>
+Trump and Ompa Lompa<br>
+<input type="radio" name="q3" value=0>
+Kevin Durant
+
+<p>Which meme is "fake"?</p>
+<select id="q4">
+  <option value=0>PewdiePie</option>
+  <option value=0>Zeus</option>
+  <option value=1>Willy Wonka</option>
+  <option value=0>Jacksepticeye</option>
+</select>
+
+<br>
+<input type="submit" value = "Submit">
+
+</form>
+
+<p>you got <span id="grade">_</span> correct out of 4.</p>
+<p id="grade2"></p>
+
+<script>
+  document.getElementById("form1").onsubmit=function() {
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+  q4=parseInt(document.getElementById("q4").value);
+    result = q1 + q2 + q3 + q4;
+    document.getElementById("grade").innerHTML = result;
+
+  if (result===0) {result2= "you don't know what memes are.<br><img src='https://media.giphy.com/media/SrKuys36Qccko/giphy.gif' width=300>";}
+  if (result===1) {result2= "you have little meme knowledge.<br><img src=' width=300>https://media.makeameme.org/created/a-little-knowledge.jpg' width=300>";}
+  if (result===2) {result2= "you are average.<br><img src='https://cdn.meme.am/instances/500x/67552463/that-would-be-great-congratulations-youre-average.jpg' width300>";}
+ 
+ document.getElementById("grade2").innerHTML = result2;
+ return false;
+  }
+</script>
+
+
+
