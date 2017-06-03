@@ -1,0 +1,46 @@
+#rainforest {
+  background: url(http://wallpapercave.com/wp/R6KOnaz.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  color: white;
+}
+#rockyterrain {
+  background: url(https://i1.wp.com/www.skywardeyes.com/wp-content/uploads/2016/10/IMG_8739.jpg?fit=1080%2C720);
+  background-size: cover;
+ background-repeat: no-repeat;
+}
+
+#cave {
+  background: url(http://img06.deviantart.net/d1cd/i/2008/226/c/9/dragon_cave_by_axtreem.jpg);
+  background-size: cover;
+ background-repeat: no-repeat;
+}
+
+#character {
+  width:250;
+  
+}
+
+.button {
+  background-color: purple;
+  border: none;
+  color: yellow;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  border-radius: 12px;
+}
+
+.align-left {
+  float:left;
+  margin-right:10;
+  
+}
+
+#textbox {
+ color: white;
+}
