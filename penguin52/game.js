@@ -119,6 +119,72 @@ function platform() {
   }
 }
  
+ var xC = 500;
+ var yC = 300;
+ var wC = 20;
+ var hC = 20;
+ 
+var img_coin = document.createElement("img");
+img_coin.src = "coin-animated.gif"
+ 
+ if(
+   x+playerW > xC &&
+   xC + wC> x &&
+   yC + hC >y &&
+   y+player >yC)
+  
+  if (x+playerW > xC && xC +wC> x && yC+hC >y && y+playerH >yC )
+  {
+    
+    xC =Math.random()*canvas.width;
+    yC =  Math.random()*canvas.height;
+  }
+  
+  if (x+playerW > xC && xC + wC>x  && yC+hC >y && y+playerH >yC ) {
+    xC = plat[i].x;
+    yC = plat[i].y-40;
+  }
+ 
+ animate()
+   obstacle();
+   platform();
+   monster();
+   coin();
+ 
+   
+   if (x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH > yC)
+   {
+     score +=10;
+     
+   }
+   
+   function coin() {
+     cx.drawImage(img.coin,xC,yC,wC,hC);
+     if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
+     {
+       score +=10;
+       var i = getRandomInt(1,plat.length);
+       xC = plat[i].x;
+       yC = plat[i].y-40;
+       // xC = Math.random()*(canvas.width-100);
+       //yC = getRandomInt(1,3)*150;
+       }
+   }
+ 
+ function getRandomInt (min,max) {
+   min = Math.ceil(min);
+   max = Math.ceil(max);
+   return Math.floor(Math.random()*(max-min)) +min;
+ }
+ 
+ function scoreDisplay() {
+   cx.fillStyle = "Green";
+   cx.font = "30x Comic Sans MS";
+   cx.fillText("Score: "+score,500,100);
+ }
+ 
+ if (score===100) {gameWin()}
+ 
 var xM = 800;
 var yM = 180;
 var xMsp = -5;
