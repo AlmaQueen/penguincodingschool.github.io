@@ -38,9 +38,12 @@ function animate() {
    platform();
    obstacle();
    monster();
+   coin();
+   monster2();
+   scoreDisplay();
    if (x>canvas.width||x<0) {xSpeed=-xSpeed}
    if (y>canvas.height || y<0) {ySpeed = -ySpeed}
-   if (y<0) {gameWin();}
+   if (y<0 && score>=100) {gameWin();}
 }
 
 function stop() {
@@ -126,8 +129,8 @@ function obstacle() {
 
 var xM = 800;
 var yM = 650;
-var yMsp = 0;
-var xMsp = -4;
+var yMsp = 3;
+var xMsp = -5;
 
 var mW =30;
 var mH =30;
@@ -141,9 +144,60 @@ function monster() {
   yM += yMsp;
   if (x+playerW > xM && xM+mW >x && yM+mH > y && y+playerH > yM) {
     gameOver ();
-  } else if (xM<275 || xM>canvas.width) {
+  } else if (xM<0 || xM>canvas.width) {
     xMsp = -xMsp;
+  } else if (yM<0 || yM>900) {
+    yMsp = -yMsp
   }
 }
+
+var xM2 = 500;
+var yM2 = 550;
+var yMsp2 = 3;
+var xMsp2 = -5;
+
+var mW2 =30;
+var mH2 =30;
+
+function monster2() {
+  cx.drawImage(img_monster, xM2,yM2, mW2, mH2);
+  xM2 += xMsp2;
+  yM2 += yMsp2;
+  if (x+playerW > xM2 && xM2+mW2 >x && yM2+mH2 > y && y+playerH > yM2) {
+    gameOver ();
+  } else if (xM2<0 || xM2>canvas.width) {
+    xMsp2 = -xMsp2;
+  } else if (yM2<0 || yM2>900) {
+    yMsp2 = -yMsp2
+  }
+}
+
+var img_coin = document.createElement("img");
+img_coin.src = "https://s-media-cache-ak0.pinimg.com/originals/d3/5c/ae/d35cae18fdc0463f065f9df49374239a.png";
+
+var xC = 300;
+var yC = 750;
+var wC = 30;
+var hC = 30;
+var score = 0;
+
+function coin() {
+  cx.drawImage(img_coin,xC, yC, wC, hC);
+  if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
+  {
+    score += 10;
+    var i = Math.ceil(Math.random()*plat.length);
+    xC = plat[i].x;
+    yC = plat[i].y-40;
+  }
+}
+
+function scoreDisplay(){
+  cx.fillStyle="green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Score: "+score, 500,100);
+  
+}
+
 
 animate();
