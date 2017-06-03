@@ -12,10 +12,7 @@ function talk() {
   } else if  (x.selectedIndex ==5) {
     el.textContent = "i will tell you my name if you tell me yours first";
     purpledragon();
-  
   } else {}
-  
-  
 }
 
 function purpledragon() {
@@ -45,3 +42,22 @@ function purpledragonform() {
     ele2.style.display ="block";
   } else {}
 }
+
+function cavetalk() {
+  var el = document.getElementById("textbox") ;
+  var x = document.getElementById("reply") ;
+  if (x.selectedIndex ==1) {
+    el.textContent = "thank you!i think.";
+  }else if (x.selectedIndex ==2) {
+    el.textContent = "That is gladim. A lot of dragons come to my cave to seek refuge.";
+  } else  if (x.selectedIndex ==3) {
+    el.textContent = "yes. it is not the best place ot live, but it is hidden so thorn and his dragons can not find it."
+  } else if  (x.selectedIndex ==4) {
+    el.textContent = "yes. i  have grown accustomed to it as the other dragons have. i would rather sleep here than sleep on the dungeon floor.";
+  } else if  (x.selectedIndex ==5) {
+    el.textContent = "i will tell you once we get deep enough in the cave.";
+    purpledragon();
+  } else {}
+}
+
+

@@ -11,7 +11,11 @@
  background-repeat: no-repeat;
 }
 
-
+#cave {
+  background: url(http://img06.deviantart.net/d1cd/i/2008/226/c/9/dragon_cave_by_axtreem.jpg);
+  background-size: cover;
+ background-repeat: no-repeat;
+}
 
 #character {
   width:250;
