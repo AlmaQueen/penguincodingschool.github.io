@@ -6,12 +6,17 @@ background-repeat:no-repeat;
 
 #arctic {
   
-  background: url();
+  background: url(http://i.huffpost.com/gen/4724460/images/o-ARCTIC-facebook.jpg);
 background-size:cover;
 background-repeat:no-repeat;
   
 }
-
+#lake {
+  
+  background: url(https://media3.s-nbcnews.com/j/msnbc/components/video/201610/nc_shrinkingsaltlake1020_1920x1080.nbcnews-ux-1080-600.jpg);
+background-size:cover;
+background-repeat:no-repeat;
+}
 #seagull1{
   width: 75;
   height: 75;
