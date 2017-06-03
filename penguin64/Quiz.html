@@ -1,0 +1,87 @@
+<html>
+ <body>
+  <h1> F1 Quiz</h1>
+  <form id="form1" action=" ">
+    <p>Who is the F1 driver on top of the leaderboard</p>
+    <input type="radio" name="q1" value=0>
+    Sergio Perez<br>
+    <input type="radio" name="q1" value=0>
+    	Lewis Hamilton<br>
+    <input type="radio" name="q1" value=0>
+    		Kimi Raikkonen<br>
+    <input type="radio" name="q1" value=0>
+     Daniel Ricciardo<br>
+    <input type="radio" name="q1" value=1>
+    	Sebastian Vettel<br>
+  <p>Which one of these teams are not real</p>
+    <input type="radio" name="q2" value=0>
+    Williams<br>
+    <input type="radio" name="q2" value=0>
+    	Lamborghini<br>
+    <input type="radio" name="q2" value=0>
+    		Force India<br>
+    <input type="radio" name="q2" value=0>
+     Haas<br>
+    <input type="radio" name="q2" value=0>
+    	Torro Rosso<br>
+    	<p>What F1 driver is doing terrible this year</p>
+    <input type="radio" name="q3" value=0>
+    Sergio perez<br>
+    <input type="radio" name="q3" value=0>
+    	Sammy Sandson<br>
+    <input type="radio" name="q3" value=0>
+    		Gavin Ohler<br>
+    <input type="radio" name="q3" value=0>
+     Valterri Bottas<br>
+    <input type="radio" name="q3" value=0>
+    	Jenson Button<br>
+    	<p>Where was the first F1 race?</p>
+    <input type="radio" name="q4" value=0>
+    Pau<br>
+    <input type="radio" name="q4" value=0>
+    New York<br>
+    <input type="radio" name="q4" value=0>
+    		Monaco<br>
+    <input type="radio" name="q4" value=0>
+     London<br>
+    <input type="radio" name="q4" value=0>
+    Timbuktu<br>
+    	<p>What are F1 races called</p>
+    <input type="radio" name="q5" value=0>
+    Grand Prix<br>
+    <input type="radio" name="q5" value=0>
+    	Race<br>
+    <input type="radio" name="q5" value=0>
+    	_____500	<br>
+    <input type="radio" name="q5" value=0>
+     Cup<br>
+    <input type="radio" name="q5" value=0>
+    	Speed<br>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="submit">
+  </form>
+  <p>You got <span id="grade">_</span> correct out of 5. </p>
+  <p id="grade2"></p>
+  <script>
+    document.getElementById("form1").onsubmit=function() {
+      q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+      q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+      q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+      q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+      q5=parseInt(document.querySelector("input[name='q4']:checked").value);
+      result = q1 + q2 + q3 + q4 + q5;
+      document.getElementById("grade").innerHTML = result;
+      if (result===0) {result2= "?;}
+      if (result===1) {result2= "";}
+      if (result===2) {result2= "";}
+      if (result===3) {result2= "";}
+      if (result===4) {result2= "";}
+      if (result===5) {result2= "";}
+      document.getElementById("grade2").innerHTML = result2;
+      return false;
+    }
+  </script>
+</body>
+</html>
