@@ -1,7 +1,7 @@
-//'use strict';
+  //'use strict';
 enchant();
 window.onload=function() {
-  var game = new Core(300,300);
+  var game = new Core(400,400);
   game.keybind(32,'a');
   game.spriteSheetWidth = 256;
   game.spriteSheetHeight = 16;
@@ -59,13 +59,15 @@ function setPlayer() {
   player.image = new Surface(game.spriteSheetWidth,game.spriteSheetHeight);
   player.image.draw(game.assets['sprites.png']);
   player.name = "John Cena ";
-  player.charClass = "Class:Noob";
+  player.charClass = "Noob";
   player.exp = 0;
-  player.level=1;
-  player.gp = 100;
+//  player.level=1;
+  player.gold = 10000;
   player.hp = 100;
   player.mp= 100;
   player.maxHp =100;
+  //ADD NEW player attribute
+  player.attack = 10;
   player.statusLabel= new Label("");
   
 }
@@ -75,14 +77,14 @@ player.displayStatus = function() {
   player.statusLabel.height=170;
   player.statusLabel.x = undefined;
   player.statusLabel.y = undefined;
-  player.statusLabel.color = "Red";
-  player.statusLabel.backgroundColor = "Black";
+  player.statusLabel.color = "red";
+  player.statusLabel.backgroundColor = "black";
   player.statusLabel.text =
   "--" + player.name + " " + player.charClass+
   "<br>--HP: "+player.hp + "/" + player.maxHp +
   "<br>--Exp: "+player.exp +
   "<br>--Level: "+player.level+
-  "<br>--Gold: "+player.gp+
+  "<br>--Gold: "+player.gold+
   "<br>--INVENTORY:<br>"+
   player.showInventory(0);
 };
@@ -151,7 +153,7 @@ var npc = {
 
 var greeter = {
   action: function() {
-    npc.say("hello, my name is Jeff");
+    npc.say("hello, how do you do?");
   }
 };
 var shopScene = new Scene();
@@ -161,20 +163,214 @@ var cat = {
     
   }
 };
-
+//NEW battlescene and Fighter Character
+var battleScene = new Scene();
 var dude = {
+  maxHp: 100,
+  hp:100,
+  sprite: 15,
+  attack: 10,
+  exp:3,
+  gold:10,
   action: function() {
-    npc.say("What do you want, Noob?");
+    player.currentEnemy = this;
+    game.pushScene(battleScene);
   }
 };
 
 var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
 
+var setBattle = function(){
+  //BASIC SETUP for a SCENE
+  battleScene.backgroundColor = "black";
+  var battle = new Group();
+  battle.menu = new Label();
+  battle.menu.x = 20;
+  battle.menu.y = 170;
+  battle.menu.color = "white";
+  battle.activeAction = 0;
+  //LABEL FOR PLAYER STATUS IN BATTLE SCENE
+  battle.getPlayerStatus = function(){
+    return "HP: " + player.hp + "<br>Magic: "+player.mp;};
+  battle.playerStatus = new Label(battle.getPlayerStatus());
+  battle.playerStatus.color = "white";
+  battle.playerStatus.x = 200;
+  battle.playerStatus.y = 120;
+  //ACTUAL BATTLE DETAILS
+    battle.hitStrength = function(hit) {
+      for(var i = 0; i<player.inventory.length; i++) {
+        if(player.inventory[i] === 0) {var BladeDoom = true;}
+        }
+  if(BladeDoom) {return Math.round(Math.random()+2)*hit;}
+  else {return Math.round(Math.random()+0.5)*hit;}
+    }
+    
+  battle.enemyhitStrengh = function(hit) {
+      for(var i = 0; i<player.inventory.length; i++) {
+        if(player.inventory[i] === 1) {var Claw = true;}
+      }
+      if(Claw) {return 0;}
+      else {return Math.round((Math.random()+1)*hit);}
+  return Math.round((Math.random()+.5)*hit);}
+  
+    
+ 
+ 
+ 
+  //WINNING A BATTLE
+  battle.won = function() {
+    battle.over =true;
+    player.exp += player.currentEnemy.exp;
+    player.gold += player.currentEnemy.gold;
+    player.currentEnemy.hp = player.currentEnemy.maxHp;
+    //player.currentEnemy.hp = player.currentEnemy.maxHp;
+    player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+" gold.";
+    player.statusLabel.height =45;
+    //erase the dude from map
+  };
+  //LOSING A BATTLE
+  battle.lost = function() {
+    battle.over = true;
+    player.hp = player.maxHp;
+    player.mp = player.maxMp;
+    player.gold = Math.round(player.gold/2);
+    player.statusLabel.text = "You lost."
+    player.statusLabel.height = 12;
+  }
+  //ATTACK SEQUENCE
+  battle.playerAttack = function(){
+    var currentEnemy = player.currentEnemy;
+    var playerHit = battle.hitStrength(player.attack);
+    currentEnemy.hp = currentEnemy.hp - playerHit;
+    battle.menu.text = "Your hit did "+playerHit+" damage!"+ currentEnemy.hp;
+    if(currentEnemy.hp<=0){
+      battle.won();
+    }
+  };
+  battle.enemyAttack = function() {
+    var currentEnemy = player.currentEnemy;
+    var enemyHit = battle.hitStrength(currentEnemy.attack);
+    player.hp = player.hp - enemyHit;
+    battle.menu.text = "You took "+enemyHit+" damage!"
+    if(player.hp<=0){
+      battle.lost();
+    }
+  };
+  battle.actions = [
+    {name: "Fight", action:function(){
+    battle.wait = true;
+    battle.playerAttack();
+    setTimeout(function(){
+      if(!battle.over){
+        battle.enemyAttack();
+      };
+      if(!battle.over){
+        setTimeout(function(){
+          battle.menu.text = battle.listActions();
+          battle.wait = false;
+        },1000)
+      } else {
+        setTimeout(function(){
+          battle.menu.text = "";
+          game.popScene();
+        },1000)
+      };
+    },1000);
+  }},
+    {name: "Magic", action:function(){
+      battle.menu.text = "You don't know any magic spells";
+      battle.wait = true;
+      battle.activeAction = 0;
+      setTimeout(function(){
+        battle.menu.text = battle.listActions();
+        battle.wait = false;
+      },1000);
+    }},
+    {name: "Run Away", action:function(){
+      game.pause();
+      player.statusLabel.text = "You chicken boi!";
+      player.statusLabel.height = 12;
+      battle.menu.text = "";
+      game.popScene();
+    }},
+  ];
+  //BATTLE LIST ACTIONS
+  battle.listActions = function(){
+    battle.optionText = [];
+    for(var i = 0; i<battle.actions.length;i++){
+      if(i === battle.activeAction) {
+        battle.optionText[i] = "> "+battle.actions[i].name;
+      } else {
+        battle.optionText[i] = battle.actions[i].name;
+      }
+    }
+    return battle.optionText.join("<br>");
+  };
+  battle.addFighters = function(){
+    var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
+    image.draw(game.assets['sprites.png']);
+    battle.player = new Sprite(game.spriteWidth, game.spriteHeight);
+    battle.player.image = image;
+    battle.player.frame = 7;
+    battle.player.x = 150;
+    battle.player.y = 120;
+    battle.player.scaleX = 2;
+    battle.player.scaleY = 2;
+    battle.enemy = new Sprite(game.spriteWidth,game.spriteHeight);
+    battle.enemy.image = image;
+    battle.enemy.x = 150;
+    battle.enemy.y = 70;
+    battle.enemy.scaleX = 2;
+    battle.enemy.scaleY = 2;
+    battle.addChild(battle.enemy);
+  };
+  battle.addFighters();
+  //Battle Scene Enter
+  
+  battleScene.on('enter', function() {
+    battle.over = false;
+    battle.wait = true;
+    battle.menu.text = "";
+    battle.enemy.frame = player.currentEnemy.sprite;
+    setTimeout(function(){
+      battle.menu.text = battle.listActions();
+      battle.wait = false;
+    },500);
+  });
+  battleScene.on('enterframe',function() {
+    if(!battle.wait){
+      if(game.input.a){
+        battle.actions[battle.activeAction].action();
+      } else if (game.input.down){
+        battle.activeAction = (battle.activeAction+1)% battle.actions.length;
+        battle.menu.text = battle.listActions();
+      } else if (game.input.up){
+        battle.activeAction = (battle.activeAction-1+battle.actions.length)%battle.actions.length;
+        battle.menu.text = battle.listActions();
+      } battle.playerStatus.text = battle.getPlayerStatus();
+    }
+  });
+  battleScene.on('exit',function(){
+    setTimeout(function(){
+      battle.menu.text="";
+      battle.activeAction = 0;
+      battle.playerStatus.text=battle.getPlayerStatus();
+      game.resume();
+    },1000);
+  });
+  battle.addChild(battle.playerStatus);
+  battle.addChild(battle.menu);
+  battle.addChild(battle.player);
+  battleScene.addChild(battle);
+};
+
+  
+
 var setShopping = function(){
     var shop = new Group();
     shop.itemSelected = 0;
     shop.shoppingFunds = function(){
-      return "Gold: " + player.gp;
+      return "Gold: " + player.gold;
     };
     shop.drawCat = function(){
       var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
@@ -208,9 +404,8 @@ var setShopping = function(){
         item.scaleY = 2;
         item.image = image;
         this.addChild(item);
-        
-        var itemDescription = new Label("      "+game.items[i].price + "<br>" + game.items[i].description);
-        itemDescription.x = itemLocationX - 14;
+        var itemDescription = new Label(game.items[i].price + "<br>" + game.items[i].description);
+        itemDescription.x = itemLocationX - 8;
         itemDescription.y = itemLocationY + 40;
         itemDescription.color = '#fff';
         this.addChild(itemDescription);
@@ -259,20 +454,22 @@ var setShopping = function(){
     });
     shop.attemptToBuy = function(){
       var itemPrice = game.items[this.itemSelected].price;
-      if (player.gp < itemPrice){
+      if (player.gold < itemPrice){
         this.message.text = this.apology;
       }else{
         player.visibleItems = [];
-        player.gp = player.gp - itemPrice;
+        player.gold = player.gold - itemPrice;
         player.inventory.push(game.items[this.itemSelected].id);
         this.message.text = this.sale;
+        game.keyunbind(32);
+        game.keybind(32,'a');
       }
     };
     
-    shop.greeting = "Hello, welcome to my shop of life.";
-    shop.apology = "Sorry, you don't have enough money, shoo!";
-    shop.sale = "Here is your item";
-    shop.farewell = "Come again later!";
+    shop.greeting = "Hi!  I'm a Cat. Meow. I sell things.";
+    shop.apology = "Sorry, you don't have enough money.";
+    shop.sale = "Here ya go!";
+    shop.farewell = "Come again! Meow!";
     shop.message = new Label(shop.greeting);
     shop.drawCat();
     var shoppingFunds = new Label(shop.shoppingFunds());
@@ -360,6 +557,8 @@ game.onload = function() {
   setMaps();
   setStage();
   setShopping();
+  //NEW
+  setBattle();
   player.on('enterframe', function() {
     player.move();
     if (game.input.a) {
