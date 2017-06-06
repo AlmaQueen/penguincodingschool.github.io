@@ -1,6 +1,45 @@
+<head>
+  <style>
+    #menu {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: green;
+}
+  
+#menu li {
+     float: center;
+     
+}
+
+#menu li a {
+       display: block;
+       color: gray;
+       text-align: left;
+       padding: 14;
+       text-decoration: none;
+       
+}
+
+#menu li a:hover {
+     background-color: brown;
+     
+}
+
+#menu .active {
+     background-color: green;
+  </style>
+</head>
 <body>
+  <ul id="menu">
+  <li><a href="index.html">Home</a></li>
+   <li><a href="videos.html">Videos</a></li>
+   <li><a href="pictures.html">pictures</a></li>
+   <li><a href="Learn.html">Learn</a></li>
+</ul>
+
   <h1>Snake Quiz</h1>
-  <form id="form1" action=" "></form>
+  
+  <form id="form1" action=" ">
   <p>Are snakes mammals, amphibians, or reptiles?</p>
   <input type="radio" name="q1" value="0">
   Mammal<br>
@@ -9,7 +48,7 @@
   <input type="radio" name="q1" value="1">
   reptiles<br>
   
-  <p>What is the largest catagory of snakes?</p>
+  <p>What is the largest kind of snakes?</p>
   <input type="radio" name="q2" value="0">
   Viper<br>
   <input type="radio" name="q2" value="1">
@@ -26,8 +65,41 @@
   <option value="1">Antarctica</option>
 </select>
 <p>How do snakes eat their food?</p>
-  <input type="radio" name="q3" value="0">
+  <input type="radio" name="q4" value="0">
   Swallow food whole<br>
-  <input type="radio" name="q3" value="1">
+  <input type="radio" name="q4" value="1">
   chew their food<br>
+<p>Do some snakes give birth to live babies?</p>
+<input type="radio" name="q5" value="1">
+Yes<br>
+<input type="radio" name="q5" value="0">
+No<br>
+
+<input type="submit" value="Submit">
+
+</form>
+<p>You got <span id="grade"></span> correct out of 5.</p><p id="grade2"></p>
+
+
+<script>
+    document.getElemementById("form1").onsubmit=function() {
+q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+q3=parseInt(document.getElementById("q3".value));
+q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+q5=parseInt(document.querySelector("input[name='q5']:checked").value);
+   result = q1 + q2 + q3 + q4 + q5;
+   document.getElementById("grade").innerHTML = result;
+
+if (result===0) {result2= "You need to learn more about <b>Snakes!</b><br><img src='0.jpg' width=300>";}
+if (result===1) {result2= "Try again! <br><img src='0.jpg' width=300>";}
+if (result===2) {result2= "You got less than half.Try again! <br><img src='0.jpg' width=300>";}
+if (result===3) {result2= "This is about avarage. No one wants to be avarage. Try again!<br><img src='0.jpg' width=300>";}
+if (result===4) {result2= "You are sooooooooo close! Try again!<br><img src='0.jpg' width=300>";}
+if (result===5) {result2= "Congratulations! You are now a snake master.<br><img src='0.jpg' width=300>";}
+document.getElementById("grade2").innerHTML = result2
+    return false;
+
+}
+  </script>
 </body>
