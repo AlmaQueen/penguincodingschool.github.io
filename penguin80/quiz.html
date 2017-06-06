@@ -1,11 +1,23 @@
 <head>
   <style>
+    #giraffe {
+  list-style:none;
+  background-color:lightblue;
+  overflow:hidden;
+  margin:0;
+}
     body {
       background-color:lightblue;
     }
-    
-    
-    
+    #giraffe li {
+  float:right;
+}
+    #giraffe li a {
+  display:block;
+  padding:14;
+  Color:purple;
+  text-decoration:none;
+  
   </style>
   
 </head>
@@ -14,7 +26,9 @@
 
 
 <body>
-  
+  <ul id="giraffe">
+    <li><a href="index.html"> Back to Home </a></li>
+  </ul>
   
   <h1> Cat quiz </h1>
   <form id="form1" action=" ">
@@ -65,7 +79,7 @@
     <br>
     <input type="submit" value = "Submit">
     </form>
-    <p>You got <span id="grade">_</span> correct out of 5</p>
+    <p>You got <span id="grade">_</span> correct out of 4</p>
     <p id="grade2"></p>
     
   <script>

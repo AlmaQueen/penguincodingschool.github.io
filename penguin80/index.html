@@ -21,7 +21,14 @@
 }
 
 .slider-holder{
-  
+  width: 800;
+  height: 400;
+  background-color:lightblue;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+  text-align:center;
+  overflow:hidden;
 }
 
 
@@ -54,7 +61,9 @@
     color:white;
   }
   
-  
+  body {
+      background-color:lightblue;
+    }
   
   
 </style>
@@ -64,12 +73,41 @@
 
 
 <body>
+<button onclick="elephant()">Ask</button>
+  
+  
+  <script>
+    function elephant() {
+      alert ("hello, welcome to my website")
+      var answer = prompt("Are you a cat person or a dog person?")
+      if (answer == "a cat person"|| answer=="cat person")
+         {var answer1 = prompt("Would you like to take the quiz?");
+            if (answer1 == "yes"){window.location="quiz.html"}
+            else if (answer1== "no"){alert("Okay")}
+            else {window.location="index.html"}
+           
+         }
+      else if (answer == "a dog person"|| answer=="dog person")
+      {alert("this website is not for you");
+      window.location="https://www.google.com/"}
+      else {window.location="index.html"}
+    }
+    
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
   
   <ul id="giraffe">
     <li><a href="index.html"> Home </a></li>
     <li><a href="pictures.html"> Pictures </a></li>
     <li><a href="videos.html"> Videos </a></li>
-    
+    <li><a href="quiz.html"> Take the Quiz </a></li>
     
   </ul>
   
@@ -87,7 +125,7 @@
   
  <img src="http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg" width=800 height=400 class="slider-image">
  
- <img src="https://s-media-cache-ak0.pinimg.com/736x/27/cf/cd/27cfcd2fefc4db6d3de473e3f7c7f00b.jpg" width=650 height=500 class="slider-image">
+ <img src="https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg" width=800 height=400 class="slider-image">
   
   <img src="http://www.kotiki.ru/photos/hugging_cats/1.jpg" width=800 height=400 class="slider-image">
   
@@ -107,10 +145,7 @@
   </div>
   </div>
   
-<img src="http://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-4-57b30a939dff5__605.jpg">
 
-<a href="https://en.wikipedia.org/wiki/Cat">Click here to learn about cats</a>
-<br>
 <iframe src="https://www.youtube.com/embed/ZGl8vrceu1E"></iframe>
 
 
