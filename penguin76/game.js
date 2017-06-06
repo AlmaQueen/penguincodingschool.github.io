@@ -13,6 +13,7 @@ var gravity =5;
 var playerW = 50;
 var playerH = 50;
 var req;
+
 function animate () {
   req = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
@@ -31,6 +32,8 @@ function gameOver() {
   cx.fillText("Game Over",10,50);
   stop()
 }
+
+
 var xM = 800;
 var yM = 180;
 var xMsp = -5;
@@ -40,9 +43,9 @@ var mW =10;
 var mH =10;
 
 function stop() {
-  if(req ) {
+  if(req) {
     cancelAnimationFrame(req);
-    req = undefined
+    req = undefined;
   }
 }
 
@@ -53,6 +56,8 @@ plat.push({x: 300, y: 160, w:100, h:10});
 plat.push({x: 450, y: 140, w:150, h:10});
 plat.push({x: 250, y: 100, w:100, h:10});
 plat.push({x: 200, y: 200, w:300, h:10})
+
+
 var lava=[];
 lava.push({x: 0, y: 350, w:1000, h:30});
 
@@ -72,9 +77,7 @@ function obstacle() {
 cx.fillStyle="red";
 for (var i = 0; i<lava.length; i++) {
   cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
-  if (y==lava[i].y-playerH &&
-  x>=lava[i].x-playerW &&
-  x<=lava[i].x + plat[i].w)
+  if (y==lava[i].y-playerH && x>=lava[i].x-playerW && x<=lava[i].x + lava[i].w)
    {gameOver()}
 }
 }
