@@ -1,0 +1,54 @@
+<head>
+  <style>
+  h1 {
+    color: blue;
+    text-align: center;
+    font-size: 120px;
+    font-family: Arial;
+  }
+  
+  h2 {
+    color: white;
+    text-align:center;
+    font-size:60px;
+    font-family: Arial;
+  }
+  
+  body {
+    /*background-color:green;*/
+    background: url(https://static.pexels.com/photos/166651/pexels-photo-166651.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  
+  </style>
+</head>
+
+<body>
+<h1>World of Horses</h1>
+<h2>This is a website about horses.</h2>
+<a href="https://en.wikipedia.org/wiki/Horse">More information</a><br><br>
+<img src="https://static.pexels.com/photos/15243/horse-animal.jpg" height="600" width="900">
+
+<button onclick="ask()">Click here</button>
+
+<script>
+function ask () {
+  alert("Hello");
+  var name = prompt("What is your name?");
+  alert("hello " +name)
+  var answer = prompt("do you ride horses?")
+  if(answer=="yes") {
+    alert("that's awesome")
+  } else if (answer=="no") {
+    alert ("you should!")
+  }
+}
+  
+  
+  
+  
+</script>
+
+</body>
