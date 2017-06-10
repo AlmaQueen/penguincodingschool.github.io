@@ -69,8 +69,11 @@ function setDirection(dir) {
 }
 }
 
+var losesound= new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_mariodie.wav');
+
 function gameOver() {
-  cx.fillStyle = "Red"
+  losesound.play();
+  cx.fillStyle = "Red";
   cx.font = "30px Comic Sans MS";
   cx.fillText("Game Over:(:(:(",500,150);
   stop();
@@ -181,10 +184,17 @@ var wC = 30;
 var hC = 30;
 var score = 0;
 
+var coinsound = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_coin.wav');
+
+var bkgdsound = new Audio('super_mario_medley.mp3')
+bkgdsound.loop = true;
+bkgdsound.play()
+
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
   {
+    coinsound.play();
     score += 10;
     var i = Math.ceil(Math.random()*plat.length);
     xC = plat[i].x;
