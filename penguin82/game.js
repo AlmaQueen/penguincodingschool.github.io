@@ -5,7 +5,7 @@ canvas.width = 1000;
 canvas.height = 700;
 
 var img_player = document.createElement("img");
-img_player.src = "https://static.giantbomb.com/uploads/original/0/3683/1120634-penguin_chick.jpg";
+img_player.src = "http://img08.deviantart.net/4b3d/i/2014/017/f/5/stick_figure_batman_by_cap1carlson-d72mp54.jpg";
 
 var xM = 800;
 var yM = 180;
@@ -24,7 +24,6 @@ var gravity = 5;
 var playerW = 50;
 var playerH = 50;
 var req;
-var plat = [];
 var lava = [];
 
 var xMonster = 500;
@@ -35,13 +34,6 @@ var yMonsterSpeed =0;
 
 var monsterW = 10;
 var monsterH = 10;
-
-
-var xC = 500;
-var yC = 300;
-var wC = 20;
-var hC = 20;
-
 
 function animate() {
   req = requestAnimationFrame(animate);
@@ -57,6 +49,10 @@ function animate() {
   if (y>canvas.height || y<0) {ySpeed = -ySpeed}
   }
 
+var plat = [];
+plat.push({x:0, y:200, w:100, h:10});
+plat.push({x:200, y:200, w:400, h:10});
+
 function platform() {
 gravity =5;
 cx.fillStyle="grey";
@@ -70,8 +66,7 @@ for (var i = 0; i<plat.length; i++) {
 }
 
 //plat.push({x:100, y:100, w:100, h:10});
-plat.push({x:0, y:200, w:100, h:10});
-plat.push({x:200, y: 200, w:400, h:10});
+
 lava.push({x:0, y:500, w:100, h:10});
 lava.push({x:0, y:500, w:100, h:10});
 
@@ -134,12 +129,23 @@ function setDirection(dir) {
 }
 }
 
+var xC = 100;
+var yC = 100;
+var wC = 20;
+var hC = 20;
+var score=0;
+
+
 function coin() {
-   cxc.fillStyle = "pink";
+   cx.fillStyle = "pink";
    cx.fillRect(xC,yC,wC,hC);
-  if (x+playerW > xC && xC+wC > x && yC+hC>y && y+playerH>yC)
-  
-}
+  if(x+playerW > xC && xC+wC > x && yC+hC>y && y+playerH>yC)
+   {score += 10;
+    var i = Math.ceil(Math.random()*plat.length);
+      xC = plat[0].x;
+      yC = plat[0].y -40;
+    }
+   }
 
 
 
@@ -158,7 +164,11 @@ function monster() {
   }
 }
 
-
+function scoreDisplay() {
+  cx.fillStyle = "green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Score: "+score,500,100);
+}
 
 var keyActions = {
   32: "jump",
