@@ -150,7 +150,7 @@ img_coin.src = "coin-animated.gif"
    platform();
    monster();
    coin();
- 
+
    
    if (x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH > yC)
    {
@@ -203,6 +203,19 @@ function monster() {
   }
 }
 
+var audio = new Audio('audio_file.wav');
+
+audio.play();
+
+var backgroundmusic = new Audio('backgroundmusic.mp3')
+backgroundmusic.loop = true;
+backgroundmusic.play()
+
+funtion coin () {
+  if (//collision statement)
+  { collision.play();
+  //other statements
+  }
 
 
   animate();
