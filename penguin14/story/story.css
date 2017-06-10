@@ -28,17 +28,34 @@ background: url(https://il2.picdn.net/shutterstock/videos/8161651/thumb/1.jpg);
   
 }
 
-
 #desert {
 background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_4898_2560x1600.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+#winpage {
+background: url(http://wallpapercave.com/wp/F85GHXH.jpg);
  background-size: cover;
  background-repeat: no-repeat;
   
   
 }
 
+#losepage {
+  background: url(http://allinclusive.com.ua/wp-content/uploads/2016/01/Fail-Movie-Logo-851.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ color: #FE0000;
+}
 
+.blue {
+  color: #81F7F3;
+}
 
+.purple {
+  color: #E470FF;
+}
 
 .button {
   background-color: purple;
@@ -58,6 +75,10 @@ background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_48
  list-style: none;
 }
 
+#choices2{
+ list-style: none;
+}
+
 #textbox {
   color: purple;
   font-size: 20;
@@ -69,11 +90,29 @@ background: url(https://wallpaperscraft.com/image/desert_rainbow_after_a_rain_48
   font-family: Arial;
 }
 
+#pink {
+  color: pink;
+}
+
+#yellow {
+  color: yellow;
+}
 
 
-
+#magic {
+  width:20;
+  height:20;
+  margin-top:80%;
+  margin-right:80%;
+}
 
 .align-left {
   float:left;
   margin-right: 10;
 }
+
+.align-right {
+  float:right;
+  margin-left: 10;
+}
+
