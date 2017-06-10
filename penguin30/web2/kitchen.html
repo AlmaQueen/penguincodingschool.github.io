@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="story.js"></script>
+    <title>Choose Your Story</title>
+    <link rel="stylesheet" href="story.css">
+  </head>
+  <body id="Kitchen">
+    <script src="story.js"></script>
+    <img src="main-character.jpg" class="align-left">
+    <img src="mom.jpg" class="align-left">
+    
+    <p id="textbox"></p>
+    
+    <form>
+      <select id="reply" onchange="BeforeSchool()">
+        <option>--Pick Your Response--</option>
+        <option>Good Morning, Mom.</option>
+        <option>What's for breakfast?</option>
+        <option>Lunch?</option>
+        <option>Glad I didn't skip school.</option>
+      </select>
+    </form>
+    <form id="SchoolBus" style="display:none">
+    <ul id="choices">
+      <li>
+        <a class="button" href="OnTheWayToSchool.html">Get on the School Bus</a>
+      </li>
+    </ul>
+  </form>
+</html>

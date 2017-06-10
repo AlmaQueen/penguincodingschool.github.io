@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Choose Your Story</title>
+    <link rel="stylesheet" href="story.css">
+  </head>
+  <body id="ConcertEntrance">
+    <script src="story.js"></script>
+    <img src="main-character.jpg" class="align-left">
+    <img src="Liv_bestfriend.jpg" class="align-left">
+    
+    <p id="textbox"></p>
+    
+    <form>
+      <select id="reply" onchange="ConcertEntrance()">
+        <option>--Pick Your Response--</option>
+        <option>Liv, I can't believe you brought me here.</option>
+        <option>Will we be able to see Justin Bieber?Are we in the first few rows?</option>
+        <option>We're literally 120 miles away from home; are you sure we're ok? My parents don't know about this. Do your parents?</option>
+      </select>
+    </form>
+    <form id="Entrance" style="display:none">
+    <ul id="choices">
+      <li>
+        <a class="button" href="OnTheWayToSchool.html">Trust Liv and go inside</a>
+      </li>
+    </ul>
+    </form>
+  </body>
+</html>
