@@ -1,0 +1,76 @@
+body{
+  background:url(http://www.outdoorlife.com/sites/outdoorlife.com/files/styles/large_1x_/public/import/2015/desert.jpg?itok=5IxIpNVi);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+#survivalPerson{
+  width:500;
+  height:500;
+}
+#survive{
+  color:white;
+  font-size:50;
+}
+#mirage{
+ width:500;
+ height:500;
+}
+#lake {
+   background:url(http://www.startupsecrets.com/wp-content/uploads/mirage.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  font-size:100;
+}
+#skull{
+  width:300;
+  height:300;
+}
+#cactus{
+  font-size:100;
+     background:url(http://www.in-the-desert.com/enlarge/organenlarge.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  
+}
+#witch{
+  font-size:100;
+     background:url(http://tinyhouseswoon.com/wp-content/uploads/2012/10/tiny-thatched-hut-1.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+#witches{
+  width:300;
+  height:300;
+}
+
+.button{
+  background-color:white;
+  border:none;
+  color:black;
+  padding:17 34;
+  text-align:left;
+  text-decoration:none;
+  display:inline-block;
+  font-size:20;
+  border-radius:100%;
+  margin:50;
+}
+.hi{
+    background-color:white;
+  border:none;
+  color:black;
+  padding:17 34;
+  text-align:left;
+  text-decoration:none;
+  display:inline-block;
+  font-size:20;
+  border-radius:100%;
+  margin:50;
+}
+#eaten{
+  font-size:100;
+     background:url(http://tinyhouseswoon.com/wp-content/uploads/2012/10/tiny-thatched-hut-1.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
