@@ -24,28 +24,50 @@ plat.push({x: 200, y: 260, w:100, h:10});
 plat.push({x: 300, y: 240, w:100, h:10});
 plat.push({x: 0, y:350, w:canvas.width, h:10});
 
+
+function newGame() {
+  x = 0;
+  y = 0;
+  xSpeed = 0;
+  ySpeed = 0;
+  
+  xMonster = 500;
+  yMonster = 0;
+
+  xMonsterSpeed = -5;
+  yMonsterSpeed = 20;
+  
+  xC = 500;
+  yC = 300;
+  score = 0;
+  
+  animate();
+}
+
+
 function animate() {
-  req=requestAnimationFrame(animate) ;
-cx.clearRect (0,0, canvas.width, canvas.height);
-  cx.drawImage (img_player,x,y,playerW,playerH);
+req=requestAnimationFrame(animate) ;
+cx.clearRect(0,0, canvas.width, canvas.height);
+cx.drawImage(img_player,x,y,playerW,playerH);
 x+=xSpeed;
 y+=ySpeed+gravity;
   platform();
   obstacle();
+  monster();
+  coin();
 if (x>canvas.width || x <0) {
 xSpeed = -xSpeed;}
 if (y>canvas.height || y <0) {
  ySpeed = -ySpeed;}
-   
+  
 }
 
-animate() ;
 
 
 function setDirection (dir) {
   if (dir === "up"){
     xSpeed = 0;
-    ySpeed = -5;
+    ySpeed = -10;
   } else if (dir === "down") {
     xSpeed = 0;
     ySpeed = 5;
@@ -93,39 +115,104 @@ function platform() {
     {gravity=0}
 }
 }
+
+var lava=[];
+
+lava.push({x: 0, y: 600, w:canvas.width, h:10}) ;
+lava.push({x: 100, y: 100, w:100, h:10});
+
+
 function obstacle() {
   cx.fillStyle="black";
 for (var i = 0; i<lava.length; i++) {
  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h) ;
  if (y===lava[i].y-playerH &&
      x>lava[i].x-playerW &&
-     X<lava[i].x + lava[i].w)
+     x<lava[i].x + lava[i].w)
      {gameOver()}
 }
  
 }
-var lava=[];
-
-lava.push({x: 0, y: 600, w:canvas.width, h:10}) ;
-lava.push({x: 100, y: 100, w:100, h:10});
 
 function stop() {
   
   if(req){
     cancelAnimationFrame(req);
     req = undefined;
-    
-  }}
+  }
+  
+}
   
 function gameOver() {
  cx.fillStyle="red";
  cx.font="30px Comic Sans MS";
- cx.fillText("The Geico Gecko Is Dissapointed In You",10,50);
+ cx.fillText("The Geico Gecko Is Disappointed In You",10,50);
  stop();
- 
+}
+
  function gameWin() {
-   cx.fillStyle = "green"
+   cx.fillStyle = "green";
  }
  
+
+
+var xMonster = 500;
+var yMonster = 0;
+
+var xMonsterSpeed = -5;
+var yMonsterSpeed =20;
+
+var monsterW = 100; //monsterwidth
+var monsterH = 100; //monsterheight
+
+var img_monster = document.createElement("img");
+img_monster.src = "mrmime.png";
+
+
+function monster () {
+  cx.drawImage(img_monster,xMonster,yMonster,monsterW,monsterH);
+  xMonster += xMonsterSpeed;
+  yMonster += yMonsterSpeed;
+  if (x+playerW > xMonster && xMonster+monsterW >x &&
+  yMonster+monsterH > y && y+playerH > yMonster)
+  {gameOver();}
+  if (xMonster>canvas.width || xMonster <0) {
+  xMonsterSpeed = -xMonsterSpeed};
+if (yMonster>canvas.height || yMonster <0) {
+ yMonsterSpeed = -yMonsterSpeed;}
+
 }
+ 
+ var xC = 500;
+ var yC = 300;
+ var wC = 20;
+ var hC = 20;
+ var score = 0;
+ 
+var img_coin = document.createElement("img");
+img_coin.src = "copyright.png";
+
+var backgroundmusic = new Audio ('Press Start.mp3');
+    
+    
+function coin () {
+    cx.drawImage(img_coin,xC, yC, wC, hC);
+      if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
+    
+      {
+        score +=10;
+        var i = Math.ceil(Math.random()*plat.length);
+      xC = plat[i].x;
+      yC = plat[i].y-40;
+      }
+    }
   
+animate();
+backgroundmusic.loop = true;
+backgroundmusic.play()
+
+function scoreDisplay() {
+  cx.fillstyle = "green";
+  cx.font = "30px Orbitron";
+  cx.fillText("Score: "+score,500,100);
+}
