@@ -1,7 +1,6 @@
 <head>
 
 <style>
-
 body {
   font-family: helvetica;
 }
@@ -31,10 +30,24 @@ a {
     alert("Hello " + name)
   }
 </script>
+
+<script>
+  var music = new Audio ('friend.mp4a')
+  function music() {
+    music.play();
+    <button onclick="music2.pause()">Pause Music</button>
+  }
+</script>
   
 </head>
 
 <body>
+
+  <button onclick="music()">Play Music</button>
+
+  <audio controls>
+    <source src="friend.mp4a" type="audio/mpeg">
+  </audio>
 
 <h1>Lexington Local First</h1>
 
