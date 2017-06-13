@@ -1,12 +1,12 @@
-  //'use strict';
+'use strict';
 enchant();
 window.onload=function() {
-  var game = new Core(400,400);
+  var game = new Core(300,300);
   game.keybind(32,'a');
   game.spriteSheetWidth = 256;
   game.spriteSheetHeight = 16;
   game.itemSpriteSheetWidth = 64;
-  game.preload(['sprites.png', 'items.png']);
+  game.preload(['sprites.png', 'items.png', 'sprites1.png']);
   game.items = [{price: 1000, description: "Blade of Doom", id: 0},
                {price: 500, description: "      Claw", id: 1},
                {price: 8000, description: "Ice Magic", id: 2},
@@ -14,7 +14,7 @@ window.onload=function() {
   game.fps = 15;
   game.spriteWidth=16;
   game.spriteHeight=16;
-    var map = new Map(game.spriteWidth, game.spriteHeight);
+  var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
 
 function setMaps() {
@@ -45,6 +45,37 @@ function setStage() {
   game.rootScene.addChild(stage);
 }
 
+var map1 = new Map(game.spriteWidth, game.spriteHeight);
+var foregroundMap1 = new Map(game.spriteWidth, game.spriteHeight);
+
+function setMaps1() {
+  map1.image=game.assets['sprites1.png'];
+  map1.loadData(mapData1);
+  foregroundMap1.image = game.assets['sprites1.png'];
+  foregroundMap1.loadData(foregroundData1);
+  var collisionData = [];
+
+  for (var i=0; i<foregroundData.length; i++) {
+    collisionData.push([]);
+    for(var j=0; j<foregroundData[0].length;j++) {
+      if (foregroundData[i][j] == 2 || foregroundData[i][j] == 4 ||foregroundData[i][j] == 15 ||foregroundData[i][j] === 0 || foregroundData[i][j]==3) {
+        var collision = 1;
+      collisionData[i][j] = collision;
+    }
+  }
+  map.collisionData = collisionData;
+}
+}
+
+function setStage1() {
+  var stage = new Group();
+  stage.addChild(map1);
+  stage.addChild(player);
+  stage.addChild(foregroundMap1);
+  stage.addChild(player.statusLabel);
+  game.rootScene.addChild(stage);
+}
+
 var player = new Sprite(game.spriteWidth, game.spriteHeight);
 
 function setPlayer() {
@@ -59,15 +90,13 @@ function setPlayer() {
   player.image = new Surface(game.spriteSheetWidth,game.spriteSheetHeight);
   player.image.draw(game.assets['sprites.png']);
   player.name = "John Cena ";
-  player.charClass = "Noob";
+  player.charClass = "Class:Noob";
   player.exp = 0;
-//  player.level=1;
-  player.gold = 10000;
+  player.level=1;
+  player.gp = 1000;
   player.hp = 100;
   player.mp= 100;
   player.maxHp =100;
-  //ADD NEW player attribute
-  player.attack = 10;
   player.statusLabel= new Label("");
   
 }
@@ -77,14 +106,14 @@ player.displayStatus = function() {
   player.statusLabel.height=170;
   player.statusLabel.x = undefined;
   player.statusLabel.y = undefined;
-  player.statusLabel.color = "red";
-  player.statusLabel.backgroundColor = "black";
+  player.statusLabel.color = "Red";
+  player.statusLabel.backgroundColor = "Black";
   player.statusLabel.text =
   "--" + player.name + " " + player.charClass+
   "<br>--HP: "+player.hp + "/" + player.maxHp +
   "<br>--Exp: "+player.exp +
   "<br>--Level: "+player.level+
-  "<br>--Gold: "+player.gold+
+  "<br>--Gold: "+player.gp+
   "<br>--INVENTORY:<br>"+
   player.showInventory(0);
 };
@@ -151,11 +180,6 @@ var npc = {
   }
 };
 
-var greeter = {
-  action: function() {
-    npc.say("hello, how do you do?");
-  }
-};
 var shopScene = new Scene();
 var cat = {
   action: function() {
@@ -163,67 +187,63 @@ var cat = {
     
   }
 };
-//NEW battlescene and Fighter Character
 var battleScene = new Scene();
 var dude = {
-  maxHp: 100,
-  hp:100,
+  maxHp: 20,
+  hp:20,
   sprite: 15,
-  attack: 10,
+  attack: 3,
   exp:3,
-  gold:10,
+  gp:5,
   action: function() {
     player.currentEnemy = this;
     game.pushScene(battleScene);
   }
 };
+var dude = {
+  action: function() {
+    npc.say("What do you want, Noob?");
+  }
+};
+
+var greeter = {
+  action: function() {
+    npc.say("Get the blade of Doom if you want to go to next world");
+    for(var i = 0; i<player.inventory.length; i++) {
+      if(player.inventory[i] === 0) {var blade = true;}}
+      if(blade) {setMaps1();setStage1();npc.say("welcome to the red world")}
+      else {npc.say("Get the Blade of Doom from the cat to go to red world") }
+      
+  }
+}
 
 var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
 
 var setBattle = function(){
   //BASIC SETUP for a SCENE
-  battleScene.backgroundColor = "black";
+  battleScene.backgroundColor = "red";
   var battle = new Group();
   battle.menu = new Label();
   battle.menu.x = 20;
   battle.menu.y = 170;
-  battle.menu.color = "white";
+  battle.menu.color = "black";
   battle.activeAction = 0;
   //LABEL FOR PLAYER STATUS IN BATTLE SCENE
   battle.getPlayerStatus = function(){
-    return "HP: " + player.hp + "<br>Magic: "+player.mp;};
+    return "HP: " + player.hp + "<br>MP: "+player.mp;};
   battle.playerStatus = new Label(battle.getPlayerStatus());
   battle.playerStatus.color = "white";
   battle.playerStatus.x = 200;
   battle.playerStatus.y = 120;
   //ACTUAL BATTLE DETAILS
-    battle.hitStrength = function(hit) {
-      for(var i = 0; i<player.inventory.length; i++) {
-        if(player.inventory[i] === 0) {var BladeDoom = true;}
-        }
-  if(BladeDoom) {return Math.round(Math.random()+2)*hit;}
-  else {return Math.round(Math.random()+0.5)*hit;}
-    }
-    
-  battle.enemyhitStrengh = function(hit) {
-      for(var i = 0; i<player.inventory.length; i++) {
-        if(player.inventory[i] === 1) {var Claw = true;}
-      }
-      if(Claw) {return 0;}
-      else {return Math.round((Math.random()+1)*hit);}
-  return Math.round((Math.random()+.5)*hit);}
-  
-    
- 
- 
- 
+  battle.hitStrength = function(hit){
+    return Math.round((Math.random()+.5)*hit);}
   //WINNING A BATTLE
   battle.won = function() {
     battle.over =true;
     player.exp += player.currentEnemy.exp;
     player.gold += player.currentEnemy.gold;
     player.currentEnemy.hp = player.currentEnemy.maxHp;
-    //player.currentEnemy.hp = player.currentEnemy.maxHp;
     player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+" gold.";
     player.statusLabel.height =45;
     //erase the dude from map
@@ -234,15 +254,15 @@ var setBattle = function(){
     player.hp = player.maxHp;
     player.mp = player.maxMp;
     player.gold = Math.round(player.gold/2);
-    player.statusLabel.text = "You lost."
+    player.statusLabel.text = "You just got rekt boi."
     player.statusLabel.height = 12;
   }
   //ATTACK SEQUENCE
   battle.playerAttack = function(){
     var currentEnemy = player.currentEnemy;
-    var playerHit = battle.hitStrength(player.attack);
+    var playerHit = battle.hitStrength(player.attack)
     currentEnemy.hp = currentEnemy.hp - playerHit;
-    battle.menu.text = "Your hit did "+playerHit+" damage!"+ currentEnemy.hp;
+    battle.menu.text = "Your move did "+playerHit+" damage!"
     if(currentEnemy.hp<=0){
       battle.won();
     }
@@ -251,7 +271,7 @@ var setBattle = function(){
     var currentEnemy = player.currentEnemy;
     var enemyHit = battle.hitStrength(currentEnemy.attack);
     player.hp = player.hp - enemyHit;
-    battle.menu.text = "You took "+enemyHit+" damage!"
+    battle.menu.text = "Your enemy did"+enemyHit+" damage to you!"
     if(player.hp<=0){
       battle.lost();
     }
@@ -278,7 +298,7 @@ var setBattle = function(){
     },1000);
   }},
     {name: "Magic", action:function(){
-      battle.menu.text = "You don't know any magic spells";
+      battle.menu.text = "You don't know any magic spells yet";
       battle.wait = true;
       battle.activeAction = 0;
       setTimeout(function(){
@@ -286,9 +306,9 @@ var setBattle = function(){
         battle.wait = false;
       },1000);
     }},
-    {name: "Run Away", action:function(){
+    {name: "Retreat", action:function(){
       game.pause();
-      player.statusLabel.text = "You chicken boi!";
+      player.statusLabel.text = "You lost!";
       player.statusLabel.height = 12;
       battle.menu.text = "";
       game.popScene();
@@ -370,7 +390,7 @@ var setShopping = function(){
     var shop = new Group();
     shop.itemSelected = 0;
     shop.shoppingFunds = function(){
-      return "Gold: " + player.gold;
+      return "Gold: " + player.gp;
     };
     shop.drawCat = function(){
       var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
@@ -404,8 +424,9 @@ var setShopping = function(){
         item.scaleY = 2;
         item.image = image;
         this.addChild(item);
-        var itemDescription = new Label(game.items[i].price + "<br>" + game.items[i].description);
-        itemDescription.x = itemLocationX - 8;
+        
+        var itemDescription = new Label("      "+game.items[i].price + "<br>" + game.items[i].description);
+        itemDescription.x = itemLocationX - 14;
         itemDescription.y = itemLocationY + 40;
         itemDescription.color = '#fff';
         this.addChild(itemDescription);
@@ -454,22 +475,20 @@ var setShopping = function(){
     });
     shop.attemptToBuy = function(){
       var itemPrice = game.items[this.itemSelected].price;
-      if (player.gold < itemPrice){
+      if (player.gp < itemPrice){
         this.message.text = this.apology;
       }else{
         player.visibleItems = [];
-        player.gold = player.gold - itemPrice;
+        player.gp = player.gp - itemPrice;
         player.inventory.push(game.items[this.itemSelected].id);
         this.message.text = this.sale;
-        game.keyunbind(32);
-        game.keybind(32,'a');
       }
     };
     
-    shop.greeting = "Hi!  I'm a Cat. Meow. I sell things.";
-    shop.apology = "Sorry, you don't have enough money.";
-    shop.sale = "Here ya go!";
-    shop.farewell = "Come again! Meow!";
+    shop.greeting = "Hello, welcome to my shop of life.";
+    shop.apology = "Sorry, you don't have enough money, shoo!";
+    shop.sale = "Here is your item";
+    shop.farewell = "Come again later!";
     shop.message = new Label(shop.greeting);
     shop.drawCat();
     var shoppingFunds = new Label(shop.shoppingFunds());
@@ -541,8 +560,6 @@ player.showInventory = function(yOffset) {
  }
 };
 
-  
-
 game.focusViewport = function() {
   var x = Math.min((game.width -16)/2 - player.x,0);
   var y = Math.min((game.height -16)/2 - player.y,0);
@@ -557,7 +574,6 @@ game.onload = function() {
   setMaps();
   setStage();
   setShopping();
-  //NEW
   setBattle();
   player.on('enterframe', function() {
     player.move();
@@ -576,5 +592,5 @@ game.onload = function() {
 };
 
 game.start();
+}
 
-};
