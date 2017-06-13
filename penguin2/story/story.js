@@ -60,4 +60,19 @@ function cavetalk() {
   } else {}
 }
 
-
+function deepCaveTalk() {
+  var el = document.getElementById("textbox") ;
+  var x = document.getElementById("reply") ;
+  if (x.selectedIndex ==1) {
+    el.textContent = "this is my favorite place";
+  }else if (x.selectedIndex ==2) {
+    el.textContent = "i know , when i found this place i knew this would be perfect ";
+  } else  if (x.selectedIndex ==3) {
+    el.textContent = "yes, no other dragon im my cave/territory can step into here without my permission. ";
+  } else if  (x.selectedIndex ==4) {
+    el.textContent = "yes, it is really comfortable ";
+  } else if  (x.selectedIndex ==5) {
+    el.textContent = "";
+    purpledragon();
+  } else {}
+}

@@ -16,6 +16,11 @@
   background-size: cover;
  background-repeat: no-repeat;
 }
+#deepcave {
+  background: url(https://anicasnotebook.files.wordpress.com/2012/12/deep-cave-water-sun-beautiful-scenery-hd-nature.jpg);
+  background-size: cover;
+ background-repeat: no-repeat;
+}
 
 #character {
   width:250;
