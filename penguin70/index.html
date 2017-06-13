@@ -147,6 +147,22 @@
 <ul id="menu">
    <li><a href="pictures.html">Pictures</a></li>
    <li><a href="videos.html">Videos</a></li>
+   <li><a href="quiz.html">Snake Quiz</a></li>
 </ul>
+  <button onclick="magic()">play music</button>
+  <button onclick="music.pause()">pause music</button>
+  <audio controls>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  
+
+
+<script>
+  var music = new audio ('music.mp3')
+  function magic() {
+    music.play();
+    
+  }
+</script>
 <small>Coppyright 2017</small>
 </body>
