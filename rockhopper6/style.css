@@ -1,0 +1,53 @@
+
+  
+  h1 {
+    color: white;
+    text-align: left;
+    font-size: 50px;
+    font-family: arial;
+  }
+  
+  body {
+    background-color: white;
+  }
+
+
+
+.hero-image {
+  height: 50%;
+  background: url(http://www.lexingtonma.gov/sites/lexingtonma/files/styles/group_main_image/public/departments/acrosslexington1.jpg?itok=VPWToNul);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 20px;
+}
+
+.hero-text {
+  text-align: center;
+  margin-top: 20%;
+  margin-left: 20%;
+  color: white;
+  position: absolute;
+}
+#menu {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: darkgrey;
+}
+
+#menu li {
+  float: left;
+}
+
+#menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  background-color: black;
+}
