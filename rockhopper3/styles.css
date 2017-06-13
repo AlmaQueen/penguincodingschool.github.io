@@ -1,0 +1,39 @@
+h1 {
+ color: red;
+ text-align: center;
+ font-size: 80px;
+   
+ }
+ 
+ body {
+   background: yellow;
+   background: url(http://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/public/field/field_image_main/wave.jpg?itok=XS6D8dpD);
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+ }
+   
+  
+  .hero{
+    height: 50%;
+    background: url(http://preventioncdnndg.org/eco-quartier/wp-content/uploads/sites/3/2017/03/h2osecurity-background-h2o2.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  
+  .button {
+    background-color: red;
+    border-style: dotted solid;
+    color: purple;
+    margin: 5;
+    padding: 30 64;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14;
+    border-radius: 5px;
+  }
