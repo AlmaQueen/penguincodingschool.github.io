@@ -31,33 +31,56 @@
   overflow:hidden;
 }
 
+.image-holder {
+  position: relative;
+  width:3200;
+  height:400;
+  animation:slide 12s infinite;
 
-  h1{
+}
+ .slider-image {
+   float:left;
+   margin:0;
+   padding:0;
+ }
+
+  .slider-holder:hover .image-holder {animation-play-state:paused;}
+
+
+
+@keyframes slide {
+  0% {left: 0px;}
+  20%{left: 0px;}
+  35% {left: -800px;}
+  50% {left: -800px;}
+  65% {left: -1600px;}
+  75% {left: -1600px;}
+  90% {left: -2400px;}
+  99% {left: -2400px;}
+  100% {left: 0px;}
+}
+
+
+
+  h1 {
     font-size:80;
-  }
-  body {
-   
-    
   }
   h3 {
     font-size:20;
     
   }
   .hero-image {
-    height:50%;
-    /*background: url(http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg);*/
-    background-repeat:no-repeat;
-    background-size:cover;
-    position:relative;
-    
+    /*height:50%;*/
+    /*background: url(http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg);
+    height:100%;
+    margin:0;
+  */
   }
   
   .hero-text {
     text-align:center;
-    position:absolute;
     margin-top:10%;
     margin-left:30%;
-    transform:translate (-50%, -50%);
     color:white;
   }
   
@@ -73,21 +96,21 @@
 
 
 <body>
-<button onclick="elephant()">Ask</button>
+<button onclick="elephant()">Click Me!</button>
   
   
   <script>
     function elephant() {
       alert ("hello, welcome to my website")
       var answer = prompt("Are you a cat person or a dog person?")
-      if (answer == "a cat person"|| answer=="cat person")
+      if (answer == "a cat person"|| answer=="cat person"|| answer=="cat")
          {var answer1 = prompt("Would you like to take the quiz?");
             if (answer1 == "yes"){window.location="quiz.html"}
             else if (answer1== "no"){alert("Okay")}
             else {window.location="index.html"}
            
          }
-      else if (answer == "a dog person"|| answer=="dog person")
+      else if (answer == "a dog person"|| answer=="dog person"|| answer=="dog")
       {alert("this website is not for you");
       window.location="https://www.google.com/"}
       else {window.location="index.html"}
@@ -113,40 +136,31 @@
   
   
   
-<div class= "hero-image">
+<div class="hero-image">
   
   <div class = "slider-holder">
-  <span id="zebra1"></span>
-  <span id="zebra2"></span>
-  <span id="zebra3"></span>
-  <span id="zebra4"></span>
+    <div class = "image-holder">
   
-<div class = "image-holder">
-  
- <img src="http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg" width=800 height=400 class="slider-image">
+    <img src="http://i.huffpost.com/gen/3152148/images/o-ANIMALS-FUNNY-facebook.jpg" width=800 height=400 class="slider-image">
  
- <img src="https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg" width=800 height=400 class="slider-image">
+    <img src="https://static.pexels.com/photos/126407/pexels-photo-126407.jpeg" width=800 height=400 class="slider-image">
   
-  <img src="http://www.kotiki.ru/photos/hugging_cats/1.jpg" width=800 height=400 class="slider-image">
+   <img src="http://www.kotiki.ru/photos/hugging_cats/1.jpg" width=800 height=400 class="slider-image">
   
-   <img src="https://i.ytimg.com/vi/G1oGIZmNeXk/hqdefault.jpg" width=800 height=400 class="slider-image">
+   <img src="http://listhogs.com/wp-content/uploads/2016/06/10-14.jpg" width=800 height=400 class="slider-image">
    </div>
-  <div class = "button-holder">
-    <a href="#zebra1" class="slider-image"></a>
-    <a href="#zebra2" class="slider-image"></a>
-    <a href="#zebra3" class="slider-image"></a>
-    <a href="#zebra4" class="slider-image"></a>
   </div>
-  </div>
-
   <div class= "hero-text">
   <h1>All About Cats</h1>
   <h3>Cats are the greatest creatures on earth</h3>
   </div>
   </div>
+
+ 
+  
   
 
-<iframe src="https://www.youtube.com/embed/ZGl8vrceu1E"></iframe>
+
 
 
 </body>
