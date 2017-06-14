@@ -11,13 +11,31 @@ body {
 }
 
 #background {
-  background: url("more");
+  background: url("http://images.all-free-download.com/images/graphiclarge/abstract_orange_background_polygonal_style_ornament_6828160.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 #background2 {
-  background: url("stuff");
+  background: url("https://s-media-cache-ak0.pinimg.com/736x/73/de/32/73de32f9e5a0db66ec7805bb7cb3f807.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#background3 {
+  background: url("http://www.webdesignhot.com/wp-content/uploads/2013/09/Abstract-Green-Blue-Yellow-Background-Vector-Graphic.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#background4 {
+  background: url("https://blog.ink361.com/wp-content/uploads/2015/10/cover.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#background5 {
+  background: url("http://images.all-free-download.com/images/graphicthumb/colorful_confetti_holiday_background_vector_582484.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -50,6 +68,11 @@ body {
 }
 
 #Cheep {
+  width: 200;
+  height: 200;
+}
+
+#HappyCheep {
   width: 200;
   height: 200;
 }
