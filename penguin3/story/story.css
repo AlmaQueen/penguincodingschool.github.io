@@ -2,7 +2,16 @@ h1 {
   text-align: center;
   color: red;
   font-size:80;
-
+}
+h5 {
+  text-align: center;
+  color: red;
+  font-size:20;
+}
+h3 {
+  text-align: center;
+  color: red;
+  font-size:40;
 }
 #home {
   background: url(grassy3.jpg);
@@ -58,6 +67,8 @@ h1 {
   border-radius: 12;
 }
 
-
+ul {
+  list-style: none;
+}
 
 

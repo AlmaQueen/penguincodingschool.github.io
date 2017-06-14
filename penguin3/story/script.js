@@ -7,6 +7,23 @@ el.textContent = "Hola amigo"}
  else if(x.selectedIndex==2){
  el.textContent="i'm a famous puppy surfer"}
  else if(x.selectedIndex==3){
- el.innerHTML="<a href=wherever.html>follow me.</a>"}
+ el.innerHTML="<a href=hotdog.html>follow me.</a>"}
   
 }
+
+var img_hotdog=document.create
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
