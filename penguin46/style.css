@@ -15,6 +15,12 @@ h1 {
   width:300;
   height:400;
 }
+#maincat2 {
+  width:300;
+  height:400;
+  float:right;
+  margin-top:300;
+}
 
 #textbox {
   color:white;
@@ -88,4 +94,39 @@ font-size:16;
 #sign {
   font-size:40;
   color:green;
+}
+
+#truck {
+  margin-top:300;
+}
+
+#sleep_PT {
+  background:url(http://www.rd.com/wp-content/uploads/sites/2/2016/02/01-13-things-your-house-cleaner-wont-tell-you-big-house.jpg);
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+
+#truck2 {
+  height:500;
+  width:700;
+  margin-top:500;
+  padding:0;
+  position: fixed;
+  float:left;
+}
+
+#maincat3 {
+  width:100;
+  height:150;
+  margin-top:425;
+  margin-left: 200;
+  float:left;
+  position: fixed;
+}
+
+#man {
+  margin-left:600;
+  margin-top:300;
+  float:right;
+/*  position:fixed;*/
 }
