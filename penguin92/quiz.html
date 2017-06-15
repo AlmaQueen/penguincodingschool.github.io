@@ -32,8 +32,24 @@
 </form>
 <p> You got <span id="grade">-</span> correct out of 3.</p>
 <p id="grade2"></p>
-</body>
+
+
+<script>
+document.getElementById("form1").onsubmit=function() {
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.getElementById("q3").value);
+  result = q1 + q2 + q3;
+  document.getElementById("grade").innerHTML = result;
+
+  if (result===0) {result2= "You should read Harry Potter again! <br><img src='http://2.bp.blogspot.com/_MuBDHKim5VI/TP6SzzoqTMI/AAAAAAAADdI/SGKWXqxdV60/s1600/Voldemort%2B3.png' width =300>" ;}
+  if (result===1) {result2= "Keep reading Harry Potter. <br><img src='http://www.centives.net/S/wp-content/uploads/2012/05/052012_0822_HedwigAndOw1.jpg' width= 300>";}
+  if (result===2) {result2= "Good job, you are so close!<br><img src='http://3.bp.blogspot.com/-hUR_8QpjjzM/Tf-fGHuBKkI/AAAAAAAAAn8/Ca75BFTp9hI/s320/dumbledore' width=300>";}
+  if (result===3) {result2="Wonderfull! you are a Harry Potter master <br><img src='http://s11.favim.com/orig/161010/eat-gif-harry-potter-ron-Favim.com-4786271.gif' width=300>";}
+  document.getElementById("grade2").innerHTML = result2;
+
+  return false;
   
-  
-  
+}
+</script>
 
