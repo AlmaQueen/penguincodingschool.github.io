@@ -1,0 +1,132 @@
+<head>
+	<style>
+    
+    h1 {
+      color: red;
+      text-align: center;
+      font-size: 80px;
+    }
+    
+    p {
+      font-size: 20px;
+    }
+    
+    body {
+      background:
+      url("https://churchill.imgix.net/images/locations/New_York_Location_Page.jpg?auto=format&h=512&w=512&q=30");
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+    a {
+      color: blue;
+      text-decoration: none;
+      font-size:20;
+    }
+
+    #menu {
+      list-style-type: none;
+      overflow:hidden;
+      background-color:33DAE8;
+      text-align:center;
+      padding-left:600;
+
+    }
+    #menu li {
+      float:left;
+      text-align: right
+    }
+
+    #menu li a {
+      display: block;
+      color: 410D72;
+      text-align: center;
+      padding: 14;
+      text-decoration: none;
+      font-size: 20;
+      
+    }
+
+    #menu li a:hover {
+      background-color: white
+    }
+
+  </style>
+	<h1>CITIES QUIZ</h1>
+  <title>Cities - Quiz</title>
+  <ul id="menu">
+    <li><a href="hom.html"><b>Home</b></a></li>
+    <li><a href="org.html"><b>Orginazation</b></a></li>
+    <li><a href="ttd.html"><b>Things To Do</b></a></li>
+    <li><a href="com.html"><b>Components</b></a></li>
+    <li><a href="his.html"><b>History</b></a></li>
+    <li><a href="quz.html"><b>Quiz</b></a></li>
+  </ul>
+  
+</head>
+<body>
+	<h2>Think You know Everything About Cities? Use This Quiz To Find Out!</h2>
+
+<form id="form1" action=" ">
+	<p>What is the City Capital of The United States Of America?</p>
+	<input type="radio" name="q1" value="1">
+	Washington DC<br>
+	<input type="radio" name="q1" value="0">
+	Chicago<br>
+	<input type="radio" name="q1" value="0">
+	Boston<br>
+	<input type="radio" name="q1" value="0">
+	New York City<br>
+
+	<p>Where is Freedom Tower (and where where the twin towers) in Manhattan?</p>
+	<input type="radio" name="q2" value="0">
+	Midtown<br>
+	<input type="radio" name="q2" value="1">
+	Downtown<br>
+	<input type="radio" name="q2" value="0">
+	Uptown<br>
+	<input type="radio" name="q2" value="0">
+	All of the Above<br>
+
+	<p>Check 2 things that people visit in Chicago</p>
+	<input type="checkbox" name="add1" value='1'>The Beam<br>
+	<input type="checkbox" name="add1" value='0'>Freedom Tower<br>
+	<input type="checkbox" name="add1" value='0'>Golden Gate Bridge<br>
+	<input type="checkbox" name="add1" value='1'>Sears Tower<br>
+	<input type="checkbox" name="add1" value='0'>Eiffel Tower<br>
+
+	<br>
+	<p>What is the most Populated city IN THE WORLD?</p>
+	<select name="What is the most Populated city IN THE WORLD">
+		<option value="0">Chicago, USA</option>
+		<option value="0">New York City, USA</option>
+		<option value="0">Bejing, China</option>
+		<option value="1">Tokyo, Japan</option>
+	</selcet>
+
+	<br>
+	<input type="submit" value="Submit">
+
+</form>
+
+<script>
+document.getElementById("form1").onsubmit=function() {
+	q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+	q1=parseInt(document.querySelector("input[name='q2']:checked").value);
+	q1=parseInt(document.querySelector("input[name='q3']:checked").value);
+	q1=parseInt(document.querySelector("input[name='q4']:checked").value);
+		result = q1 + q2 + q3 + q4;
+		document.getElementById("grade").innerHTML = result;
+
+	if (result===0) {result2= "You got none correct. Better luck next time.";}
+	if (result===1) {result2= "You got one correct. Better luck next time.";}
+	if (result===2) {result2= "You got half correct. Better luck next time.";}
+	if (result===3) {result2= "You got 3 correct. That's Average. Better luck next time.";}
+	if (result===4) {result2= "You won. As a prize, you get NOTHING.";}
+
+	document.getElementById("grade2").innerHTML = result2
+	return false;
+
+}
+</script>
+
+</body>
