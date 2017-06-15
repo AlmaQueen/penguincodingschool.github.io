@@ -6,6 +6,9 @@
     font-size: 80px;
   }
   h2 {
+    color:green;
+  }
+  h3 {
     color:yellow;
   }
   body {
@@ -51,17 +54,45 @@
     padding: 0;
     position: relative;
   }
+  
+  #menu {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: darkgrey;
+  }
+  
+  #menu li {
+    float: left;
+  }
+  
+  #menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14;
+    text-decoration: none;
+  }
+  
+  #menu li a :hover {
+    background-color: black;
+  }
   </style>
 </head>
 <body>
+  
+  <ul id ="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pictures.html">Pictures</a></li>
+    <li><a href="quiz.html">Questions</a></li>
+  </ul>
+  
+  
+  
 <h1>Penguin Palace</h1>
-This is a website about penguins.
-<h2>The website is dedicated to <ins>penguins</ins>.</h2>
+<h2>This is a website about penguins.</h>
+<h3>The website is dedicated to <ins>penguins</ins>.</h2>
 
-<b>Question:</b>
-<p>How many species of penguins exist?</p>
-<b>Answer:</b>
-<p><i>If you said <del>42</del> <mark>17</mark>,you would be right!</i></p>
+
 <h6>Copyright 2017</h6>
 
 <a href="http://www.google.com">Link to Google</a>
@@ -72,9 +103,11 @@ src="https://www.youtube.com/embed/y2gbMbzpaUk"></iframe>
 
 <div class="slider-holder">
 <div class="image-holder">
-  <img src="http://animal-dream.com/data_images/penguin/penguin8.jpg" class="slider-image">
+  <img src="http://dfp3r41v9wmfi.cloudfront.net/wp-content/uploads/emperor_chicks.jpg" class="slider-image">
   <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/93D2/production/_93824873_hi036102474.jpg" class="slider-image">
   <img src="http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_720/images/live/p0/4c/qq/p04cqqbp.jpg" class="slider-image">
 </div>
 </div>
+
+
 </body>
