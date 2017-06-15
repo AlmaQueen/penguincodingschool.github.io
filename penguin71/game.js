@@ -14,6 +14,8 @@ var gravity = 5;
 var playerH = 25;
 var playerW = 25;
 var req;
+var coinsound = new Audio('http://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav')
+
 
 function animate() {
   req = requestAnimationFrame(animate);
@@ -69,9 +71,9 @@ function gameOver() {
 }
 
 function scoreDisplay() {
-  cx.fillStyle = "Green";
+  cx.fillStyle = "Magenta";
   cx.font = "30px Comic Sans MS";
-  cx.fillText("Score: "+score,500,100)
+  cx.fillText("Score: "+score,10,90)
 }
 function gameWin() {
   cx.fillStyle = "Green";
@@ -123,10 +125,16 @@ for (var i = 0; i<plat.length; i++) {
       x>=plat[i].x-playerW &&
       x<=plat[i].x + plat[i].w)
      {gravity=0}
+  else if (y==plat[9].y-playerH &&
+      x>=plat[9].x-playerW &&
+      x<=plat[9].x + plat[i].w)
+     {gravity=-100}
   else {}
+}
+}
 
-}
-}
+
+
 
 function obstacle() {
 cx.fillStyle="red";
@@ -185,7 +193,7 @@ function coin() {
   cx.fillStyle = "aqua"
   cx.fillRect(xC,yC,wC, hC);
   if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
-  {
+  { coinsound.play();
     score += 10;
     xC =Math.random()*canvas.width;
     yC =Math.random()*canvas.height;
@@ -193,5 +201,7 @@ function coin() {
 
 
 }
-
+var backgroundmusic = new Audio('http://themushroomkingdom.net/sounds/mp3/yarblat_smb_techno.mp3')
+backgroundmusic.loop = true;
+backgroundmusic.play()
 animate();
