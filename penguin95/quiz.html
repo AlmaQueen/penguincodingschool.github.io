@@ -25,11 +25,11 @@
 
 <p>True or false, humans evolved from monkeys.</p>
 <input type="radio" name="q4" value=0>true<br>
-<input type="radio" name="q3" value=1>false<br>
+<input type="radio" name="q4" value=1>false<br>
 
 
 <p>Are monkeys cute?</p>
-<select id="q4">
+<select id="q5">
 <option value=1>Choose One</option>
 <option value=1>No! They're ugly.</option>
 <option value=0>Yes! they're more handsome than Alex N-C.</option>
@@ -42,4 +42,47 @@
 <br>
 
 <input type="submit" value="Done">
- </body>
+
+</form>
+<p>You got <span id="grade">_</span> correct out of 5.</p>
+<p id="grade2"></p>
+
+<script>
+  document.getElementById("form1").onsubmit=function() {
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+  q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+  q5=parseInt(document.getElementById("q5").value);
+  result = q1 + q2 + q3 + q4 +q5;
+  document.getElementById("grade").innerHTML = result;
+  
+if (result===0) {result2= "You failed. Horribly. You need to learn more about monkeys. <br><img src='0.jpg' width=300>";}
+
+
+if (result===1) {result2= "You You only got one right. Try again! <br><img src='1.jpg' width=300>";}
+  
+  
+if (result===2) {result2= "You only got two right. Try again!<br><img src='5.jpg' width=300>";}
+  
+  
+if (result===3) {result2= "This is about avarage. Who wants to be average? Not me!<br><img src='2.jpg' width=300>";}
+  
+  
+if (result===4) {result2= "You were so close! Just one question off. <br><img src='3.jpg' width=300>";}
+  
+  
+if (result===5) {result2= "Awesome job! You are the monkey master!. <br><img src='4.jpg' width=300>";}
+  
+    document.getElementById("grade2").innerHTML = result2;
+
+return false;
+}
+
+</script>
+  
+  
+  
+
+
+</body>
