@@ -4,29 +4,51 @@
   </h1>
   <form id="form1" action=" ">
    <p>which one is lucio </p>
-   <input type ="radio" name=q1 value=1>
-   <img src="http://overwatch.guide/wp-content/uploads/2016/05/lucio.png"
-   width=100 height=100><br>
-   <input type ="radio" name=q1 value=0>
-   <img src="https://qph.ec.quoracdn.net/main-qimg-65746017b09a912760127ce99ebbff76" width=100 height=100><Br>
-   <input type ="radio" name=q1 value=0>
-   <img src="https://vignette1.wikia.nocookie.net/overwatch/images/f/fc/Sombra_portrait.png/revision/latest/scale-to-width-down/350?cb=20170105140023" width=100 height=100>
+     <input type ="radio" name=q1 value=1>
+       <img src="http://overwatch.guide/wp-content/uploads/2016/05/lucio.png" width=100 height=100><br>
+     <input type ="radio" name=q1 value=0>
+         <img src="https://qph.ec.quoracdn.net/main-qimg-65746017b09a912760127ce99ebbff76" width=100 height=100><Br>
+        <input type ="radio" name=q1 value=0>
+           <img src="https://vignette1.wikia.nocookie.net/overwatch/images/f/fc/Sombra_portrait.png/revision/latest/scale-to-width-down/350?cb=20170105140023" width=100 height=100>
    
    <p>which one is a strat</p>
-   <select id="p5">
+   <select id="q3">
      <option value=1>hook em and cook em </option>
      <option value=1>cliff charge</option>
      <option value=1>death pit</option>
      <option value=100></option>
    </select>
    <p> name a ult</p>
-    <input type ="radio" name=q1 value=0>duel flash<br>
-    <input type ="radio" name=q1 value=1>dead eye<br>
-    <input type ="radio" name=q1 value=0>mammal fish bird launch<br>
+    <input type ="radio" name=q2 value=0>duel flash<br>
+    <input type ="radio" name=q2 value=1>dead eye<br>
+    <input type ="radio" name=q2 value=0>mammal fish bird launch<br>
     
-    <input type="supmit" value = "turn in answer">
-    
-   
-   
+    <input type="submit" value = "turn in answer">
+ 
   </form>
+    
+    <p>you got <span id="game">_</span> correct out of 3</p>
+    <p id="grade"></p>
+   
+   <script>
+     document.getElementById("form1").onsubmit=function() {
+       q1=parseInt(document.queryselector("input[name='q1']:checked").value);
+     q2=parseInt(document.queryselector("input[name='q2']:checked").value);
+     q3=parseInt(document.getElementById("q3").value);
+    
+     result = q1 + q2 + q3;
+     document.getElementById("grade").innerHTML = result;
+     
+     if (result===1) {result= "you realy think mammle fish bird launch is a thing.<br><img src='https://www.pcgamesn.com/sites/default/files/tracer.jpg' width=300>";}
+     if (result===2) {result= "good.<br><img src='http://pre03.deviantart.net/da93/th/pre/i/2016/202/2/2/overwatch__genji_for_xnalara_by_rpgxplay-daavyzx.png' width=300>";}
+     if (result===3) {result= "ok.<br><img src='https://hydra-media.cursecdn.com/overwatch.gamepedia.com/thumb/a/a0/Hanzo-portrait.png/290px-Hanzo-portrait.png?version=c4290d9249b453e115c24a7bad27ec4a' width=300>";}
+     
+     if (result===100) {result= "how!.<br><img src='http://vignette3.wikia.nocookie.net/overwatch/images/1/1a/Zenyatta_transcendence.png/revision/latest?cb=20160902120521' width=300>";}
+     
+     document.getElementById("grade2").innerHTML = result2;
+     return false;
+     }
+     
+   </script>
+ 
 </body>
