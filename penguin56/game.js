@@ -13,8 +13,8 @@ var x=0;
 var y=0;
 var xspeed= 0;
 var yspeed = 0;
-var playerW = 50;
-var playerH = 50;
+var playerw = 50;
+var playerh = 50;
 var gravity = 5;
 var plat=[];
 var lava = [];
@@ -29,18 +29,32 @@ plat.push({x: 300, y: 40, w:100, h:10})
 plat.push({x: 0, y: 350, w:canvas.width, h:10})
 
 function animate() {
-  requestAnimationFrame(animate);
+  req = requestAnimationFrame(animate);
   cx.clearRect(0,0, canvas.width, canvas.height);
-  cx.drawImage(img_player,x,y, playerW, playerH);
+  cx.drawImage(img_player,x,y, playerw, playerh);
   x+=xspeed;
   y+=yspeed+gravity;
   platform();
   obstacle();
-  if (x>canvas.width||x<0) {xspeed=-xspeed}
-  if (y>canvas.height|| y<0) {yspeed = -yspeed}
+  monster();
+  coin();
+  scoreDisplay();
+  if (x===canvas.width){
+    gameWin();
+  }
+    if (y>canvas.height|| y<0) {yspeed = -yspeed}
 
   
 }
+
+
+function stop() {
+  if (req){
+    cancelAnimationFrame(req);
+    req=undefined;
+  }
+}
+
 function setDirection(dir) {
   if(dir==="up") {
     xspeed =0;
@@ -75,21 +89,30 @@ gravity =5;
 cx.fillStyle="grey";
  for (var i = 0; i<plat.length; i++) {
    cx.fillRect(plat[i].x, plat[i].y, plat[i].w,plat[i].h);
-   if (y==plat[i].y-playerH && x>=plat[i].x-playerW && x<=plat[i].x +plat[i].w)
+   if (y==plat[i].y-playerh && x>=plat[i].x-playerw && x<=plat[i].x +plat[i].w)
    {gravity=0}
  }
 }
 
+function fatality(){
+   cx.fillStyle = "red"
+   cx.font ="30px Times New Roman";
+   cx.fillText ("fatality",10,50);
+   stop();
+}
+
+function gameWin(){
+   cx.fillStyle = "green"
+   cx.font ="30px Times New Roman";
+   cx.fillText ("ha i won!!!",10,50);
+   stop();
+}
+
 function obstacle() {
-  
  for (var i = 0; i<lava.length; i++) {
    cx.drawImage(img_obstacle, lava[i].x, lava[i].y, lava[i].w,lava[i].h);
-   if (y==lava[i].y-playerH && x>=lava[i].x-playerW && x<=lava[i].x +lava[i].w)
+   if (y==lava[i].y-playerh && x>=lava[i].x-playerw && x<=lava[i].x +lava[i].w)
    {fatality()}
-   cx.fillstyle = "red"
-   cx.font ="30px Comic Sans Ms";
-  cx.filltext ("fatality",10,50);
-   stop();
  }
 
 }
@@ -102,60 +125,56 @@ document.addEventListener('keydown',function(event) {
 document.addEventListener('keyup',function(event) {
   var dir = keyactions[event.keyCode];
   setDirection("stop");
-  
-  
-  
-  
+
   
 })
 
 
 
 
+var xm =500;
+var ym = 180;
+var xmsp = 0;
+var ymsp = -5;
+var mw =100;
+var mh =100;
 
+var img_monster = document.createElement("img");
+img_monster.src = "monster.jpg";
 
+function monster() {
+cx.drawImage(img_monster,xm,ym,mw,mh);
+xm+=xmsp;
+ym+=ymsp;
+if(x+playerw > xm  && xm+mw>x && ym+mh>y && y+playerh>ym)
+{fatality()}
+if (ym>canvas.height|| ym<0)
+{ymsp = -ymsp;}
 
+}
 
+var xc =500;
+var yc = 180;
+var cw =10;
+var ch =10;
+var score =0;
 
+function coin() {
+cx.fillStyle = "gold";
+cx.fillRect(xc,yc,cw,ch);
+if(x+playerw > xc  && xc+mw>x && yc+ch>y && y+playerh>yc)
+{score+=10;
+  var i = Math.ceil(Math.random()*plat.length);
+  xc = plat[i].x+50;
+  yc = plat[i].y - 40;
+}
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function scoreDisplay() {
+  cx.fillStyle="green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("score:" + score,500,100)
+}
 
 animate();
