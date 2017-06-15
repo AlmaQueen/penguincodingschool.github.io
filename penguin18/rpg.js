@@ -106,7 +106,10 @@ var setBattle = function(){
   battle.activeAction = 0;
   //LABEL FOR PLAYER STATUS IN BATTLE SCENE
   battle.getPlayerStatus = function(){
-    return "HP: " + player.hp + "<br>MP: "+player.mp;};
+    var currentEnemy = player.currentEnemy;
+    if(currentEnemy) {return "HP: " + player.hp + "<br>Enemy: "+currentEnemy.hp;};
+
+  }
   battle.playerStatus = new Label(battle.getPlayerStatus());
   battle.playerStatus.color = "white";
   battle.playerStatus.x = 200;
@@ -503,12 +506,12 @@ var cat = {
 var battleScene = new Scene();
 
 var dude = {
-  maxHp: 20,
-  hp:20,
+  maxHp: 200,
+  hp:200,
   sprite:15,
-  attack:3,
+  attack:30,
   exp:3,
-  gold:5,
+  gold:5000,
   action:function(){
     player.currentEnemy = this;
     game.pushScene(battleScene);
