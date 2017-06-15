@@ -3,8 +3,8 @@
 
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width=1597;
-canvas.height=1101;
+canvas.width=10000;
+canvas.height=7006;
 
 var img_player= document.createElement("img");
 img_player.src="http://shmector.com/_ph/8/228098179.png";
@@ -80,14 +80,34 @@ var lava=[];
 
 
 var plat=[];
-
-
- plat.push({x: 0,y: 100,w:100,h:10});
- plat.push({x: 100,y: 180,w:100,h:10});
- plat.push({x: 200,y: 160,w:100,h:10});
- plat.push({x: 300,y: 140,w:100,h:10});
+plat.push({x: 760,y: 130,w:100,h:10});
+plat.push({x: 90,y: 160,w:100,h:10});
+plat.push({x: 70,y: 190,w:100,h:10});
+plat.push({x: 50,y: 960,w:100,h:10});
+plat.push({x: 150,y: 123,w:100,h:10});
+plat.push({x: 9,y: 135,w:100,h:10});
+plat.push({x: 80,y: 116,w:100,h:10});
+plat.push({x: 25,y: 130,w:100,h:10});
+plat.push({x: 74,y: 100,w:100,h:10});
+plat.push({x: 257,y: 116,w:100,h:10});
+plat.push({x: 486,y: 140,w:100,h:10});
+plat.push({x: 20,y: 350,w:canvas.width,h:10});
+plat.push({x: 40,y: 100,w:100,h:10});
+plat.push({x: 128,y: 178,w:100,h:10});
+plat.push({x: 264,y: 786,w:100,h:10});
+plat.push({x: 392,y: 551,w:100,h:10});
+plat.push({x: 230,y: 350,w:canvas.width,h:10});
+plat.push({x: 120,y: 100,w:100,h:10});
+ plat.push({x: 100,y: 179,w:100,h:10});
+ plat.push({x: 200,y: 160,w:160,h:10});
+ plat.push({x: 300,y: 128,w:100,h:10});
+ plat.push({x: 0,y: 352,w:canvas.width,h:10});
+plat.push({x: 0,y: 109,w:100,h:10});
+ plat.push({x: 100,y: 375,w:100,h:10});
+ plat.push({x: 200,y: 976,w:100,h:10});
+ plat.push({x: 300,y: 198,w:100,h:10});
  plat.push({x: 0,y: 350,w:canvas.width,h:10});
-
+ 
 
 function platform () {
 gravity =5;
@@ -117,14 +137,15 @@ var yM = 80;
 var xMsp = -5;
 var yMsp = 0;
 
-var mW = 10;
-var mH = 10;
+var mW = 100;
+var mH = 100;
 
 function monster(){
-  cx.fillStyle = "orange";
-  cx.fillRect(xM,yM,mW,mH);
+  var img_monster= document.createElement("img");
+img_monster.src="www.google.com/search?q=snake&newwindow=1&rlz=1CAACAO_enUS729US732&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiw2_rC87vUAhXJbT4KHSKRCUYQ_AUICigB&biw=927&bih=856#imgrc=VAzI-caFMhppaM:";
+cx.drawImage(img_monster,xM,yM,mW, mH);
   xM+=xMsp;
-  if (x+playerW > xM && xM+mW >x && yM+mH>y && y+playerH>yM)
+  if (x+mW > xM && xM+mW >x && yM+mH>y && y+mH>yM)
   {gameOver()}
   else if (xM<0 || xM>canvas.width) {
     xMsp = -xMsp;
@@ -143,8 +164,9 @@ function coin(){
   if (x+playerW > xC && xC+cW >x && yC+cH>y && y+playerH>yC)
   {
   score+=10;
-  xC = Math.random()*canvas.width;
-  yC = Math.random()*canvas.height;
+  var i = Math.ceil(Math.random()*plat.length);
+  xC = plat[i].x;
+  yC = plat[i].y-40;
   }
 }
 
