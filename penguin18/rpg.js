@@ -4,10 +4,15 @@ window.onload=function() {
   game.keybind(32,'a');
   game.spriteSheetWidth = 256;
   game.spriteSheetHeight = 16;
+  game.itemSpriteSheetWidth = 64;
   game.fps = 15;
   game.spriteWidth=16;
   game.spriteHeight=16;
-  game.preload('sprites.png');
+  game.preload(['sprites.png', 'items.png']);
+  game.items = [ {price: 100, description:"Dagger", id: 0},
+               {price : 500, description:"Cursed Drg. Paw", id: 1},
+               {price : 5000, description:"Winter's Heart", id: 2},
+               {price : 50, description:"Chess Set", id: 3} ];
   var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
 
@@ -35,7 +40,6 @@ function setStage() {
   stage.addChild(map);
   stage.addChild(player);
   stage.addChild(foregroundMap);
-  //NEW
   stage.addChild(player.statusLabel);
   game.rootScene.addChild(stage);
 }
@@ -54,21 +58,22 @@ function setPlayer() {
   player.image = new Surface(game.spriteSheetWidth,game.spriteSheetHeight);
   player.image.draw(game.assets['sprites.png']);
   //new player status info
-  player.name = "Jennifer Red";
-  player.charClass = "Queen of Rainbowlandia";
+  player.name = "Dakota Shimmer";
+  player.charClass = "Ruler of The Diamond Relm";
   player.exp = 0;
   player.level=1;
-  player.gp = 100;
-  player.hp = 100;
-  player.maxHp =100;
+  player.gold = 10000;
+  player.hp = 1000;
+  player.maxHp =1000;
+  player.attack = 10;
   player.statusLabel= new Label("");
 }
 
 player.displayStatus = function() {
   player.statusLabel.width = game.width;
-  player.statusLabel.height = 100;
-  player.statusLabel.x = 0;
-  player.statusLabel.y = 0;
+  player.statusLabel.height = 170;
+  player.statusLabel.x = undefined;
+  player.statusLabel.y = undefined;
   player.statusLabel.color = "white";
   player.statusLabel.backgroundColor = "black";
   
@@ -77,16 +82,355 @@ player.displayStatus = function() {
   "<br>--HP: "+player.hp + "/" + player.maxHp +
   "<br>--Exp: "+player.exp +
   "<br>--Level: "+player.level+
-  "<br>--Gold: "+player.gp;
+  "<br>--Gold: "+player.gold+
+  "<br>--INVENTORY--"+
+  player.showInventory(0);
 };
 
 //NEW
 player.clearStatus = function () {
   player.statusLabel.text = " ";
   player.statusLabel.height = 0;
+  player.hideInventory();
+  
 }
 
+var setBattle = function(){
+  //BASIC SETUP for a SCENE
+  battleScene.backgroundColor = "black";
+  var battle = new Group();
+  battle.menu = new Label();
+  battle.menu.x = 20;
+  battle.menu.y = 170;
+  battle.menu.color = "white";
+  battle.activeAction = 0;
+  //LABEL FOR PLAYER STATUS IN BATTLE SCENE
+  battle.getPlayerStatus = function(){
+    return "HP: " + player.hp + "<br>MP: "+player.mp;};
+  battle.playerStatus = new Label(battle.getPlayerStatus());
+  battle.playerStatus.color = "white";
+  battle.playerStatus.x = 200;
+  battle.playerStatus.y = 120;
+  //ACTUAL BATTLE DETAILS
+  battle.hitStrength = function(hit){
+    return Math.round((Math.random()+.5)*hit);}
+  //WINNING A BATTLE
+  battle.won = function() {
+    battle.over =true;
+    player.exp += player.currentEnemy.exp;
+    player.gold += player.currentEnemy.gold;
+    player.currentEnemy.hp = player.currentEnemy.maxHp;
+    player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+" gold.";
+    player.statusLabel.height =45;
+    //erase the dude from map
+  };
+  //LOSING A BATTLE
+  battle.lost = function() {
+    battle.over = true;
+    player.hp = player.maxHp;
+    player.mp = player.maxMp;
+    player.gold = Math.round(player.gold/2);
+    player.statusLabel.text = "You lost."
+    player.statusLabel.height = 12;
+  }
+  //ATTACK SEQUENCE
+  battle.playerAttack = function(){
+    var currentEnemy = player.currentEnemy;
+    var playerHit = battle.hitStrength(player.attack)
+    currentEnemy.hp = currentEnemy.hp - playerHit;
+    battle.menu.text = "Your hit did "+playerHit+" damage!"
+    if(currentEnemy.hp<=0){
+      battle.won();
+    }
+  };
+  battle.enemyAttack = function() {
+    var currentEnemy = player.currentEnemy;
+    var enemyHit = battle.hitStrength(currentEnemy.attack);
+    player.hp = player.hp - enemyHit;
+    battle.menu.text = "Your took "+enemyHit+" damage!"
+    if(player.hp<=0){
+      battle.lost();
+    }
+  };
+  battle.actions = [
+    {name: "Fight", action:function(){
+    battle.wait = true;
+    battle.playerAttack();
+    setTimeout(function(){
+      if(!battle.over){
+        battle.enemyAttack();
+      };
+      if(!battle.over){
+        setTimeout(function(){
+          battle.menu.text = battle.listActions();
+          battle.wait = false;
+        },1000)
+      } else {
+        setTimeout(function(){
+          battle.menu.text = "";
+          game.popScene();
+        },1000)
+      };
+    },1000);
+  }},
+    {name: "Magic", action:function(){
+      for(var i =0; i<player.inventory.length; i++) {
+      if(player.inventory[i] === 2) {
+        var magic = true;
+      }}
+      
+      if (magic) {
+      battle.wait = true;
+      battle.magicAttack ();
+      setTimeout(function(){
+      if(!battle.over) {
+        battle.enemyAttack();
+      };
+      if(!battle.over) {
+      setTimeout(function(){
+        battle.menu.text = battle.listActions();
+        battle.wait = false;
+      },1000);
+      }
+     else {
+      setTimeout(function(){
+        battle.menu.text = "";
+        game.popscene();
+    },1000);
+  };
+    },1000);
+  
+}
+      else {
+      battle.menu.text = "You don't know any magic spells";
+      
+      battle.activeAction = 0;
+      setTimeout(function(){
+        battle.menu.text = battle.listActions();
+        battle.wait = false;
+      },1000);
+    }}},
+    {name: "Run Away", action:function(){
+      game.pause();
+      player.statusLabel.text = "You chicken!";
+      player.statusLabel.height = 12;
+      battle.menu.text = "";
+      game.popScene();
+    }},
+  ];
+  //BATTLE LIST ACTIONS
+  battle.listActions = function(){
+    battle.optionText = [];
+    for(var i = 0; i<battle.actions.length;i++){
+      if(i === battle.activeAction) {
+        battle.optionText[i] = "> "+battle.actions[i].name;
+      } else {
+        battle.optionText[i] = battle.actions[i].name;
+      }
+    }
+    return battle.optionText.join("<br>");
+  };
+  battle.addFighters = function(){
+    var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
+    image.draw(game.assets['sprites.png']);
+    battle.player = new Sprite(game.spriteWidth, game.spriteHeight);
+    battle.player.image = image;
+    battle.player.frame = 7;
+    battle.player.x = 150;
+    battle.player.y = 120;
+    battle.player.scaleX = 2;
+    battle.player.scaleY = 2;
+    battle.enemy = new Sprite(game.spriteWidth,game.spriteHeight);
+    battle.enemy.image = image;
+    battle.enemy.x = 150;
+    battle.enemy.y = 70;
+    battle.enemy.scaleX = 2;
+    battle.enemy.scaleY = 2;
+    battle.addChild(battle.enemy);
+  };
+  battle.addFighters();
+  //Battle Scene Enter
+  
+  battleScene.on('enter', function() {
+    battle.over = false;
+    battle.wait = true;
+    battle.menu.text = "";
+    battle.enemy.frame = player.currentEnemy.sprite;
+    setTimeout(function(){
+      battle.menu.text = battle.listActions();
+      battle.wait = false;
+    },500);
+  });
+  battleScene.on('enterframe',function() {
+    if(!battle.wait){
+      if(game.input.a){
+        battle.actions[battle.activeAction].action();
+      } else if (game.input.down){
+        battle.activeAction = (battle.activeAction+1)% battle.actions.length;
+        battle.menu.text = battle.listActions();
+      } else if (game.input.up){
+        battle.activeAction = (battle.activeAction-1+battle.actions.length)%battle.actions.length;
+        battle.menu.text = battle.listActions();
+      } battle.playerStatus.text = battle.getPlayerStatus();
+    }
+  });
+  battleScene.on('exit',function(){
+    setTimeout(function(){
+      battle.menu.text="";
+      battle.activeAction = 0;
+      battle.playerStatus.text=battle.getPlayerStatus();
+      game.resume();
+    },1000);
+  });
+  battle.addChild(battle.playerStatus);
+  battle.addChild(battle.menu);
+  battle.addChild(battle.player);
+  battleScene.addChild(battle);
+};
 
+var setShopping = function(){
+    var shop = new Group();
+    shop.itemSelected = 0;
+    shop.shoppingFunds = function(){
+      return "Gold: " + player.gold;
+    };
+    shop.drawCat = function(){
+      var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
+      var cat = new Sprite(game.spriteWidth, game.spriteHeight);
+      cat.image = image;
+      image.draw(game.assets['sprites.png']);
+      cat.frame = 4;
+      cat.y = 10;
+      cat.x = 10;
+      cat.scaleX = 2;
+      cat.scaleY = 2;
+      this.addChild(cat);
+      this.message.x = 40;
+      this.message.y = 10;
+      this.message.color = '#fff';
+      this.addChild(this.message);
+    };
+    
+    shop.drawItemsForSale = function(){
+      for(var i = 0; i < game.items.length; i++){
+        var image = new Surface(game.itemSpriteSheetWidth, game.spriteSheetHeight);
+        var item = new Sprite(game.spriteWidth, game.spriteHeight);
+        image.draw(game.assets['items.png']);
+        var itemLocationX, itemLocationY;
+        itemLocationX = 30 + 70*i;
+        itemLocationY = 70;
+        item.y = itemLocationY;
+        item.x = itemLocationX;
+        item.frame = i;
+        item.scaleX = 2;
+        item.scaleY = 2;
+        item.image = image;
+        this.addChild(item);
+        var itemDescription = new Label(game.items[i].price + "<br>" + game.items[i].description);
+        itemDescription.x = itemLocationX - 8;
+        itemDescription.y = itemLocationY + 40;
+        itemDescription.color = '#fff';
+        this.addChild(itemDescription);
+        if(i === this.itemSelected){
+          var image = new Surface(game.spriteSheetWidth, game.spriteSheetHeight);
+          this.itemSelector = new Sprite(game.spriteWidth, game.spriteHeight);
+          image.draw(game.assets['sprites.png']);
+          itemLocationX = 30 + 70*i;
+          itemLocationY = 160;
+          this.itemSelector.scaleX = 2;
+          this.itemSelector.scaleY = 2;
+          this.itemSelector.y = itemLocationY;
+          this.itemSelector.x = itemLocationX;
+          this.itemSelector.frame = 7;
+          this.itemSelector.image = image;
+          this.addChild(this.itemSelector);
+        };
+      };
+    };
+    shop.on('enter', function(){
+      shoppingFunds.text = shop.shoppingFunds();
+    });
+    shop.on('enterframe', function() {
+      setTimeout(function(){
+        if (game.input.a){
+          shop.attemptToBuy();
+        } else if (game.input.down) {
+          shop.message.text = shop.farewell;
+          setTimeout(function(){
+            game.popScene();
+            shop.message.text = shop.greeting;
+          }, 10);
+        } else if (game.input.left) {
+          shop.itemSelected = shop.itemSelected + game.items.length - 1;
+          shop.itemSelected = shop.itemSelected % game.items.length;
+          shop.itemSelector.x = 30 + 70*shop.itemSelected;
+          shop.message.text = shop.greeting;
+        } else if (game.input.right) {
+          shop.itemSelected = (shop.itemSelected + 1) % game.items.length;
+          shop.itemSelector.x = 30 + 70*shop.itemSelected;
+          shop.message.text = shop.greeting;
+        }
+      }, 1000);
+      player.showInventory(100);
+      shoppingFunds.text = shop.shoppingFunds();
+    });
+    shop.attemptToBuy = function(){
+      var itemPrice = game.items[this.itemSelected].price;
+      if (player.gold < itemPrice){
+        this.message.text = this.apology;
+      }else{
+        player.visibleItems = [];
+        player.gold = player.gold - itemPrice;
+        player.inventory.push(game.items[this.itemSelected].id);
+        this.message.text = this.sale;
+        game.keyunbind(32);
+        game.keybind(32,'a');
+      }
+    };
+    
+    shop.greeting = "Hi!  I'm a Cat. Meow. I sell things.";
+    shop.apology = "Sorry, you don't have enough money.";
+    shop.sale = "Here ya go!";
+    shop.farewell = "Come again! Meow!";
+    shop.message = new Label(shop.greeting);
+    shop.drawCat();
+    var shoppingFunds = new Label(shop.shoppingFunds());
+    shoppingFunds.color = '#fff';
+    shoppingFunds.y = 200;
+    shoppingFunds.x = 10;
+    shop.addChild(shoppingFunds);
+    shop.drawItemsForSale();
+    shopScene.backgroundColor = '#000';
+    shopScene.addChild(shop);
+  };
+
+player.visibleItems = [];
+player.itemSurface = new Surface(game.itemSpriteSheetWidth, game.spriteSheetHeight);
+player.inventory = [];
+
+player.hideInventory = function() {
+  for (var i = 0; i<player.visibleItems.length; i++) {
+    player.visibleItems[i].remove()
+  }
+  player.visibleItems = [];
+}
+
+player.showInventory = function(yOffset) {
+ if(player.visibleItems.length === 0) {
+   player.itemSurface.draw(game.assets['items.png']);
+   for (var i = 0; i<player.inventory.length; i++) {
+     var item = new Sprite(game.spriteWidth, game.spriteHeight);
+     item.y = 130+yOffset;
+     item.x = 30 + 70*i;
+     item.frame = player.inventory[i];
+     item.scaleX = 2;
+     item.scaleY = 2;
+     item.image = player.itemSurface;
+     player.visibleItems.push(item);
+     game.currentScene.addChild(item);
+   }
+ }
+};
 
 
 player.move = function(){
@@ -147,14 +491,30 @@ var greeter = {
     npc.say("hello, do you like cake?");
   }
  }
+
+var shopScene = new Scene();
  
 var cat = {
   action: function() {
-    npc.say("Buy My Stuff! Half Off?");
+    game.pushScene(shopScene);
   }
 };
 
-var dude ;
+var battleScene = new Scene();
+
+var dude = {
+  maxHp: 20,
+  hp:20,
+  sprite:15,
+  attack:3,
+  exp:3,
+  gold:5,
+  action:function(){
+    player.currentEnemy = this;
+    game.pushScene(battleScene);
+  }
+};
+
 
 var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
 
@@ -205,6 +565,8 @@ game.onload = function() {
   setPlayer();
   setMaps();
   setStage();
+  setShopping();
+  setBattle();
   player.on('enterframe', function() {
     player.move();
     if (game.input.a) {
