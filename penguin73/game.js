@@ -1,10 +1,10 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width=1500;
-canvas.height=1000;
+canvas.width=window.innerWidth - 20;
+canvas.height=window.innerHeight - 20;
 
 var img_player = document.createElement("img");
-img_player.src= "penguin.gif";
+img_player.src= "http://s.apptoko.com/a/uploads/thumbnails/022016/candycons-icon-pack_icon.png";
 
 var x = 0;
 var y = 0;
@@ -102,25 +102,33 @@ plat.push({x:0, y:200, w:100,h:10});
 plat.push({x:200, y:200, w:100,h:10});
 plat.push({x:400, y:200, w:100,h:10});
 plat.push({x:600, y:200, w:100,h:10});
-plat.push({x:100, y:550, w:400,h:10});
-plat.push({x:300, y:750, w:600,h:10});
+plat.push({x:100, y:450, w:400,h:10});
+plat.push({x:300, y:650, w:600,h:10});
 plat.push({x:480, y:320, w:50,h:10});
 plat.push({x:250, y:390, w:50,h:10});
-plat.push({x:210, y:920, w:50,h:10});
-plat.push({x:630, y:480, w:50,h:10});
-plat.push({x:440, y:460, w:50,h:10});
-plat.push({x:930, y:820, w:50,h:10});
-plat.push({x:345, y:640, w:50,h:10});
+plat.push({x:210, y:820, w:50,h:10});
+plat.push({x:630, y:380, w:50,h:10});
+plat.push({x:440, y:360, w:50,h:10});
+plat.push({x:930, y:720, w:50,h:10});
+plat.push({x:345, y:540, w:50,h:10});
 plat.push({x:382, y:489, w:50,h:10});
 plat.push({x:495, y:731, w:50,h:10});
 plat.push({x:625, y:820, w:50,h:10});
-plat.push({x:265, y:940, w:50,h:10});
+plat.push({x:265, y:840, w:50,h:10});
 plat.push({x:282, y:730, w:50,h:10});
-plat.push({x:265, y:940, w:50,h:10});
-plat.push({x:265, y:940, w:50,h:10});
+plat.push({x:265, y:840, w:50,h:10});
+plat.push({x:265, y:840, w:50,h:10});
 plat.push({x:175, y:820, w:50,h:10});
-plat.push({x:385, y:930, w:50,h:10});
-plat.push({x:325, y:920, w:50,h:10});
+plat.push({x:385, y:830, w:50,h:10});
+plat.push({x:325, y:720, w:50,h:10});
+plat.push({x:185, y:520, w:50,h:10});
+plat.push({x:735, y:620, w:50,h:10});
+plat.push({x:195, y:525, w:50,h:10});
+plat.push({x:265, y:875, w:50,h:10});
+plat.push({x:465, y:385, w:50,h:10});
+plat.push({x:765, y:365, w:50,h:10});
+plat.push({x:275, y:375, w:50,h:10});
+plat.push({x:695, y:285, w:50,h:10});
 
 function platform() {
 gravity = 5;
@@ -135,10 +143,10 @@ for (var i = 0; i<plat.length; i++) {
 }
 
 var lava = [];
-lava.push ({x:0, y:600, w:100,h:10});
-lava.push ({x:300, y:400, w:20,h:10});
-lava.push ({x:300, y:750, w:200,h:10});
-lava.push ({x:259, y:620, w:600,h:10});
+lava.push ({x:0, y:500, w:100,h:10});
+lava.push ({x:300, y:300, w:20,h:10});
+lava.push ({x:300, y:650, w:200,h:10});
+lava.push ({x:259, y:520, w:600,h:10});
 
 function obstacle() {
 cx.fillStyle="red";
@@ -189,7 +197,7 @@ function coin() {
     yC = plat[i].y - 40;
   }
 }
-var backroundmusic = new Audio (mario.mp3);
+var backroundmusic = new Audio("music.mp3");
 backroundmusic.loop = true;
 backroundmusic.play();
 animate();
