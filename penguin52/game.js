@@ -2,7 +2,7 @@ var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 
 canvas.width=1000;
-canvas.height=890;
+canvas.height=700;
 
 var img_player = document.createElement("img");
 img_player.src = "https://s-media-cache-ak0.pinimg.com/originals/b5/16/0e/b5160e49ec3d6467cf7dec25abb2cd9c.jpg"
@@ -17,6 +17,8 @@ var playerW = 65;
 var plat=[];
 var lava=[];
 var req;
+var score =0;
+
 
 function stop() {
   if(req) {
@@ -32,7 +34,7 @@ function gameOver() {
   stop();
 }
 
-lava.push({x: 0, y: 500, w:1000, h:10})
+lava.push({x: 0, y: 650, w:1000, h:300})
 
 function obstacle() {
   cx.fillStyle="crimson";
@@ -45,11 +47,12 @@ function obstacle() {
   }
 }
 
-plat.push({x: 0, y: 100, w:100, h:10});
-plat.push({x: 50, y: 200, w:100, h:10});
-plat.push({x: 100, y: 300, w:100, h:10});
-plat.push({x: 150, y: 400, w:100, h:10});
-plat.push({x: 0, y: 500, w:canvas.width, h:10});
+plat.push({x: 0, y: 200, w:100, h:10});
+plat.push({x: 100, y: 200, w:100, h:10});
+plat.push({x: 100, y: 400, w:300, h:10});
+plat.push({x: 500, y: 500, w:200, h:10});
+plat.push({x: 0, y: 700, w:canvas.width, h:10});
+plat.push({x: 700, y: 300, w:300, h:10});
 
 
 function animate() {
@@ -61,8 +64,12 @@ function animate() {
   platform();
   obstacle();
   monster();
+  coin();
+  scoreDisplay();
   if (x>canvas.width||x<0) {xSpeed= -xSpeed}
   if (y>canvas.height|| y<0) {ySpeed = -ySpeed}
+  if (score===100) {gameWin()}
+ 
 }
 
 function setDirection(dir) {
@@ -119,47 +126,15 @@ function platform() {
   }
 }
  
- var xC = 500;
- var yC = 300;
- var wC = 20;
- var hC = 20;
+ var xC = 200;
+ var yC = 200;
+ var wC = 30;
+ var hC = 30;
  
 var img_coin = document.createElement("img");
-img_coin.src = "coin-animated.gif"
- 
- if(
-   x+playerW > xC &&
-   xC + wC> x &&
-   yC + hC >y &&
-   y+player >yC)
-  
-  if (x+playerW > xC && xC +wC> x && yC+hC >y && y+playerH >yC )
-  {
-    
-    xC =Math.random()*canvas.width;
-    yC =  Math.random()*canvas.height;
-  }
-  
-  if (x+playerW > xC && xC + wC>x  && yC+hC >y && y+playerH >yC ) {
-    xC = plat[i].x;
-    yC = plat[i].y-40;
-  }
- 
- animate()
-   obstacle();
-   platform();
-   monster();
-   coin();
-
-   
-   if (x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH > yC)
-   {
-     score +=10;
-     
-   }
-   
-   function coin() {
-     cx.drawImage(img.coin,xC,yC,wC,hC);
+img_coin.src = "coin.gif"
+function coin() {
+     cx.drawImage(img_coin,xC,yC,wC,hC);
      if (x+playerW > xC && xC+wC >x && yC+hC>y && y+playerH>yC)
      {
        score +=10;
@@ -183,7 +158,6 @@ img_coin.src = "coin-animated.gif"
    cx.fillText("Score: "+score,500,100);
  }
  
- if (score===100) {gameWin()}
  
 var xM = 800;
 var yM = 180;
@@ -203,19 +177,18 @@ function monster() {
   }
 }
 
-var audio = new Audio('audio_file.wav');
+//var audio = new Audio('audio_file.wav');
 
-audio.play();
+//audio.play();
 
 var backgroundmusic = new Audio('backgroundmusic.mp3')
 backgroundmusic.loop = true;
 backgroundmusic.play()
 
-funtion coin () {
-  if (//collision statement)
-  { collision.play();
-  //other statements
-  }
+
+
+  
+  
 
 
   animate();
