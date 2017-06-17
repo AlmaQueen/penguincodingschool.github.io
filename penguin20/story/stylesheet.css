@@ -26,6 +26,15 @@
   background-color: red;
   color: white;
 }
+.button2 img {
+  width: 20px;
+  height: 20px;
+}
+.button2 img:hover {
+  width: 30px;
+  height: 30px;
+}
+
 .dropdown{
   background-color: white;
   border: solid;
@@ -59,6 +68,11 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+#cool2 {
+  background: url("cool.jpg");
+  background-size: 100% 515%;
+  background-repeat: no-repeat; }
+  
 #textbox {
   color: red;
   font-size: 20;
@@ -84,4 +98,27 @@
   float: left;
   margin-right: 10;
 }
+#gameover {
+  color: blue;
+}
 
+#middle {
+  position:absolute;
+  /*margin:50%;
+  margin-top: 400;
+  /*margin: 0px auto;display: block;
+*/
+  
+}
+#disco {
+ background: url("disco.jpg");
+ background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#hell{
+ background: url("hell.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
+}

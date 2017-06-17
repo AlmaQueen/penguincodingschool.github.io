@@ -8,7 +8,31 @@ function AlienTalk(){
   } else if (x.selectedIndex===1){
     el.textContent = "We are viruses... FROM MARS! We viruses aim too take over the universe! Mwahahahahahaha!";
   } else if (x.selectedIndex===2){
-    el.textContent = "WHAT?!? Us, Help you? Never. Instead will will virusify you and you will help us take over the universe! ZzZzZzZAP!;
+    alert ("WHAT?!? Us, Help you? Never. Instead will will virusify you and you will help us take over the universe! ZzZzZzZAP!");
+    window.location="hell.html"
     dead.textContent="Virusified";
-} else {}
+} else if (x.selectedIndex===3){
+  alert("nice try. ZzZzZzZAP!");
+  window.location="hell.html"
+}else if (x.selectedIndex===4) {
+  window.location="hell.html"
+}
+}
+
+var hate = document.getElementById("hate")
+var middle = document.getElementById("middle");
+var cool = document.getElementById("cool");
+
+
+middle.style.marginTop = Math.random() * 80 + "vh";
+middle.style.marginLeft = Math.random() * 80 + "vw";
+hate.style.marginTop = Math.random() * 80 + "vh";
+hate.style.marginLeft = Math.random() * 80 + "vw";
+cool.style.marginTop = Math.random() * 80 + "vh";
+cool.style.marginLeft = Math.random() * 80 + "vw";
+
+
+function squished() {
+  alert("You get on the train to San Fransico but get squished");
+  window.location = "hell.html"
 }
