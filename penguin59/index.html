@@ -14,14 +14,18 @@
 .image-holder {
   width: 2400;
   height: 400;
-/*  clear: both;*/
+  clear: both;
   position: relative;
   -webkit-transition: left 2s;
   -moz-transition: left 2s;
   -o-transition: left 2s;
   transition: left 2s;
+  animation: slide 7s infinite;
   
 }
+
+.slider-holder:hover  .image-holder {animation-play-state:
+paused; }
 
 .slider-image {
   float: left;
@@ -29,6 +33,19 @@
   padding: 0;
   position: relative;
 }
+
+@keyframes slide {
+  0% {left: 0px;}
+  30% {left: 0px;}
+  33% {left: -800px;}
+  63% {left: -800px;}
+  66% {left: -1600px;}
+  97% {left: -1600px;}
+  100% {left: 0px;}
+}
+
+
+
 
 #image1:target ~ .image-holder {
   left: 0px;
@@ -42,11 +59,11 @@
 #image3:target ~ .image-holder {
   left: -1600px;
 }
-.button-holder {
-  position: relative;
-  top: -20px;
-  color: white;
-}
+/*.button-holder {*/
+/*  position: relative;*/
+/*  top: -20px;*/
+/*  color: white;*/
+/*}*/
 
 .slider-change {
   display: inline-block;
@@ -107,9 +124,7 @@ h1 {
   text-align: center;
   color: white;
   font-family: "comic sans ms";
-  
 }
-
 </style></head>
 <body>
 <ul id="menu">
@@ -143,4 +158,37 @@ h1 {
   </div>
    </div>
 </div>
+
+<button onclick = "ask()">MAGIC BUTTON</button>
+<script>
+function ask() {
+  // alert ("Hi Fellow Clasher! Welcome!");
+  // var name = prompt("What's your name?");
+  // alert("Nice to meet you, " +  name );
+  // var answer = prompt("Do you play Clash Royale, " + name );
+  // if
+  // (answer == "yes!" || answer == "Yes");
+  // {alert ("You are awesome, " +  name );}
+  
+  // (answer == "no" || answer == "No");
+  // {alert ("No non - clashers on this website! scram, " + name);}
+  // window.location = "https://www.google.com";
+  // // else
+  // // {alert ("Please answer yes or no, " + name )
+  var name = prompt("What's your name?")
+      alert("Nice to meet you, " + name + "!")
+  var answer = prompt('Do you play clash royale, ' + name + "?");
+  
+  if(answer == "yes" || answer == "Yes" || answer == "Y")
+     {alert("You are awesome, " + name + "!");}
+  else if (answer == "no" || answer == "No" || answer == "N")
+     {alert("NO NON - CLASHERS ON THIS WEBSITE!!! SCRAM,  " + name + "!!!");
+      window.location = "https://www.google.com";}
+  else {alert("Please answer yes or no, " + name)}
+  
+  
+}
+  
+
+</script>
 </body>
