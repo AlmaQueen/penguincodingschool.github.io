@@ -56,6 +56,13 @@ background: url(http://wallpapercave.com/wp/F85GHXH.jpg);
 .purple {
   color: #E470FF;
 }
+.pink {
+ color: #FF64A6;
+}
+
+.yellow {
+  color: #FEEF00;
+}
 
 .button {
   background-color: purple;
@@ -80,14 +87,10 @@ background: url(http://wallpapercave.com/wp/F85GHXH.jpg);
 }
 
 #textbox {
-  color: purple;
+  color: #F383F8;
   font-size: 20;
   font-family: Arial;
-}
-#textbox1 {
-  color: purple;
-  font-size: 20;
-  font-family: Arial;
+  text-shadow: 2px 2px black;
 }
 
 #pink {
