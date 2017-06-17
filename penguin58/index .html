@@ -5,7 +5,7 @@
     text-align: center;
     color: green;
     Background-color: Orange;
-    font-size: 60;
+    font-size: 50;
   }
     
     .slider-change {
@@ -29,21 +29,11 @@
       -o-transition: left 3s;
       transition: left 3s;
     }
-    .slider-image {
-      float: left;
-      margin: 0;
-      padding: 0;
-      position: relative;
+    
     }
-    #image1:target ~ .image-holder {
-      left: 0px;
+    
     }
-    #image2:target ~ .image-holder {
-      left: -400px;
-    }
-    .button-hold {
-      position: relative;
-      top: -20px;
+    
     }
     .slider-change {
       display: inline-block;
@@ -107,28 +97,25 @@
   }
     
       </style></head>
-  <div class= "hero-image">
+ <div class= "hero-image">
       <div class= "slider-holder">
       <span id= "image1"></span>
       <span id= "image2"></span>
     <div class= "image-holder">
-      <img src= "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/wall-of-american-license-plates-christine-till.jpg" height= 200px width=400px class= "slider-image">
-      <img src= "https://st.hzcdn.com/simgs/a00105a6064f9c2e_4-3703/contemporary-prints-and-posters.jpg" width= 400px height= 200px class= "slider-image">
+      
     </div>
-      <div class = "button-hold">
-        <a href="#image1" class= "slider-change"></a>
-        <a href= "#image2" class= "slider-change"></a>
-      </div>
       </div>
 <id= top>
   <div class= "hero-text">
     <h1>Different license plates of Canada </h1>
     <h4><style>
       h4{
-        font-size:35;
-        float: center;
+        font-size:20;
+        float: none;
+        border: none;
       }
-    </style></h4>
+    
+</style></h4>
     <h4> <b><mark>There are many different license plates among the ten provinces. For example, there are many different Alberta plates. However, this site will help you to identify all of the common plates in Canada!</mark></b></h4>
     </div>
     <br>
@@ -138,54 +125,79 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+<br>
+<br>
+<br>
+<br>
     <br>
     
-    
+<br>
+<br>
+
+  <br>
   
     <br>
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <r>
   <br>
   
     
     <ul id="menu">
       <li><a href=#Alberta>Alberta</a></li>
       <li><a href=#BritishColumbia>British Columbia</a></li>
-          <li><a href=#Manitoba>Manitoba</a></li>
-          <li><a href=#NewBrunswick>New Brunswick</a></li>
-          <li><a  href=#NewfoundlandAndLabrador>Newfoundland and Labrador</a></li>
-          <li><a href=#NovaScotia>Nova Scotia</a></li>
-          <li><a href=#Ontairo>Ontairo</a></li>
-          <li><a href=#pei>Prince Edward Island (PEI)</a></li>
-          <li><a href=#Quebec>Quebec</a></li>
-          <li><a href=#Saskatchewan>Saskatchewan</a></li>
+       <li><a href=#Manitoba>Manitoba</a></li>
+      <li><a href=#NewBrunswick>New Brunswick</a></li>
+      <li><a  href=#NewfoundlandAndLabrador>Newfoundland and Labrador</a></li>
+      <li><a href=#NovaScotia>Nova Scotia</a></li>
+      <li><a href=#Ontairo>Ontairo</a></li>
+       <li><a href=#pei>Prince Edward Island (PEI)</a></li>
+       <li><a href=#Quebec>Quebec</a></li>
+       <li><a href=#Saskatchewan>Saskatchewan</a></li>
           
     </ul>
-    <!--<div class= "slider-holder">-->
-    <!--  <span id= "image1"></span>-->
-    <!--  <span id= "image2"></span>-->
-    <!--<div class= "image-holder">-->
-    <!--  <img src= "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/wall-of-american-license-plates-christine-till.jpg" height= 200px width=400px class= "slider-image">-->
-    <!--  <img src= "https://st.hzcdn.com/simgs/a00105a6064f9c2e_4-3703/contemporary-prints-and-posters.jpg" width= 400px height= 200px class= "slider-image">-->
-    <!--</div>-->
-    <!--  <div class = "button-hold">-->
-    <!--    <a href="#image1" class= "slider-change"></a>-->
-    <!--    <a href= "#image2" class= "slider-change"></a>-->
-    <!--  </div>-->
-    <!--  </div>-->
+    
+    <button style="font-size:40;" onclick="Quiz()">Canadian License Plate QUIZ!</button>
+    
+    <script>
+      function Quiz () {
+        var name = prompt ("What is your name?");
+        
+        var answer = prompt ("Hello. Are you ready for the quiz " +name +"? Please use the correct spelling!");
+        if (answer == "yes" || answer == "Yes")
+         
+         {var q1 = prompt("Which Canadian License Plate has the motto 'Canada's Ocean Playground'?");
+          if (q1 == "Nova Scotia"  || q1 == "nova scotia") {
+            var q2 = prompt("Nice job! Which license plate has the colours blue and white?");
+            if (q2 == "Ontario" || q2 == "ontario"){
+              var q3 = prompt ("Good Work! Which Canadian License plate has French on it, ASIDE from the Quebec Plate?");
+              if (q3 == "New Brunsick" || q3 == "new brunswick"){
+                var q4 = prompt ("You know a lot about Canadian license plates! One license plate has the motto 'Land of living skies'. Which one is it?");
+                if (q4 == "Saskatchewan" || q4 == "saskatchewan"){alert ("Amazing Work! You got every single question right! You are a license plate master!")}
+                else {window.location="https://i.ytimg.com/vi/uNef99vO4Oo/maxresdefault.jpg"}
+              }
+               else {window.location="https://i.ytimg.com/vi/uNef99vO4Oo/maxresdefault.jpg"}
+            }
+             else {window.location="https://i.ytimg.com/vi/uNef99vO4Oo/maxresdefault.jpg"}
+          
+          }
+           else {window.location="https://i.ytimg.com/vi/uNef99vO4Oo/maxresdefault.jpg"}
+         }
+          else if (answer =="no" || answer =="No") { }
+        
+          else {alert("Please answer Yes or No")}
+         }
       
       
+      
+    </script>
+     
+      
+    <br>
+    <br>
+    <br>
+    <br>
 
 <a href="http://www.worldlicenseplates.com"> License plates of the world</a>
 <br>
@@ -195,8 +207,8 @@
 <img
 src ="http://www.icbc.com/vehicle-registration/licence-plates/PublishingImages/BC-parks-licence-plate-purcell-mountains-LARGE.png" width= 400px height= 200px>
 
-<h2>Canada</h2>
-  
+
+<h1>Canada</h1>
   
 <h2 id="Alberta"><b><a href= "https://en.wikipedia.org/wiki/Alberta"> Alberta</a></b></h2>
   
@@ -239,13 +251,9 @@ src ="http://www.plateshack.com/y2k/Alberta/aby2kpl.jpg" width= 400px height= 20
 
 <img src= "http://www.plateshack.com/y2k/Saskatchewan/sk2012.jpg" width= 400px height= 200px>
 <br>
-<font size=10>
-<a href=#top>Back to top</a>
-<br>
-<br>
-<br>
-<br>
 
-</font>
-</body>
-
+<a href=#top><p style="font-size:34">Back to top</p></a>
+<br>
+<br>
+<br>
+<br>
