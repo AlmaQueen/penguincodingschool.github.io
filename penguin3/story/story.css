@@ -43,6 +43,25 @@ h3 {
   background-repeat: no-repeat;
 }
 
+#foodcourt {
+  background: url(foodcourt.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#endvideo {
+  width: 600;
+  height:400;
+  
+}
+
+
+#steak {
+  background: url(steak.jpg);
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
 #hotdog2 {
  background: url(hotdog2.jpg);
   background-size:contain;
