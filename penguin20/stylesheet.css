@@ -1,0 +1,130 @@
+#MainTitle {
+  color: red;
+  font-size: 30;
+  font-family: "Times New Roman";
+  text-align: center;
+}
+
+#choices {
+  list-style: none;
+}
+
+.button {
+  background-color: white;
+  border: solid;
+  border-color: black;
+  color: red;
+  margin: 10;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  width: 25%;
+}
+.button:hover {
+  background-color: red;
+  color: white;
+}
+.button2 img {
+  width: 20px;
+  height: 20px;
+}
+.button2 img:hover {
+  width: 30px;
+  height: 30px;
+}
+
+.dropdown{
+  background-color: white;
+  border: solid;
+  border-color: black;
+  color: red;
+  margin: 10;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  width: 12%;
+  height:50px;
+}
+
+
+#home {
+  background: url("kitchen.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#gardenA {
+  background: url("GardenHide.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#gardenB {
+  background: url("bedbug.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#cool2 {
+  background: url("cool.jpg");
+  background-size: 100% 515%;
+  background-repeat: no-repeat; }
+  
+#coolest {
+    background: url("coolest.jpg");
+  background-size: 100% 515%;
+  background-repeat: no-repeat; }
+}
+  
+#textbox {
+  color: red;
+  font-size: 20;
+}
+#mainCharacter {
+  width: 200;
+  height: 200;
+}
+.align-center {
+  display: block;
+  margin: 0px auto;
+}
+
+#align-center {
+  display: block;
+  margin: 0px auto;
+}
+#align-left {
+  float: left;
+  margin-right: 10;
+}
+.align-left {
+  float: left;
+  margin-right: 10;
+}
+#gameover {
+  color: blue;
+}
+
+#middle {
+  position:absolute;
+  /*margin:50%;
+  margin-top: 400;
+  /*margin: 0px auto;display: block;
+*/
+  
+}
+#disco {
+ background: url("disco.jpg");
+ background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#hell{
+ background: url("hell.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
+}
