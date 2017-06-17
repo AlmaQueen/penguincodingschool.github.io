@@ -94,7 +94,7 @@ function setPlayer() {
   player.exp = 0;
   player.level=1;
   player.gp = 1000;
-  player.hp = 100;
+  player.hp = 50;
   player.mp= 100;
   player.maxHp =100;
   player.statusLabel= new Label("");
@@ -189,20 +189,15 @@ var cat = {
 };
 var battleScene = new Scene();
 var dude = {
-  maxHp: 20,
-  hp:20,
+  maxHp: 50,
+  hp:50,
   sprite: 15,
   attack: 3,
   exp:3,
-  gp:5,
+  gold:5,
   action: function() {
     player.currentEnemy = this;
     game.pushScene(battleScene);
-  }
-};
-var dude = {
-  action: function() {
-    npc.say("What do you want, Noob?");
   }
 };
 
@@ -221,7 +216,7 @@ var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
 
 var setBattle = function(){
   //BASIC SETUP for a SCENE
-  battleScene.backgroundColor = "red";
+  battleScene.backgroundColor = "purple";
   var battle = new Group();
   battle.menu = new Label();
   battle.menu.x = 20;
@@ -230,21 +225,23 @@ var setBattle = function(){
   battle.activeAction = 0;
   //LABEL FOR PLAYER STATUS IN BATTLE SCENE
   battle.getPlayerStatus = function(){
-    return "HP: " + player.hp + "<br>MP: "+player.mp;};
+    var currentEnemy = player.currentEnemy;
+    if (currentEnemy) {
+    return "HP: " + player.hp + "<br>Enemy HP: "+player.currentEnemy.hp;}};
   battle.playerStatus = new Label(battle.getPlayerStatus());
   battle.playerStatus.color = "white";
   battle.playerStatus.x = 200;
   battle.playerStatus.y = 120;
   //ACTUAL BATTLE DETAILS
   battle.hitStrength = function(hit){
-    return Math.round((Math.random()+.5)*hit);}
+    return Math.round((Math.random()+.5)*10);}
   //WINNING A BATTLE
   battle.won = function() {
     battle.over =true;
     player.exp += player.currentEnemy.exp;
     player.gold += player.currentEnemy.gold;
     player.currentEnemy.hp = player.currentEnemy.maxHp;
-    player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+" gold.";
+    player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+ " gold.";
     player.statusLabel.height =45;
     //erase the dude from map
   };
@@ -271,7 +268,7 @@ var setBattle = function(){
     var currentEnemy = player.currentEnemy;
     var enemyHit = battle.hitStrength(currentEnemy.attack);
     player.hp = player.hp - enemyHit;
-    battle.menu.text = "Your enemy did"+enemyHit+" damage to you!"
+    battle.menu.text = "Your enemy did "+enemyHit+" damage to you!"
     if(player.hp<=0){
       battle.lost();
     }
@@ -593,4 +590,3 @@ game.onload = function() {
 
 game.start();
 }
-
