@@ -61,21 +61,16 @@ q1=parseInt(document.querySelector("input[name='q1']:checked").value);
 q2=parseInt(document.querySelector("input[name='q2']:checked").value);
 q3=parseInt(document.querySelector("input[name='q3']:checked").value);
 q4=parseInt(document.querySelector("input[name='q4']:checked").value);
-result = q1 + q2 + q3  q4;
+result = q1 + q2 + q3 +q4;
   document.getElementById("grade").innerHTML = result;
-  if (result === 0) {result2= "You need to get Terraria. You are missing out.  <br><img src ='' width=300>"}
-  
-   if (result === 1) {result3= "Youhttps://s-media-cache-ak0.pinimg.com/736x/ea/97/9d/ea979dd9229ffdac3ca4701011e8ca9d.jpg should play more Terraria.  Soon you can finish the game. Don't give up! <br><img src ='&imgrc=aS-e1RfI6eoI2M:'width=300>"}
-   if (result === 2) {result4= "You got half of the questions. You should be able to master the game soon.  <br><img src ='' width=300>"}
-   if (result === 3) {result2= "You're almost there! Keep going!  <br><img src ='4.jpg'>"}
+  if (result === 0) {result2= "You need to get Terraria. You are missing out. <br><img src ='0.jpg' width=300>"}
+   if (result === 1) {result2= "You should play more Terraria.  Soon you can finish the game. Don't give up! <br><img src ='1.jpg'width=300>"}
+   if (result === 2) {result2= "You got half of the questions. You should be able to master the game soon.  <br><img src ='2.jpg' width=300>"}
+   if (result === 3) {result2= "You're almost there! Keep going!<br><img src =4.jpg' width=300>"}
    if (result === 4) {result2= "Congragulations. You are knowledgeable about terraria. <br><img src ='5.jpg' width=300>"}
    
   document.getElementById("grade2").innerHTML = result2;
-  
   return false;
-  
-  
-  
 }
   
   
