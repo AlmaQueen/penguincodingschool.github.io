@@ -3,8 +3,83 @@
     width: 400px;:
     height:400;
   }
-</style>
-<ul id="soccer"
+
+.slider {
+width: 800:
+height:400;
+/*margin-left:auto;
+margin-right: auto;
+margin-top:0;*/
+overflow: hidden;
+}
+
+.image-holder {
+width:2400;
+height:400;
+position:relative;
+clear: both;
+animation: slide 15s infinite
+}
+
+.slider-image {
+  float:left;
+  position:relative;
+  padding: 0;
+  margin:0;
+  width: 800;
+  height:400;
+}
+
+/*
+#image1:target ~ .image-holder{
+  left:0px;
+}
+
+#image2:target ~ .image-holder{
+  left:-800px;
+}
+
+#image3:target ~ .image-holder{
+  left:-1600px;
+}
+*/
+
+@keyframes slide
+{
+  0% {left: 0px;}
+  30% {left: 0px;}
+  33% {left:-800px;}
+  63% {left:-800px;}
+  66% {left:-1600px;}
+  97% {left:-1600px;}
+  100% {left: 0px;}
+}
+
+</style></head>
+
+<body>
+<div class="header">
+  <ul id= "menu">
+  <li><a href="index.html">home</a></li>
+  <li><a href= "list.html">pictures</a></li>
+  <li><a href="video.html">videos</a></li>
+  </ul>
+  
+  
+</div>
+  
+
+
+<div class="slider">
+<div class="image-holder">
+  <img src="http://static5.businessinsider.com/image/57f2ad99d887244b078b506a-1920/soccer%20action%20shot.jpg"  class="slider-image">
+  <img src="https://s-media-cache-ak0.pinimg.com/736x/14/78/9c/14789c885732e2a7aff64f565375a3d4.jpg"  class="slider-image">
+  <img src="https://images6.alphacoders.com/369/369157.jpg"  class="slider-image">
+  </div>
+</div>
+
+
+<ul id="soccer"></ul>
 <li><img src="http://img.aws.livestrongcdn.com/ls-article-image-400/cme/cme_public_images/www_livestrong_com/photos.demandstudios.com/getty/article/228/46/154084325_XS.jpg"></li>
 <br>
 For Soccer you need to kick,
@@ -14,3 +89,4 @@ For Soccer you need to kick,
 dribble
 <li><img src="http://www.soccerpilot.com/technique/images/soccer-technique-1.jpg"></li>
 And pass
+</body>

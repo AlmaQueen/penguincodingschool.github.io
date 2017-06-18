@@ -38,52 +38,38 @@ font-size:100;
   
 }
 
-.slider-holder {
-height:400;
-width: 800:
-margin-left:auto;
-margin-right: auto;
-margin-top:0;
-text-align: center:
-overflow: hidden;
-}
-
+.slider-holder  {
+            width: 1200;
+            height: 800;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10;
+            text-align: center;
+            overflow: hidden;
+        }
 .image-holder {
-width:2400;
-height:400;
-position:relative;
-clear: both;
-animation: slide 3s infinite
-}
+            width: 3600;
+            height: 800;
+            position: relative;
+            animation: slide 3s infinite;
+        }
 
-.slider-image {
-  float:left;
-  position:relative;
-  padding: 0;
-  margin:0;
-}
-
-#image1:target ~ .image-holder{
-  left:0px;
-}
-
-#image2:target ~ .image-holder{
-  left:-800px;
-}
-
-#image3:target ~ .image-holder{
-  left:-1600px;
-}
-
+.image-holder img {
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 1200;
+        height: 800;
+        }
 
 @keyframes slide
 {
   0% {left: 0px;}
   30% {left: 0px;}
-  33% {left:-800px;}
-  63% {left:-800px;}
-  66% {left:-1600px;}
-  97% {left:-1600px;}
+  33% {left:-1200px;}
+  63% {left:-1200px;}
+  66% {left:-2400px;}
+  97% {left:-2400px;}
   100% {left: 0px;}
 }
 
@@ -94,7 +80,7 @@ animation: slide 3s infinite
   <ul id= "menu">
   <li><a href="index.html">home</a></li>
   <li><a href= "list.html">pictures</a></li>
-  <li><a href="video.html">videos</a></li>
+  <li><a href="videos.html">videos</a></li>
   </ul>
   
   
@@ -115,17 +101,14 @@ animation: slide 3s infinite
 <br>
 A Soccer video
 <br>
-<iframe src="https://www.youtube.com/embed/Wa9fGGbSefc"></iframe>
+
 
 
 <div class="slider-holder">
-  <span id="image1"></span>
-  <span id="image2"></span>
-  <span id="image3"></span>
 <div class="image-holder">
-  <img src="http://static5.businessinsider.com/image/57f2ad99d887244b078b506a-1920/soccer%20action%20shot.jpg" width="800px" height="400px" class="slider-image">
-  <img src="https://s-media-cache-ak0.pinimg.com/736x/14/78/9c/14789c885732e2a7aff64f565375a3d4.jpg" width="800px" height="400px" class="slider-image">
-  <img src="https://images6.alphacoders.com/369/369157.jpg" width="800px" height="400px" class="slider-image">
+  <img src="http://static5.businessinsider.com/image/57f2ad99d887244b078b506a-1920/soccer%20action%20shot.jpg">
+  <img src="https://s-media-cache-ak0.pinimg.com/736x/14/78/9c/14789c885732e2a7aff64f565375a3d4.jpg">
+  <img src="https://images6.alphacoders.com/369/369157.jpg">
   </div>
 </div>
 
