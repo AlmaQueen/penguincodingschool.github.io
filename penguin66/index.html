@@ -159,6 +159,17 @@ color:white;
  <a href="#image1" class="slider-change"></a>
  <a href="#image2" class="slider-change"></a>
  <a href="#image3" class="slider-change"></a>
- </div>
-</div>
+ </div></div>
+<button onclick="music1()">Music</button>
+<audio controls>
+  <source src="" type="audio/mpeg">
+</audio>
+<script>
+  var music = new Audio('derulo.mid')
+  function music1() {
+    music.play();
+  music.loop = true;
+  }
+
+</script>
 </body>

@@ -1,7 +1,7 @@
 <body>
   <h1>Craft Quiz</h1>
   
-  <form id="form 1" action=" ">
+  <form id="form1" action=" ">
     <p>Which one is a DIY craft?</p>
     <input type="radio" name="q1" value="0">
     Video games<br>
@@ -21,9 +21,59 @@
      Ziploc<br>
      
      <p>What does DIY stand for?</p>
-     <input type="text" name=" "><br>
-     
-     <p></p>
+     <input type="radio" name="q3" value="0">
+     design and illistrate yourself<br>
+     <input type="radio" name="q3" value="1">
+     do it yourself<br>
+    <p>What would you use to make a stress ball?</p>
+  <input type="radio" name="q4" value="1">
+    ballons<br>
+    <input type="radio" name="q4" value="0">
+    tape<br>
+        <input type="radio" name="q4" value="0">
+        string<br>
+  <p>What would I NOT use for origami?</p>
+     <input type="radio" name="q5" value="0">
+     paper<br>
+         <input type="radio" name="q5" value="1">
+         stickers<br>
+             <input type="radio" name="q5" value="0">
+             folds<br>
+             
+             <input type="submit" value="Submit">
+             
+      <p>My score <span id="grade"></span></p>
+      <p id="grade2"></p>
+             
+ <script>
+ document.getElementById("form1").onsubmit=function() {
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+ q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+ q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+ q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+ q5=parseInt(document.querySelector("input[name='q5']:checked").value);
+ result=q1+q2+q3+q4+q5;
+ document.getElementById("grade").innerHTML=result;
+ 
+ if (result===0) {result2="you need to read this website again<img src='https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAhlAAAAJDNjNjc4YmJlLWNjMTEtNGVmOC04MDQ1LTY2NDY0OTBiZWRkZg.jpg'>";}
+if (result===1) {result2="You didn't do very well<img src='https://i.ytimg.com/vi/0qot5Ij8dzQ/maxresdefault.jpg' width=600 height=400>";}
+
+if (result===2) {result2="You only got less than half.Try again!<img src='https://static.parade.com/wp-content/uploads/2013/10/readers-crafts-1.jpg'width=600 height=400>";}
+ 
+ if (result===3) {result2="You got more than half.";}
+ 
+if (result===4) {result2="You only got one wrong!So close!";}
+  
+if (result===5) {result2="Great job!Somone read my website!";}
+  
+document.getElementById("grade2").innerHTML = result2;
+ 
+ return false;
+   
+ }
+ 
+ </script>
+  
      
       
   
