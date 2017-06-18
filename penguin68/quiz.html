@@ -1,3 +1,48 @@
+<head>
+  <style>
+  #Tesla-images li iframe {
+    width:500;
+    height:500;
+  }
+  #menu {
+  list-style-type:  none;
+  Overflow: hidden;
+  background-color: darkgrey;
+}
+#menu li  {
+    float:  left;
+}
+#menu li  a {
+    display:  block;
+    Color:  white;
+    Text-align: center;
+    padding:  14;
+    text-decoration:  none;
+}
+#menu li a:hover {
+  background-color: black;
+  
+
+}
+#menu .active {
+    Background color: green;
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 80px;
+  }
+  </style>
+</head>
+
+<body>
+  <ul id="menu">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="pictures.html">Pictures</a></li>
+  <li><a href="videos.html">Videos</a></li>
+  <li><a href="quiz.html">Quiz</a></li>
+</ul>
+
 <body>
   <hl>Tesla Quiz</hl>
   
@@ -61,7 +106,7 @@
     
     </form>
     
-    <p>You got  <span id="grade">_</span> correct out of 5.</p>
+    <p>You got  <span id="grade">_</span> correct out of 6.</p>
     <p id="grade2"></p>
     
     <script>
@@ -76,20 +121,20 @@
      
      document.getElementById("grade").innerHTML = result;
      
+     
      if (result===0){result2= "You got 0 correct.  You should learn more about teslas.<br><img src='https://services.edmunds-media.com/image-service/media-ed/ximm/?quality=85&image=/tesla/model-x/2016/lt/2016_tesla_model-x_f34_lt_51316_717.jpg' width=300>";}
-     if (result===1){result2= "You got 1 correct. Keep trying.<br><img src='' width=300>";}
-     if (result===2){result2= "You got 2 correct.  Better luck next time!<br><img src='' width=300>";}
-     if (result===3){result2= "You got 3 correct.  Good job!  Keep trying<br><img src='' width=300>";}
+     if (result===1){result2= "You got 1 correct. Keep trying.<br><img src='https://i1.wp.com/electrek.files.wordpress.com/2016/09/model-x-accident-fl-tom-3.jpg?w=496&h=279&crop&quality=82&strip=all&ssl=1' width=300>";}
+     if (result===2){result2= "You got 2 correct.  Better luck next time!<br><img src='http://cdn.teslarati.com/wp-content/uploads/2016/06/White-Model-X-crash-flatbed-trailer.jpg' width=300>";}
+     if (result===3){result2= "You got 3 correct.  Good job!  Keep trying<br><img src='https://www.tesla.com/tesla_theme/assets/img/modelx/section-exterior-primary.jpg?20170420' width=300>";}
      
-     if (result===4){result2= "You got 4 correct.  you're doing good! keep trying!
-     <br><img src='' width=300>";}
+     if (result===4){result2= "You got 4 correct.  you're doing good! keep trying!<br><img src='http://static2.businessinsider.com/image/57713c8cdd089531228b49bf-1190-625/tesla-gave-its-cars-a-stunning-rainbow-paint-job-to-celebrate-pride.jpg' width=300>";}
      
-     if (result===5){result2= "You got 5 correct.  Great job!  you'
-     re so close, Keep trying till you get 6!<br><img src='' width=300>";}
-     if (result===6){result2= "You got 6 correct.  Congratulations! You've mastered teslas!  you got 100%!<br><img src='' width=300>";}
+     if (result===5){result2= "You got 5 correct.  Great job!  you are so close, Keep trying till you get 6!<br><img src='https://cnet4.cbsistatic.com/img/3-14WgVgrMGZ_pKcAqsefdLScJc=/830x467/2016/04/28/5a91e8fc-14bc-4c22-abe4-b990073328d2/2016-tesla-model-s-19-of-43.jpg' width=300>";}
+     if (result===6){result2= "You got 6 correct. Congratulations! You've mastered teslas!  you got 100%!<br><img src='http://static3.businessinsider.com/image/55c3b021371d2212008bd8da-1190-625/this-is-why-teslas-sculptural-work-of-art-back-seat-in-the-model-x-is-so-tricky.jpg' width=300>";}
      
       
     document.getElementById("grade2").innerHTML = result2;
+    
     return false;
     }
       
