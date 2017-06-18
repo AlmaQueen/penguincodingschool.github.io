@@ -1,4 +1,39 @@
+<head>
+  <style>
+    .button {
+      background-color:blue;
+      color:white;
+      font-size: 40;
+      padding: 20 30;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 20%;
+    }
+    
+    .button:hover {
+      background-color: green;
+    }
+    
+  </style>
+  
+</head>
+
+
 <body>
   <canvas></canvas>
+  <a href=javascript:magic() class=button>Magic</a>
+  
+  
+  <script>
+    function magic() {
+      var answer=prompt("how about a quick question? Do you like pusheen? ");
+      
+      if(answer=="yes") {
+      window.open("video.html");
+      }
+      
+    }
+    
+  </script>
   
 </body>

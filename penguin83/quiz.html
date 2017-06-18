@@ -21,10 +21,40 @@
   <input type="radio" name="q3" value=0>
   both love to nap<br>
   <input type="radio" name="q3" value=0>
-  both have websites<br>
+  both are round (litterly!)<br>
   <input type="radio" name="q3" value=5>
   all above<br>
   
-  <p>do you like durps orpusheen?</p>
-  checkbox
+  <p>do you like durps or pusheen?</p>
+  <input type="radio" name="q4" value=1>durps
+  <br><canvas id="canvas" width=400 height=400></canvas>
+  <br>
+  <input type="radio" name="q4" value=1>pusheen
+  <img src=https://s-media-cache-ak0.pinimg.com/736x/84/9c/48/849c48882a0efba25d30ba82cc90bbbc.jpg >
+  
+  <input type="submit" value="Submit">
+
+  
+  </form>
+  <p > <span id="grade">_</span></p>
+  
+  <script src="canvas.js"></script>
+  
+  
+  <script>
+  durp(100,100,50,5,10,10);
+    document.getElementById("form1").onsubmit=function() {
+      q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+      q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+      q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+        
+    result=q1+q2+q3;
+    document.getElementById("grade").innerHTML=result;
+    
+  /*  if (result===0) {result2="try again.; maddurp(550,550,100,5,30,30);}*/
+   return false
+    }
+    
+  </script>
+  
 </body>
