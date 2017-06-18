@@ -29,6 +29,13 @@ function purpledragon2() {
   } else {}
 }
 
+function purpledragon3() {
+  var ele = document.getElementById("purpledragon3") ;
+  if (ele.style.display ==="none") {
+    ele.style.display ="block";
+  } else {}
+}
+
 function purpledragonform() {
    var el = document.getElementById("textbox");
    var ele = document.getElementById("purpledragon1");
@@ -68,11 +75,11 @@ function deepCaveTalk() {
   }else if (x.selectedIndex ==2) {
     el.textContent = "i know , when i found this place i knew this would be perfect ";
   } else  if (x.selectedIndex ==3) {
-    el.textContent = "yes, no other dragon im my cave/territory can step into here without my permission. ";
+    el.textContent = "yes, no other dragon in my cave/territory can step into here without my permission. ";
   } else if  (x.selectedIndex ==4) {
     el.textContent = "yes, it is really comfortable ";
   } else if  (x.selectedIndex ==5) {
-    el.textContent = "";
-    purpledragon();
+    el.textContent = "Thorn the evil dragon is taking over the dragon kingdom,and you are our last hope. there was a prophecy that said that a certain dragon defeat thorn. purple scales,living away from other dragons, the prophecy i think was describing you. the only way to defeat thorn is to find his glowing orb. once you find it, destroy it.the evil in the dragon will fly out of thorn and we will all be safe. will you defeat thorn? ";
+    purpledragon3();
   } else {}
 }

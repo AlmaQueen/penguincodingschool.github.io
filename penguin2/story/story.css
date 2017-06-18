@@ -27,6 +27,10 @@
   
 }
 
+#door{
+  width:200;
+  height:200;
+}
 .button {
   background-color: purple;
   border: none;
