@@ -1,0 +1,55 @@
+<head><style>
+  h1 {
+    color:purple;
+    text-align:center;
+    font-size:70;
+  }
+  body {
+    background: url(hamster.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
+  h2 {
+    color:black;
+  }
+</style></head>
+
+
+<body>
+<button onclick="ask()">Click Me</button>
+
+<h1>Hamsters</h1>
+<h2>This website is all about Hamsters.</h2>
+
+<br>There are many different types of hamsters, including: <br> Dwarf, Siberian, Syrains, and Roborovski.
+
+<br><a href="https://en.wikipedia.org/wiki/Hamster">More info about Hamsters</a>
+<br>
+<img src="" width=750 height=500>
+
+<script>
+function ask() {
+  alert("Hi! Welcome to my website!");
+  var name = prompt("What is your name?");
+  alert("Hi "+name);
+  
+  var answer = prompt("Do you like hamsters?");
+  if (answer=="yes")
+  {
+    alert("How wonderful! You are awesome!");
+  }
+  
+  else if (answer=="no")
+  {
+    alert("How awful. You are not welcome here anymore.");
+    window.location = "http://www.google.com";
+  } else {
+    alert("Please answer yes or no.");
+    
+  }
+  var answer1 = prompt("Do you like hamsters?")
+  
+}
+</script>
+
+</body>
