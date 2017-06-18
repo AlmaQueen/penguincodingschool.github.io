@@ -1,11 +1,13 @@
 // variables
-var canvas = document.getElementById("canvas");	//qfvawiogoiaewoigh
+var canvas = document.getElementById("canvas");	//udo8skjnhcfjioeusdkgbxchlfijusdgkuewuaceysgfusdgcasfiugdwequhyauicsrfyaiuhcyzefuscyhvduicfyeiufnoifujkfcucfiujcfcyfhjkucwyhcqrsjxfdwhsagcjdeywgasdfbrjuwaesygafhsdzuytfgesdhufydaeghsjufytgesahjfhuygashjfuytagyhsufyhgytgfsghfuyagtsfhaygf
 var cx = canvas.getContext("2d");
 canvas.width=window.innerWidth-50;
 canvas.height=window.innerHeight-50;
 
 var img_player = document.createElement("img");
 img_player.src = "DATBOI.png";
+var img_monster = document.createElement("img");
+img_player.src = "Prince.png";
 
 var x =0;
 var y =0;
@@ -22,7 +24,21 @@ var keyActions = {
 };
 var req;
 var score=0;
-
+function newGame(){
+  x = 0;
+  y = 0;
+  xSpeed = 0;
+  ySpeed = 0;
+  
+  xM = 500;
+  yM = 420;
+  xMS = -5;
+  yMS = 0;
+  
+  score = 0;
+  stop();
+  animate();
+}
 function animate(){
 	req = requestAnimationFrame(animate);
 	cx.clearRect(0,0,canvas.width, canvas.height);
@@ -35,7 +51,7 @@ function animate(){
 scoreDisplay();
 	if (x>canvas.width || x <0) {xSpeed = -xSpeed;}
 if (y>canvas.width || y <0) {ySpeed = -ySpeed;}
-if (x>800) {gameWin() ;}
+if (score==150) {gameWin() ;}
 }
 
 
@@ -81,6 +97,13 @@ plat.push({x:200, y:500, w:100,h:10});
 plat.push({x:400, y:500, w:100,h:10});
 plat.push({x: 600, y:500, w:100,h:10});
 plat.push({x:800, y:500, w:100,h:10});
+plat.push({x: 150, y:200, w:100, h:10});
+plat.push({x: 330, y:230, w:100, h:10});
+plat.push({x: 500, y:100, w:100, h:10});
+plat.push({x:1000, y:600, w:100, h:10})
+plat.push({x:1200, y:600, w:100, h:10})
+
+lava.push({x:0, y:750, w:canvas.width, h:10});
 function platform() {
 	
 	gravity =5;
@@ -116,8 +139,8 @@ function stop() {
 
 function gameOver() {
 	cx.fillStyle = "Orange";
-	cx.font = "40px 'Lobster'";
-cx.fillText("Get Rekt Son",10,50);
+	cx.font = "30px 'Lobster'";
+cx.fillText("your new name is not a proper noun; it is FAILURE",10,50);
 	stop();
 }
 function gameWin() {
@@ -147,13 +170,19 @@ function ms() {
 	yMS = -yMS;
 	}
 }
-var xC = 500;
-var yC = 300;
+var i = Math.ceil(Math.random()*plat.length);
+var xC = plat[i].x;
+var yC = plat[i].y - 40;
+	
+//var xC = 500;
+//var yC = 300;
 var wC = 20;
 var hC = 20;
-
+var bksong= new Audio('Colorblind.mp3');
+bksong.loop=true;
+bksong.play();
 function coin() {
-	cx.fillstyle = "gold";
+  cx.fillStyle = "gold";
 	cx.fillRect(xC,yC,wC,hC)
 	if(
 		x+playerW > xC &&
@@ -162,28 +191,16 @@ function coin() {
 		y+playerH >yC)
 		if(x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH >yC)
 		{
+			score += 10;
 			var i = Math.ceil(Math.random()*plat.length);
 			xC = plat[i].x;
 			yC = plat[i].y - 40;
 		}
-		if (x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH >yC)
-			{
-				score += 10;
-				var i = getRandomInt(1,plat.length);
-				xC=plat[i].x;
-				yC=plat[i].y-40;
-			}
-			function getRandomInt(min,max) {
-			  min=Math.ceil(min)
-			  max=Math.floor(max)
-			  return Math.floor(Math.random()*(max-min))+min;
-			}
-			
 }
 
 function scoreDisplay() {
 			  cx.fillStyle="Orange";
 			  cx.font="30px Anton";
-			  cx.fillText("Score: "+score,500,100);
+			  cx.fillText("Score: "+score,500,30);
 			}
 //dank memes 4 lyfe
