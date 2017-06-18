@@ -3,21 +3,21 @@ var cx = canvas.getContext("2d");
 canvas.width=1000;
 canvas.height=700;
 var img_player = document.createElement("img");
-img_player.src = "pokemon.png";
+img_player.src = "Pokemon2.png";
 var x =280;
 var y =0;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity =5;
 var playerW = 80;
-var playerH = 80;
+var playerH = 90;
 var req;
 var xMonster = 1000;
 var yMonster = 50;
 var xMonsterSpeed = -5;
 var yMonsterSpeed = 0;
-var monsterW = 10; //monster width
-var monsterH = 10; //monster height
+var monsterW = 30; //monster width
+var monsterH = 30; //monster height
 var xC = 500;
 var yC = 300;
 var wC = 20;
@@ -36,6 +36,7 @@ scoreDisplay();
 x+=xSpeed; y+=ySpeed+gravity;
 if (x>canvas.width || x <0){ xSpeed=-xSpeed}
 if (y>canvas.height || y<0 ){ySpeed = -ySpeed}
+if (score >=50) {gameWin()}
 }
 
 function stop() {
@@ -67,7 +68,7 @@ function setDirection(dir){
   ySpeed = 0;
   }
   else if (dir ==="jump" && gravity===0) {
-    y = y-60;
+    y = y-80;
     
   }
 }
@@ -90,11 +91,12 @@ stop();
 function gameWin() {
   cx.fillstyle = "Green";
   cx.font ="30px Comic Sans MS";
-  cx.fillText("Game Over",10,50);
+  cx.fillText("You Win!",10,50);
+  stop();
 }
 
 var img_monster = document.createElement("img");
-img_monster.src = "pokemon.png";
+img_monster.src = "Plasma.jpg";
 
 function monster() {
   cx.drawImage(img_monster,xMonster, yMonster, monsterW, monsterH);
@@ -102,7 +104,7 @@ function monster() {
   yMonster += yMonsterSpeed;
   if (x+playerW>xMonster && xMonster+monsterW>x && yMonster+monsterH>y && y+playerH>yMonster)
   {gameOver();}
-    else if (xMonster<0) {
+    else if (xMonster<0 || xMonster>canvas.width) {
       xMonsterSpeed = -xMonsterSpeed;
     }
   
@@ -133,6 +135,10 @@ plat.push({x: 200, y: 100, w:100, h:10 });
 plat.push({x: 400, y: 100, w:100, h:10 });
 plat.push({x: 600, y: 100, w:100, h:10 });
 plat.push({x: 800, y: 100, w:100, h:10 });
+plat.push({x: 80, y: 225, w:100, h:10 });
+plat.push({x: 80, y: 275, w:100, h:10 });
+plat.push({x: 80, y: 175, w:100, h:10 });
+plat.push({x: 80, y: 100, w:100, h:10 });
 plat.push({x: 0, y: 350, w:canvas.width, h:10 });
 
 
@@ -146,8 +152,8 @@ cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h );
 }
 
 var lava=[];
-lava.push({x: 150,y: 150,w: canvas.width, h: 100});
-lava.push({x: 150,y: 150,w: 150, h: 100});
+lava.push({x: 250,y: 150,w: canvas.width, h: 10});
+lava.push({x: 350,y: 250,w: 150, h: 10});
 
 function obstacle() {
 cx.fillStyle = "red";
@@ -175,7 +181,7 @@ function scoreDisplay() {
   cx.fillText("Score: "+score, 400,70);
 }
 
-var backgroundmusic = new Audio('Pokemon-Theme-Song--D.mp3.mp3')
+var backgroundmusic = new Audio('fire.mp3')
 backgroundmusic.loop = true;
 backgroundmusic.play
 
