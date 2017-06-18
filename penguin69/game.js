@@ -23,20 +23,16 @@ function animate(){
   y+=ySpeed+gravity;
   platform();
   obstacle();
+  monster();
   if (x <0 || x>canvas.width-playerW){
   xSpeed=-xSpeed;}
   if (y <0 || y>canvas.height-playerH){
   ySpeed=-ySpeed;}
-}
-if (x>800) {
+  if (x>1950) {
   gameWin();
+  }
 }
-var xMonster = 500;
-var yMonster = 0;
-var xMonsterSpeed = -5;
-var yMonster = 0;
-var monsterW = 10; //monster width
-var monsterH = 10; //monster height
+
 
 
 
@@ -96,6 +92,7 @@ plat.push({x: 450, y: 290, w:100, h:10});
 plat.push({x: 600, y: 750, w:200, h:10});
 plat.push({x: 0, y: 900, w:2010, h:10});
 plat.push({x: 860, y: 700, w:25, h:10});
+plat.push({x: 860, y: 600, w:100, h:10});
 
 function stop() {
   if (req) {
@@ -104,16 +101,16 @@ function stop() {
   }
 }
 function gameOver() {
-  cx.fillStyle = "orange";
+  cx.fillStyle = "blue";
   cx.font = "30px Jazzy";
-  cx.fillText("Game Over!!!!!!!!!!!!!!!! to bad for you. did you know your name is in a dictionary? it's under... FAILURE!!!!!",10,50);
+  cx.fillText("Roses Are Red Violets Are Blue Failures Like You Belong in a Zoo. Don't be Mad I Will be There Too Not in The Cage But laughing At You",10,50);
   stop();
 }
 
 function gameWin() {
-  cx.fillStyle = "orange";
+  cx.fillStyle = "blue";
   cx.font = "30px Jazzy";
-  cx.fillText("Good job you won... THE FIRST LEVEL Try beating the second HAR HAR HAR",10,50);
+  cx.fillText("( ͡° ͜ʖ ͡°)",10,50);
   stop();
 }
 
@@ -134,27 +131,369 @@ lava.push({x: 0, y: 880, w:750, h: 10});
 lava.push({x: 620, y: 800, w: 300, h: 10});
 lava.push({x: 920, y: 850, w: 1000, h: 10});
 
+var xMonster = 500;
+var yMonster = 0;
+var xMonsterSpeed = -5;
+var yMonsterSpeed = 0;
+var monsterW = 100; //monster width
+var monsterH = 100; //monster heigh
+
+var img_monster = document.createElement("img");
+img_monster.src = "lenny.jpg";
+
+
 function monster() {
-  cx.fillStyle = "green";
-  cx.fillRect(xMonster, yMonster, monsterW, monsterH);
+  //cx.fillStyle = "white";
+  //cx.fillRect(xMonster, yMonster, monsterW, monsterH);
+  cx.drawImage(img_monster,xMonster, yMonster, monsterW, monsterH);
+
   xMonster += xMonsterSpeed;
   yMonster += yMonsterSpeed;
   if (x+playerW>xMonster&&xMonster+monsterW>x && yMonster+monsterH>y&&y+playerH>yMonster){
     gameOver();
    }
-   else if (xMonster<0) {
+   else if (xMonster>0) {
      xMonsterSpeed = -xMonsterSpeed;
    }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-}
+  }
 animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
