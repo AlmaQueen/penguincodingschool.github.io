@@ -2,7 +2,7 @@ enchant();
 window.onload=function() {
   var game = new Core(300,300);
   game.keybind(32,'a');
-  game.spriteSheetWidth = 256;
+  game.spriteSheetWidth = 288;
   game.spriteSheetHeight = 16;
   game.itemSpriteSheetWidth = 64;
   game.items = [{price: 1000, description: "Hurter", id: 0},
@@ -15,6 +15,8 @@ window.onload=function() {
   game.preload(['sprites.png','items.png']);
   var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
+  var map1 = new Map(game.spriteWidth, game.spriteHeight);
+  var foregroundMap1 = new Map(game.spriteWidth, game.spriteHeight);
 
 function setMaps() {
   map.image=game.assets['sprites.png'];
@@ -44,6 +46,35 @@ function setStage() {
   game.rootScene.addChild(stage);
 }
 
+function setMaps1() {
+  map1.image=game.assets['sprites.png'];
+  map1.loadData(mapData1);
+  foregroundMap1.image = game.assets['sprites.png'];
+  foregroundMap1.loadData(foregroundData1);
+  var collisionData = [];
+
+  for (var i=0; i<foregroundData.length; i++) {
+    collisionData.push([]);
+    for(var j=0; j<foregroundData[0].length;j++) {
+      if (foregroundData[i][j]==2 || foregroundData[i][j]==15 || foregroundData[i][j]==4 || foregroundData[i][j]==3) {
+        var collision = 1;
+      collisionData[i][j] = collision;
+    }
+  }
+  map.collisionData = collisionData;
+}
+}
+
+function setStage1() {
+  var stage1 = new Group();
+  stage.addChild(map1);
+  stage.addChild(player);
+  stage.addChild(foregroundMap1);
+  stage.addChild(player.statusLabel);
+  game.rootScene.addChild(stage1);
+}
+
+
 var player = new Sprite(game.spriteWidth, game.spriteHeight);
 
 function setPlayer() {
@@ -58,11 +89,11 @@ function setPlayer() {
   player.image = new Surface(game.spriteSheetWidth,game.spriteSheetHeight);
   player.image.draw(game.assets['sprites.png']);
   //new player status info
-  player.name = "Arhip";
-  player.charClass = "Awesome";
+  player.name = "Olesya";
+  player.charClass = "cool mom";
   player.exp = 1000;
   player.level=5;
-  player.gold = 100000;
+  player.gold = 10000;
   player.hp = 150;
   player.maxHp =100;
   player.attack = 10;
@@ -154,7 +185,12 @@ var npc = {
 
 var greeter = {
   action: function() {
-    npc.say("hello you look buitifull"+player.name+" the "+player.charClass+player.name);
+    for(var i = 0; i<player.inventory.length; i++) {
+      if(player.inventory[i] === 3) {var spicy_hot_chili_pepper = true}
+    }if (spicy_hot_chili_pepper) {setNewMaps(); setStage1(); npc.say("I loveeeeeeeee spicy stuff");}
+    else (npc.sat("try the spicy hot chili peppers"))
+    
+    
   }
 }
 
@@ -163,7 +199,7 @@ var warrior = {
   maxHP: 100,
   hp:100,
   sprite: 15,
-  attack: 0,
+  attack: 10,
   exp:50000,
   gold:30000,
   action: function() {
@@ -193,7 +229,13 @@ var setBattle = function(){
   battle.activeAction = 0;
   //LABEL FOR PLAYER STATUS IN BATTLE SCENE
   battle.getPlayerStatus = function(){
+    var currentEnemy = player.currentEnemy;
+    if (currentEnemy) {return "you HP: " + player.hp +"<br>Enemy Hp: "+currentEnemy.hp}
+    else {return "our HP" + player.hp + "<br>Enemy Hp: None "}
     return "HP: " + player.hp + "<br>MP: "+player.mp;};
+    
+    
+    
   battle.playerStatus = new Label(battle.getPlayerStatus());
   battle.playerStatus.color = "white";
   battle.playerStatus.x = 200;
@@ -209,7 +251,15 @@ var setBattle = function(){
     player.currentEnemy.hp = player.currentEnemy.maxHp;
     player.statusLabel.text = "You won the battle!<br>"+"You gained "+player.currentEnemy.exp + " experience points and "+player.currentEnemy.gold+" gold.";
     player.statusLabel.height =45;
-    //erase the dude from map
+ battle.magicAttack = function() {
+ var currentEnemy = player.currentEnemy;
+ var playerHit = battle.hitStrength(player.attack)*2;
+ currentEnemy.hp = currentEnemy.hp - plyerHit;
+ battle.menu.text = "u doo"+playerHit+ "damag The eneme is at "+ currentEnemy.hp;
+ if(currentEnemy.hp<=0) {
+   battle.won();
+ }
+ }
   };
   //LOSING A BATTLE
   battle.lost = function() {
@@ -261,6 +311,7 @@ var setBattle = function(){
     },1000);
   }},
     {name: "Magic", action:function(){
+  //                                                                                     99999999999999999
       battle.menu.text = "error 40401195673476283XXXx#$%^&*&^%$#@";
       battle.wait = true;
       battle.activeAction = 0;
@@ -271,7 +322,7 @@ var setBattle = function(){
     }},
     {name: "Run Away", action:function(){
       game.pause();
-      player.statusLabel.text = "You chicken!";
+      player.statusLabel.text = "You big fat chubby ugly disgustin cooked chicken!";
       player.statusLabel.height = 12;
       battle.menu.text = "";
       game.popScene();
@@ -442,7 +493,8 @@ var setShopping = function(){
         player.gold = player.gold - itemPrice;
         player.inventory.push(game.items[this.itemSelected].id);
         this.message.text = this.sale;
-      }
+        game.keyunbind(32);
+        game.keybind(32,'a');      }
     };
     
     shop.greeting = "Hi!  I Cat. Meow. I sell.";
