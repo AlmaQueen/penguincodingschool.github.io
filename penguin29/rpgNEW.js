@@ -1,20 +1,22 @@
 enchant();
 window.onload=function() {
-  var game = new Core(300,300);
+  var game = new Core(400,400);
   game.keybind(32,'a');
-  game.spriteSheetWidth = 256;
+  game.spriteSheetWidth = 320;
   game.spriteSheetHeight = 16;
   game.itemSpriteSheetWidth = 64;
   game.items = [{price: 1000, description: "Hurter", id: 0},
                {price: 5000, description: "Drg. Paw", id: 1},
                {price: 1, description: "Ice Magic", id: 2},
-               {price: 60, description: "Chess Set", id: 3}];
+               {price: 60, description: "Chili Pepper", id: 3}];
   game.fps = 15;
   game.spriteWidth=16;
   game.spriteHeight=16;
   game.preload(['sprites.png','items.png']);
   var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
+  var map1 = new Map(game.spriteWidth, game.spriteHeight);
+  var foregroundMap1 = new Map(game.spriteWidth, game.spriteHeight);
 
 function setMaps() {
   map.image=game.assets['sprites.png'];
@@ -43,6 +45,35 @@ function setStage() {
   stage.addChild(player.statusLabel);
   game.rootScene.addChild(stage);
 }
+
+function setMaps1() {
+  map1.image=game.assets['sprites.png'];
+  map1.loadData(mapData1);
+  foregroundMap1.image = game.assets['sprites.png'];
+  foregroundMap1.loadData(foregroundData1);
+  var collisionData = [];
+
+  for (var i=0; i<foregroundData.length; i++) {
+    collisionData.push([]);
+    for(var j=0; j<foregroundData[0].length;j++) {
+      if (foregroundData[i][j]==2 || foregroundData[i][j]==15 || foregroundData[i][j]==4 || foregroundData[i][j]==3) {
+        var collision = 1;
+      collisionData[i][j] = collision;
+    }
+  }
+  map.collisionData = collisionData;
+}
+}
+
+function setStage1() {
+  var stage1 = new Group();
+  stage1.addChild(map1);
+  stage1.addChild(player);
+  stage1.addChild(foregroundMap1);
+  stage1.addChild(player.statusLabel);
+  game.rootScene.addChild(stage1);
+}
+
 
 var player = new Sprite(game.spriteWidth, game.spriteHeight);
 
@@ -85,15 +116,11 @@ player.displayStatus = function() {
   "<br>--INVENTORY"+player.showInventory(0);
 };
 
-//NEW
 player.clearStatus = function () {
   player.statusLabel.text = " ";
   player.statusLabel.height = 0;
   player.hideInventory();
 }
-
-
-
 
 player.move = function(){
   this.frame = this.spriteOffset + this.direction * 2 + this.walk;
@@ -146,15 +173,14 @@ var npc = {
     player.statusLabel.height=12;
     player.statusLabel.text = message;
   },
-  ask: function(question) {
-    var name = prompt(question);
-    npc.say("that's nice " + name);
-  }
 };
 
 var greeter = {
   action: function() {
-    npc.say("hello you look buitifull"+player.name+" the "+player.charClass+player.name);
+    for(var i = 0; i<player.inventory.length; i++) {
+      if(player.inventory[i] === 3) {var spicy_hot_chili_pepper = true}
+    }if (spicy_hot_chili_pepper) {setMaps1(); setStage1(); npc.say("I loveeeeeeeee spicy stuff");}
+    else {npc.say("try the spicy hot chili peppers")}
   }
 }
 
@@ -163,7 +189,7 @@ var warrior = {
   maxHP: 100,
   hp:100,
   sprite: 15,
-  attack: 0,
+  attack: 10,
   exp:50000,
   gold:30000,
   action: function() {
@@ -275,7 +301,6 @@ var setBattle = function(){
     },1000);
   }},
     {name: "Magic", action:function(){
-  //                                                                                     99999999999999999
       battle.menu.text = "error 40401195673476283XXXx#$%^&*&^%$#@";
       battle.wait = true;
       battle.activeAction = 0;
