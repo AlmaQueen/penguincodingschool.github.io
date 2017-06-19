@@ -96,7 +96,7 @@ function gameWin() {
 }
 
 var img_monster = document.createElement("img");
-img_monster.src = "Plasma.jpg";
+img_monster.src = "plasma.png";
 
 function monster() {
   cx.drawImage(img_monster,xMonster, yMonster, monsterW, monsterH);
