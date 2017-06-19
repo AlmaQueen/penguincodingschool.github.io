@@ -4,7 +4,7 @@ canvas.width = 1000;
 canvas.height = 700;
 
 var img_player = document.createElement('img');
-img_player.src = "img/luigi.png";
+img_player.src = "luigi.png";
 
 var x = 0;
 var y = 0;
