@@ -34,7 +34,7 @@ function animate() {
 }
 
 function scoredisplay() {
-  cx.fillstyle ="Green";
+  cx.fillStyle ="Green";
   cx.font = "30px Comic Sans MS";
   cx.fillText ("Score: "+score,500,100);
 }
