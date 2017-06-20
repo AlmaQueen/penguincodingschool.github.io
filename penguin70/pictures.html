@@ -45,5 +45,16 @@
 <ul id="menu">
    <li><a href="index.html">Home</a></li>
    <li><a href="videos.html">Videos</a></li>
+   <li><a href="quiz.html">Quiz</a></li>
 </ul>
+  <button onclick="magic()">Play Music</button>
+   <button onclick="music.pause()">Pause Music</button>
+<script>
+  var music = new Audio ('music.mp3')
+  function magic() {
+    music.play();
+  }
+  
+  music.loop = true;
+</script>
 </body>

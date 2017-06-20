@@ -39,10 +39,22 @@
 <body>
 <ul id="Differentkindsofsnakes">
 <li><p>Corn snake eating</p><iframe src="https://www.youtube.com/embed/h2rJE0pRXUg" frameborder="0" allowfullscreen></iframe></li>
-<li><p>Burmese python swimming</p><iframe src= "https://www.youtube.com/embed/hItdYedvk7U" frameborder="0" allowfullscreen></iframe>"</li>
+<li><p>Burmese python</p><iframe src= "https://www.youtube.com/embed/hItdYedvk7U" frameborder="0" allowfullscreen></iframe>"</li>
 </ul>
 <ul id="menu">
    <li><a href="index.html">Home</a></li>
    <li><a href="pictures.html">Pictures</a></li>
+   <li><a href="quiz.html">Quiz</a></li>
 </ul>
+  <button onclick="magic()">Play Music</button>
+   <button onclick="music.pause()">Pause Music</button>
+<script>
+  var music = new Audio ('music.mp3')
+  function magic() {
+    music.play();
+  }
+  
+  music.loop = true;
+</script>
+<small>Copyright 2017</small>
 </body>
