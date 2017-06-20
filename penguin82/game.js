@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 canvas.width = 1000;
@@ -50,8 +49,19 @@ function animate() {
   }
 
 var plat = [];
-plat.push({x:0, y:200, w:100, h:10});
-plat.push({x:200, y:200, w:400, h:10});
+plat.push({x:30, y:200, w:10, h:100});
+plat.push({x:200, y:200, w:10, h:100});
+plat.push({x:40, y:350, w:10, h:10});
+plat.push({x:45, y:355, w:10, h:10});
+plat.push({x:50, y:360, w:10, h:10});
+plat.push({x:55, y:365, w:10, h:10});
+plat.push({x:60, y:370, w:10, h:10});
+plat.push({x:65, y:375, w:10, h:10});
+plat.push({x:70, y:380, w:10, h:10});
+plat.push({x:75, y:385, w:10, h:10});
+plat.push({x:80, y:390, w:10, h:10});
+plat.push({x:85, y:395, w:90, h:10});
+
 
 function platform() {
 gravity =5;
@@ -65,25 +75,15 @@ for (var i = 0; i<plat.length; i++) {
   }
 }
 
-//plat.push({x:100, y:100, w:100, h:10});
 
+lava.push({x:0, y:500, w:1000, h:10});
 lava.push({x:0, y:500, w:100, h:10});
-lava.push({x:0, y:500, w:100, h:10});
 
-//plat.push({x: 100, y: 100, w:100, h:10});
-//plat.push({x: 0, y: 100, w:100, h:10});
-//plat.push({x: 300, y: 100, w:100, h:10});
-//plat.push({x: 200, y: 300, w:100, h:10});
-//plat.push({x: 300, y: 300, w:100, h:10});
 
-//lava.push({x: 700, y: 300, w:100, h:10});
-//lava.push({x: 100, y: 400, w:100, h:100});
-//lava.push({x: 500, y: 400, w:100, h:100});
-//lava.push({x: 350, y: 10, w:100, h:10});
 
 
 function obstacle() {
-cx.fillStyle="green";
+cx.fillStyle="red";
 for (var i = 0; i<lava.length; i++) {
   cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
   if (y==lava[i].y-playerH &&
@@ -189,3 +189,10 @@ setDirection("stop") ;
 
 
 animate();
+
+
+
+
+
+
+
