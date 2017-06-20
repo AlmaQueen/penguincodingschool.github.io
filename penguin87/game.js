@@ -193,7 +193,7 @@ var img_coin = document.createElement("img");
 img_coin.src = "copyright.png";
 
 var backgroundmusic = new Audio ('Press Start.mp3');
-    
+var musicforbackgroundmusic = new Audio ('TheFatRat - Xenogenisis.mp3')
     
 function coin () {
     cx.drawImage(img_coin,xC, yC, wC, hC);
@@ -205,6 +205,8 @@ function coin () {
       xC = plat[i].x;
       yC = plat[i].y-40;
       }
+      
+      
     }
   
 animate();
@@ -216,3 +218,4 @@ function scoreDisplay() {
   cx.font = "30px Orbitron";
   cx.fillText("Score: "+score,500,100);
 }
+
