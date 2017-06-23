@@ -9,15 +9,35 @@ background-repeat:no-repeat;
   background: url(http://i.huffpost.com/gen/4724460/images/o-ARCTIC-facebook.jpg);
 background-size:cover;
 background-repeat:no-repeat;
+}
+#mooseherd {
+ 
+  background: url(http://extras.mnginteractive.com/live/media/site28/2014/0709/20140709__11tbbullmoosepage~7_500.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+#moosetalk {
+  font-size: 65;
+  color: white;
+  background-color:transparent;
+  text-align: center;
+  margin-top: 175;
   
 }
+#moosefamily {
+  background: url(http://www.htmlcsscolor.com/preview/gallery/0066FF.png);
+  background-size:cover;
+background-repeat:no-repeat;
+}
+  
 #lake {
   
   background: url(https://media3.s-nbcnews.com/j/msnbc/components/video/201610/nc_shrinkingsaltlake1020_1920x1080.nbcnews-ux-1080-600.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 }
-#seagull1{
+#seagull{
   width: 75;
   height: 75;
 }
@@ -34,6 +54,9 @@ background-repeat:no-repeat;
  background-color:#FFD700;
  }
 
+#choices {
+ list-style: none;
+}
 
 .button {
   background-color: #00FF00;
@@ -42,8 +65,9 @@ background-repeat:no-repeat;
   margin: 4;
   padding: 10 25;
   text-align: center;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-block;
+  list-style: none;
   font-size: 12;
 }
 .align-left{
@@ -58,4 +82,5 @@ background-repeat:no-repeat;
 .button:hover {
   background-color: green;
   color: black;
+ text-decoration:underline;
 }
