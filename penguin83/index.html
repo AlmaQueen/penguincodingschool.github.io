@@ -13,6 +13,44 @@
     .button:hover {
       background-color: green;
     }
+     .slider-holder {
+   width: 800;
+   height: 600;
+   margin-left: auto;
+   margin-right:auto;
+   margin-top: 0;
+   text-align:center;
+   overflow: hidden;
+ }
+  
+.image-holder {
+    width: 2400;
+    height:600;
+    position: relative;
+    animation:slide 10s infinite;
+  }
+
+.slider-image{
+     float: left;
+     margin: 0;
+     padding:0;
+     position:relative;
+     width:800;
+     height:600;
+   }
+
+@keyframes slide {
+    0% {left: 0px;}
+    30% {left: 0px;}
+    33% {left: -800px;}
+    63% {left: -800px;}
+    66% {left: -1600px;}
+    97% {left: -1600px;}
+    100% {left: 0px;}
+  }
+  
+.slider-holder:hover  .image-holder {animation-play-state: paused;}
+  
     
   </style>
   
@@ -20,10 +58,28 @@
 
 
 <body>
-  <canvas></canvas>
+  <div class="slider-holder">
+  <span id=image1></span>
+  <span id=image2></span>
+  <span id=image3></span>
+<div class="image-holder">
+  <img src="image1.jpg"  class="slider-image">
+  <img src="image2.jpg"  class="slider-image">
+  <img src="image3.gif"  class="slider-image">
+ </div>
+</div>
+
+<a href=quiz.html>I CHALENGE YOU TO MY QUIZ</a>
+  <h1> Derpy Durps</h1>
+  <p>A durp is formed when a flower blooms. Keep that in mind (it's not when a rock cracks open, or from a comet, or any other ideas you might have). It was an idea inspired by a shape template(drew a circle, and added a line and two dots). One rule about them is that they should have no points(sharp edges). Durps can come in different costumes, like pumpkins, cats with rounded ears, birds, pizzas, kings, princesses, any job worker, a dancer, or anything eles(with rounded edges)! </p>
+  <h1> ...2 potato chips, and 1 very, very, lazy fat cat!</h1>
+  <p>Pusheen is a lazy, fat, female cat that eats and sleeps in her free time. She is based off a real cat, named pusheen! the  name "pusheen" means "kitten" in Irish. By the way, she hates weight lifting(or running, obeying orders, and not getting any candy), low fat food(or fat free food),and getting up early. she enjoys the opsits of these things.  </p>
+  <br>
+  <br>
   <a href=javascript:magic() class=button>Magic</a>
   
-  
+    <canvas id='canvas' width=1000 height=700></canvas>
+  <script src=canvas.js></script>
   <script>
     function magic() {
       var answer=prompt("how about a quick question? Do you like pusheen? ");
