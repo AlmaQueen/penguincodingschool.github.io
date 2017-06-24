@@ -26,10 +26,13 @@ plat.push({x: 0, y:350, w:canvas.width, h:10});
 
 
 function newGame() {
+  stop();
   x = 0;
   y = 0;
   xSpeed = 0;
   ySpeed = 0;
+  
+  gravity = 5;
   
   xMonster = 500;
   yMonster = 0;
@@ -192,8 +195,9 @@ if (yMonster>canvas.height || yMonster <0) {
 var img_coin = document.createElement("img");
 img_coin.src = "copyright.png";
 
-var backgroundmusic = new Audio ('Press Start.mp3');
-var musicforbackgroundmusic = new Audio ('TheFatRat - Xenogenisis.mp3')
+var pressStart = new Audio ('Press Start.mp3');
+var xenogenesis = new Audio ('Xenogenesis.mp3');
+
     
 function coin () {
     cx.drawImage(img_coin,xC, yC, wC, hC);
@@ -205,13 +209,13 @@ function coin () {
       xC = plat[i].x;
       yC = plat[i].y-40;
       }
-      
-      
     }
   
 animate();
-backgroundmusic.loop = true;
-backgroundmusic.play()
+pressStart.play()
+pressStart.addEventListener("ended", function(){
+  xenogenesis.play();
+});
 
 function scoreDisplay() {
   cx.fillstyle = "green";
@@ -219,3 +223,18 @@ function scoreDisplay() {
   cx.fillText("Score: "+score,500,100);
 }
 
+function nextSong() {
+  if(isPlaying(pressStart)) {
+    pressStart.pause();
+    pressStart.currentTime = 0;
+    xenogenesis.play();
+  } else {-
+    xenogenesis.pause();
+    xenogenesis.currentTime = 0;
+    pressStart.play();
+  }
+}
+
+function isPlaying(audio) {
+  return !audio.paused && !audio.ended && 0 < audio.currentTime;
+}
