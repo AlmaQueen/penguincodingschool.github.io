@@ -1,0 +1,62 @@
+<body>
+  <h1>Penguin Quiz</h1>
+  
+  <form id="form1" action=" ">
+    
+    <p>Are penguins bird, fish, or mammal?</p>
+    <input type="radio" name="q1" value=0>
+    Fish<br>
+    <input type="radio" name="q1" value=1>
+    Bird<br>
+    <input type="radio" name="q1" value=0>
+    Mammal<br>
+    
+    <p>How many species of penguins are there?</p>
+    <input type="radio" name="q2" value=1>
+    17<br>
+    <input type="radio" name="q2" value=0>
+    42<br>
+    <input type="radio" name="q2" value=0>
+    33<br>
+    
+    <p>Which of these are real name of penguins?</p>
+    <input type="radio" name="q3" value=0>
+    Spaghetti<br>
+    <input type="radio" name="q3" value=0>
+    Fatty Goose<br>
+    <input type="radio" name="q3" value=1>
+    Macaroni<br>
+    <input type="radio" name="q3" value=0>
+    Lasagna<br>
+    
+    <input type="submit" value="I'm done">
+    
+  </form>
+  
+  <p>You got <span id="grade">_</span> correct out of 3.</p>
+  <p id="grade2"></p>
+  
+<script>
+  document.getElementById("form1").onsubmit=function() {
+    
+    q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+    q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+    q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+        result = q1 + q2 + q3;
+        document.getElementById("grade").innerHTML = result;
+        
+        if (result===0) {result2= "You need more effort!
+        <br><img src='https://s-media-cache-ak0.pinimg.com/originals/e2/87/0f/e2870f0950fd95f2765533ee816c65bc.jpg' width=300>";}
+         if (result===1) {result2= "You only get 1 right. Try again!
+        <br><img src='https://s-media-cache-ak0.pinimg.com/originals/2f/83/ba/2f83ba6f4faf196bc0ae2290ab4d09ff.jpg' width=300>";}
+        if (result===2) {result2= "You were the prince of the penguin empire!"
+         <br><img src='https://s-media-cache-ak0.pinimg.com/originals/de/05/f8/de05f8c884c4b831bbf16438190d5eab.jpg' width=300>";}
+          if (result===3) {result2= "You were the Penguin King!
+          <br><img src='https://st2.depositphotos.com/1742172/7374/v/950/depositphotos_73746945-stock-illustration-comic-cartoon-penguin-wearing-crown.jpg' width=300>";}
+   
+   return false;
+    
+  }
+</script>
+
+</body>

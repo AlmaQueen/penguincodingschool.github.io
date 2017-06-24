@@ -1,14 +1,17 @@
 var canvas = document.getElementById ("canvas")
 var cx = canvas.getContext("2d")
 
-canvas.width=1000
-canvas.height=800
+canvas.width=1000;
+canvas.height=800;
 
 var img_player = document.createElement("img")
-img_player.src = "http://static.tvtropes.org/pmwiki/pub/images/sans_sprite.jpg"
+img_player.src = "http://static.tvtropes.org/pmwiki/pub/images/sans_sprite.jpg";
+
+var img_coin =document.createElement("img");
+img_coin.src = "hi.png";
 
 
-
+var score = 0;
 
 var rek;
 var x = 0;
@@ -19,7 +22,7 @@ var gravity = 5;
 var playerW = 35;
 var playerH = 45;
 var plat = [];
-var platforms = 10;
+var platforms = 5;
 
 plat.push({x: 0, y:100, w:100, h: 10});
 plat.push({x: 0, y:100, w:100, h: 10});
@@ -27,7 +30,11 @@ plat.push({x: 0, y:100, w:100, h: 10});
 plat.push({x: 200, y:200, w:30, h: 30});
 plat.push({x: 0, y:100, w:100, h: 10});
 
-
+function scoreDisplay (){
+  cx.fillStyle = "Red"
+  cx.font = "30px 'papyrus'"
+  cx.fillText("points:  " +score, 650,20);
+}
 
 function animate () {
   rek=requestAnimationFrame(animate);
@@ -39,12 +46,16 @@ function animate () {
   //gameover();
   obstacle();
   sampleText();
+  coin();
+  scoreDisplay();
   
   if (x>canvas.width || x<0) {xspeed = -xspeed}
   if (y>canvas.height || y<0) {yspeed = -yspeed}
-  
-  
 }
+
+
+
+
 function setDirection(dir){
 
 if (dir=== "down") {
@@ -63,7 +74,10 @@ if (dir=== "down") {
 } else if (dir=== "jump" && gravity===0) {
   xspeed=0;
   yspeed=-20;
-
+  }
+  
+ else if (dir=== "dank") {
+ platforms=999999999999;
   }
   
 else if (dir=== "left") {
@@ -92,6 +106,7 @@ var keyActions = {
   38:"jump",
   39:"right",
   40:"down",
+  192:"dank"
 };
 
 
@@ -126,6 +141,25 @@ setDirection("stop");
     }
 
 }*/
+var img_coin =document.createElement("img");
+img_coin.src = "hi.png";
+
+var CX =500;
+var CH =50;
+var CY =500;
+var CW =50;
+
+function coin(){
+  cx.drawImage(img_coin,CX,CY,CW,CH);
+  if(x+playerW>CX && CX+CW >x && CY+CH>y && y+playerH>CY) {
+    score +=10;
+    platforms +=3
+    CY =Math.random()*canvas.height - 20;
+    CX =Math.random()*canvas.width;
+  }
+}
+
+
 
 function platform(){
 gravity=5;
@@ -148,11 +182,13 @@ gravity=5;
 
 function sampleText (){
   if (platforms>0){
-  cx.fillText("Platforms left "+ platforms ,650,32)
+  cx.fillText("Platforms left "+ platforms ,650,50)
   cx.font = "22px Papyrus"
   }
   else {
-    cx.fillText("No Platforms Left" ,650,32)
+    {gameover()}
+    cx.fillText("Platforms left 0" ,650,50)
+    
   }
   
   
@@ -175,9 +211,790 @@ function obstacle(){
 function gameover() {
 cx.fillStyle = "red";
 cx.font = "40px Papyrus"
-cx.fillText("XD u just got rekd",10,50);
+cx.fillText("Get dunked on",10,50);
 stop();
 }
 
 
+var mlgtunes = new Audio ('sans.mp3');
+ 
+ mlgtunes.loop = true
+ mlgtunes.play()
+ 
+
+ 
 animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
