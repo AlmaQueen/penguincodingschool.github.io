@@ -5,29 +5,28 @@ canvas.width=1000;
 canvas.height=1000;
 
 var img_player = document.createElement("img");
-img_player.src = "https://builtvisible.com/wp-content/uploads/2015/03/mario-big.png"
+img_player.src = "https://builtvisible.com/wp-content/uploads/2015/03/mario-big.png";
 
 var x = 300;
-var y = 800;
+var y = 750;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity = 5;
 var playerH = 50;
 var playerW = 50;
-var plat=[]
+var plat=[];
 var req;
 
-plat.push({x:175, y:100, w:100, h:10})
-plat.push({x:250, y:200, w:100, h:10})
-plat.push({x:350, y:300, w:100, h:10})
-plat.push({x:500, y:400, w:100, h:10})
-plat.push({x:0, y:900, w:999, h:10})
-plat.push({x:700, y:700, w:100, h:10})
-plat.push({x:300, y:800, w:105, h:10})
-plat.push({x:500, y:750, w:105, h:10})
-plat.push({x:500, y:650, w:105, h:10})
-plat.push({x:700, y:600, w:100, h:10})
-plat.push({x:600, y:500, w:100, h:10})
+plat.push({x:175, y:50, w:100, h:10});
+plat.push({x:250, y:150, w:100, h:10});
+plat.push({x:350, y:250, w:100, h:10});
+plat.push({x:500, y:350, w:100, h:10});
+plat.push({x:0, y:850, w:999, h:10});
+plat.push({x:300, y:750, w:105, h:10});
+plat.push({x:500, y:700, w:105, h:10});
+plat.push({x:500, y:600, w:105, h:10});
+plat.push({x:700, y:550, w:100, h:10});
+plat.push({x:600, y:450, w:100, h:10});
 
 function animate() {
   req = requestAnimationFrame(animate);
@@ -35,16 +34,19 @@ function animate() {
   cx.drawImage(img_player, x,y, playerW, playerH);
    x+=xSpeed;
    y+=ySpeed+gravity;
+   lH += 10;
    platform();
    obstacle();
    monster();
    coin();
    monster2();
    scoreDisplay();
+   lavafall();
    if (x>canvas.width||x<0) {xSpeed=-xSpeed}
    if (y>canvas.height || y<0) {ySpeed = -ySpeed}
    if (y<0 && score>=100) {gameWin();}
 }
+
 
 function stop() {
   if (req) {
@@ -75,14 +77,14 @@ function gameOver() {
   losesound.play();
   cx.fillStyle = "Red";
   cx.font = "30px Comic Sans MS";
-  cx.fillText("Game Over:(:(:(",500,150);
+  cx.fillText("Game Over:(:(:(",400,150);
   stop();
 }
 
 function gameWin() {
   cx.fillStyle = "Green";
   cx.font = "30px Comic Sans MS";
-  cx.fillText("You Won!:):):)",500,150);
+  cx.fillText("You Won!:):):)",400,150);
   stop();
 }
 var keyActions = {
@@ -115,18 +117,39 @@ function platform() {
 }
 
 var lava = [];
-lava.push ({x:0, y:300, w:100, h:10});
-lava.push ({x:300, y:100, w:150, h:10});
-lava.push ({x:250, y:500, w:250, h:10});
+lava.push ({x:0, y:250, w:100, h:10});
+lava.push ({x:300, y:50, w:150, h:10});
+lava.push ({x:250, y:450, w:250, h:10});
+lava.push ({x:700, y:650, w:100, h:10});
 
 function obstacle() {
   cx.fillStyle="red";
   for (var i = 0; i<lava.length; i++) {
-    cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h)
+    cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
     if (y==lava[i].y-playerH &&
     x>=lava[i].x-playerW &&
     x<=lava[i].x + lava[i].w)
     {gameOver()}
+  }
+}
+
+var yL = 0;
+//var xL = 0;
+var yLsp = 6;
+var lW = 70;
+var lH = 10;
+var xL = Math.ceil(Math.random()*(canvas.width-lW));
+
+function lavafall() {
+  cx.fillStyle="red";
+  cx.fillRect(xL,yL,lW,lH);
+  //if (y<yL+lH && x>xL && xL+lW>x+playerW) {
+  if (y<yL+lH && x+playerW>xL && xL+lW>x){
+    gameOver();
+  }
+  if (lH==850) {
+    lH=0;
+    xL = Math.ceil(Math.random()*(canvas.width-lW));
   }
 }
 
@@ -149,15 +172,15 @@ function monster() {
     gameOver ();
   } else if (xM<0 || xM>canvas.width) {
     xMsp = -xMsp;
-  } else if (yM<0 || yM>900) {
+  } else if (yM<0 || yM>850) {
     yMsp = -yMsp
   }
 }
 
 var xM2 = 500;
 var yM2 = 550;
-var yMsp2 = 3;
-var xMsp2 = -5;
+var yMsp2 = 4;
+var xMsp2 = -4;
 
 var mW2 =30;
 var mH2 =30;
@@ -170,7 +193,7 @@ function monster2() {
     gameOver ();
   } else if (xM2<0 || xM2>canvas.width) {
     xMsp2 = -xMsp2;
-  } else if (yM2<0 || yM2>900) {
+  } else if (yM2<0 || yM2>850) {
     yMsp2 = -yMsp2
   }
 }
@@ -205,7 +228,7 @@ function coin() {
 function scoreDisplay(){
   cx.fillStyle="green";
   cx.font = "30px Comic Sans MS";
-  cx.fillText("Score: "+score, 500,100);
+  cx.fillText("Score: "+score, 400,100);
   
 }
 
