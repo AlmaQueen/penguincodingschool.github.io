@@ -29,7 +29,8 @@ function newGame(){
   y = 0;
   xSpeed = 0;
   ySpeed = 0;
-  
+  xM2 = 250;
+  yM2 = 100;
   xM = 500;
   yM = 420;
   xMS = -5;
@@ -47,6 +48,7 @@ function animate(){
 	platform();
 	obstacle();
 	ms();
+	ms2();
 	coin();
 scoreDisplay();
 	if (x>canvas.width || x <0) {xSpeed = -xSpeed;}
@@ -100,8 +102,18 @@ plat.push({x:800, y:500, w:100,h:10});
 plat.push({x: 150, y:200, w:100, h:10});
 plat.push({x: 330, y:230, w:100, h:10});
 plat.push({x: 500, y:100, w:100, h:10});
-plat.push({x:1000, y:600, w:100, h:10})
-plat.push({x:1200, y:600, w:100, h:10})
+plat.push({x: 700, y:200, w:100, h:10});
+plat.push({x: 500, y:600, w:100, h:10});
+plat.push({x: 1000, y:700, w:100, h:10});
+plat.push({x: 1500, y:300, w:100, h:10});
+plat.push({x: 1300, y:725, w:100, h:10});
+plat.push({x: 1200, y:300, w:100, h:10});
+plat.push({x: 1700, y:405, w:100, h:10});
+
+
+
+
+
 
 lava.push({x:0, y:750, w:canvas.width, h:10});
 function platform() {
@@ -151,6 +163,9 @@ cx.fillText("GG BOIZZZZ",10,50);
 }
 var xM = 500;
 var yM = 420;
+var xM2 = 250;
+var yM2 = 100;
+
 var xMS = -5;
 var yMS = 0;
 var mW = 10;
@@ -166,7 +181,21 @@ function ms() {
 	} else if (xM<0 || xM>canvas.width-mW) {
 	xMS = -xMS;
 	}
-	else if (xM<0 || yM>canvas.width-mH) {
+	else if (yM<0 || yM>canvas.width-mH) {
+	yMS = -yMS;
+	}
+}
+function ms2() {
+	cx.fillStyle = "purple";
+	cx.fillRect(xM2, yM2, mW, mH);
+	xM2 += xMS;
+	yM2 += yMS;
+	if (x+playerW > xM2 && xM2+mW >x && yM2+mH >y && y+playerH > yM2) {
+		gameOver();
+	} else if (xM2<0 || xM2>canvas.width-mW) {
+	xMS = -xMS;
+	}
+	else if (yM2<0 || yM2>canvas.width-mH) {
 	yMS = -yMS;
 	}
 }
