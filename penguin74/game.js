@@ -17,19 +17,36 @@ var plat=[];
 var img_lava = document.createElement("img");
 img_lava.src="http://img00.deviantart.net/fe4a/i/2014/059/8/0/sre_design_texture_test_lava_floor_test_1_by_wakaflockaflame1-d78e6wm.png";
 var req;
-var xM = 500;
-var yM = 0;
-var xMS = -5;
-var yMS = 0;
-var mW = 50; //monster width
-var mH = 50; //monster height
-var img_monster = document.createElement("img");
-img_monster.src="http://www.clipartbest.com/cliparts/Kij/gjd/Kijgjd5iq.png"
 
-plat.push({x: 0, y:100 , w:110, h:10});
-plat.push({x: 200, y: 80, w:110, h:10});
+var xC = 560;
+var yC = 162;
+var wC = 100;
+var hC = 45;
+var img_coin = document.createElement("img");
+img_coin.src="https://image000.tutpad.com/tut/0/53/32-done.gif"
+var score = 0;
+
+plat.push({x: 0, y:130, w:110, h:10});
+plat.push({x: 0, y:350, w:110, h:10});
+plat.push({x: 200, y: 90, w:110, h:10});
 plat.push({x: 400, y: 60, w:110, h:10});
-plat.push({x: 600, y: 200, w:10, h:10});
+plat.push({x: 600, y: 200, w:20, h:10});
+plat.push({x: 600, y: 370, w:110, h:10});
+plat.push({x: 180, y: 400, w:160, h:10});
+plat.push({x: 400, y: 350, w:110, h:10});
+plat.push({x: 430, y: 500, w:110, h:10});
+plat.push({x: 550, y: 550, w:110, h:10});
+plat.push({x: 700, y: 450, w:110, h:10});
+plat.push({x: 1050, y: 300, w:110, h:10});
+plat.push({x: 250, y: 300, w:110, h:10});
+plat.push({x: 250, y: 470, w:110, h:10});
+plat.push({x: 100, y: 520, w:110, h:10});
+plat.push({x: 150, y: 210, w:110, h:10});
+plat.push({x: 700, y: 210, w:110, h:10});
+plat.push({x: 800, y: 310, w:110, h:10});
+plat.push({x: 750, y: 350, w:50, h:10});
+plat.push({x: 900, y: 350, w:110, h:10});
+plat.push({x: 900, y: 170, w:110, h:10});
 plat.push({x: 0, y:770, w:canvas.width, h:10});
 
 function animate() {
@@ -40,13 +57,16 @@ function animate() {
    y+=ySpeed+gravity;
    platform();
    obstacle();
-   monster();
+   ghost();
+   coin();
+   scoreDisplay();
 if (x>canvas.width || x<0) {
   xSpeed = -xSpeed;}
 if (y>canvas.width || y<0) {
   ySpeed = -ySpeed}
   if (x>1900)  {
   gameWin();
+if (score===100) {gameWin()}
 
 }
 }
@@ -76,7 +96,8 @@ function platform() {
   
   
 var lava = [];
-lava.push ({x:0, y:600, w:1000, h:100});
+lava.push ({x:0, y:700, w:1000, h:700});
+lava.push ({x:1000, y:700, w:1000, h:700});
 
 
 
@@ -92,29 +113,59 @@ for (var i = 0; i<lava.length; i++)  {
 }
 }
 
-function monster() {
-  cx.drawImage(img_monster, xM, yM, mW, mH);
-  xM += xMS;
-  yM += yMS;
-  if (x+playerW > xM && xM+mW >x && yM+mH > y && y+playerH > yM)
+var mon=[];
+mon.push({x: 500, y: 0, w:50, h:50, sx:-5, sy:-8});
+mon.push({x: 1000, y: 0, w:50, h:50, sx:-3, sy:-7});
+mon.push({x: 350, y: 0, w:50, h:50, sx:-8, sy:-5});
+var img_monster = document.createElement("img");
+img_monster.src="monster.png"
+
+function ghost() {
+  for (var i = 0; i<mon.length; i++)  {
+  cx.drawImage(img_monster,mon[i].x, mon[i].y, mon[i].w,mon[i].h);
+  //cx.drawImage(img_monster,500,0,50,50);
+  mon[i].x += mon[i].sx;
+  mon[i].y += mon[i].sy;
+  if (x+playerW > mon[i].x && mon[i].x+mon[i].w >x && mon[i].y+mon[i].h > y && y+playerH > mon[i].y)
   {gameOver()}
-  else if (xM<0 || xM>700) {
-    xMS = -xMS;
-  
+  else if (mon[i].x<0 || mon[i].x>1300) {
+    mon[i].sx = -mon[i].sx;
   }
+  else if (mon[i].y<0 || mon[i].y>700) {
+    mon[i].sy = -mon[i].sy;
+  }
+
+}
+}
+
+function coin() {
+  cx.drawImage(img_coin,xC,yC,wC,hC);
+  if (x+playerW > xC && xC+wC > x && yC+hC>y && y+playerH>yC)
+  {
+    score += 10;
+    var i = Math.ceil(Math.random()*plat.length);
+    xC = plat[i].x;
+    yC = plat[i].y-40;
+  }
+}
+
+function scoreDisplay() {
+  cx.fillStyle = "Yellow";
+  cx.font = "45px Cracked"
+  cx.fillText("Score: "+score,535,30);
 }
 
 function gameOver() {
   cx.fillStyle = "Red";
   cx.font = "75px Cracked";
-  cx.fillText("You're a Noob!",850,100);
+  cx.fillText("Game Over",850,100);
   stop();
   }
 
 function gameWin() {
   cx.fillStyle = "Green";
   cx.font = "75px Cracked";
-  cx.fillText("You're Not a noob!",850,100);
+  cx.fillText("You Win!",850,100);
   stop();
   }
 
@@ -123,14 +174,16 @@ function setDirection(dir) {
    if (dir === "left") {
     xSpeed = -5;
     ySpeed = 0;
+    img_player.src="PacMan.png"
   } else if (dir === "right") {
     xSpeed = 5;
     ySpeed = 0;
+    img_player.src="https://s-media-cache-ak0.pinimg.com/originals/b8/03/be/b803becf10c28afad61b6f3e5a394d5c.jpg"
   } else if (dir === "stop") {
     xSpeed = 0;
     ySpeed = 0;
   } else if (dir === "jump" && gravity===0) {
-    y = y-80;
+    y = y-90;
   }
        
 }
