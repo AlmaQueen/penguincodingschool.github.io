@@ -52,6 +52,7 @@
     <li><a href="index1.html">2016 RECORD</a></li>
     <li><a href="index2.html">INFO</a></li>
     <li><a href="index3.html">BIOGRAPHIES</a></li>
+    <li><a href="quiz.html">QUIZ</a></li>
   </ul>
     <h1 id="title">PLAYER BIOGRAPHIES</h1>
     <table id="bio">
@@ -60,5 +61,26 @@
     <td>ROB GRONKOWSKI: TIGHT END<a href="https://en.wikipedia.org/wiki/Rob_Gronkowski"><img src="http://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/13229.png&w=350&h=254" width="200px" height="150px"></a></td>
     </tr>
     </table>
+    <canvas id="canvas" width=1200 height=400></canvas>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var cx = canvas.getContext('2d');
+      var ball = document.createElement("img");
+      ball.src = "ball.png";
+      var xM = 200;
+      var yM = 200;
+      var xSpeed = 3;
+      
+      function animate() {
+        requestAnimationFrame(animate);
+        cx.clearRect(0, 0, canvas.width, canvas.height);
+        cx.drawImage(ball, xM, yM, 200, 200);
+        xM += xSpeed;
+        if (xM>canvas.width - 200 || xM<0) {
+          xSpeed = -xSpeed;
+        }
+      }
+      animate();
+    </script>
   </body>
 </html>

@@ -11,7 +11,6 @@
    }
    .hero-image {
      height: 100%;
-     background: url(https://usatftw.files.wordpress.com/2016/11/usatsi_9611908-copy.jpg?w=1000&h=600&crop=1);
      background-size: cover;
      background-position: center;
      position: relative;
@@ -19,10 +18,10 @@
    .hero-text {
      text-align: center;
      position: absolute;
-     margin-top: 6%;
-     margin-left: 6%;
-     color: blue;
-     transform: translate(-15%, -15px);
+     margin-top: -35%;
+     margin-left: 2%;
+     color: red;
+     transform: translate(46%, -46%);
      font-size: 40px;
    }
    #menu {
@@ -48,8 +47,8 @@
      background-color: red;
    }
    .slider-holder {
-     width: 800;
-     height: 400;
+     width: 1600;
+     height: 800;
      background-color: red;
      margin-left: auto;
      margin-right: auto;
@@ -57,20 +56,33 @@
      text-align: center;
      overflow: hidden;
    }
+   .slider-holder:hover .image-holder { animation-play-state:paused; }
    .image-holder {
-     width: 2400;
-     height: 400;
-     clear: both;
+     width: 4800;
+     height: 800;
+     position: relative;
      -webkit-transition: left 2s;
      -moz-transition: left 2s;
      -o-transition: left 2s;
-     transition: left 2s;
+     animation: slide 15s infinite;
+   }
+
+@keyframes slide {
+     0% {left: 0px;}
+     30% {left: 0px;}
+     33% {left: -1600px;}
+     63% {left: -1600px;}
+     66% {left: -3200px;}
+     97% {left: -3200px;}
+     100% {left: 0px;}
    }
    .slider-image {
      float: left;
      margin: 0;
      padding: 0;
      position: relative;
+     width: 1600;
+     height:800;
    }
    #img1:target ~ .image-holder {
      left: 0px;
@@ -80,10 +92,6 @@
    }
    #img3:target ~ .image-holder {
      left: -1600px;
-   }
-   .button-holder {
-     position: relative;
-     top: -20px;
    }
    .slider-change {
      display: inline-block;
@@ -100,28 +108,27 @@
     <li><a href="index1.html">2016 RECORD</a></li>
     <li><a href="index2.html">INFO</a></li>
     <li><a href="index3.html">BIOGRAPHIES</a></li>
+    <li><a href="quiz.html">QUIZ</a></li>
   </ul>
 <h1 id="title">THE NEW ENGLAND PATRIOTS HOMEPAGE</h1>
 <div class="hero-image">
-  <div class="slider-holder">
+<div class="slider-holder">
     <span id="img1"></span>
     <span id="img2"></span>
     <span id="img3"></span>
   <div class = "image-holder">
-    <img src="https://usatftw.files.wordpress.com/2016/11/usatsi_9611908-copy.jpg?w=1000&h=600&crop=1" width=800 height=400 class="slider-image">
-    <img src="https://img.clipartfest.com/5509d3aa4ca0b2be89d3f6fc8f3fa1cd_new-england-patriots-logo-new-england-patriots-clipart-logo_512-512.jpeg" width=800 height=400 class="slider-image">
-     <img src="https://media.fanzz.com/media/catalog/product/cache/1/image/1200x/040ec09b1e35df139433887a97daa66f/8/5/852206-657-PHSBH002.jpg" width=800 height=400 class="slider-image">
-  </div>
-  <div class = "button-holder">
-    <a id="img1" href="https://usatftw.files.wordpress.com/2016/11/usatsi_9611908-copy.jpg?w=1000&h=600&crop=1" class="slider-change"></a>
-    <a id="img2" href="https://img.clipartfest.com/5509d3aa4ca0b2be89d3f6fc8f3fa1cd_new-england-patriots-logo-new-england-patriots-clipart-logo_512-512.jpeg" class="slider-change"></a>
-    <a id="img3" href="https://media.fanzz.com/media/catalog/product/cache/1/image/1200x/040ec09b1e35df139433887a97daa66f/8/5/852206-657-PHSBH002.jpg" class="slider-change"></a>
+    <img src="pic1.jpg" class="slider-image">
+    <img src="pic2.jpg"  class="slider-image">
+     <img src="pic3.jpg" class="slider-image">
   </div>
   </div>
-<div class="hero-text">
+  <div class="hero-text">
   <h2>Patriots Fan Page</h2>
 </div>
 </div>
+
+
+
 
 </body>
 </html>

@@ -51,6 +51,28 @@
    #menu .active{
      background-color: red;
    }
+   #button1 {
+     background-color: blue;
+     border: none;
+     padding: 25px 51px;
+     text-align: center;
+     font-size: 25px;
+     display: inline-block;
+     color: white;
+     text-decoration: none;
+     margin: 10px;
+   }
+   #button2 {
+     background-color: blue;
+     border: none;
+     padding: 25px 51px;
+     text-align: center;
+     font-size: 25px;
+     display: inline-block;
+     color: white;
+     text-decoration: none;
+     margin: 10px;
+   }
  </style>
  </head>
 <body>
@@ -59,6 +81,7 @@
     <li><a href="index1.html">2016 RECORD</a></li>
     <li><a href="index2.html">INFO</a></li>
     <li><a href="index3.html">BIOGRAPHIES</a></li>
+    <li><a href="quiz.html">QUIZ</a></li>
   </ul>
 <h1 id="title">THE HISTORY OF THE TEAM</h1>
 <table>
@@ -77,10 +100,14 @@ During the 1970s, the Patriots had some success, earning a berth to the playoffs
 </td>
 </tr>
 </table>
-<a id="link" href="http://www.patriots.com/"> Patriots Homepage</a>
+<a id="button1" href="http://www.patriots.com/">Patriots Homepage</a>
 <br><br><br><br><br>
-<p id="pointer"> VIDEO ABOUT NFL LOGO EVOLUTION >>>>>>>>>>>>>>>></p>
-<iframe id="video" width="420" height="315" src="https://www.youtube.com/embed/_KmVO_taRIg"></iframe>
+<button id="button2" onclick="playVideo()" >Play Video</button>
+<script>
+  function playVideo() {
+    window.open("video.html")
+  }
+</script>
 </body>
 </html>
 
