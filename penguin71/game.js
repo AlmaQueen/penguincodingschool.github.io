@@ -1,7 +1,7 @@
 var canvas =document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width=1901.55;
-canvas.height=892.95;
+canvas.width=1900;
+canvas.height=700;
 
 var img_player = document.createElement("img");
 img_player.src="http://icons.iconarchive.com/icons/martin-berube/animal/256/turtle-icon.png";
@@ -26,8 +26,10 @@ function animate() {
   platform();
   obstacle();
   monster();
+  monster2();
   scoreDisplay();
   coin();
+  coin2();
   if (score===100) {gameWin()}
 
   if (x>canvas.width||x<0) {xSpeed=-xSpeed}
@@ -183,6 +185,29 @@ function monster() {
   }
 }
 
+var xM2 = 0;
+var yM2 = 500;
+var xM2sp = -20;
+var yM2sp = -10;
+
+var mW2 = 50;
+var mH2 = 50;
+
+function monster2() {
+  cx.fillStyle = "orange"
+  cx.fillRect(xM2,yM2,mW2,mH2);
+  yM2+=yM2sp
+  xM2+=xM2sp
+  if (x+playerW > xM2 && xM2+mW2 >x && yM2+mH2>y && y+playerH>yM2)
+  {gameOver()}
+  if (xM2<0 || xM2>canvas.width) {
+     xM2sp = -xM2sp;
+  }
+  if (yM2<0 || yM2>canvas.height) {
+    yM2sp = -yM2sp
+  }
+}
+
 var xC = 500;
 var yC = 300;
 var wC = 20;
@@ -198,10 +223,25 @@ function coin() {
     xC =Math.random()*canvas.width;
     yC =Math.random()*canvas.height;
   }
-
-
 }
+var xC2 = 1380;
+var yC2 = 300;
+var wC2 = 20;
+var hC2 = 20;
+var score=0;
+
+function coin2() {
+  cx.fillStyle = "aqua"
+  cx.fillRect(xC2,yC2,wC2, hC2);
+  if (x+playerW > xC2 && xC2+wC2 >x && yC2+hC2>y && y+playerH>yC2)
+  { coinsound.play();
+    score += 10;
+    xC2 =Math.random()*canvas.width;
+    yC2 =Math.random()*canvas.height;
+  }
+}
+
 var backgroundmusic = new Audio('http://themushroomkingdom.net/sounds/mp3/yarblat_smb_techno.mp3')
 backgroundmusic.loop = true;
-backgroundmusic.play()
+backgroundmusic.play();
 animate();
