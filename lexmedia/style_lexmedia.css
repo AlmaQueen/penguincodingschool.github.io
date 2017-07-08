@@ -4,6 +4,7 @@ body{
 }
 .carousel-caption{
 	font-size: 40px
+	text-decoration:none;
 }
 
 h4.sansserif{
