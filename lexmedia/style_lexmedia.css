@@ -1,3 +1,15 @@
+body{
+	background-image: url("https://www.xmple.com/wallpaper/gradient-blue-white-linear-2560x1536-c2-ffffff-4682b4-a-270-f-14.svg");
+	background-repeat: repeat-x;
+}
 .carousel-caption{
 	font-size: 40px
 }
+
+h4.sansserif{
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+
