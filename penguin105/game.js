@@ -54,13 +54,12 @@ function setDirection(dir) {
   }
   
   if (dir =="jump") {
-    
-    y-=40;
+    y-=220;
 }
 }
 
 var keyActions = {
-  32: "stop",
+  32: "jump",
   37: "left",
   38: "up",
   39: "right",
