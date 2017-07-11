@@ -1,0 +1,43 @@
+#background1  {
+    background: url("https://previews.123rf.com/images/artisticco/artisticco1502/artisticco150200052/36982758-A-vector-illustration-of-inside-the-airport-scene-Stock-Vector-airport-cartoon.jpg");
+    background-size:  cover;
+    background-repeat:  no-repeat;
+}
+
+#background2  {
+    background: url("https://us.123rf.com/450wm/prettyvectors/prettyvectors1510/prettyvectors151000090/46905402-airport-with-infographic-elements-templates-vector-flat-illustration.jpg?ver=6");
+    background-size:  cover;
+    background-repeat:  no-repeat;
+}
+
+.align-center {
+  display:  block;
+  margin: 0px auto;
+}
+
+.button {
+    Background-color: gray;
+    border: none;
+    color: white;
+    margin: 5;
+    padding: 15 32;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16;
+    border-radius: 0px;
+    {
+}
+#choices  {
+      list-style: none;
+}
+
+
+#maincharacter  {
+        width: 200;
+        height: 200;
+}
+
+#textbox {
+        color: gray;
+}
