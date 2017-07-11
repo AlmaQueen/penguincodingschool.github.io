@@ -1,0 +1,2 @@
+var img_player = document.createElement("img");
+img_player.src
