@@ -14,7 +14,7 @@
 .image-holder {
   width: 2400;
   height: 400;
-  clear: both;
+/*  clear: both;*/
   position: relative;
   -webkit-transition: left 2s;
   -moz-transition: left 2s;
@@ -24,15 +24,16 @@
   
 }
 
-.slider-holder:hover  .image-holder {animation-play-state:
-paused; }
-
 .slider-image {
   float: left;
   margin; 0;
   padding: 0;
   position: relative;
 }
+
+.slider-holder:hover  .image-holder {animation-play-state:
+paused; }
+
 
 @keyframes slide {
   0% {left: 0px;}
@@ -43,7 +44,6 @@ paused; }
   97% {left: -1600px;}
   100% {left: 0px;}
 }
-
 
 
 
@@ -146,9 +146,9 @@ h1 {
   <span id="image2"></span>
   <span id="image3"></span>
 <div class = "image-holder">
-  <img src="http://clashroyalearena.com/wp-content/uploads/bfi_thumb/clash-royale-electro-wizard-32vywaa64va5lwx9w5klqi.jpg" width=800 height=400 class="slider-image">
-  <img src="http://www.mobipicker.com/wp-content/uploads/2017/03/maxresdefault-1024x576-1.jpg" width=800 height=400 class="slider-image">
-  <img src="http://www.howtochoosealaptop.com/wp-content/uploads/2017/03/Pekka.jpg" width=800 height=400 class="slider-image">
+  <img src="https://www.koliddon.fr/wp-content/uploads/2017/03/devenir-meilleur.jpg" width=800 height=400 class="slider-image">
+  <img src="https://s-media-cache-ak0.pinimg.com/originals/d7/83/80/d783804e94b6e67410956eeece4e0b59.jpg" width=800 height=400 class="slider-image">
+  <img src="http://www.rapfiendmusic.com/wp-content/uploads/2017/04/Main-Concept-of-Chest-Simulator1.jpg" width=800 height=400 class="slider-image">
 </div>
 <div class = "button-holder">
   <a href= "#image1" class="slider-change"></a>
@@ -159,9 +159,36 @@ h1 {
    </div>
 </div>
 
+
+<select id = "q5">
+ <option>Select your arena</option>
+ <option>Training Camp</option>
+ <option>Goblin Stadium</option>
+ <option>Bone Pit</option>
+ <option>Barbarian Bowl</option>
+ <option>Pekka's Playhouse</option>
+ <option>Spell Valley</option>
+ <option>Builders Workshop</option>
+ <option>Royale Arena</option>
+ <option>Frozen Peak</option>
+ <option>Jungle Arena</option>
+ <option>Hog Mountain</option>
+ <option>Legendary Arena</option>
+</select>
+
+
+
+
+
+
+
+
 <button onclick = "ask()">MAGIC BUTTON</button>
 <script>
+
 function ask() {
+  
+  
   // alert ("Hi Fellow Clasher! Welcome!");
   // var name = prompt("What's your name?");
   // alert("Nice to meet you, " +  name );
@@ -176,14 +203,13 @@ function ask() {
   // // else
   // // {alert ("Please answer yes or no, " + name )
   var name = prompt("What's your name?")
-      alert("Nice to meet you, " + name + "!")
-  var answer = prompt('Do you play clash royale, ' + name + "?");
+      alert("Nice to meet you, " + name)
+  var answer = prompt('Do you play clash royale?');
   
   if(answer == "yes" || answer == "Yes" || answer == "Y")
-     {alert("You are awesome, " + name + "!");}
-  
+     {alert("You are awesome, " + name);}
   else if (answer == "no" || answer == "No" || answer == "N")
-     {alert("NO NON - CLASHERS ON THIS WEBSITE!!! SCRAM,  " + name + "!!!");
+     {alert("NO NON - CLASHERS ON THIS WEBSITE!!! SCRAM!!!");
       window.location = "https://www.google.com";}
   else {alert("Please answer yes or no, " + name)}
   
