@@ -1,0 +1,63 @@
+<body>
+  <h1></h1>
+  <form id="form1" action=" ">
+    <p>What play should I do?</p>
+    <input type="radio" name="q1" value=1>
+    Play 1 Hail Mary(long pass)<br>
+    <input type="radio" name="q1" value=2>
+    Play 2 Curls (short pass)<br>
+    <input type="radio" name="q1" value=3>
+    Play 3 HB toss(running play)<br>
+    
+    <input type="submit" value="Submit Choice">
+  </form>
+  
+  <h1><span id="yardage">_</span></h1>
+  
+  <script>
+  document.getElementById("form1").onsubmit=function(){
+    q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+    if(q1==1) {
+      if (randomizer()==1)
+    {result = "You gained 50 yards"}
+      else if (randomizer()==2 )
+    {result = "You were intercepted"}
+      else
+      {result = "Your pass was caught and you gained "+Math.ceil(Math.random()*3)+" yards";}
+    }
+    if(q1==2) {
+      result = "You were intercepted";
+    }
+    if(q1==3) {
+      result = "You dropped the ball";
+    }
+    document.getElementById("yardage").innerHTML = result;
+    return false;
+  }
+  
+  function randomizer() {
+    var i = Math.ceil(Math.random()*3);
+    return i;
+  }
+  
+  /*
+    if hail mary chosen then 30% of interception
+    10% chance of gaining 50 yards
+    40% chance of pass dropped
+    20% of pass being caught [0-20yds]
+    
+    If curls is chosen
+    25% interception
+    5% chance of gaining 50 yards
+    30% drop ball
+    40% pass [0-30yds]
+    
+    if HB toss is chosen
+    2% chance of lnterception
+    13% of gaining 50 yards
+    5% of dropping ball
+    80% of pass being caught
+  */
+  </script>
+  
+</body>
