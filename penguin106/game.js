@@ -13,7 +13,7 @@ var playerH = 50;
 var xspeed = 0;
 var yspeed = 0;
 var gravity = 5;
-var life =32
+var life =32;
 function animate() {
   req=requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width,canvas.height);
@@ -22,7 +22,9 @@ function animate() {
   y+=yspeed+gravity;
    platform();
    obstacle();
-   lifeleft()
+   monster();
+   coin();
+   scoreDisplay();
   if (x<=0){
     xspeed= -xspeed;
   }
@@ -35,6 +37,7 @@ function animate() {
   if (y>canvas.height) {
        yspeed = -yspeed;
   }
+  
 }
  
 function setDirection(dir) {
@@ -42,10 +45,6 @@ function setDirection(dir) {
   xspeed = 0;
   yspeed = -5;
   }
-//if (dir == "down") {
- // xspeed = 0;
-  //yspeed = 5;
- // }
   if (dir == "right") {
   xspeed = 5;
   yspeed = 0;
@@ -95,7 +94,7 @@ plat.push({x:400, y:500, w:555, h:10});
 plat.push({x:900, y:100, w:650, h:10});
 plat.push({x:200, y:70, w:320, h:10});
 plat.push({x:300, y:270, w:410, h:10});
-plat.push({x:100, y:150, w:310, h:10});
+
 
 
 function platform() {
@@ -126,7 +125,6 @@ x<=lava[i].x+lava[i].w)
 x=0;
 y=0;
 if(life===0) {gameover()}
-else{}
     }
   }
 }
@@ -145,11 +143,65 @@ function stop() {
     req = undefined;
   }
 }
- function lifeleft(){
-   cx.fillStyle= "lightblue";
-   cx.font="50px Comic Sans MS";
-   cx.fillText("Lives "+life, 200, 50)
-   
- }
- animate()
-  
+
+var xM = 400;
+var yM = 180;
+var mW =100;
+var mH = 100;
+var xMsp = 5;
+var yMsp = 10;
+
+var img_monster = document.createElement("img");
+img_monster.src = "minions.png";
+
+function monster() {
+cx.drawImage(img_monster,xM,yM,mW,mH);
+xM+=xMsp;
+yM+=yMsp;
+if (x+playerW >xM && xM+mW >x && yM+mH>y && y +playerH>yM)
+{gameover()}
+if (xM<0|| xM>canvas.width-mW) {
+  xMsp = -xMsp;
+}if(yM<0 || yM>canvas.height-mH) {
+  yMsp = -yMsp;
+}
+}
+
+var xC = 80;
+var yC = 450;
+var wC = 30;
+var hC = 30;
+var score = 0;
+
+var img_coin = document.createElement("img");
+img_coin.src = "coin.png";
+
+function coin() {
+  cx.drawImage(img_coin,xC, yC, wC, hC);
+  if (x+playerW > xC && xC+wC >x && yC+hC>y && y +playerH>yC)
+  {
+  score +=10;
+  var i = Math.ceil(Math.random()*plat.length);
+  xC = plat[i].x+20;
+  yC=plat[i].y-40;}
+}
+function scoreDisplay(){
+  cx.fillStyle="gold"
+  cx.fillText("Score: "+score, 500,100);
+}
+
+function lifeleft() {
+  cx.fillStyle = "gold"
+  cx.font = "30px Comic Sans MS";
+  cx.fillText = "life:"+life ,300,350
+}
+animate();
+
+
+
+
+
+
+
+
+
