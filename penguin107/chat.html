@@ -1,0 +1,32 @@
+<head>
+  <style>
+  
+  
+    h1{
+ color:blue;
+    }
+  </style>
+  
+</head>
+<body>you made it! welcome to  the CHAT page
+
+<form id="chatform" action = " ">
+
+  <h3> Chat Box</h3>
+  <input type="text" id="chatbox"><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+<h1><span id="result">_</span></h1>
+
+
+<script>
+  document.getElementById("chatform").onsubmit=function(){
+    var chattext = document.getElementById("chatbox").value;
+     document.getElementById("result").innerHTML=chattext;
+return false;
+
+</script>
+
+</body>
