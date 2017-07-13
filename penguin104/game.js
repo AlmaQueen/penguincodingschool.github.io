@@ -138,11 +138,11 @@ document.addEventListener('keyup', function(event) {
 
 var plat = [];
 plat.push({x:0, y:150, w:100, h:10, color:"red"});
-plat.push({x:140, y:200, w:100, h:10, color:"orange"});
-plat.push({x:280, y:250, w:100, h:10, color:"yellow"});
+plat.push({x:0, y:600, w:100, h:10, color:"orange"});
+plat.push({x:150, y:550, w:100, h:10, color:"yellow"});
 plat.push({x:420, y:300, w:100, h:10, color:"green"});
-plat.push({x:560, y:350, w:100, h:10, color:"blue"});
-plat.push({x:700, y:400, w:100, h:10, color:"purple"});
+plat.push({x:350, y:525, w:100, h:10, color:"blue"});
+plat.push({x:300, y:400, w:100, h:10, color:"purple"});
 
 function platform() {
   gravity=5; gravity2=5;
