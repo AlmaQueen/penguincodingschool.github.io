@@ -2,8 +2,9 @@ var cx = canvas.getContext("2d");
 canvas.width = 1000;
 canvas.height = 700;
 
+
 var img_player = document.createElement("img");
-img_player.src = "8bit-mario2.png"
+img_player.src = "8bit-mario.png";
 var x = 0;
 var y = 0;
 var playerw = 50;
@@ -14,6 +15,7 @@ var gravity = 5;
 var req;
 
 function animate() {
+  backgroundmusic.play();
   req = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width,canvas.height);
   cx.drawImage(img_player,x,y,playerw,playerh);
@@ -54,30 +56,31 @@ function setDirection(dir) {
     xspeed = -5;
     yspeed = 0;
     img_player.src = "8bit-mario2.png";
+   
   }
 
-  if (dir =="right") {
+  else if(dir =="right") {
     xspeed = 5;
     yspeed = 0;
     img_player.src = "8bit-mario.png";
   }
   
- if (dir =="down") {
+  else if (dir =="down") {
     xspeed = 0;
     yspeed = 5;
   }
-  
-  if (dir =="jump") {
-    y-=100;
-    img_player.src = "mario-jumping.jpg";
-  }
-  else
-  {img_player.src = "8bit-mario.png";}
-if (dir =="stop") {
+  else if (dir =="stop") {
     xspeed = 0;
     yspeed = 0;
   }
+  else if (dir =="jump" && y>0) {
+    y-=100;
+    jumpsound.play();
+   img_player.src = "mario-jumping.jpg";
+  }
+  else {img_player.src = "8bit-mario.png"}
 }
+
 
 var keyActions = {
   32: "jump",
@@ -97,16 +100,18 @@ setDirection("stop");
 })
 
 var plat =[];
-plat.push({x:0,y:500, w:100, h:10, color:"yellow"});
-plat.push({x:70,y:530, w:100, h:10, color:"green"});
-plat.push({x:5,y:300, w:100, h:10, color:"blue"});
+plat.push({x:0,y:400, w:100, h:10, color:"green"});
+plat.push({x:80,y:530, w:100, h:10, color:"green"});
+plat.push({x:50,y:300, w:100, h:10, color:"black"});
+plat.push({x:500,y:150, w:100, h:10, color:"green"});
+plat.push({x:900,y:400, w:100, h:10, color:"purple"});
 plat.push({x:20,y:650, w:100, h:10, color:"purple"});
 plat.push({x:200,y:500, w:100, h:10, color:"purple"});
 plat.push({x:200,y:470, w:100, h:30, color:"white"});
 plat.push({x:200,y:370, w:100, h:10, color:"white"});
 plat.push({x:200,y:370, w:100, h:10, color:"white"});
 plat.push({x:200,y:200, w:100, h:10, color:"black"});
-plat.push({x:500,y:450, w:100, h:10, color:"green"});
+plat.push({x:500,y:450, w:100, h:10, color:"black"});
 plat.push({x:450,y:400, w:100, h:10, color:"yellow"});
 plat.push({x:450,y:200, w:100, h:10, color:"black"});
 plat.push({x:200,y:200, w:100, h:10, color:"yellow"});
@@ -114,6 +119,9 @@ plat.push({x:700,y:200, w:100, h:10, color:"yellow"});
 plat.push({x:900,y:600, w:100, h:10, color:"blue"});
 plat.push({x:100,y:100, w:100, h:10, color:"green"});
 plat.push({x:50,y:50, w:100, h:10, color:"green"});
+plat.push({x:5,y:200, w:100, h:10, color:"orange"});
+plat.push({x:500,y:600, w:100, h:10, color:"orange"});
+
 //var lplat =[];
 plat.push({x:200,y:400, w:100, h:10, color:"black"});
 
@@ -145,13 +153,22 @@ function platform() {
   x>=plat[i].x-playerw &&
   x<=plat[i].x+plat[i].w)
   {gravity=0}
-    else{}
+  if(y==plat[0].y-playerh &&
+  x>=plat[0].x-playerw &&
+  x<=plat[0].x+plat[0].w)
+  {x = plat[3].x; y = plat[3].y}
+  if(y==plat[1].y-playerh &&
+  x>=plat[2].x-playerw &&
+  x<=plat[2].x+plat[2].w)
+  {x = plat[4
+].x; y = plat[2
+].y}
   }
 }
 
-var xC = 200;
+var xC = 170;
 var yC= 300;
-var wC = 150;
+var wC = 250;
 var hC = 150;
 var score = 0;
 var img_coin = document.createElement("img");
@@ -160,10 +177,11 @@ img_coin.src ="coin.png";
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
   if (x+playerw > xC && xC+wC >x && yC+hC>y && y +playerh>yC)
-{score +=10;
+{coinsound.play();
+  score +=10;
    var i = Math.ceil(Math.random()*plat.length);
-   xC = plat[i].x+20;
-   yC = plat[i].y-100;
+   xC = plat[i].x-20;
+   yC = plat[i].y-110;
    }
 }
   
@@ -202,6 +220,7 @@ function monster() {
     if(yM<0 || yM>canvas.height-mH) {
     yMsp = -yMsp;
    }
+   
 }
 
 var lava =[];
@@ -235,13 +254,24 @@ function gameover(){
   cx.fillStyle = "red";
   cx.font = "30px Comic Sans MS";
   cx.fillText("Game Over",10,50);
+  img_player.src = "dead-mario.png";
   stop();
+  deathsound.play();
 }
 
 function stop() {
   if(req) {
     cancelAnimationFrame(req);
     req = undefined;
+    backgroundmusic.pause();
+    img_player.src = "dead-mario.png";
   }
 }
+
+//sounds
+
+var deathsound = new Audio('mariodies.wav');
+var coinsound = new Audio('smb_coin.wav');
+var jumpsound = new Audio('smb_jump-small.wav')
+var backgroundmusic = new Audio('background.mp3')
 animate();
