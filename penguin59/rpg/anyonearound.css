@@ -1,0 +1,40 @@
+#textbox {
+  color: white;
+  font-family: "comic sans ms";
+  font-size: 25;
+}
+
+.align-left {
+  float: left;
+  margin-right: 10;
+}
+
+.button {
+  background-color: purple;
+  border: none;
+  color: white;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+  font-family: "comic sans ms";
+  border-radius: 10px;
+  
+}
+
+#options {
+  list-style: none;
+}
+
+.button:hover {
+  background-color: white;
+  color: purple;
+}
+
+body{
+  background-image: url("http://orig12.deviantart.net/ba63/f/2014/276/b/b/foggy_forest_by_danimatie-d81g488.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
