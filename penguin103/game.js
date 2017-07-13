@@ -94,8 +94,9 @@ plat.push({x:850, y:350, w:100, h:10});
 plat.push({x:600, y:250, w:100, h:10});
 plat.push({x:750, y:200, w:100, h:10});
 plat.push({x:750, y:200, w:100, h:10});
-plat.push({x:650, y:100, w:100, h:20});
+plat.push({x:650, y:150, w:100, h:20});
 plat.push({x:500, y:150, w:100, h:10});
+plat.push({x:350, y:200, w:100, h:10});
 
 function platform() {
   gravity=5;
@@ -122,7 +123,10 @@ function obstacle() {
   if(y==lava[i].y-playerH &&
   x>=lava[i].x-playerW &&
   x<=lava[i].x+lava[i].w)
-  {gameover()}
+  {gameover();
+    
+    endgame.play();
+  }
   else{}
   }
 }
@@ -159,7 +163,9 @@ function monster() {
   yM+=yMsp;
   if (x+playerW-mar > xM && xM+mW >x-mar && yM+mH>y-mar && y-mar
   +playerH>yM)
-  {gameover()}
+  {gameover()
+    endgame.play();
+  }
   if (xM<0 || xM>canvas.width-mW) {
     xMsp = -xMsp;
   } if (yM<0 || yM>canvas.height-mH) {
@@ -175,12 +181,14 @@ var score = 0;
 
 var img_coin = document.createElement("img");
 img_coin.src = "coin.png";
+var coinsound = new Audio('coin.wav');
 
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x && yC+hC>y && y
   +playerH>yC)
 {  score +=10;
+ coinsound.play();
   var i = Math.ceil(Math.random()*plat.length);
   xC = plat[i].x+20;
   yC=plat[i].y-40
@@ -199,5 +207,8 @@ function lifeleft(){
   cx.font = "30px Comic Sans MS ";
   cx.fillText("Score: "+score, 500,100);
 }
+
+var endgame = new Audio('smb_gameover.wav');
+
 
 animate();
