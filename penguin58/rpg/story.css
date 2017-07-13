@@ -1,0 +1,84 @@
+
+#text {
+  color: black;
+  font-size: 30;
+  font-family: Georgia;
+  
+}
+#aroundmountaintext {
+  color: rgb(0, 153, 0);
+  font-size: 30;
+  font-family: Georgia;
+}
+.align-right {
+  float: right;
+  margin-left: 10;}
+
+#start
+{
+  background-image: url("mountainchoice.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#climbingmountainackground{
+  background-image: url("glacier.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button {
+  background-color: rgb(0, 255, 64);
+  border: none;
+  color: white;
+  margin: 4.987;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 34.8976px;
+  font-size: 20;
+  
+}
+.button:hover {
+  background-color: rgb(255, 77, 77);
+  color: white;
+}
+
+#options {
+  list-style: none;
+}
+
+#Climbingmountaintext {
+  color: rgb(255, 255, 0);
+  font-size: 30;
+  font-family: Georgia;
+}
+
+#choicesclimbingmountain {
+  list-style: none;
+}
+#choicesfordingriver {
+  list-style: none;
+}
+
+#river{
+  background-image: url("river.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#crossedrivertext{
+  color: rgb(255, 255, 0);
+  font-size: 30;
+  font-family: Georgia;
+}
+
+#afterriverbacktopath {
+  list-style: none;
+}
+#crossingriver {
+  background-image: url("forest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
