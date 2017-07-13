@@ -4,10 +4,10 @@ canvas.width = 1000;
 canvas.height = 700;
 
 var img_player = document.createElement("img");
-img_player.src = "bowser1.png"
+img_player.src = "https://upload.wikimedia.org/wikipedia/az/9/99/MarioSMBW.png"
 //img_player.src = "https://upload.wikimedia.org/wikipedia/en/9/99/MarioSMBW.png"
 var img_player2 = document.createElement("img");
-img_player2.src = "bowser2.png";
+img_player2.src = "Luigi1.png";
 //img_player2.src = "https://upload.wikimedia.org/wikipedia/en/f/f1/LuigiNSMBW.png"
 var x = 0;
 var x2=500;
@@ -23,6 +23,8 @@ var gravity = 5;
 var gravity2 = 5;
 var life = 3
 var life2 = 3
+
+var coinsound = new Audio('smb_coin.wav');
 
 function animate() {
 req = requestAnimationFrame(animate);
@@ -43,6 +45,8 @@ req = requestAnimationFrame(animate);
   monster();
   //Mario
   coin();
+  
+  coin2();
   
   scoreDisplay();
   
@@ -79,39 +83,45 @@ function setDirection(dir) {
   if (dir == "down"){
     xspeed = 0;
     yspeed = 5;
+    img_player.src = "Mario1.png"
   }
   if (dir == "down2"){
     xspeed2 = 0;
     yspeed2 = 5;
+    img_player2.src = "Luigi1.png"
   }
   if (dir == "right"){
     xspeed = 5;
     yspeed = 0;
+    img_player.src = "Mario2.png"
   }
    if (dir == "right2"){
     xspeed2 = 5;
     yspeed2 = 0;
+    img_player2.src = "Luigi3.png"
   }
   if (dir == "left"){
     xspeed = -5;
     yspeed = 0;
+    img_player.src = "Mario3.png"
   }
   if (dir == "left2"){
     xspeed2 = -5;
     yspeed2 = 0;
+    img_player2.src = "Luigi2.png"
   }
   if (dir == "stop"){
     xspeed = 0;
     yspeed = 0;
   }
-  if (dir == "jump"){
+  if (dir == "jump" && y>0){
     y-=55;
   }
   if (dir == "stop2"){
     xspeed2 = 0;
     yspeed2 = 0;
   }
-  if (dir == "jump2"){
+  if (dir == "jump2" && y>0){
     y2-=55;
   }
 }
@@ -143,6 +153,10 @@ plat.push({x:150, y:550, w:100, h:10, color:"yellow"});
 plat.push({x:420, y:300, w:100, h:10, color:"green"});
 plat.push({x:350, y:525, w:100, h:10, color:"blue"});
 plat.push({x:300, y:400, w:100, h:10, color:"purple"});
+plat.push({x:350, y:510, w:100, h:10, color:"white"});
+plat.push({x:300, y:380, w:100, h:10, color:"orange"});
+plat.push({x:500, y:450, w:100, h:10, color:"purple"});
+plat.push({x:500, y:440, w:100, h:10, color:"white"});
 
 function platform() {
   gravity=5; gravity2=5;
@@ -157,6 +171,14 @@ for (var i = 0; i<plat.length; i++)
       x2>=plat[i].x-playerW &&
       x2<=plat[i].x+plat[i].w)
     {gravity2=0}
+    if(y== plat[5].y-playerH &&
+      x>=plat[5].x-playerW &&
+      x<=plat[5].x+plat[i].w)
+    {x = plat[7].x; y = plat[7].y-playerH}
+    if(y2== plat[5].y-playerH &&
+      x2>=plat[5].x-playerW &&
+      x2<=plat[5].x+plat[5].w)
+    {x2 = plat[7].x; y2 = plat[7].y}
     
    else{}
   }
@@ -208,7 +230,9 @@ function monster() {
   }
 }
 
-
+function bonuspoints() {
+  score+=10000000;
+}
 
 function lifeleft() {
   cx.lifeStyle = "green"
@@ -222,23 +246,41 @@ function gameover() {
   stop();
 }
 
-var xC = 80;
+var xC = 200;
 var yC = 50;
 var wC = 30;
 var hC = 30;
+var xC2 = 400;
+var yC2 = 500;
+var wC2 = 40;
+var hC2 = 40;
 var score = 0;
 
 var img_coin = document.createElement("img");
 img_coin.src = "coin.png";
+var img_coin2 = document.createElement("img");
+img_coin2.src = "coin2.png";
 
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x && yC+hC>y && y +playerH>yC)
-  
-{   score +=10;
-  var i = Math.ceil(Math.random()*plat.length);
+ {score +=10;
+ coinsound.play();
+    var i = Math.ceil(Math.random()*plat.length);
   setTimeout(xC = plat[i].x+20,1000)
   yC=plat[i].y-40;
+  
+ }
+}
+
+function coin2() {
+  cx.drawImage(img_coin2,xC2, yC2, wC2, hC2);
+  if (x+playerW > xC2 && xC2+wC2 >x && yC2+hC2>y && y +playerH>yC2)
+  {score +=50;
+  coinsound.play();
+  var i = Math.ceil(Math.random()*plat.length);
+  setTimeout(xC2 = plat[i].x+20,3000)
+  yC2=plat[i].y-40;
   }
 }
 
