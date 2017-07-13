@@ -39,10 +39,7 @@ function animate() {
 }
 
 function setDirection(dir) {
-  if(dir == "up") {
-    xspeed = 0;
-    yspeed = -5;
-  } if (dir == "down") {
+   if (dir == "down") {
     xspeed = 0;
     yspeed = 5;
   } if (dir == "left") {
@@ -52,24 +49,27 @@ function setDirection(dir) {
     xspeed = 5;
     yspeed = 0;
   } if (dir == "jump") {
-    yspeed =-10;
+    yspeed =-15;
   } if (dir == "diagonal") {
     xspeed = 5;
     yspeed = 5;
   }if (dir == "stop") {
     xspeed = 0;
     yspeed = 0;
-    }
+    } if (dir == "nogravity"){
+  {gravity = 0;
+    yspeed=0;
+  }
+}
     
   }
  var keyActions = {
    32: "jump",
    37: "left",
-   38: "up",
+   38: "nogravity",
    39: "right",
    40: "down",
    90: "diagonal",
-   69: "nogravity",
    
  };
  
@@ -118,8 +118,10 @@ plat.push({x:300, y:500, w:100, h:10});
 plat.push({x:200, y:200, w:100, h:10});
 plat.push({x:200, y:200, w:100, h:10});
 plat.push({x:200, y:200, w:100, h:10});
-plat.push({x:365, y:365, w:100, h:10});
-
+plat.push({x:200, y:200, w:100, h:10});
+plat.push({x:290, y:400, w:100, h:10});
+plat.push({x:400, y:350, w:100, h:10});
+plat.push({x:600, y:220, w:100, h:10});
 
 
 
@@ -217,6 +219,12 @@ function coin(){
    cx.font = "30px Comic San MS"
    cx.fillText("Score:" +score,500,100);
  }
+
+
+var backgroundmusic = new Audio('pacman.mp3');
+
+backgroundmusic.loop = true;
+backgroundmusic.play()
 
 
 animate();
