@@ -3,9 +3,6 @@ var cx =canvas.getContext("2d");
 canvas.width =1000;
 canvas.height =700;
 
-var img_player = document.createElement("img")
-img_player.src = "https://s-media-cache-ak0.pinimg.com/originals/89/92/70/8992702632b80fc3ab2c40f23df06995.png";
-
 var x = 0;
 var y = 0;
 var playerW =50;
@@ -14,6 +11,8 @@ var xspeed = 0;
 var yspeed = 0;
 var gravity = 5;
 var life =32;
+var img_player=document.createElement("img");
+img_player.src = "mario.jpg"
 function animate() {
   req=requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width,canvas.height);
@@ -48,6 +47,7 @@ function setDirection(dir) {
   if (dir == "right") {
   xspeed = 5;
   yspeed = 0;
+  img_
   }if (dir == "left") {
   xspeed = -5;
   yspeed = 0;
@@ -89,12 +89,13 @@ plat.push({x:300, y:250, w:150, h:10});
 plat.push({x:270, y:300, w:150, h:10});
 plat.push({x:240, y:350, w:150, h:10});
 plat.push({x:300, y:500, w:150, h:10});
-plat.push({x:500, y:600, w:100, h:10});
+plat.push({x:0, y:400, w:100, h:10});
 plat.push({x:400, y:500, w:555, h:10});
 plat.push({x:900, y:100, w:650, h:10});
 plat.push({x:200, y:70, w:320, h:10});
-plat.push({x:300, y:270, w:410, h:10});
 
+plat.push({x:900, y:270, w:110, h:10});
+plat.push({x:200, y:150, w:500, h:10});
 
 
 function platform() {
@@ -179,7 +180,7 @@ img_coin.src = "coin.png";
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x && yC+hC>y && y +playerH>yC)
-  {
+  {coinsound.play();
   score +=10;
   var i = Math.ceil(Math.random()*plat.length);
   xC = plat[i].x+20;
@@ -195,6 +196,10 @@ function lifeleft() {
   cx.font = "30px Comic Sans MS";
   cx.fillText = "life:"+life ,300,350
 }
+
+var coinsound = new Audio('smb_coin.wav');
+
+
 animate();
 
 
