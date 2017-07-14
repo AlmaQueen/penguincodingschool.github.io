@@ -22,6 +22,8 @@ function animate() {
   x+=xspeed;
   y+=yspeed+gravity;
   
+  mariosong.play();
+  
 /* if(x==0 || x==945)
   {
     xspeed= -xspeed
@@ -40,7 +42,7 @@ monster2();
 coin();
 coin2();
 scoredisplay();
- if(score >= 700) {win()}
+ if(score >= 800) {win()}
   if (x<=0) {
     xspeed = -xspeed;
   }
@@ -266,12 +268,12 @@ function stop() {
   if(req) {
   cancelAnimationFrame(req);
   req = undefined;
-    
+  mariosong.pause();
   }
 }
 
 var coinsound = new Audio('coin.wav');
-
+var mariosong = new Audio('mariosong.mp3');
 
 
 
