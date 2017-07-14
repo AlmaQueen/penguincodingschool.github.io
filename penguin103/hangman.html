@@ -1,0 +1,40 @@
+<h1>hangman</h1>
+
+<script>
+var answers = ["words","ghost","like","bike"]
+
+var answer = answers[Math.floor(Math.random() *answers.length)];
+//answers[0]="elephant"
+//answers[1]="butterfly"
+//answers[2]="book"
+//answers[3]="blueberry"
+
+var answerSpace = [];
+for (var i=0; i < answer.length; i++) {
+  answerSpace[i] = "_";
+ }
+ 
+ var remainingLetters = answer.length
+ var maxGuesses = 10;
+ var numberGuesses = 0;
+ 
+ while (remainingLetters>0 && numberGuesses<maxGuesses ) {
+   alert(answerSpace.join(" "));
+   alert("You have "+(maxGuesses - numberGuesses)+" guesses left");
+   
+   var guess = prompt("Guess a letter or click Chanel to stop");
+   if (guess=== null) {
+     break;
+     } else if (guess.length !==1) {
+       alert("Please enter a single letter");
+     } else {
+       numberGuesses++;
+       for (var j = 0; j<answer.length; j++) {
+         if (answer[j] === guess) {
+           answerSpace[j] = guess;
+         }
+       }
+     }
+   }
+
+</script>
