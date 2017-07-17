@@ -17,17 +17,65 @@ h1 {
     
     a {
       color:white;
+     
   
     }
      
+    #menu {
+      list-style:none;
+       background-color:limegreen;
+       overflow: hidden;
+      
+    }
+    #menu li {
+      float:left;
+    }
+    #menu li a {
+      color:darkgreen;
+      text-align:center;
+      padding: 14;
+      text-decoration: none;
+      display: block;
+    }
+    
+    #menu li a:hover {background-color: lightgreen;}
     div {
       text-align: center;
+    }
+    #hero-image {
+      background: url(https://s-media-cache-ak0.pinimg.com/736x/e6/19/a4/e619a4eb8af0a0bef8e9316c4bbe5f61--the-lion-king-a-lion.jpg);
+      position: relative;
+      height: 100% ;
+      background-size: cover;
+      background-position: center;
+    }
+    #hero-text {
+      position: absolute;
+      color:white;
+      text-align: center;
+      margin top: 20%;
+      margin-left: 30%;
+      font-size: 70;
     }
     
 </style></head>
 <body>
+  <ul id="menu">
+   <li><a href="index.html">Home</a></li>
+   <li><a href= "video.html">Videos</a></li>
+   <li> <a href= "picture.html">Picture</a></li>
+   
+   </ul>
 <h1>Lions</h1>
+<div id="hero-image">
+  <div id="hero-text">
+    <p>Learning with Lions</p>
+  </div>
+</div>
+
 <div>
+  
+  
 <h3>This website is about <ins>lions.</ins></h3>
 
 <b>How many lions species do you think exist in wild Africa currently?</b>
@@ -36,14 +84,15 @@ h1 {
 <div>
 <a href="https://en.wikipedia.org/wiki/Lion">For more reasearch on lions, click this link</a>
 </div>
+<!--
 <div>
 <img src="https://s-media-cache-ak0.pinimg.com/736x/e6/19/a4/e619a4eb8af0a0bef8e9316c4bbe5f61--the-lion-king-a-lion.jpg" width= 500 height=450>
 </div>
-<div>
+-->
+  
 <br>
   Copyright 2017
-</br>
-</div>
+
 </body>
 
 
