@@ -1,3 +1,4 @@
+
 <head><style>
   h1 {
     color:gray;
@@ -33,8 +34,57 @@
   }
   
   
+  li {
+float:left;
+margin:10;
+}
+
+img {
+
+width:400;
+height:300;
+}
+
+.slider-holder {
+  width:800;
+  height:400;
+  margin:auto;
+  text-align:center;
+  overflow:hidden;
+}
+
+ .image-holder {
+   width:2400;
+   height:400;
+   position:relative;
+   animation:slide 15s infinite;
+
+
+ }
+
+.image-holder img {
+  float:left;
+  width:800;
+  height:400;
+  
+}
+
+@keyframes slide {
+  0%{right:0px;}
+  30%{right:0px;}
+  33%{right:800px;}
+  63%{right:800px;}
+  66%{right:1600px;}
+  97%{right:1600px;}
+  
+  100%{right:0px;}
   
   
+}
+
+.slider-holder:hover .image-holder {animation-play-state:
+ paused;}
+
 
  body{
    text-align :center;
@@ -45,19 +95,12 @@
 
 <body>
 <ul id = "menu">
-  <li><a href="index.html" >home</a>
-  </a></li>
-  
+  <li><a href="index.html" >home</a></li>
   <li><a href= "picture.html"> pictures </a></li>
-  
-  
   <li><a href = "video.html">video</a></li>
-  
-  
-  
 </ul>
 <h1>Houses: old and new</h1>
-<h3> Houses can cost more then $1M</h3>
+<h3> Houses can tell a story</h3>
 
 <a href = "https://www.osv.org/"> Old Sturbridge Village Link</a>
 
@@ -76,11 +119,30 @@
 
 <br>
 
+
+
+
+
+
+
+
+<h1></h1>
+<div class="slider-holder">
+ <div class= "image-holder">
+ <img src="pict1.jpg">
+ <img src="pict2.jpg">
+ <img src="pict3.jpg">
+ <span id="span1">2017 house</span>
+ <span id="span1">1930 house</span>
+ <span id="span1">1735 house</span>
+
+</div>
+</div>
+
 </body>
 
-<img src="https://www.smartdestinations.com/img/pt/dest/Dca/att/Dca_Att_George_Washingtons_Mount_Vernon/gallery/George-Washingtons-Mt-Vernon-1.jpg"width=700 height= 400>
-
-
+  
+  </div>
 
 
 
