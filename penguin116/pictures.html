@@ -1,25 +1,78 @@
-<h1>Top 3 types of Jazz</h1>
-<ol>
-    <li>Classic Jazz<img src ="
-  https://i.ytimg.com/vi/YBYQtTFQEtc/maxresdefault.jpg"></li>
+<head><style>
+  li {
+    float:left;
+    margin: 10;
+  }
+  .slider-holder {
+  width: 800;
+  height: 400;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  }
+  
+  .image-holder {
+  width: 2400;
+  height: 400;
+  position: relative;
+  animation: slide 15s infinite
+  }
+  
+  .image-holder img {
+    float: left;
+    width: 800;
+    height: 400;
+  }
+  
+
+  @keyframes slide {
+    0% {right: 0px;}
+    30% {right:0px;}
+    33% {right:800px;}
+    63% {right:800px;}
+    66% {right:1600px;}
+    97% {right:1600px;}
+    100% {right:0px;}
+  }
+
+.slider-holder:hover .image-holder {animation-play-state:paused;}
+
+</style>
+</head>
+
+
+<div class="slider-holder">
+<div class="image-holder">
+<img src ="
+  https://i.ytimg.com/vi/YBYQtTFQEtc/maxresdefault.jpg">
+  <img src ="https://www.idta.co.uk/site3/wp-content/uploads/2015/02/modern_jazz_idta_carousel-460x300.jpg">
+  <img src ="https://ae01.alicdn.com/kf/HTB1h4rNKpXXXXXzaXXXq6xXFXXXh/-font-b-cool-b-font-stripe-font-b-kids-b-font-adult-team-font-b.jpg">
+  
+ <span id="span1">Classic Jazz</span>
+ <span id="span2">Modern Jazz</span>
+ <span id="span3">Cool Jazz</span>
   
   
-  <li> Modern Jazz<img src ="https://www.idta.co.uk/site3/wp-content/uploads/2015/02/modern_jazz_idta_carousel-460x300.jpg"></li>
-  
-  
-  
-  
-  
-    <li>
-  
+</div>
+</div>
     
     
     
-    
-</ol>
+
       
       
       
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
       
   
   
