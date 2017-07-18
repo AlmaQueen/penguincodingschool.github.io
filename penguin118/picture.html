@@ -38,6 +38,85 @@ div {
 #menu li a:hover {
 background-color:grey;
 }
+.slider-holder {
+  width:800;
+  height:400;
+  margin:auto;
+  text-align:center;
+  overflow:hidden;
+}
+
+.image-holder {
+  width:4800;
+  height:400;
+  position:relative;
+  animation:slide 15s infinite
+  ;
+}
+
+.image-holder img {
+  float:left;
+  width:800;
+  height:400;
+}
+
+@keyframes slide {
+  0% {right:0px;}
+  17%{right:800px;}
+  34%{right:1600px;}
+  51%{right:2400px;}
+  68%{right:3200px;}
+  85%{right:4000px;}
+  99%{right:4800px;}
+}
+.slider-holder:hover .image-holder {animation-play-state:paused;}
+
+#span1{
+  position:absolute;
+  top:0px;
+  left:0px;
+  color:red;
+  font-size:30px;
+}
+
+#span2{
+  position:absolute;
+  top:0px;
+  left:800px;
+  color:red;
+  font-size:30px;
+}
+  #span3{
+  position:absolute;
+  top:0px;
+  left:1600px;
+  color:darkblue;
+  font-size:30px;
+}
+
+#span4{
+  position:absolute;
+  top:0px;
+  left:2400px;
+  color:red;
+  font-size:30px;
+}
+
+#span5{
+  position:absolute;
+  top:0px;
+  left:3200px;
+  color:darkpink;
+  font-size:30px;
+}
+
+#span6{
+  position:absolute;
+  top:0px;
+  left:4000px;
+  color:red;
+  font-size:30px;
+}
 </style></head>
 
 
@@ -50,18 +129,26 @@ background-color:grey;
   </ul>
 
 
-<h1> Top four fidgets</h1>
+<h1> Top fidgets</h1>
+<div class="slider-holder">
+  <div class="image-holder">
+  <img src="http://www.relaxfidget.com/wp-content/uploads/2017/02/standard-size-fidget-cube-all-colors-stress-relief-relax-fiddle-desk-toy.jpg">
+  <img src="http://img.michaels.com/L6/3/IOGLO/920958646/230130064/WR83475-3.jpg?fit=inside|220:220">
+  <img src="http://www.asseenontvandbeyond.com/assets/images/fidget-spinner.jpg">
+  <img src="https://sensoryprocessingdisorderparentsupport.com/resources/dccbd487f348154fdaeafb9bbb8f7545.jpg">
+  <img src="https://www.buildingblockstoys.com/components/com_virtuemart/shop_image/product/full/MyKawaiiSquishies_Wholesale_Jumbo_Kawaii_Squishies_Series_1_1024x102458b48bd246c89.jpg">
+  <img src="http://www.muminthemadhouse.com/wp-content/uploads/2017/05/The-best-fidget-toys-for-kids-square.png">
+  
+  
+  <span id="span1">Fidget cube</span>
+   <span id="span2">Slime </span>
+    <span id="span3">Fidget Spinner</span>
+     <span id="span4">Stress Ball</span>
+     <span id="span5"> Squishies</span>
+      <span id="span6">Multiple fidgets</span>
+  
+  </div>
+   </div>
 
-<div>
-<ul>
-  <li>Fidget cube</li>
-  <li>Slime</li>
-  <li> Fidget spinner</li>
-  <li> Squishies</li>
-</ul>
-</div>
-
-<img src
-="http://www.muminthemadhouse.com/wp-content/uploads/2017/05/The-best-fidget-toys-for-kids-square.png">
 
 </body>
