@@ -3,7 +3,7 @@ var cx = canvas.getContext("2d");
 canvas.width=1000;
 canvas.height=805;
 var img_player = document.createElement("img");
-img_player.src = "pancakes.png";
+img_player.src = "feather.jpg";
 
 
 var x = 0;
@@ -14,30 +14,35 @@ var xSpeed = 0;
 var ySpeed = 0;
 var counter=0;
 var gravity = 5;
+var plat=[];
+var lava=[];
+var req=[];
 
 function animate() {
-requestAnimationFrame(animate);
+req=requestAnimationFrame(animate);
 cx.clearRect(0,0,canvas.width, canvas.height);
 cx.drawImage(img_player, x,y, playerW, playerH);
 x+=xSpeed;
 y+=ySpeed+gravity;
 counterDisplay();
 platform();
+obstacle();
+
 if (x>canvas.width -playerW || x <0){
 xSpeed = -xSpeed;
-counter++;
+
 }
 
 if (y>canvas.height-playerH || y <0){
 ySpeed = -ySpeed;
-counter++;
+
 }
 
 }
 
 function counterDisplay() {
   cx.font = "325px";
-  cx.fillText('Pancake Bounces:'+counter,100,100);
+  cx.fillText('Platform Touches:'+counter,100,100);
 
 }
 
@@ -61,13 +66,17 @@ else if (dir === "stop") {
   xSpeed = 0;
   ySpeed = 0;
 }
+else if (dir === "jump" && gravity ===0) {
+ySpeed=-10;
+}
 }
 
 var keyActions = {
   87: "up",
   83: "down",
   68: "right",
-  65: "left"
+  65: "left",
+  32: "jump"
 };
 
 
@@ -83,17 +92,78 @@ setDirection('stop');
  
 });
 
+
+
+
+plat.push({x: 0, y: 200, w:100, h:10});
+plat.push({x: 100,y: 210, w:100, h:10});
+plat.push({x: 200,y: 220, w:100, h:10});
+plat.push({x: 300,y: 230, w:100, h:10});
+plat.push({x: 0, y:785, w:canvas.width, h:10});
+
 function platform() {
-cx.fillStyle = "grey;";
-cx.fillRect(0,500,100,10);
-if (y===500-playerH && x<100) {
-gravity = 0;
+gravity =5;
+cx.fillStyle="grey";
+for (var i = 0; i<plat.length; i++) {
+ cx.fillRect(plat[i].x, plat[i].y,plat[i].w, plat[i].h);
+ if (y===plat[i].y-playerH &&
+    x>=plat[i].x-playerW &&
+    x<=plat[i].x + plat[i].w)
+  {gravity=0}
+else {}
+
+
 }
 
-else {
-  gravity = 1;
+
+}
+function obstacle() {
+cx.fillStyle="red";
+for (var i = 0; i<lava.length; i++) {
+cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+if (y==lava[i].y-playerH &&
+    x>=lava[i].x-playerW &&
+    x<=lava[i].x + lava[i].W)
+ 
+  {gameOver()}
+
+lava.push({x:0, y:600, w:canvas.width, h:10});
+lava.push({x:100, y:100, w:100, h:10});
+
+function stop() {
+  if(req){
+    cancelAntimationFrame(req);
+    req = undefined;
+  }}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }
-
 }
+  
+
+
+
+
+
+
+
+
 animate();
