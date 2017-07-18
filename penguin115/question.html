@@ -1,0 +1,91 @@
+<head><style>
+
+  .button{
+    display:inline-block;
+    text-align:center;
+    font-size: 30px;
+    background-color:red;
+    padding:15 30;
+    margin: 5;
+    text-decoration: none;
+    border-radius: 12px;
+    color: brown;
+  }
+   #menu {
+      list-style:none;
+       background-color:limegreen;
+       overflow: hidden;
+      
+    }
+    #menu li {
+      float:left;
+    }
+    #menu li a {
+      color:darkgreen;
+      text-align:center;
+      padding: 14;
+      text-decoration: none;
+      display: block;
+    }
+    
+    #menu li a:hover {background-color: lightgreen;}
+    div {
+      text-align: center;
+    }
+  
+  
+</style></head>
+<body>
+<h1>Question Page</h1>
+
+  <ul id="menu">
+   <li><a href="index.html">Home</a></li>
+   <li><a href= "video.html">Videos</a></li>
+   <li> <a href= "picture.html">Picture</a></li>
+   
+   </ul>
+<a class ="button" href ="javascript:magic()">Magic button </a>
+
+<script>
+  function magic() {
+  alert("Hello there! I am Lolly the Lion.");
+  var name = prompt("What is your name?");
+  alert ("Cool! "+name+" is a awesome name");
+  
+  
+  var lion = prompt ("Are you intrested in lions? (Anwser yes or no.)");
+  if (lion == "yes"){alert("Great. We are going to get along just fine "+name+"");}
+  else if (lion=="no")
+  {alert("What!?!? Then I gues I am going to have to say goodbye to you "+name+".");
+  window.location="https://www.google.com/";
+  }
+  else {alert ("I told you to anwser yes or no!!! Tut, tut-I can see you are not good at following directions "+name+". ")}
+  var job=prompt ("This website is about lions. Are you here for fun or to do research?")
+  if (job=="for fun") {
+    alert("Sweet! Lions are super cool.");
+  }
+  else if (job=="for research"||job=="to do research"){
+    alert("Interesting. But this website isn't very good for research...Wikepedia might help you more.");
+    window.location="https://en.wikipedia.org/wiki/Lion"
+  }
+
+  }
+  
+</script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
