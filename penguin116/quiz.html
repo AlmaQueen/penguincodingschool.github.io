@@ -1,0 +1,85 @@
+
+<body>
+<h1>Jazz Quiz</h1>
+
+<form id="form1" action ="">
+<p>What culture did Jazz first start in ?</p>
+<input type="radio" name="q1" value=0>
+Europe<br>
+
+<input type="radio" name="q1" value=1>
+African American<br>
+
+<input type="radio" name="q1" value=0>
+Ireland<br>
+
+
+<p>What was the first movie that had a Jazz  in it</p>
+<input type="radio" name="q2" value=0>
+Bye Bye Birdie(1963)<br>
+
+<input type="radio" name="q2" value=0>
+All That Jazz(1979)<br>
+
+<input type="radio" name="q2" value=1>
+The Jazz Singer(1927)<br>
+
+<p>Jazz emerged in what has been called Americas most musical city?</p>
+
+<input type ="radio" name="q3" value=1>
+New Orleans<br>
+
+<input type ="radio" name="q3" value=0>
+West Virgina<br>
+
+<input type ="radio" name="q3" value=0>
+Califonia<br>
+
+
+<p>Who won the amateur singing contest and quickly became a leading Jazz vocalist?</p>
+
+<input type ="radio" name="q4" value=0>
+Billie Holiday<br>
+
+<input type ="radio" name="q4" value=1>
+Sarah Vaughan<br>
+
+<input type ="radio" name="q4" value=0>
+Mammie Smith<br>
+<!--
+<p>What is the most popular Jazz movie?</p>
+<select id="q5">
+<option value=0>Choose One</option>
+<option value=1>Bird</option>
+<option value=0>Lady Sings the Blues</option>
+<option value=0>The Terminal</option>
+  </select>
+  -->
+  <br>
+  
+<input type="submit" value="Done">
+
+</form>
+
+<p>You gotta <span id="grade">_</span> correct out of 5.</p>
+<p id="grade2"></p>
+
+<script>
+ document.getElementById("form1").onsubmit=function() {
+ q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+ q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+ q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+ q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+ result=q1+q2+q3+q4;
+ console.log(result);
+   
+ document.getElementById("grade").innerHTML = result;
+    return false;
+ }
+   
+   
+  </script>
+  </body>
+
+
+
