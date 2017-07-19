@@ -13,11 +13,17 @@
    color:black;
  }
 
- body{
+body {
  background :url(https://s-media-cache-ak0.pinimg.com/736x/cf/f2/45/cff245dfed117870a495e4ef67588002.jpg);
 background-repeat: no-repeat;
 background-size: cover;
 
+}
+#menu {
+  list-style:none;
+    background-color:lightgrey;
+  overflow: hidden;
+}
 }
 #menu {
   list-style:none;
@@ -41,6 +47,7 @@ background-color:lightgrey;
 
 #menu li a:hover{
   background-color: rgb(124, 133, 147);
+}
  
    </style>
  </head>
@@ -53,19 +60,20 @@ background-color:lightgrey;
    <li><a href="index.html">Home</a></li>
    <li><a href="picture.html">Pictures</a></li>
    <li><a href="video.html">Video</a></li>
-  </ul><a href="Question.html">Question</a></li>
-
+  <li><a href="question.html">Question</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+</ul>
  <h1>Guess Who?</h1>
  <a class="button" href="javascript:Click()">Click me</a>
  <script>
  function Click() {
    alert("Hello Stranger, ready to see what kind of person you are?");
    var name=prompt("What is your name");
-   alert("oh!"+ name +"What a beautiful name")
+   alert("oh! "+ name +" What a beautiful name")
    var stress=prompt("Do you like stress balls or fidget spinners");
    if(stress=="stress balls" || stress=="Stress Balls") {
      alert("You're calm and Elegant");}
-   else if(stress=="fidget spinner"){
+   else if(stress=="fidget spinners" || stress=="fidget spinner"){
     alert("Your dangerous and Active");}
    else {alert("Please Answer!")};
    }

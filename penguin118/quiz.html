@@ -1,0 +1,149 @@
+<head>
+ <style>
+
+#menu {
+  list-style:none;
+    background-color:lightgrey;
+  overflow: hidden;
+}
+#menu li a {
+  float:left;
+}
+
+#menu li a {
+  color: blue;
+  text-align: center;
+  padding:14;
+  text-decoration: none;
+  display:block;
+}
+#menu li a {
+background-color:lightgrey;
+}
+
+#menu li a:hover{
+  background-color: rgb(124, 133, 147);
+}
+
+
+body{
+ 
+  background :url(https://s-media-cache-ak0.pinimg.com/originals/5f/67/d9/5f67d9ecc32184cccac99c24dc2db95c.jpg);
+background-repeat: no-repeat;
+background-size: 100%;
+
+  
+  
+}
+
+#form1 {
+  color:black;
+  font-size:20px;
+  
+}
+div {
+  background-color: lightyellow;
+  width:50%;
+  padding: 10;
+
+}
+ </style>
+  </head>
+
+
+<body>
+ 
+    <ul id="menu">
+   <li><a href="index.html">Home</a></li>
+   <li><a href="picture.html">Pictures</a></li>
+   <li><a href="video.html">Video</a></li>
+  <li><a href="question.html">Question</a></li>
+  <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+<h1>Pop Quiz</h1>
+
+<form id="form1" action=" ">
+<div>
+<p>Who invented Slime?</p>
+<input type="radio" name="q1" value=1>
+Girls accidentally mixed slime ingeridents<br>
+<input type="radio" name="q1" value=0>
+scientists in a lab<br>
+<input type="radio" name="q1" value=0>
+A toy store sold it for the first time<br>
+
+<p>Whitch one do people think is better in 2017?</p>
+<input type="radio" name="q2" value=0>
+Fidget cubes<br>
+<input type="radio" name="q2" value=0>
+Slime<br>
+<input type="radio" name="q2" value=1>
+Fidget spinners<br>
+
+<p>Why do we have fidgets?</p>
+<input type="radio" name="q3" value=0>
+To play with<br>
+<input type="radio" name="q3" value=0>
+To destroy<br>
+<input type="radio" name="q3" value=1>
+To focus<br>
+
+<p>Bonus, whats the most popular baby name in the U.S.A, 2017?</p>
+<input type="radio" name="q4" value=1>
+Emma,Liam
+<input type="radio" name="q4" value=0>
+Olivia, Noah
+<input type="radio" name="q4" value=0>
+Ava,Lucas
+
+<br>
+<br>
+<input type="submit" value="Submit">
+<br>
+</div>
+</form>
+
+<h2>You got <span id="grade">_</span> correct out of three questions.</h2>
+<p id="grade2"></p>
+<script>
+document.getElementById("form1").onsubmit=function() {
+q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+q4=parseInt(document.querySelector("input[name='q4']:checked"
+).value);
+
+  result=q1+q2+q3+q4;
+  document.getElementById("grade").innerHTML = result;
+ 
+if (result==0) {result2="You failed <br><img src ='0.jpg' width=300>"}
+if (result==1) {result2="Your at Baby level <br><img src ='1.jpg' width=300>"}
+if (result==2) {result2="You got lucky <br><img src ='2.gif' width=300>"}
+if (result==3) {result2="I'm still better than you hahaha <br><img src ='3.jpg' width=300>"}
+if (result==4) {result2="Congrats! <br><img src ='4.jpg' width=300>"}
+
+document.getElementById("grade2").innerHTML = result2;
+
+   return false;
+
+  
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
