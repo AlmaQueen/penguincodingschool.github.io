@@ -16,7 +16,13 @@ var counter=0;
 var gravity = 5;
 var plat=[];
 var lava=[];
-var req=[];
+var req;
+var xMonster = 500;
+var yMonster = 0;
+var xMonsterSpeed = -5;
+var yMonsterSpeed = 0;
+var monsterW = 10; //monster width
+var monsterH = 10; //monster height
 
 function animate() {
 req=requestAnimationFrame(animate);
@@ -32,7 +38,7 @@ if (x>canvas.width -playerW || x <0){
 xSpeed = -xSpeed;
 
 }
-
+             
 if (y>canvas.height-playerH || y <0){
 ySpeed = -ySpeed;
 
@@ -66,7 +72,7 @@ else if (dir === "stop") {
   xSpeed = 0;
   ySpeed = 0;
 }
-else if (dir === "jump" && gravity ===0) {
+else if (dir === "jump") {
 ySpeed=-10;
 }
 }
@@ -95,10 +101,10 @@ setDirection('stop');
 
 
 
-plat.push({x: 0, y: 200, w:100, h:10});
-plat.push({x: 100,y: 210, w:100, h:10});
-plat.push({x: 200,y: 220, w:100, h:10});
-plat.push({x: 300,y: 230, w:100, h:10});
+plat.push({x: 0, y: 230, w:100, h:10});
+plat.push({x: 100,y: 235, w:100, h:10});
+plat.push({x: 200,y: 240, w:100, h:10});
+plat.push({x: 500,y: 500, w:100, h:10});
 plat.push({x: 0, y:785, w:canvas.width, h:10});
 
 function platform() {
@@ -117,46 +123,64 @@ else {}
 
 
 }
+
+lava.push({x:375, y:600, w:500, h:10});
+
 function obstacle() {
 cx.fillStyle="red";
 for (var i = 0; i<lava.length; i++) {
 cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
 if (y==lava[i].y-playerH &&
     x>=lava[i].x-playerW &&
-    x<=lava[i].x + lava[i].W)
- 
-  {gameOver()}
-
-lava.push({x:0, y:600, w:canvas.width, h:10});
-lava.push({x:100, y:100, w:100, h:10});
+    x<=lava[i].x + lava[i].w)
+   {gameOver()}
+}
+}
 
 function stop() {
   if(req){
-    cancelAntimationFrame(req);
+    cancelAnimationFrame(req);
     req = undefined;
   }}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+function gameOver() {
+  cx.fillSytle = "Red";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Game Over", 10,50);
+  stop();
+}
+
+function gameWin() {
+  cx.fillStyle = "Green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("You Won!",10,50);
+  stop();
+}
+
+function monster() {
+cx.fillStyle = "blue";
+cx.fillRect(xMonster,yMonster, monsterW,monsterH);
+xMonster += xMonsteSpeed;
+yMonster += yMonsterSpeed;
+if (xMonster===x && yMonster ===y)  {
+    gameOver();
+} else if (xMonster<0) {
+    xMonsterSpeed = -xMonsterSpeed;
+}
   
   
   
   
 }
-}
+
+  
+
+
+
+
+
+
+
   
 
 
