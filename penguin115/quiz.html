@@ -1,0 +1,120 @@
+<head><style>
+
+ #menu {
+      list-style:none;
+       background-color:limegreen;
+       overflow: hidden;
+      
+    }
+    #menu li {
+      float:left;
+    }
+    #menu li a {
+      color:darkgreen;
+      text-align:center;
+      padding: 14;
+      text-decoration: none;
+      display: block;
+    }
+    
+    #menu li a:hover {background-color: lightgreen;}
+    div {
+      text-align: center;
+    }
+   
+ body{
+ background: url(https://www.lemondropmuralshop.com/v/vspfiles/photos/Rough-Cut-Wood-Floordrop-2.jpg);
+color: white;
+
+</style></head>
+
+<body>
+  <ul id="menu">
+   <li><a href="index.html">Home</a></li>
+   <li><a href= "video.html">Videos</a></li>
+   <li><a href= "picture.html">Picture</a></li>
+   <li><a href= "question.html">Questions</a></li>
+   <li><a href= "quiz.html">Quiz</a></li>
+   </ul>
+
+<h1>Quiz Time</h1>
+
+<form id= "form1" action ="">
+  <h2> About how many lions live in Africa today?</h2>
+  <input type="radio" name="q1" value=0>
+  About one million <br>
+  <input type="radio" name="q1" value=1>
+  About thirty thousand <br>
+<input type="radio" name="q1" value=0>
+  About twenty million <br>
+<input type="radio" name="q1" value=0>
+  About hundred thousand <br>
+  
+
+  <h2> How many main species of lions are there?</h2>
+  <input type="radio" name="q2" value=0>
+  43 <br>
+  <input type="radio" name="q2" value=0>
+  16 <br>
+<input type="radio" name="q2" value=0>
+  27 <br>
+<input type="radio" name="q2" value=1>
+  8 <br>
+  
+  
+
+  <h2> What is the main difference (in looks) of a male lion verses a female lion?</h2>
+  <input type="radio" name="q3" value=0>
+  The male lion has a longer tail than the female<br>
+  <input type="radio" name="q3" value=1>
+  The female lion has no mane, while the male does <br>
+<input type="radio" name="q3" value=0>
+  The female lion has sharper teeth than the male lion <br>
+<input type="radio" name="q3" value=0>
+ The male lion has a "fluffier" fur than the female lion<br>
+ 
+ <h2> What is the scientific name for the lion</h2>
+<input type ="text" id ="q4n">
+
+
+<br>
+<br>
+
+<input type="submit" value="Submit Now">
+
+</form>
+
+<h2> You got <span id ="grade"> _ </span> correct out of 4 questions.</h2>
+
+<p id="grade2">Grade 2</p>
+<script>
+  document.getElementById("form1").onsubmit=function(){
+    q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+
+q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+
+q4v=document.getElementById("q4n").value;
+if (q4v==="Panthera leo"){q4=1}
+else{q4=0}
+result=q1+q2+q3+q4;
+document.getElementById("grade").innerHTML=result;
+
+if (result==0) {result2="You need to learn more about lions. Hmph. <br><img src ='https://s-media-cache-ak0.pinimg.com/originals/62/56/d2/6256d241a2e7880a04cc1208e75ab6fe.jpg' width=300>"}
+if (result==1) {result2="Not very good...but it's okay. At least one is better than zero! <br><img src ='http://cdn.skim.gs/image/upload/v1456338357/msi/new-lion-emoji_sroceb.jpg' width=300>"}
+if (result==2) {result2="Not bad! You know quite a bit about lions. <br><img src ='https://emojipedia-us.s3.amazonaws.com/thumbs/120/emoji-one/104/lion-face_1f981.png' width=300>"}
+if (result==3) {result2="Great job! You are on the verge of being a lion expert! <br><img src ='http://img03.deviantart.net/2070/i/2012/281/8/2/happy_lion_by_knuxie_2005-d5h8vyk.jpg' width=300>"}
+if (result==4) {result2="Winner!Winner lion dinner! You are a lion genius!!!! <br><img src ='https://thumbs.dreamstime.com/t/cute-cartoon-lion-giving-thumb-up-illustration-59576421.jpg' width=300>"}
+
+
+document.getElementById("grade2").innerHTML=result2;
+
+return false;
+
+}
+
+
+
+
+</script>
+</body>
