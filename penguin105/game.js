@@ -165,6 +165,10 @@ function platform() {
 ].y}
   }
 }
+var xtC = 170;
+var ytC= 300;
+var wtC = 250;
+var htC = 150;
 
 var xC = 170;
 var yC= 300;
@@ -185,12 +189,21 @@ function coin() {
    }
 }
   
-  
-  function scoreDisplay(){
-    cx.fillStyle = "blue";
+/*function teleportingcoin() {
+  cx.drawImage(img_coin,xtC, ytC, wtC, htC);
+  if (x+playerw > xC && xC+wC >x && yC+hC>y && y +playerh>yC)
+{coinsound.play();
+  score +=10;
+   var i = Math.ceil(Math.random()*plat.length);
+   xC = plat[i].x-20;
+   yC = plat[i].y-110;
+   }
+}*/
+function scoreDisplay(){
+  fillStyle = "blue";
     cx.font = "30px";
     cx.fillText("Score: "+score, 500,100)
-  }
+}
 
 
 

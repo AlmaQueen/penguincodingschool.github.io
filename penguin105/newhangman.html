@@ -1,0 +1,46 @@
+<h1>Hang Man </h1>
+<a href ="newhangman.html">
+<button>Play Again</button> </a>
+<script>
+ var answers = ["apple","hello","green","penguin","tiger",
+"fish","chalk","math","multiply","board","six","ten","sad","two","boy","want","lose"]
+ var answer = answers[Math.floor(Math.random() * answers.length)];
+ var answerSpace = [];
+  for (var i=0; i < answer.length; i++) {
+    answerSpace[i] = "_";
+  }
+ 
+  var remainingLetters = answer.length;
+  var maxGuesses = 10;
+  var numberGuesses = 0;
+  
+while (remainingLetters>0 && numberGuesses<maxGuesses ) {
+  alert(answerSpace.join(" "));
+  alert("You have "+(maxGuesses - numberGuesses)+"guesses left");
+  var guess = prompt("Guess a letter or click Cancel to show answer");
+  if (guess=== null) {
+    break;
+   } else if (guess.length !==1) {
+      alert("Please enter a single letter");
+   } else {
+     numberGuesses++;
+     for (var j = 0; j<answer.length; j++) {
+       if (answer[j] === guess) {
+         answerSpace[j] = guess;
+       }
+     }
+   }
+    }
+
+  
+alert(answerSpace.join(""));
+alert("Good job! The answer was "+answer);
+ 
+  
+  
+
+
+</script>
+
+   
+
