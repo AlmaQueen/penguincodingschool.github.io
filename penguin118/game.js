@@ -21,7 +21,9 @@ function animate() {
   x+=xspeed;
   y+=yspeed;
   monster();
-  
+  coin();
+  scoreDisplay();
+  gems();
   if(x<0 || x>canvas.width-playerW){
   xspeed= -xspeed;
   }
@@ -77,9 +79,9 @@ var yM =0;
 var mW = 85;
 var mH = 95;
 var xMsp = -10;
-var yMsp =-10;
+var yMsp =-8;
 
-var img_monster = document.createElement("img");
+var img_monster =document.createElement("img");
 img_monster.src = "death.jpg";
 
 function monster() {
@@ -95,6 +97,26 @@ function monster() {
      yMsp = -yMsp;
   }
 }
+
+var img_coin = document.createElement("img");
+img_coin.src = "Star_Coin.png";
+
+var xC =300;
+var yC =500;
+var wC = 50;
+var hC = 50;
+var score = 0;
+
+function coin() {
+  cx.drawImage(img_coin,xC, yC, wC, hC);
+  if (x+playerW >xC && xC+wC >x && yC+hC>y&& yC+hC>y && y+playerH>yC)
+  {
+    score +=10
+   xC = Math.random()*canvas.width;
+  yC = Math.random()*canvas.height;
+  }
+}
+
  function gameOver() {
 cx.fillStyle="red";
 cx.font="60px 'Comic Sans MS'";
@@ -108,5 +130,44 @@ function stop() {
     req = undefined;
   }
 }
+
+
+function scoreDisplay(){
+ cx.fillStyle-"blue";
+ cx.font = "60px 'Comic sans MS'";
+  cx.fillText("Score: "+score, 500,100);
+}
+
+var g = [];
+g.push({x:100, y:100, w:11, h:10,color:"blue"});
+g.push({x:300, y:220, w:10, h:10,color:"red"});
+g.push({x:500, y:240, w:10, h:10,color:"purple"});
+g.push({x:700, y:360, w:10, h:10,color:"lime"});
+g.push({x:500, y:80, w:10, h:10,color:"green"});
+g.push({x:350, y:300, w:10, h:10,color:"blue"});
+g.push({x:490, y:30, w:10, h:20,color:"blue"});
+g.push({x:330, y:140, w:10, h:20,color:"blue"});
+g.push({x:110, y:560, w:10, h:10,color:"blue"});
+g.push({x:600, y:680, w:21, h:20,color:"blue"});
+g.push({x:100, y:400, w:21, h:21,color:"blue"});
+
+
+function gems() {
+  for (var i = 0; i<g.length; i++) {
+    cx.fillStyle=g[i].color;
+    cx.fillRect(g[i].x, g[i].y, g[i].w, g[i].h);
+  if(x+playerW > g[i].x &&
+    g[i].y+g[i].h>y &&
+    y+playerH>g[i].y)
+    {score+=g[i].y;
+    g[i].x=-100
+   }
+  }
+}
+
+var music = new Audio('music.ogg');
+
+music.play();
+
 
 animate();
