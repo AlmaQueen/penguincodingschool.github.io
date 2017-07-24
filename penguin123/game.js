@@ -14,7 +14,7 @@ var xSpeed = -5;
 var ySpeed = -5;
 
 function animate() {
-  requestAnimationFrame(animate);s
+  requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y, playerw,playerh);
   x+=xSpeed;
