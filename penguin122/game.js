@@ -8,8 +8,8 @@ img_player.src='penguin.png';
 
 var x=5;
 var y=5;
-var playerw=70;
-var playerh=70;
+var playerw=60;
+var playerh=60;
 var xspeed=0;
 var yspeed=0;
 var gravity = 5;
@@ -25,10 +25,10 @@ function animate() {
   platform();
 }
 function setDirection(dir){
-  if(dir=="jump" && gravity==0){
+  if(dir=="jump" && gravity===0){
       y-=300;
   }
-if(dir=="down" && y<520){
+if(dir=="down" && y<510){
       xspeed=0;
       yspeed=5;
 }
@@ -37,8 +37,8 @@ if(dir=="left" && x>0){
       yspeed=0;
 }
 if(dir=="stop"){
-  xspeed=0
-  yspeed=0
+  xspeed=0;
+  yspeed=0;
 }
 if(dir=="right" && x<1000){
       xspeed=5;
@@ -87,7 +87,7 @@ plat.push({x:0,y:600,w:1000,h:20})
 
 function platform() {
   gravity=5
-  cx.fillstyle="blue"
+  cx.fillStyle="white"
   for ( var i =0 ; i<plat.length;i++){
     cx. fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
     if (y==plat[i].y-playerh&&
