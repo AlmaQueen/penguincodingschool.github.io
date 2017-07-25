@@ -7,8 +7,13 @@ function question1() {
       alert("Ok, I will get you a sparkling water!")  }
     else {alert("coming right up!")}
     }
-    else if(answer=="nothing") {alert("Ok")}
-    
-    
+    /*else if (answer=="no")
+    alert("Ok, Are you sure?")
+    else if ("yes I am sure")
+    alert("Ok, nothing it is!")
+    else if(answer=="nothing") {alert("Ok, Are you sure?")}
+    */
+    else
+    {alert("Coming right up")}
     
 }
