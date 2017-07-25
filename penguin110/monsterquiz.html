@@ -1,0 +1,78 @@
+<body>
+  <h1>Monster Quiz</h1>
+  
+  <form id="form1" action=" ">
+    
+    <p>Which one is a monster in Sonic terminology?</p>
+    <input type="radio" name="q1" value=1>
+    Egg Fleet<br>
+  <input type="radio" name="q1" value=0>
+  Mammal<br>
+  <input type="radio" name="q1" value=0>
+  Tails<br>
+  <input type="radio" name="q1" value=0>
+  Sonikkinstar<br>
+  
+  <p>How many types of monsters are there in Sonic terminology?</p>
+  <input type="radio" name="q2" value=0>
+  3<br>
+  <input type="radio" name="q2" value=0>
+  0<br>
+  <input type="radio" name="q2" value=1>
+  7<br>
+  
+  <p>Why does Sonikkinstar believe Eggman's vehicles are monsters</p>
+  <input type="radio" name="q3" value=0>
+  Because they're random things<br>
+  <input type="radio" name="q3" value=1>
+  Because they kill people<br>
+  <input type="radio" name="q3" value=0>
+  Because they roboticize people<br>
+  
+  <p>What features do monsters have that make them kill people?</p>
+  <input type="radio" name="q4" value=0>
+  Anger problems<br>
+  <input type="radio" name="q4" value=0>
+  Tendencies to hold grudges<br>
+  <input type="radio" name="q4" value=1>
+  Dangerous weapons, round black paws that smell like burning stone, high speed, foul hot winds, and yellow beams shining from their eyes<br>
+  <p>Why do people get killed by monsters?</p>
+  <select id="q5">
+  <option value=0>Choose One</option>
+  <option value=1>Dangerous weapons and foul hot winds</option>
+  <option value=0>Sonikkinstar</option>
+  </select>
+  <br>
+  
+  <input type="submit" value="Done">
+  
+  </form>
+  
+  <p>You got <span id="grade">_</span> correct out of 5.</p>
+  <p id="grade2"></p>
+  
+  
+  <script>
+    document.getElementById("form1").onsubmit=function() {
+  
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+  q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+  q5=parseInt(document.getElementById("q5").value);
+     result = q1 + q2 + q3 + q4 + q5;
+  document.getElementById("grade").innderHTML = result;
+
+  if (result===0) {result2= "You didn't do very good today. Better luck next time!<br><img src='0.jpg' width= 770>";}
+  if (result===1) {result2= "Try again before you get hit by a monster and your head explodes! <br><img src='1.jpg' width= 400>";}
+  if (result===2) {result2= "You nearly got hit by a monster and you're really close to your head exploding! <br><img src='2.jpg' width= 1280>";}
+  if (result===3) {result2= "So close! Try again! <br><img src='3.jpg' width= 225>";}
+  if (result===4) {result2= "Nice work! You've almost been a master of science fiction and fantasy! <br><img src='4.jpg' width= 400>";}
+  if (result===5) {result2= "AWESOME!<br><img src='5.jpg' width= 400>";}
+  
+  document.getElementById("grade2").innerHTML = result2;
+
+     return false;
+    }
+  </script>
+</body>
