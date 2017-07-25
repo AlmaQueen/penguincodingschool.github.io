@@ -26,7 +26,7 @@ function animate() {
 }
 function setDirection(dir){
   if(dir=="jump" && gravity===0){
-      y-=300;
+      y-=250;
   }
 if(dir=="down" && y<510){
       xspeed=0;
@@ -84,6 +84,7 @@ plat.push({x:650,y:500,w:100,h:10})
 plat.push({x:500,y:400,w:100,h:10})
 plat.push({x:200,y:600,w:100,h:10})
 plat.push({x:0,y:600,w:1000,h:20})
+plat.push({x:650,y:300,w:100,h:10})
 
 function platform() {
   gravity=5
