@@ -83,9 +83,10 @@ var plat=[];
 plat.push({x:0, y:435, w:100, h:10});
 plat.push({x:750, y:850, w:120, h:10});
 plat.push({x:600, y:500, w:350, h:30});
-plat.push({x:450, y:395, w:100, h:10});
-plat.push({x:350, y:425, w:150, h:15});
+plat.push({x:500, y:250, w:100, h:10});
+plat.push({x:300, y:425, w:150, h:15});
 plat.push({x:0, y:730, w:1300, h:30});
+plat.push({x:650, y:100, w:125, h:15});
 
 
 function platform() {
