@@ -1,11 +1,66 @@
+<head><style>
+    .slider-holder {
+      width: 800;
+      height: 400;
+      margin: auto;
+      text-align: center;
+      overflow:hidden;
+    }
+    
+    .image-holder {
+      width:2400;
+      height:450;
+      position:relative;
+      animation:slide 15s infinite;
+    }
+    
+    .image-holder img {
+      float: left;
+      width:800;
+      height:450;
+    }
+    
+    @keyframes slide {
+      0% {right:0px;}
+      19% {right:0px;}
+      30% {right:800px;}
+      51% {right:800px;}
+      67% {right:1600px;}
+      78% {right:1600px;}
+      89% {right:2400px;}
+      100% {right:2400px;}
+    }
+}
+  body {
+    background-color:lightblue;
+  }
+  #penguin {
+    float:right;
+  }
+  
+  
+</style></head>
+
+<body>
 <h1>Penguin Run</h1>
+<img id="penguin" src="http://www.stateofdigital.com/wp-content/uploads/2016/09/Penguin.jpg" width=450 height=300>
+
 
 <h2>Home Page</h2>
 
-<br>
-<a href="http://www.penguins.com/">Penguin Information</a>
+
 <br>
 <a href="https://penguincodingschool.github.io/penguin122/game.html"><h3>Penguin Run Game</h3></a>
 <br>
-<img src="http://www.stateofdigital.com/wp-content/uploads/2016/09/Penguin.jpg" width=450 height=300 x=700 y=100>
+<h1>Slideshow</h1>
+<div class ="slider-holder">
+  <div class="image-holder">
+    <img src="pic1.png">
+    <img src="pic2.jpg">
+    <img src="pic3.jpg">
+    <img src="pic4.jpg">
+  </div>
+</div>
 <br>
+<a href="http://www.penguins.com/">Penguin Information</a>
+</body>
