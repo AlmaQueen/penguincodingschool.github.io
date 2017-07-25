@@ -1,0 +1,128 @@
+<head>
+  <style>
+  h1{
+    color:white;
+    text-align:center;
+    font-size:60px;
+  }
+  
+  h2{
+    color: black;
+    text-align: left;
+    font-size: 30px;
+  }
+  
+  body {
+    background:green;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  
+  
+  #menu {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  #menu li {
+    float: left;
+  }
+  
+  #menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14;
+    text-decoration: none;
+  }
+  
+  #menu li a:hover {
+    background-color: grey;
+  }
+  
+  
+  
+  
+    .slider-holder {
+      width: 600;
+      height: 400;
+      margin: auto;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .image-holder {
+      width: 2000;
+      height: 400;
+      position: relative;
+      animation: slide 15s infinite
+    }
+    
+    .image-holder img {
+      float: left;
+      width: 600;
+      height: 400;
+    }
+    
+    @keyframes slide
+    {
+      0% {right: 0px;}
+      30% {right: 0px;}
+      33% {right: 600px;}
+      63% {right: 600px;}
+      66% {right: 1200px;}
+      97% {right: 1200px;}
+      100% {right: 0px;}
+      animation-iteration-count: infinite;
+    }
+    
+    #span1 {
+      position: absolute;
+      top: 20px;
+      left: 250px;
+      color: black;
+      font-size: 30px;
+    }
+    
+    #span2 {
+      position: absolute;
+      top: 20px;
+      left: 850px;
+      color: black;
+      font-size: 30px;
+    }
+    
+    #span3 {
+      position: absolute;
+      top: 40px;
+      left: 1450px;
+      color: black;
+      font-size: 30px;
+    }
+    
+    
+  </style>
+</head>
+
+<ul id="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="thunderclan.html">Thunderclan</a></li>
+    <li><a href="shadowclan.html">Shadowclan</a></li>
+    <li><a href="windclan.html">Windclan</a></li>
+    <li><a href="riverclan.html">Riverclan</a></li>
+    <li><a href="picture.html">Pictures</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+
+<div class="slider-holder">
+  <div class="image-holder">
+    <img src="Bluestar.png">
+    <img src="Firestar.png">
+    <img src="Graystripe.png">
+    <span id="span1">Bluestar</span>
+    <span id="span2">Firestar</span>
+    <span id="span3">Graystripe</span>
+    <span id="span4">Brokentail</span>
+  </div>
+</div>
