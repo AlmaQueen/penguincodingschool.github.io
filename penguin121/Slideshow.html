@@ -1,0 +1,46 @@
+
+<head>
+<style>
+.slider-holder {
+  width:800;
+  height: 400;
+  margin:auto;
+  text-align:center;
+  overflow:hidden;
+ 
+
+}
+.image-holder{
+  width:2400;
+  height:400;
+  position:relative;
+  animation: slide 15s infinite;
+}
+.image-holder img {
+  float:left;
+  width:800;
+  height:400;
+  
+}
+@keyframes slide {
+  0% {right:0px;}
+  33% {right: 800px;}
+  66% {right:1600px;}
+100%{right: 0px;}
+  
+}
+
+</style>
+</head>
+<body background = "http://www.solidbackgrounds.com/images/1920x1200/1920x1200-light-gray-solid-color-background.jpg">
+<div class=slider-holder>
+  <div class=image-holder>
+    <img src="pic1.jpg">
+    <img src="pic2.jpg">
+    <img src="pci3.png">
+  
+  </div>
+</div>
+
+
+</body>
