@@ -29,11 +29,8 @@ function animate() {
 }
 
 function setDirection(dir) {
-  if(dir =="jump" && "jump") {
-    y-= 100;
-  }
-  if(dir =="jump") {
-    y-= 100;
+  if(dir =="jump" && gravity===0 ) {
+    y-= 200;
   }
   if(dir =="right") {
     xSpeed = -5;
@@ -85,18 +82,30 @@ plat.push({x:750, y:850, w:120, h:10});
 plat.push({x:600, y:500, w:350, h:30});
 plat.push({x:500, y:250, w:100, h:10});
 plat.push({x:300, y:425, w:150, h:15});
-plat.push({x:0, y:730, w:1300, h:30});
 plat.push({x:650, y:100, w:125, h:15});
-
 
 function platform() {
   gravity = 5;
-  cx.fillStyle="blue";
+  cx.fillStyle="silver";
   for (var i =0; i<plat.length; i++) {
     cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h ) ;
     if (y==plat[i].y-playerH &&
     x>plat[i].x-playerW &&
     x<plat[i].x+plat[i].w)
+    {gravity=0}}}
+
+
+var water=[];
+water.push({x:0, y:730, w:1300, h:30});
+
+function Water() {
+  gravity = 5;
+  cx.fillStyle="blue";
+  for (var i =0; i<Water.length; i++) {
+    cx.fillRect(Water[i].x, Water[i].y, Water[i].w, Water[i].h ) ;
+    if (y==Water[i].y-playerH &&
+    x>Water[i].x-playerW &&
+    x<Water[i].x+Water[i].w)
     {gravity=0}}}
 
 animate();
