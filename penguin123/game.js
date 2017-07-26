@@ -9,14 +9,15 @@ img_player.src = "Player.png";
 
 var x = 0;
 var y = 0;
-var playerw = 100;
-var playerh = 100;
+var playerw = 50;
+var playerh = 50;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity=5;
+var life=10;
 
 function animate() {
-  requestAnimationFrame(animate);
+  req=requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y, playerw,playerh);
   x+=xSpeed;
@@ -25,8 +26,9 @@ function animate() {
   if (x<0 || x>canvas.width) {xSpeed = -xSpeed} //The equal sign means that you are assigning one value to another...
   if (y<0 || y>canvas.height) {ySpeed = -ySpeed}
  platform();
-  
-}
+ obstacle();
+ lifeleft();
+ }
 
 function setDirection(dir) {
  if(dir =="jump"){
@@ -105,10 +107,60 @@ function platform() {
     x>=plat[i].x-playerw &&
     x<plat[i].x+plat[i].w)
     {gravity=0}
+    /*
+    if(x+playerw>plat[i].x &&
+  x<plat[i].x+plat[i].w &&
+  y<=plat[i].y+plat[i].h &&
+  y>plat[i].y)
+  {ySpeed=-ySpeed}
+  */
   }
-  if (y==plat[i].y+plat[i].w) {
-    ySpeed=0;
+  
+  
+}
+
+var lava=[];
+var img_lava = document.createElement("img");
+img_lava.src = "https://images.pond5.com/lava-background-1080p-footage-000097699_prevstill.jpeg";
+
+lava.push({x:0, y:625, w:canvas.width, h:75})
+
+function obstacle() {
+    for (var i=0; i<lava.length; i++) {
+    cx.drawImage(img_lava,lava[i].x,lava[i].y,lava[i].w,lava[i].h);
+    if (y==lava[i].y-playerh &&
+    x>=lava[i].x-playerw &&
+    x<lava[i].x+lava[i].w)
+    {console.log("die");life-=1;
+    x=0;
+    y=0;
+    if(life===0){gameover()}
+    }
   }
 }
+function lifeleft (){
+  cx.fillStyle="turquoise";
+  cx.font="30px Comic Sans MS";
+  cx.fillText("Lives Left:" +life, 100, 50);
+  }
+  
+function gameover (){
+  cx.fillStyle="black";
+  cx.font="30px Comic Sans MS";
+  cx.fillText("Game Over", 100, 50);
+  stop();
+  }
+  
+  function stop (){
+    if (req){
+      cancelAnimationFrame(req);
+      req=undefined
+    }
+}
+  
+
+    
+
+
 
 animate();
