@@ -13,9 +13,31 @@ var playerH = 50;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity=5;
+var life=5;
+var xM = Math.random()*canvas.width;
+var yM = Math.random()*canvas.height;
+var xMsp = -5;
+var yMsp = 5;
+var xM2 = Math.random()*canvas.width;
+var yM2 = Math.random()*canvas.height;
+var xMsp2 = 5;
+var yMsp2 = 5;
+
+var mW =50;
+var mH =50;
+var mW2 =50;
+var mH2 =50;
+
+
+var img_monster = document.createElement("img");
+img_monster.src = "Monster.png";
+
+var img_monster2 = document.createElement("img");
+img_monster2.src = "Monster2.png";
+
 
 function animate() {
-  requestAnimationFrame(animate);
+  req=requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y, playerW, playerH);
   x+=xSpeed;
@@ -23,6 +45,10 @@ function animate() {
   if(x<0 || x>canvas.width) {xSpeed = -xSpeed}
   if(y<0 || y>canvas.width) {ySpeed = -ySpeed}
   platform();
+  obstacle();
+  lifeleft();
+  monster();
+  monster2();
 }
 //Movement
 function setDirection(dir) {
@@ -87,10 +113,11 @@ plat.push({x:600,y:300,w:100,h:10});
 plat.push({x:900,y:600,w:100,h:10});
 plat.push({x:700,y:600,w:100,h:10});
 plat.push({x:500,y:600,w:100,h:10});
-plat.push({x:0,y:680,w:canvas.width,h:10});
+plat.push({x:350,y:550,w:100,h:10});
+plat.push({x:230,y:500,w:100,h:10});
 
 function platform() {
-  gravity =5;
+  gravity=5;
   cx.fillStyle="black";
   for (var i =0; i<plat.length; i++) {
     cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
@@ -102,6 +129,79 @@ function platform() {
     
   }
 }
+//lava
+var lava=[];
+lava.push({x:0,y:680,w:canvas.width,h:20});
 
+function obstacle() {
+  cx.fillStyle="#626065";
+  for (var l =0; l<lava.length; l++) {
+    cx.fillRect(lava[l].x, lava[l].y, lava[l].w, lava[l].h);
+    if (y==lava[l].y-playerH &&
+    x>lava[l].x-playerW &&
+    x<lava[l].x+lava[l].w)
+    {life-=1;
+    x=0;
+    y=0;
+    if(life===0) {gameover()}
+    }
+    }
+}
+
+function lifeleft() {
+  cx.fillStyle = "black";
+  cx.font = "30px Comix Sans MS";
+  cx.fillText("Lives "+life,2,22);
+}
+
+function gameover() {
+  cx.fillStyle = "black";
+  cx.font = "100px Comix Sans MS";
+  cx.fillText("Gameover",300,400);
+  stop();
+}
+
+function stop() {
+  if (req) {
+    cancelAnimationFrame(req);
+    req = undefined;
+  }
+}
+
+function bonuspoints() {
+  score+=1000000;
+}
+
+//Music
+var music = new Audio('smb_main-theme.wav');
+music.play();
+music.loop = true;
+
+
+function monster() {
+  cx.drawImage(img_monster,xM, yM, mW, mH);
+  xM+=xMsp;
+  yM+=yMsp;
+  if (x+playerW > xM && xM+mW >x && yM+mH>y && y+playerH>yM)
+  {gameover()}
+  if (xM<0 || xM>canvas.width-mW) {
+    xMsp = -xMsp;
+  } if (yM<0 || yM>canvas.height-mH) {
+    yMsp = -yMsp;
+  }
+}
+
+function monster2() {
+  cx.drawImage(img_monster2,xM2, yM2, mW2, mH2);
+  xM2+=xMsp2;
+  yM2+=yMsp2;
+  if (x+playerW > xM2 && xM2+mW2 >x && yM2+mH2>y && y+playerH>yM2)
+  {gameover()}
+  if (xM<0 || xM2>canvas.width-mW2) {
+    xMsp2 = -xMsp2;
+  } if (yM<0 || yM2>canvas.height-mH2) {
+    yMsp2 = -yMsp2;
+  }
+}
 
 animate();
