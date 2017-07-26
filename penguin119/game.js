@@ -13,16 +13,21 @@ var playerH = 50;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity = 5;
+var req;
+var xM = 800;
+var yM = 180;
+var xMsp = 3;
+var yMsp = 3
 
 function animate ()  {
-requestAnimationFrame (animate);
+req = requestAnimationFrame (animate);
 cx.clearRect (0,0,canvas.width, canvas.height);
 cx.drawImage(img_player,x,y,playerW,playerH);
 x+=xSpeed;
 y+=ySpeed+gravity;
 if(x<0 || x>canvas.width) {xSpeed = -xSpeed}
 if(y<0 || y>canvas.height) {ySpeed = -ySpeed}
-platform();
+platform();obstacle();
 }
 
 function setDirection(dir) {
@@ -69,22 +74,15 @@ document.addEventListener('keyup',function(event){
 
   
 var plat=[];
-plat.push({x:75,y:200,w:100,h:10})
-plat.push({x:100,y:500,w:100,h:10})
-plat.push({x:400,y:300,w:100,h:10})
-plat.push({x:350,y:300,w:100,h:10})
-plat.push({x:525,y:250,w:100,h:10})
-plat.push({x:620,y:525,w:100,h:10})
-plat.push({x:430,y:185,w:100,h:10})
-plat.push({x:200,y:595,w:100,h:10})
-plat.push({x:700,y:465,w:100,h:10})
-plat.push({x:775,y:205,w:100,h:10})
-plat.push({x:0,y:670,w:300,h:10})
-
+plat.push({x:0,y:100,w:100,h:10})
+plat.push({x:700, y:150, w:100, h:10})
+plat.push({x:150, y:400, w:100, h:10})
+plat.push({x:300, y:600, w:100, h:10})
+plat.push({x:605, y:250, w:100, h:10})
 
 function platform () {
   gravity =5;
-  cx.fillStyle="turquoise";
+  cx.fillStyle="lavender";
   for (var i =0; i<plat.length; i++) {
     cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
     if (y==plat[i].y-playerH &&
@@ -93,6 +91,47 @@ function platform () {
     {gravity=0}
   }
 }
+
+var lava = []
+lava.push({x:0,y:650,w:1200,h:10})
+
+var life = 5;
+
+function obstacle () {
+  cx.fillStyle="white";
+  for (var i =0; i<lava.length; i++) {
+    cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+    if (y==lava[i].y-playerH &&
+    x>lava[i].x-playerH &&
+    x<lava[i].x+lava[i].w)
+    
+    
+    {life = life -1;
+    x = 0; //starting position of player
+    y = 0;
+    if(life ===0) { gameOver(); }
+    }
+    
+  }}
+  
+ var mW =100;
+ var mH = 100;
+ var xMsp = 5
+ var yMsp = 5
+  
+  
+  function gameOver() {
+    cx.fillStyle = "Red";
+    cx. font = "30px Comic Sans MS";
+    cx.fillText("Game Over",10,50);
+    stop();
+  }
+  
+  function stop() {
+    if(req) {
+      cancelAnimationFrame(req);
+      req = undefined;
+  }}
 
 
 animate();
