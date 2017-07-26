@@ -2,12 +2,9 @@ var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
 canvas.width = 1300;
 canvas.height = 800;
-
 var img_player = document.createElement("img");
 img_player.src = "16-bitGunvolt.png";
 //var img_platform=document.createElement();
-
-
 var x =0;
 var y=0;
 var playerW = 90;
@@ -15,10 +12,10 @@ var playerH = 80;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity = 5;
-
+var LifeBar = 10;
 
 function animate() {
-  requestAnimationFrame(animate);
+  req  = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y,playerW,playerH);
   x+=xSpeed;
@@ -26,11 +23,16 @@ function animate() {
   if(x<0 || x>canvas.width) {xSpeed = -xSpeed}
   if(y<0 || y>canvas.height) {ySpeed = -ySpeed}
   platform();
+  LifeBarleft();
+  water1();
 }
-
 function setDirection(dir) {
   if(dir =="jump" && gravity===0 ) {
     y-= 200;
+  }
+  if(dir =="down") {
+    xSpeed = 0;
+    ySpeed = 30;
   }
   if(dir =="right") {
     xSpeed = -5;
@@ -45,7 +47,6 @@ function setDirection(dir) {
     ySpeed = 0;
   }
 }
-
 var keyActions = {
   16: "stop",
   40: "down",
@@ -53,17 +54,14 @@ var keyActions = {
   38: "jump",
   37: "right",
 };
-  
 document.addEventListener('keydown',function(event) {
   var dir = keyActions[event.keyCode];
   setDirection(dir);
 });
-
 document.addEventListener('keyup',function(event) {
   var dir = keyActions[event.keyCode];
   setDirection("stop");
 });
- 
 /*
 function platform() {
   cx.fillStyle="grey";
@@ -76,14 +74,14 @@ function platform() {
   }//  else {gravity = 5;}
 }
 */
+
 var plat=[];
 plat.push({x:0, y:435, w:100, h:10});
-plat.push({x:750, y:850, w:120, h:10});
+plat.push({x:720, y:700, w:120, h:10});
 plat.push({x:600, y:500, w:350, h:30});
 plat.push({x:500, y:250, w:100, h:10});
 plat.push({x:300, y:425, w:150, h:15});
 plat.push({x:650, y:100, w:125, h:15});
-
 function platform() {
   gravity = 5;
   cx.fillStyle="silver";
@@ -94,18 +92,44 @@ function platform() {
     x<plat[i].x+plat[i].w)
     {gravity=0}}}
 
+var Water=[];
+Water.push({x:0, y:725, w:1300, h:30});
 
-var water=[];
-water.push({x:0, y:730, w:1300, h:30});
-
-function Water() {
-  gravity = 5;
+function water1() {
   cx.fillStyle="blue";
   for (var i =0; i<Water.length; i++) {
     cx.fillRect(Water[i].x, Water[i].y, Water[i].w, Water[i].h ) ;
     if (y==Water[i].y-playerH &&
     x>Water[i].x-playerW &&
     x<Water[i].x+Water[i].w)
-    {gravity=0}}}
+    {LifeBar-=1;
+      x =0;
+      y=0;
+      if(LifeBar===0) {gameover()}
+    }}}
+    
+function LifeBarleft() {
+  cx.fillStyle = "azure";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Life Bar at "+LifeBar,100,50);
+}
+function gameover() {
+  cx.fillStyle = "red";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Copen Has Defeated You",500,50);
+  stop();
+}
+function stop() {
+  if(req) {
+    cancelAnimationFrame(req);
+    req = undefined;}}
+
+var xM = 800;
+var yM = 180;
+var xMsp = -0;
+var yMsp = -0
+
+
+
 
 animate();
