@@ -20,13 +20,19 @@ var xMsp = -5;
 var yMsp = 5;
 var xM2 = Math.random()*canvas.width;
 var yM2 = Math.random()*canvas.height;
-var xMsp2 = 5;
+var xMsp2 = -5;
 var yMsp2 = 5;
 
 var mW =50;
 var mH =50;
 var mW2 =50;
 var mH2 =50;
+
+var xC = 300;
+var yC = 400;
+var cW = 50;
+var cH = 50;
+var score = 0;
 
 
 var img_monster = document.createElement("img");
@@ -49,6 +55,9 @@ function animate() {
   lifeleft();
   monster();
   monster2();
+  coins();
+//  randomInt();
+  scoreDisplay();
 }
 //Movement
 function setDirection(dir) {
@@ -173,9 +182,9 @@ function bonuspoints() {
 }
 
 //Music
-var music = new Audio('smb_main-theme.wav');
-music.play();
-music.loop = true;
+//var music = new Audio('smb_main-theme.mp3');
+//music.play();
+//music.loop = true;
 
 
 function monster() {
@@ -204,4 +213,35 @@ function monster2() {
   }
 }
 
+var img_coin1 = document.createElement("img");
+img_coin1.src = "coin1.png";
+var img_coin2 = document.createElement("img");
+img_coin2.src = "coin2.png";
+var img_coin3 = document.createElement("img");
+img_coin3.src = "coin3.png";
+
+
+function coins() {
+//console.log(img_coin);
+cx.drawImage(img_coin1,xC, yC, cW, cH);
+//cx.drawImage(img_coin2,xC, yC, cW, cH);
+//cx.drawImage(img_coin3,xC, yC, cW, cH);
+ if (x+playerW > xC && xC+cW >x && yC+cH>y && y+playerH>yC)
+{ score +=10;
+    var i = Math.floor(Math.random()*plat.length);
+    xC = plat[i].x+20;
+    yC = plat[i].y-50;
+}
+
+
+}
+//var j = Math.floor((Math.random() * 5) + 1);
+//var img_coin = "img_coin"+j
+
+
+function scoreDisplay() {
+  cx.fillStyle="Black";
+  cx.font = "30px Comix Sans MS";
+  cx.fillText("Score: "+score, 500,22);
+}
 animate();
