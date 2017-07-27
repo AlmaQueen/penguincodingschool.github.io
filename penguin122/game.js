@@ -46,6 +46,7 @@ function animate() {
   lifeleft();
   monster();
   coins();
+  score_display();
 }
 function setDirection(dir){
   if(dir=="jump" && gravity===0){
@@ -130,6 +131,11 @@ function coins() {
     yC= Math.random()*canvas.height;
   }}
 
+function score_display(){
+  cx.fillStyle="orange";
+  cx.font="40px Comic Sans MS"
+  cx.fillText("Score: "+score,800, 100)
+}
 
 function monster() {
   cx.drawImage(img_polarbear,xM, yM, mW, mH);
