@@ -18,13 +18,18 @@ var xM= 500;
 var yM=0;
 var mW=80;
 var mH=50;
-var mXsp=-11;
-var mYsp=-10;
+var mXsp=-10;
+var mYsp=-9;
 var life=5;
+var xC=500;
+var yC=300;
+var wC=20;
+var hC=20;
+var score=0;
 var img_polarbear= document.createElement("img");
-img_polarbear.src ="polarbear.png"
-var img_fish= document.createElement
-img_fish.src="fish.png"
+img_polarbear.src ="polarbear.png";
+var img_fish= document.createElement("img");
+img_fish.src="fish.png";
 function animate() {
     req =requestAnimationFrame(animate);
     cx.clearRect(0,0,canvas.width, canvas.height);
@@ -40,6 +45,7 @@ function animate() {
   obstacle();
   lifeleft();
   monster();
+  coins();
 }
 function setDirection(dir){
   if(dir=="jump" && gravity===0){
@@ -117,7 +123,12 @@ function platform() {
 
 
 function coins() {
-  cx.drawImage(img_fish,xM, yM, mW, mH);
+  cx.drawImage(img_fish,xC, yC, wC, hC);
+  if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
+  {score+=10;
+    xC = Math.random()*canvas.width-10;
+    yC= Math.random()*canvas.height;
+  }}
 
 
 function monster() {
@@ -182,10 +193,6 @@ function stop() {
 var lava=[];
 lava.push({x:0,y:canvas.height-80,w:1000,h:160});
 
-/*function rise() {
-  lava[0].y-=1;
-}
-*/
 
 
 
