@@ -16,14 +16,14 @@ var gravity = 5;
 var dlava = 5;
 var xM= 500;
 var yM=0;
-var mW=70;
+var mW=80;
 var mH=50;
 var mXsp=-11;
 var mYsp=-10;
 var life=5;
 var img_polarbear= document.createElement("img");
 img_polarbear.src ="polarbear.png"
-
+var img_fish= document.createElement
 function animate() {
     req =requestAnimationFrame(animate);
     cx.clearRect(0,0,canvas.width, canvas.height);
@@ -162,8 +162,8 @@ function lifeleft(){
 
 function gameover() {
   cx.fillStyle="orange";
-  cx.font ="50px Impact";
-  cx.fillText("Game Over",500,50);
+  cx.font ="100px Syncopate";
+  cx.fillText("Game Over",500,200);
   stop();
 }
 
