@@ -25,6 +25,7 @@ function animate() {
   obstacle();
   barrier();
   scoreDisplay();
+  mushroom();
   //levitationplat();
   monster();
   coin();
@@ -165,18 +166,27 @@ function platform() {
 ].y}
   }
 }
-var xtC = 170;
-var ytC= 300;
-var wtC = 250;
-var htC = 150;
 
 var xC = 170;
-var yC= 300;
+var yC= 250;
 var wC = 250;
 var hC = 150;
+
+var xMC = 500;
+var yMC= 150;
+var wMC = 50;
+var hMC = 50;
+
 var score = 0;
 var img_coin = document.createElement("img");
 img_coin.src ="coin.png";
+
+var img_mushroom = document.createElement("img");
+img_mushroom.src ="mushroom.png";
+
+var img_star = document.createElement("img");
+img_star.src ="star.png";
+
 
 function coin() {
   cx.drawImage(img_coin,xC, yC, wC, hC);
@@ -188,22 +198,26 @@ function coin() {
    yC = plat[i].y-110;
    }
 }
-  
-/*function teleportingcoin() {
-  cx.drawImage(img_coin,xtC, ytC, wtC, htC);
-  if (x+playerw > xC && xC+wC >x && yC+hC>y && y +playerh>yC)
-{coinsound.play();
-  score +=10;
+
+
+function mushroom() {
+  cx.drawImage(img_mushroom, xMC, yMC, wMC, hMC);
+  if(x+playerw > xMC && xMC+wMC >x && yMC+hMC>y && y+playerh>yMC)
+  {x = xC ; y = yC;
+   mushroomsound.play
    var i = Math.ceil(Math.random()*plat.length);
-   xC = plat[i].x-20;
-   yC = plat[i].y-110;
+   xMC = plat[i].x-20;
+   yMC = plat[i].y-110;
    }
-}*/
-function scoreDisplay(){
-  fillStyle = "blue";
+   
+}
+  
+  
+  function scoreDisplay(){
+    cx.fillStyle = "blue";
     cx.font = "30px";
     cx.fillText("Score: "+score, 500,100)
-}
+  }
 
 
 
@@ -287,4 +301,5 @@ var deathsound = new Audio('mariodies.wav');
 var coinsound = new Audio('smb_coin.wav');
 var jumpsound = new Audio('smb_jump-small.wav')
 var backgroundmusic = new Audio('background.mp3')
+var mushroomsound = new Audio('fireworks.wav')
 animate();
