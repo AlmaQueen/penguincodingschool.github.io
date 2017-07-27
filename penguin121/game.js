@@ -213,17 +213,15 @@ function monster2() {
   }
 }
 
-var img_coin1 = document.createElement("img");
-img_coin1.src = "coin1.png";
-var img_coin2 = document.createElement("img");
-img_coin2.src = "coin2.png";
-var img_coin3 = document.createElement("img");
-img_coin3.src = "coin3.png";
+var img_sprite = document.createElement("img");
+img_sprite.src ="applesprite6.png"
 
+var cycle=0;
 
 function coins() {
 //console.log(img_coin);
-cx.drawImage(img_coin1,xC, yC, cW, cH);
+cx.drawImage(img_sprite, cycle*96, 0, 16, 16,xC,yC, 50, 50);
+  cycle = (cycle+1)%6;
 //cx.drawImage(img_coin2,xC, yC, cW, cH);
 //cx.drawImage(img_coin3,xC, yC, cW, cH);
  if (x+playerW > xC && xC+cW >x && yC+cH>y && y+playerH>yC)
@@ -243,5 +241,6 @@ function scoreDisplay() {
   cx.fillStyle="Black";
   cx.font = "30px Comix Sans MS";
   cx.fillText("Score: "+score, 500,22);
+}
 }
 animate();
