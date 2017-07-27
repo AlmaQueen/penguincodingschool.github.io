@@ -142,4 +142,5 @@ y+playerH > yM)
   } else if (xM<0 ) {
     xMsp = -xMsp;
   }}
+  
 animate();
