@@ -23,8 +23,8 @@ var mYsp=-9;
 var life=5;
 var xC=500;
 var yC=300;
-var wC=20;
-var hC=20;
+var wC=30;
+var hC=30;
 var score=0;
 var img_polarbear= document.createElement("img");
 img_polarbear.src ="polarbear.png";
@@ -47,9 +47,10 @@ function animate() {
   monster();
   coins();
   score_display();
+  winGame();
 }
 function setDirection(dir){
-  if(dir=="jump" && gravity===0){
+  if(dir=="jump" && y>0){
       y-=250;
   }
 if(dir=="down" && y<520){
@@ -127,8 +128,8 @@ function coins() {
   cx.drawImage(img_fish,xC, yC, wC, hC);
   if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
   {score+=10;
-    xC = Math.random()*canvas.width-10;
-    yC= Math.random()*canvas.height;
+    xC = Math.random()*canvas.width-100;
+    yC= Math.random()*canvas.height-100;
   }}
 
 function score_display(){
@@ -200,7 +201,13 @@ var lava=[];
 lava.push({x:0,y:canvas.height-80,w:1000,h:160});
 
 
-
+function winGame() {
+  if(score==10)
+  {cx.fillStyle="orange";
+  cx.font ="100px Syncopate";
+  cx.fillText("You WON!!!",500,200);
+  }
+}
 
 animate();
 
