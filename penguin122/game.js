@@ -117,10 +117,13 @@ function platform() {
 
 function monster() {
   cx.drawImage(img_polarbear,xM, yM, mW, mH);
-  x+= mXsp;
-  y+= mYsp;
+  xM+= mXsp;
+  yM+= mYsp;
   if(x+playerw> xM && xM+mW>x && yM+mH > y&& y+playerh> yM)
   {life-=1}
+  else if ( xM < 0 ) {
+    mXsp= -mXsp;
+  }
 }
 
 
