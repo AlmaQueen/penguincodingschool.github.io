@@ -136,7 +136,7 @@ function lifeleft() {
 function gameover() {
   cx.fillStyle = "red";
   cx.font = "70px Comic Sans MS";
-  cx.fillText("You Made a Great Meal ",0,400);
+  cx.fillText("You Were a Great Meal ",0,400);
   stop();
 }
 
