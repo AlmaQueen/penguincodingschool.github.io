@@ -1,6 +1,6 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width =1000;
+canvas.width =2000;
 canvas.height=700;
 
 var img_player = document.createElement("img");

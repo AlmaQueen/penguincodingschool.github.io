@@ -7,8 +7,8 @@ var img_player = document.createElement("img");
 img_player.src = "bunny.png";
 
 // var i = Math.ceil(Math.random()*plat.length);
-var x = 400;
-var y = 500;
+var x = 200;
+var y = 420;
 var playerW = 80;
 var playerH = 70;
 var xspeed = 0;
@@ -123,8 +123,8 @@ for (var i = 0; i<lava.length; i++) {
     x<lava[i].x+lava[i].w
     )
     {life-=1
-      x=400
-      y=500
+      x=200
+      y=420
       if(life===0) {gameover()}
     }
   }
@@ -177,8 +177,8 @@ function monster() {
   yM+=yMsp;
   if (x+playerW>xM&&xM+mW>x&&yM+mH>y&&y+playerH>yM)
   {life--;
-    x=400;
-    y=500;
+    x=200;
+    y=420;
   }
   if (xM<0 || xM>canvas.width-mW) {
     xMsp = -xMsp;
