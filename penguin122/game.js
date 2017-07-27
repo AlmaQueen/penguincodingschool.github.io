@@ -13,6 +13,16 @@ var playerh=60;
 var xspeed=0;
 var yspeed=0;
 var gravity = 5;
+var dlava = 5;
+var xM= 500;
+var yM=0;
+var mW=50;
+var mH=50;
+var mXsp=-5;
+var mYsp=-5;
+var life=5;
+var img_polarbear= document.createElement("img");
+img_polarbear.src ="polarbear.jpg"
 
 function animate() {
     req =requestAnimationFrame(animate);
@@ -24,18 +34,17 @@ function animate() {
   if (y>canvas.height-playerh) {life-=1;
   x=0;
   y=0;
-  if(life==0) {gameover()}}
+  if(life===0) {gameover()}}
   platform();
   obstacle();
-  sinking();
-  rising();
   lifeleft();
+  monster();
 }
 function setDirection(dir){
   if(dir=="jump" && gravity===0){
       y-=250;
   }
-if(dir=="down" && y<canvas.height){
+if(dir=="down" && y<520){
       xspeed=0;
       yspeed=5;
 }
@@ -86,7 +95,7 @@ plat.push({x:75,y:200,w:150,h:10});
 plat.push({x:450,y:570,w:50,h:10});
 plat.push({x:200,y:400,w:130,h:10});
 plat.push({x:504,y:50,w:100,h:10});
-plat.push({x:800,y:210,w:100,h:10});
+plat.push({x:800,y:200,w:100,h:10});
 plat.push({x:650,y:500,w:100,h:10});
 plat.push({x:500,y:400,w:100,h:10});
 plat.push({x:200,y:600,w:100,h:10});
@@ -105,7 +114,14 @@ function platform() {
   }
 }
 
-var life=5;
+
+function monster() {
+  cx.drawImage(img_polarbear);
+  x+= mXsp;
+  y+= mYsp;
+  
+}
+
 
 function obstacle() {
   cx.fillStyle="red";
@@ -120,18 +136,21 @@ function obstacle() {
     if(life===0) {gameover()}
     }
   }
+
+
+
 }
 
 function lifeleft(){
   cx.fillStyle= "green";
   cx.font= "30px Impact";
-  cx.fillText("Lives "+life,100,50);
+  cx.fillText("Lives: "+life,100,50);
 }
 
 function gameover() {
   cx.fillStyle="orange";
   cx.font ="50px Impact";
-  cx.fillText("Game Over",500,50)
+  cx.fillText("Game Over",500,50);
   stop();
 }
 
@@ -143,16 +162,13 @@ function stop() {
 }
 
 var lava=[];
-lava.push({x:0,y:600,w:1000,h:200});
-function rising() {
-  lava[0].y-=50;
-}
-setTimeout(sinking(), 5000);
+lava.push({x:0,y:canvas.height-80,w:1000,h:160});
 
-function sinking() {
-  lava[0].y+=50;
-
+/*function rise() {
+  lava[0].y-=1;
 }
+*/
+
 
 
 animate();
