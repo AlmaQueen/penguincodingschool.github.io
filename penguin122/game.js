@@ -1,7 +1,7 @@
 var canvas=document.getElementById('canvas');
 var cx= canvas.getContext('2d');
-canvas.width=1000;
-canvas.height=700;
+canvas.width=1500;
+canvas.height=900;
 
 var img_player= document.createElement('img');
 img_player.src='penguin.png';
@@ -36,7 +36,7 @@ function animate() {
     cx.drawImage(img_player,x,y,playerw,playerh);
     x+=xspeed;
     y+=yspeed + gravity;
-  if(x<0 || x>canvas.width-100) {xspeed=-xspeed}
+  if(x<0 || x>canvas.width-50) {xspeed=-xspeed}
   if (y>canvas.height-playerh) {life-=1;
   x=0;
   y=0;
@@ -65,7 +65,7 @@ if(dir=="stop"){
   xspeed=0;
   yspeed=0;
 }
-if(dir=="right" && x<1000){
+if(dir=="right" && x<1500){
       xspeed=5;
       yspeed=0;
 }
@@ -108,8 +108,11 @@ plat.push({x:800,y:200,w:100,h:10});
 plat.push({x:650,y:500,w:100,h:10});
 plat.push({x:500,y:400,w:100,h:10});
 plat.push({x:200,y:600,w:100,h:10});
-plat.push({x:100,y:600,w:1000,h:20});
-plat.push({x:650,y:300,w:100,h:10});
+plat.push({x:100,y:795,w:800,h:20});
+plat.push({x:1300,y:700,w:200,h:10});
+plat.push({x:1200,y:400,w:150,h:10});
+plat.push({x:650,y:300,w:300,h:10});
+plat.push({x:650,y:300,w:200,h:10});
 
 function platform() {
   gravity=5;
@@ -198,11 +201,11 @@ function stop() {
 }
 
 var lava=[];
-lava.push({x:0,y:canvas.height-80,w:1000,h:160});
+lava.push({x:0,y:canvas.height-80,w:1600,h:160});
 
 
 function winGame() {
-  if(score==10)
+  if(score==100)
   {cx.fillStyle="orange";
   cx.font ="100px Syncopate";
   cx.fillText("You WON!!!",500,200);
