@@ -1,8 +1,8 @@
 
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width = 1000;
-canvas.height = 700;
+canvas.width = 1500;
+canvas.height = 900;
 
 var img_player = document.createElement("img");
 img_player.src = "Player.png";
@@ -91,18 +91,18 @@ plat.push({x:300, y:100, w:100, h:10});
 plat.push({x:500, y:200, w:100, h:10});
 plat.push({x:600, y:500, w:100, h:10});
 plat.push({x:800, y:200, w:100, h:10});
-//plat.push({x:900, y:700, w:100, h:10});
+plat.push({x:900, y:700, w:100, h:10});
 plat.push({x:970, y:300, w:100, h:10});
-//plat.push({x:490, y:700, w:100, h:10});
+plat.push({x:490, y:700, w:100, h:10});
 plat.push({x:170, y:200, w:100, h:10});
-//plat.push({x:200, y:650, w:1000, h:10});
+plat.push({x:200, y:650, w:100, h:10});
 plat.push({x:750, y:300, w:100, h:10});
-//plat.push({x:500, y:700, w:100, h:10});
+plat.push({x:500, y:700, w:100, h:10});
 plat.push({x:190, y:300, w:100, h:10});
 plat.push({x:900, y:60, w:100, h:10});
 plat.push({x:970, y:400, w:100, h:10});
-//plat.push({x:490, y:700, w:100, h:10});
-//plat.push({x:0, y:650, w:1000, h:10});
+plat.push({x:490, y:700, w:100, h:10});
+plat.push({x:0, y:650, w:100, h:10});
 
 
 function platform() {
@@ -133,7 +133,7 @@ var lava=[];
 var img_lava = document.createElement("img");
 img_lava.src = "https://images.pond5.com/lava-background-1080p-footage-000097699_prevstill.jpeg";
 
-lava.push({x:0, y:625, w:canvas.width, h:75})
+lava.push({x:0, y:canvas.height-50, w:canvas.width, h:75})
 
 function obstacle() {
     for (var i=0; i<lava.length; i++) {
