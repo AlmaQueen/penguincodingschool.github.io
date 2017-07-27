@@ -121,8 +121,12 @@ function monster() {
   yM+= mYsp;
   if(x+playerw> xM && xM+mW>x && yM+mH > y&& y+playerh> yM)
   {life-=1}
-  else if ( xM < 0 ) {
+  else if ( xM < 0 || x> canvas.width ) {
     mXsp= -mXsp;
+  }
+  else if ( yM<0 || yM> canvas.height)
+  {mYsp= -mYsp;
+    
   }
 }
 
