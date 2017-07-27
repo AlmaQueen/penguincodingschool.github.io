@@ -22,7 +22,7 @@ var mXsp=-5;
 var mYsp=-5;
 var life=5;
 var img_polarbear= document.createElement("img");
-img_polarbear.src ="polarbear.jpg"
+img_polarbear.src ="polarbear.png"
 
 function animate() {
     req =requestAnimationFrame(animate);
@@ -116,10 +116,11 @@ function platform() {
 
 
 function monster() {
-  cx.drawImage(img_polarbear);
+  cx.drawImage(img_polarbear,xM, yM, mW, mH);
   x+= mXsp;
   y+= mYsp;
-  
+  if(x+playerw> xM && xM+mW>x && yM+mH > y&& y+playerh> yM)
+  {life-=1}
 }
 
 
