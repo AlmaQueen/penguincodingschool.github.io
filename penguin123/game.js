@@ -17,8 +17,8 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 10;
-var yMsp = 10;
+var xMsp = 15;
+var yMsp = 15;
 var mW = 100;
 var mH = 100;
 
@@ -141,7 +141,7 @@ function obstacle() {
     if (y==lava[i].y-playerh &&
     x>=lava[i].x-playerw &&
     x<lava[i].x+lava[i].w)
-    {console.log("die");life-=1;
+    {console.log("die");life-=1; score-=20;
     x=0;
     y=0;
     if(life===0){gameover()}
@@ -215,7 +215,7 @@ function scoreDisplay(){
   cx.fillText("Score: "+score, 300, 50);
 }
 
-/*
+
 var xCC = Math.random()*canvas.width;
 var yCC = Math.random()*canvas.height;
 
@@ -227,6 +227,12 @@ for(var i = 0; i<lava.length; i++) {
   }
 }
 
-*/
+function winGame () {
+  if (score=200)
+  {cx.fillStyle="pink";
+    cx.font="40px Comic Sans MS";
+  cx.fillText("You Won!!! On to the next level...", 700, 500)
+}
+}
 
 animate();
