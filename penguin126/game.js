@@ -5,7 +5,9 @@ canvas.height = 800;
 var img_player = document.createElement("img");
 img_player.src = "16-bitGunvolt.png";
 //var img_platform=document.createElement();
-var x =0;
+var img_monster = document.createElement("img");
+img_monster.src = "CopenBoss.png";
+var x =1220;
 var y=0;
 var playerW = 90;
 var playerH = 80;
@@ -13,7 +15,6 @@ var xSpeed = 0;
 var ySpeed = 0;
 var gravity = 5;
 var LifeBar = 10;
-
 function animate() {
   req  = requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
@@ -25,6 +26,7 @@ function animate() {
   platform();
   LifeBarleft();
   water1();
+  monster();
 }
 function setDirection(dir) {
   if(dir =="jump" && gravity===0 ) {
@@ -74,7 +76,6 @@ function platform() {
   }//  else {gravity = 5;}
 }
 */
-
 var plat=[];
 plat.push({x:0, y:435, w:100, h:10});
 plat.push({x:720, y:700, w:120, h:10});
@@ -82,6 +83,7 @@ plat.push({x:600, y:500, w:350, h:30});
 plat.push({x:500, y:250, w:100, h:10});
 plat.push({x:300, y:425, w:150, h:15});
 plat.push({x:650, y:100, w:125, h:15});
+plat.push({x:1150, y:450, w:150, h:20});
 function platform() {
   gravity = 5;
   cx.fillStyle="silver";
@@ -91,10 +93,8 @@ function platform() {
     x>plat[i].x-playerW &&
     x<plat[i].x+plat[i].w)
     {gravity=0}}}
-
 var Water=[];
 Water.push({x:0, y:725, w:1300, h:30});
-
 function water1() {
   cx.fillStyle="blue";
   for (var i =0; i<Water.length; i++) {
@@ -103,11 +103,10 @@ function water1() {
     x>Water[i].x-playerW &&
     x<Water[i].x+Water[i].w)
     {LifeBar-=1;
-      x =0;
+      x =1220;
       y=0;
       if(LifeBar===0) {gameover()}
     }}}
-    
 function LifeBarleft() {
   cx.fillStyle = "azure";
   cx.font = "30px Comic Sans MS";
@@ -123,13 +122,24 @@ function stop() {
   if(req) {
     cancelAnimationFrame(req);
     req = undefined;}}
-
-var xM = 800;
-var yM = 180;
+var xM = 0;
+var yM = 345;
 var xMsp = -0;
-var yMsp = -0
-
-
-
-
+var yMsp = -0;
+var Mw = 100;
+var Mh = 90;
+function monster() {
+  cx.drawImage(img_monster, xM,yM,Mw,Mh);
+  xM+= xMsp;
+  yM+= yMsp;
+  if(x+playerW> xM && xM+Mw >x && yM+Mh > y &&
+y+playerH > yM)
+{
+      {LifeBar-=1;
+        x =1220
+        y=0
+      };
+  } else if (xM<0 ) {
+    xMsp = -xMsp;
+  }}
 animate();
