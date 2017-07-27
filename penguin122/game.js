@@ -16,7 +16,7 @@ var gravity = 5;
 var dlava = 5;
 var xM= 500;
 var yM=0;
-var mW=50;
+var mW=70;
 var mH=50;
 var mXsp=-5;
 var mYsp=-5;
@@ -120,14 +120,19 @@ function monster() {
   xM+= mXsp;
   yM+= mYsp;
   if(x+playerw> xM && xM+mW>x && yM+mH > y&& y+playerh> yM)
-  {life-=1}
-  else if ( xM < 0 || x> canvas.width ) {
+  {life-=1;
+    x=5;
+    y=5;
+  }
+  else if ( xM < 0 || xM> canvas.width ) {
     mXsp= -mXsp;
   }
   else if ( yM<0 || yM> canvas.height)
   {mYsp= -mYsp;
     
   }
+
+  if (life===0) {gameover();}
 }
 
 
