@@ -24,6 +24,7 @@ var life=5;
 var img_polarbear= document.createElement("img");
 img_polarbear.src ="polarbear.png"
 var img_fish= document.createElement
+img_fish.src="fish.png"
 function animate() {
     req =requestAnimationFrame(animate);
     cx.clearRect(0,0,canvas.width, canvas.height);
@@ -113,6 +114,10 @@ function platform() {
     {gravity=0}
   }
 }
+
+
+function coins() {
+  cx.drawImage(img_fish,xM, yM, mW, mH);
 
 
 function monster() {
