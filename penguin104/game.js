@@ -37,17 +37,16 @@ req = requestAnimationFrame(animate);
   y2+=yspeed2+gravity2;
 //  platformG();
   platform();
- // platform2();
+  platform2();
   obstacle();
 //  obstacle2();
   lifeleft();
 //  lifeleft2()
   monster();
-  //Mario
-  coin();
+  //in();
   
   coin2();
-  
+  coin();
   scoreDisplay();
   
   if (x<=0) {
@@ -149,14 +148,18 @@ document.addEventListener('keyup', function(event) {
 var plat = [];
 plat.push({x:0, y:150, w:100, h:10, color:"red"});
 plat.push({x:0, y:600, w:100, h:10, color:"orange"});
-plat.push({x:150, y:550, w:100, h:10, color:"yellow"});
-plat.push({x:420, y:300, w:100, h:10, color:"green"});
-plat.push({x:350, y:525, w:100, h:10, color:"blue"});
-plat.push({x:300, y:400, w:100, h:10, color:"purple"});
-plat.push({x:350, y:510, w:100, h:10, color:"white"});
-plat.push({x:300, y:380, w:100, h:10, color:"orange"});
-plat.push({x:500, y:450, w:100, h:10, color:"purple"});
-plat.push({x:500, y:440, w:100, h:10, color:"white"});
+plat.push({x:150, y:540, w:100, h:10, color:"yellow"});
+plat.push({x:400, y:300, w:100, h:10, color:"green"});
+plat.push({x:150, y:400, w:100, h:10, color:"purple"});
+plat.push({x:600, y:200, w:100, h:10, color:"purple"});
+plat.push({x:900, y:600, w:100, h:10, color:"yellow"});
+plat.push({x:750, y:600, w:100, h:10, color:"green"});
+
+
+
+var plat2 = [];
+plat2.push({x:0, y:490, w:100, h:10, color:"blue"});
+plat2.push({x:350, y:530, w:100, h:10, color:"blue"});
 
 function platform() {
   gravity=5; gravity2=5;
@@ -171,14 +174,42 @@ for (var i = 0; i<plat.length; i++)
       x2>=plat[i].x-playerW &&
       x2<=plat[i].x+plat[i].w)
     {gravity2=0}
+
     if(y== plat[5].y-playerH &&
       x>=plat[5].x-playerW &&
-      x<=plat[5].x+plat[i].w)
-    {x = plat[7].x; y = plat[7].y-playerH}
+      x<=plat[5].x+plat[5].w)
+    {x = plat[6].x; y = plat[6].y-playerH}
     if(y2== plat[5].y-playerH &&
       x2>=plat[5].x-playerW &&
       x2<=plat[5].x+plat[5].w)
+    {x2 = plat[6].x; y2 = plat[6].y}
+    
+/*    if(y== plat[7].y-playerH &&
+      x>=plat[3].x-playerW &&
+      x<=plat[3].x+plat[3].w)
+    {x = plat[7].x; y = plat[7].y-playerH}
+    if(y2== plat[3].y-playerH &&
+      x2>=plat[3].x-playerW &&
+      x2<=plat[3].x+plat[3].w)
     {x2 = plat[7].x; y2 = plat[7].y}
+*/
+   
+  }
+
+}
+
+function platform2() {
+for (var i = 0; i<plat2.length; i++)
+  { cx.fillStyle=plat2[i].color;
+    cx.fillRect(plat2[i].x, plat2[i].y, plat2[i].w, plat2[i].h)
+    if(y== plat2[i].y-playerH &&
+      x>=plat2[i].x-playerW &&
+      x<=plat2[i].x+plat2[i].w)
+    {gravity=-80;}
+    if(y2== plat2[i].y-playerH &&
+      x2>=plat2[i].x-playerW &&
+      x2<=plat2[i].x+plat2[i].w)
+    {gravity2=-80;}
     
    else{}
   }
