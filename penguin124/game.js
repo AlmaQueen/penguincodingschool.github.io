@@ -6,8 +6,9 @@ canvas.height=700;
 var img_player = document.createElement("img");
 img_player.src = "bunny.png";
 
-var x = 0;
-var y = 0;
+// var i = Math.ceil(Math.random()*plat.length);
+var x = 400;
+var y = 500;
 var playerW = 80;
 var playerH = 70;
 var xspeed = 0;
@@ -27,6 +28,8 @@ function animate() {
   obstacle();
   lifeleft();
   monster();
+  coin();
+  scoreDisplay();
 }
 
 function setDirection(dir) {
@@ -214,6 +217,32 @@ function monster2() {
   }
 }
 */
+
+var xC = 80;
+var yC = 450;
+var wC = 120;
+var hC = 100;
+var score = 0;
+var img_coin = document.createElement("img");
+img_coin.src = "coin.png";
+
+function coin() {
+  cx.drawImage(img_coin, xC, yC, wC, hC);
+  if (x+playerW > xC && xC+wC >x &&yC+hC>y && y+playerH >yC)
+  
+{ score +=10;
+    var i = Math.ceil(Math.random()*plat.length);
+    xC = plat[i].x+20;
+    yC = plat[i].y-40;
+}
+
+
+}
+
+function scoreDisplay() {
+  cx.fillStyle="green";
+  cx.fillText("Score: "+score, 500,100);
+  }
 
 animate();
 
