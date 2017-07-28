@@ -151,7 +151,7 @@ img_m4.src = "monster.png";
 img_m5.src = "monster.png";
  
 var mr =[];
-//mr.push({img:img_m1, x:400, y:300, w:50, h:50, mspx:7, mspy:-2})
+mr.push({img:img_m1, x:400, y:300, w:50, h:50, mspx:7, mspy:-2})
 mr.push({img:img_m2, x:500, y:300, w:50, h:50, mspx:10, mspy:-3})
 //mr.push({img:img_m3, x:600, y:290, w:50, h:50, mspx:-5, mspx:-7})
 //mr.push({img:img_m4, x:700, y:310, w:50, h:50, mspx:2, mspy:3})
@@ -220,6 +220,7 @@ mr.push({img:img_m2, x:500, y:300, w:50, h:50, mspx:10, mspy:-3})
     var audio = new Audio('coin.wav');
     var coinsound = new Audio('coin.wav')
     audio.play();
+  
     
         if (score>=300) {gameWin()}
 
@@ -237,13 +238,18 @@ mr.push({img:img_m2, x:500, y:300, w:50, h:50, mspx:10, mspy:-3})
 var score = 0;
 var img_coin=document.createElement("img");
 img_coin.src="coin.png"
+var img_boost=document.createElement("img");
+img_boost.src="firstaid.png"
+  
+      var gameover = new Audio ('gameover.wav');
 
-  function gameOver() {
+function gameOver() {
     cx.fillStyle = "white";
-    cx. font = "30px Comic Sans MS";
+    cx.font = "30px Comic Sans MS";
     cx.fillText("Game Over",10,50);
     stop();
-  }
+    gameover.play();
+}
  
  function scoreDisplay() {
    cx.fillStyle = "white";
@@ -257,13 +263,13 @@ img_coin.src="coin.png"
     cx.fillText("Lives Left: "+life, 500,50)
   
   }
-  
+/*
   if (x+playerW > vM && vM+vW > x)
   if (aM+aH > y && y+playerH > aM)
-  {score+=45
+  {score+=45}
   
-  
-  var boost = Math.ceil(Math.random()*17);
+  */
+  var boost = Math.ceil(Math.random()*3);
   
   
   
@@ -274,15 +280,47 @@ img_coin.src="coin.png"
       cancelAnimationFrame(req);
       req = undefined;
   }}
+
+var xB=300;
+var yB=300;
+var wB=50;
+var hB=50;
   
 function bonus() {
-  if(score==boost*15){
+ if(score==75){
+   cx.drawImage(img_boost,xB,yB,wB,hB);
+  if(x+playerW > xB && xB + wB> x && yB + hB >y && y+playerH >yB){
+    life+=2;
+    xB = -100;
+    yB = Math.random()*canvas.height;}
    //  var i = Math.floor(Math.random()*plat.length);
     //vM = plat[i].x;
     //aM = plat[i].y - 40;
-  vM=300;
-  aM=300;
+ 
   }
+ else if(score==150){
+   cx.drawImage(img_boost,xB,yB,wB,hB);
+  if(x+playerW > xB && xB + wB> x && yB + hB >y && y+playerH >yB){
+    life+=2;
+    xB = -100;
+    yB = Math.random()*canvas.height;}
+   //  var i = Math.floor(Math.random()*plat.length);
+    //vM = plat[i].x;
+    //aM = plat[i].y - 40;
+ 
+  }
+  else if(score==225){
+   cx.drawImage(img_boost,xB,yB,wB,hB);
+  if(x+playerW > xB && xB + wB> x && yB + hB >y && y+playerH >yB){
+    life+=2;
+    xB = -100;
+    yB = Math.random()*canvas.height;}
+   //  var i = Math.floor(Math.random()*plat.length);
+    //vM = plat[i].x;
+    //aM = plat[i].y - 40;
+ 
+  }
+    
 }
 
 animate();
