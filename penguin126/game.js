@@ -5,8 +5,12 @@ canvas.height = 800;
 var img_player = document.createElement("img");
 img_player.src = "16-bitGunvolt.png";
 //var img_platform=document.createElement();
+var img_bullet = document.createElement("img");
+img_bullet.src = "CopenGunBullet.gif";
 var img_monster = document.createElement("img");
 img_monster.src = "CopenBoss.png";
+var img_coin = document.createElement("img");
+img_coin.src = "GunvoltEmerald.png";
 var x =1220;
 var y=0;
 var playerW = 90;
@@ -27,6 +31,9 @@ function animate() {
   LifeBarleft();
   water1();
   monster();
+  Bullet();
+  coin();
+  scoreDisplay();
 }
 function setDirection(dir) {
   if(dir =="jump" && gravity===0 ) {
@@ -142,5 +149,50 @@ y+playerH > yM)
   } else if (xM<0 ) {
     xMsp = -xMsp;
   }}
-  
+
+var xB = 25;
+var yB = 345;
+var xBsp = 5;
+var yBsp = -0;
+var Bw = 100;
+var Bh = 90;
+function Bullet() {
+  cx.drawImage(img_bullet, xB,yB,Bw,Bh);
+  xB+= xBsp;
+  yB+= yBsp;
+  if(x+playerW> xB && xB+Bw >x && yB+Bh > y &&
+y+playerH > yB)
+{
+      {LifeBar-=1;
+        x =1220
+        y=0
+      };
+  }
+}
+var xC = 250
+var yC = 250
+var Cw = 50
+var Ch = 60
+var score=0;
+
+function coin() {
+  cx.drawImage(img_coin,yC,xC,Cw,Ch);
+  if(x+playerW> xC && xC+Cw >x && yC+Ch > y &&
+y+playerH > yC)
+{ score+= 10;
+  var i =Math.ceil(Math.random()*plat.length);
+  xC = plat[i].x;
+  yC = plat[i].y-40;
+}
+}
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(Math.random()*(max-min))+min;
+  }
+function scoreDisplay() {
+  cx.fillStyle = "lightblue";
+  cx.font =  "30px Comic Sans MS"
+  cx.fillText("Your Score is: "+score,500,100);
+}
+
 animate();
