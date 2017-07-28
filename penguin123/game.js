@@ -17,8 +17,8 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 5;
-var yMsp = 10;
+var xMsp = 0;
+var yMsp = 0;
 var mW = 100;
 var mH = 100;
 
@@ -46,16 +46,16 @@ function setDirection(dir) {
   xSpeed = 0;
   y-=200;
 }
-  if(dir =="down"){
+  /*if(dir =="down"){
   xSpeed = 0;
   ySpeed = 5;
-}
+}*/
   if(dir =="right"){
-  xSpeed = 5;
+  xSpeed = 5+boost;
   ySpeed = 0;
 }
   if(dir =="left" && x>0){
-  xSpeed = -5;
+  xSpeed = -5-boost;
   ySpeed = 0;
 }
 if(dir =="stop"){
@@ -105,6 +105,8 @@ plat.push({x:900, y:60, w:100, h:10});
 plat.push({x:970, y:400, w:100, h:10});
 plat.push({x:490, y:700, w:100, h:10});
 plat.push({x:0, y:650, w:100, h:10});
+plat.push({x:1300, y:650, w:100, h:10});
+plat.push({x:1250, y:300, w:100, h:10});
 
 
 function platform() {
@@ -198,27 +200,29 @@ var yC = 450;
 var wC = 60;
 var hC = 60;
 var score = 0;
+var ww =0;
 var img_coin = document.createElement("img");
 img_coin.src = "http://www.pngmart.com/files/3/Lakshmi-Gold-Coin-PNG-File.png";
 
 function coin() {
+  console.log(xC,yC);
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerw>xC && xC+wC>x && yC+hC>y && y+playerh>yC)
   
-  {score+=10;
+  {score+=10; ww++;
   var xCC = Math.random()*canvas.width;
-var yCC = Math.random()*canvas.height;
+  var yCC = Math.random()*canvas.height;
 
-for(var i = 0; i<lava.length; i++) {
-  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y && yCC < lava[i].y+lava[i].h) {xC=xCC+100; yC=yCC+100}
+  for(var i = 0; i<lava.length; i++) {
+  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y && yCC < lava[i].y+lava[i].h)
+  {xC= Math.random()*canvas.width; yC=Math.random()*canvas.height;
+  }
   else {
     xC = xCC;
     yC = yCC;
   }
 }
-
 }
-
 }
 
 function scoreDisplay(){
@@ -253,9 +257,17 @@ for (var i=0; i<plat.length; i++){
 }
 }
 
-//function boost () {
-  //if (score)
-//}
+var boost = 0;
+
+/* function bonus () {
+  if (ww%10=0)
+  {boost+=1
+   }
+}
+
+*/
+
+
 
 animate();
 

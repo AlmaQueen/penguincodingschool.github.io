@@ -17,8 +17,8 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 15;
-var yMsp = 15;
+var xMsp = 5;
+var yMsp = 10;
 var mW = 100;
 var mH = 100;
 
@@ -34,10 +34,11 @@ function animate() {
  platform();
  obstacle();
  lifeleft();
- monster();
+ poacher();
  coin();
 scoreDisplay();
 winGame();
+platform2();
  }
 
 function setDirection(dir) {
@@ -172,31 +173,15 @@ function gameover (){
 var img_monster = document.createElement("img");
 img_monster.src = "http://udf.by/images/usa2016/trump2.png";
 
-/*function monster () {
-  cx.drawImage(img_monster, xM, yM, mW, mH);
-  xM+=xMsp;
-  yM+=yMsp;
-  if (x+playerw>xM && xM+mW>x && yM+mH>y && y+playerh>yM)
-  {life -=1;
-  x=0; y=0;
-    if(life===0){gameover()}
-  }
-  if (xM<0 || xM>canvas.width-mW) {
-    xMsp = -xMsp;
-  } if(yM<0 || yM>canvas.height-mH) {
-    yMsp = -yMsp;
-  }
-  
-}*/
 
 var monster = [];
 monster.push({x:500, y:100, w:40, h:50, xMsp:5, yMsp:10})
-monster.push({x:100, y:100, w:50, h:50, xMsp:10, yMsp:10})
+monster.push({x:100, y:100, w:100, h:100, xMsp:10, yMsp:10})
 
-function monster () {
+function poacher () {
 for (var z=0; z<monster.length; z++) {
-    cx.fillRect
-    (monster[z].x, monster[z].y, monster[z].w, monster[z].h);
+    cx.drawImage
+    (img_monster, monster[z].x, monster[z].y, monster[z].w, monster[z].h);
     monster[z].x+=monster[z].xMsp;
     monster[z].y+=monster[z].yMsp;
     if (y==monster[z].y-playerh &&
@@ -206,23 +191,34 @@ for (var z=0; z<monster.length; z++) {
       x=0;
       y=0;
     }
-    }}
+    
+  if (monster[z].x<0 || monster[z].x>canvas.width-monster[z].w) {
+    monster[z].xMsp = -monster[z].xMsp;
+   // xMsp = Math.ceil(Math.random()*10);
+  } if(monster[z].y<0 || monster[z].y>canvas.height-monster[z].h) {
+    monster[z].yMsp = -monster[z].yMsp;
+  }
+}
+}
 
+var xC = 80;
 var xC = 80;
 var yC = 450;
 var wC = 60;
 var hC = 60;
 var score = 0;
+var ww =0;
 var img_coin = document.createElement("img");
-img_coin.src = "http://www.pngmart.com/files/3/Lakshmi-Gold-Coin-PNG-File.png";
+img_coin.src = "http://images.clipartpanda.com/bamboo-clipart-plants_bamboo-999px.png";
 
 function coin() {
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerw>xC && xC+wC>x && yC+hC>y && y+playerh>yC)
   
-  {score+=10;
+  {score+=10; ww++;
   var xCC = Math.random()*canvas.width;
 var yCC = Math.random()*canvas.height;
+
 
 for(var i = 0; i<lava.length; i++) {
   if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y && yCC < lava[i].y+lava[i].h) {xC=xCC+100; yC=yCC+100}
@@ -253,5 +249,29 @@ function winGame () {
   window.location="game2.html";
 }
 }
+
+
+
+function platform2() {
+
+for (var i=0; i<plat.length; i++){
+  if (x+playerw>plat[i].x && plat[i].x+plat[i].w>x && plat[i].y+plat[i].h>y && y+playerh>plat[i].y)
+  {
+    ySpeed = -ySpeed;
+    xSpeed =-xSpeed;
+    
+  }
+}
+}
+
+/* function boost () {
+  if (ww%10=0)
+  {
+   }
+}
+
+*/
+
+
 
 animate();
