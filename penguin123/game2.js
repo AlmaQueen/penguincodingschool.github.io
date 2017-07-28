@@ -17,8 +17,8 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 5;
-var yMsp = 10;
+var xMsp = 15;
+var yMsp = 15;
 var mW = 100;
 var mH = 100;
 
@@ -38,7 +38,6 @@ function animate() {
  coin();
 scoreDisplay();
 winGame();
-platform2();
  }
 
 function setDirection(dir) {
@@ -171,27 +170,43 @@ function gameover (){
 }
   
 var img_monster = document.createElement("img");
-img_monster.src = "http://tf2classic.com/wiki/images/thumb/2/2f/PoacherPride3rdperson.png/120px-PoacherPride3rdperson.png";
+img_monster.src = "http://udf.by/images/usa2016/trump2.png";
 
-function monster () {
+/*function monster () {
   cx.drawImage(img_monster, xM, yM, mW, mH);
   xM+=xMsp;
   yM+=yMsp;
-  
   if (x+playerw>xM && xM+mW>x && yM+mH>y && y+playerh>yM)
   {life -=1;
-   x=0; y=0;
-   if(life===0){gameover()}
+  x=0; y=0;
+    if(life===0){gameover()}
   }
   if (xM<0 || xM>canvas.width-mW) {
     xMsp = -xMsp;
-   // xMsp = Math.ceil(Math.random()*10);
   } if(yM<0 || yM>canvas.height-mH) {
     yMsp = -yMsp;
   }
   
-}
+}*/
 
+var monster = [];
+monster.push({x:500, y:100, w:40, h:50, xMsp:5, yMsp:10})
+monster.push({x:100, y:100, w:50, h:50, xMsp:10, yMsp:10})
+
+function monster () {
+for (var z=0; z<monster.length; z++) {
+    cx.fillRect
+    (monster[z].x, monster[z].y, monster[z].w, monster[z].h);
+    monster[z].x+=monster[z].xMsp;
+    monster[z].y+=monster[z].yMsp;
+    if (y==monster[z].y-playerh &&
+    x>=monster[z].x-playerw &&
+    x<monster[z].x+monster[z].w)
+    {life-=1;
+      x=0;
+      y=0;
+    }
+    }}
 
 var xC = 80;
 var yC = 450;
@@ -231,7 +246,7 @@ function scoreDisplay(){
 
 
 function winGame () {
-  if (score==150)
+  if (score==200)
   {cx.fillStyle="pink";
     cx.font="40px Comic Sans MS";
   cx.fillText("You Won!!! On to the next level...", 700, 500);
@@ -239,30 +254,4 @@ function winGame () {
 }
 }
 
-
-
-function platform2() {
-
-for (var i=0; i<plat.length; i++){
-  if (x+playerw>plat[i].x && plat[i].x+plat[i].w>x && plat[i].y+plat[i].h>y && y+playerh>plat[i].y)
-  {
-    ySpeed = -ySpeed;
-    xSpeed =-xSpeed;
-    
-  }
-}
-}
-
-//function boost () {
-  //if (score)
-//}
-
 animate();
-
-
-
-
-
-
-
-
