@@ -2,7 +2,6 @@ var canvas=document.getElementById('canvas');
 var cx= canvas.getContext('2d');
 canvas.width=1500;
 canvas.height=900;
-
 var img_player= document.createElement('img');
 img_player.src='penguin.png';
 
@@ -39,8 +38,9 @@ var img_fish= document.createElement("img");
 img_fish.src="fish2.png";
 var img_babybear= document.createElement("img");
 img_babybear.src="polarbaby.png";
-
-
+var coin_sound=new Audio ('coinsound.wav');
+var level_up= new Audio ('levelup.wav');
+var win= new Audio ('win.wav')
 function animate() {
     req =requestAnimationFrame(animate);
     cx.clearRect(0,0,canvas.width, canvas.height);
@@ -148,7 +148,8 @@ function coins() {
   console.log(xC,yC);
   cx.drawImage(img_fish,xC, yC, wC, hC);
   if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
-  {score+=10;
+  {coin_sound.play();
+    score+=10;
     xC = (Math.random()*(canvas.width-100))+10;
     yC= (Math.random()*(canvas.height-200))+10;
   }}
@@ -215,6 +216,7 @@ function obstacle() {
     {life-=1;
     x=5;
     y=5;
+    level_up.play();
     if(life===0) {gameover()}
     }
     
@@ -248,8 +250,9 @@ function stop() {
   
 
 function winGame() {
-  if(score==300)
-  {cx.fillStyle="orange";
+  if(score==200)
+  {win.play();
+  cx.fillStyle="orange";
   cx.font ="100px Syncopate";
   cx.fillText("You WON!!!",500,200);
   stop();
