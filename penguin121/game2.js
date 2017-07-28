@@ -12,16 +12,16 @@ var playerW = 50;
 var playerH = 50;
 var xSpeed = 0;
 var ySpeed = 0;
-var gravity=5;
+var gravity=10;
 var life=5;
 var xM = Math.random()*canvas.width;
 var yM = Math.random()*canvas.height;
-var xMsp = -5;
-var yMsp = 5;
+var xMsp = -27;
+var yMsp = 27;
 var xM2 = Math.random()*canvas.width;
 var yM2 = Math.random()*canvas.height;
-var xMsp2 = -5;
-var yMsp2 = 5;
+var xMsp2 = -27;
+var yMsp2 = 27;
 
 var mW =50;
 var mH =50;
@@ -35,9 +35,9 @@ var cH = 50;
 var score = 0;
 
 
-var start;
-var fps=30;
-var delay=1000/fps;
+//var start;
+//var fps=30;
+//var delay=1000/fps;
 
 
 var img_monster = document.createElement("img");
@@ -46,8 +46,63 @@ img_monster.src = "Monster.png";
 var img_monster2 = document.createElement("img");
 img_monster2.src = "Monster2.png";
 
+var stop1 = false;
+var frameCount = 0;
+var $results = $("#results");
+var fps, fpsInterval, startTime, now, then, elapsed;
+
+startAnimating(22);
+
+function startAnimating(fps) {
+    fpsInterval = 1000 / fps;
+    then = Date.now();
+    startTime = then;
+    console.log(startTime);
+    animate();
+}
+
 
 function animate() {
+    if (stop1) {
+        return;
+    }
+    // request another frame
+    req=requestAnimationFrame(animate);
+    // calc elapsed time since last loop
+    now = Date.now();
+    elapsed = now - then;
+    // if enough time has elapsed, draw the next frame
+    if (elapsed > fpsInterval) {
+        // Get ready for next frame by setting then=now, but...
+        // Also, adjust for fpsInterval not being multiple of 16.67
+        then = now - (elapsed % fpsInterval);
+        // draw stuff here
+          cx.clearRect(0,0,canvas.width, canvas.height);
+  cx.drawImage(img_player,x,y, playerW, playerH);
+  x+=xSpeed;
+  y+=ySpeed+gravity;
+  if(x<0 || x>canvas.width) {xSpeed = -xSpeed}
+  if(y<0 || y>canvas.width) {ySpeed = -ySpeed}
+  platform();
+  obstacle();
+  lifeleft();
+  monster();
+  monster2();
+  coins();
+//  randomInt();
+  scoreDisplay();
+
+
+
+        // TESTING...Report #seconds since start and achieved fps.
+        var sinceStart = now - startTime;
+        var currentFps = Math.round(1000 / (sinceStart / ++frameCount) * 100) / 100;
+        $results.text("Elapsed time= " + Math.round(sinceStart / 1000 * 100) / 100 + " secs @ " + currentFps + " fps.");
+
+    }
+}
+
+/*function animate() {
   req=requestAnimationFrame(animate);
   cx.clearRect(0,0,canvas.width, canvas.height);
   cx.drawImage(img_player,x,y, playerW, playerH);
@@ -64,18 +119,19 @@ function animate() {
 //  randomInt();
   scoreDisplay();
 }
+*/
 //Movement
 function setDirection(dir) {
   if(dir =="jump" && gravity===0) {
     y -= 100;
   }
   if(dir =="right" && x<canvas.width) {
-    xSpeed = 5;
+    xSpeed = 15;
     ySpeed = 0;
     img_player.src = "apple.png";
   }
   if(dir =="left" && x>0) {
-    xSpeed = -5;
+    xSpeed = -15;
     ySpeed = 0;
     img_player.src = "appleL.png";
   }
@@ -131,7 +187,7 @@ plat.push({x:350,y:550,w:100,h:10});
 plat.push({x:230,y:500,w:100,h:10});
 
 function platform() {
-  gravity=5;
+  gravity= 10;
   cx.fillStyle="black";
   for (var i =0; i<plat.length; i++) {
     cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
@@ -218,12 +274,17 @@ function monster2() {
   }
 }
 
-var img_coin = document.createElement("img");
-img_coin.src ="coin1.png"
+var img_sprite = document.createElement("img");
+img_sprite.src ="apple_sprite.png"
 
+var cycle=0;
 
 function coins() {
-cx.drawImage(img_coin,xC, yC, cW, cH);
+//console.log(img_coin);
+cx.drawImage(img_sprite, cycle*317, 0, 317, 272,xC,yC, 50, 50);
+  cycle = (cycle+1)%6;
+//cx.drawImage(img_coin2,xC, yC, cW, cH);
+//cx.drawImage(img_coin3,xC, yC, cW, cH);
  if (x+playerW > xC && xC+cW >x && yC+cH>y && y+playerH>yC)
 { score +=10;
     var i = Math.floor(Math.random()*plat.length);
