@@ -14,7 +14,7 @@ var playerH = 70;
 var xspeed = 0;
 var yspeed = 0;
 var gravity = 5;
-var life = 20;
+var life = 8;
 
 function animate() {
   req=requestAnimationFrame(animate);
