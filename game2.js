@@ -17,12 +17,10 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 5;
+var xMsp = 10;
 var yMsp = 10;
 var mW = 100;
 var mH = 100;
-var audio = new Audio('coinsound.wav');
-var a = new Audio('a.wav');
 
 function animate() {
   req=requestAnimationFrame(animate);
@@ -36,12 +34,11 @@ function animate() {
  platform();
  obstacle();
  lifeleft();
- monster();
+ poacher();
  coin();
 scoreDisplay();
 winGame();
 platform2();
-
  }
 
 function setDirection(dir) {
@@ -49,16 +46,16 @@ function setDirection(dir) {
   xSpeed = 0;
   y-=200;
 }
-  /*if(dir =="down"){
+  if(dir =="down"){
   xSpeed = 0;
   ySpeed = 5;
-}*/
+}
   if(dir =="right"){
-  xSpeed = 5+boost;
+  xSpeed = 5;
   ySpeed = 0;
 }
   if(dir =="left" && x>0){
-  xSpeed = -5-boost;
+  xSpeed = -5;
   ySpeed = 0;
 }
 if(dir =="stop"){
@@ -108,8 +105,6 @@ plat.push({x:900, y:60, w:100, h:10});
 plat.push({x:970, y:400, w:100, h:10});
 plat.push({x:490, y:700, w:100, h:10});
 plat.push({x:0, y:650, w:100, h:10});
-plat.push({x:1300, y:650, w:100, h:10});
-plat.push({x:1250, y:300, w:100, h:10});
 
 
 function platform() {
@@ -140,7 +135,8 @@ var lava=[];
 var img_lava = document.createElement("img");
 img_lava.src = "https://images.pond5.com/lava-background-1080p-footage-000097699_prevstill.jpeg";
 
-lava.push({x:0, y:canvas.height-50, w:canvas.width, h:75})
+lava.push({x:0, y:canvas.height-50, w:canvas.width, h:75});
+lava.push({x:500, y:200, w:50, h:10});
 
 function obstacle() {
     for (var i=0; i<lava.length; i++) {
@@ -148,7 +144,7 @@ function obstacle() {
     if (y==lava[i].y-playerh &&
     x>=lava[i].x-playerw &&
     x<lava[i].x+lava[i].w)
-    {life-=1; score-=20;
+    {console.log("die");life-=1; score-=20;
     x=0;
     y=0;
     if(life===0){gameover()}
@@ -162,7 +158,6 @@ function lifeleft (){
   }
   
 function gameover (){
-  a.play();
   cx.fillStyle="red";
   cx.font="100px Comic Sans MS";
   cx.fillText("GameOver", 500, 350);
@@ -177,28 +172,37 @@ function gameover (){
 }
   
 var img_monster = document.createElement("img");
-img_monster.src = "http://tf2classic.com/wiki/images/thumb/2/2f/PoacherPride3rdperson.png/120px-PoacherPride3rdperson.png";
+img_monster.src = "http://udf.by/images/usa2016/trump2.png";
 
-function monster () {
-  cx.drawImage(img_monster, xM, yM, mW, mH);
-  xM+=xMsp;
-  yM+=yMsp;
-  
-  if (x+playerw>xM && xM+mW>x && yM+mH>y && y+playerh>yM)
-  {life -=1;
-   x=0; y=0;
-   if(life===0){gameover()}
-  }
-  if (xM<0 || xM>canvas.width-mW) {
-    xMsp = -xMsp;
+
+var monster = [];
+monster.push({x:500, y:100, w:100, h:100, xMsp:5, yMsp:10})
+monster.push({x:100, y:100, w:100, h:100, xMsp:15, yMsp:10})
+
+function poacher () {
+for (var z=0; z<monster.length; z++) {
+    cx.drawImage
+    (img_monster, monster[z].x, monster[z].y, monster[z].w, monster[z].h);
+    monster[z].x+=monster[z].xMsp;
+    monster[z].y+=monster[z].yMsp;
+    if (y==monster[z].y-playerh &&
+    x>=monster[z].x-playerw &&
+    x<monster[z].x+monster[z].w)
+    {life-=1;
+      x=0;
+      y=0;
+    }
+    
+  if (monster[z].x<0 || monster[z].x>canvas.width-monster[z].w) {
+    monster[z].xMsp = -monster[z].xMsp;
    // xMsp = Math.ceil(Math.random()*10);
-  } if(yM<0 || yM>canvas.height-mH) {
-    yMsp = -yMsp;
+  } if(monster[z].y<0 || monster[z].y>canvas.height-monster[z].h) {
+    monster[z].yMsp = -monster[z].yMsp;
   }
-  
+}
 }
 
-
+var xC = 80;
 var xC = 80;
 var yC = 450;
 var wC = 60;
@@ -206,27 +210,27 @@ var hC = 60;
 var score = 0;
 var ww =0;
 var img_coin = document.createElement("img");
-img_coin.src = "http://www.pngmart.com/files/3/Lakshmi-Gold-Coin-PNG-File.png";
+img_coin.src = "http://images.clipartpanda.com/bamboo-clipart-plants_bamboo-999px.png";
 
 function coin() {
-  console.log(xC,yC);
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerw>xC && xC+wC>x && yC+hC>y && y+playerh>yC)
   
-  {audio.play(); score+=10; ww++;bonus();
-   xC = Math.round(Math.random()*canvas.width);
-   yC = Math.round(Math.random()*(canvas.height-100));
-/*
-  for(var i = 0; i<lava.length; i++) {
-  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y-hC && yCC < lava[i].y-hC+lava[i].h)
-  {xCC= Math.round(Math.random()*canvas.width); yCC=Math.round(Math.random()*canvas.height)}
+  {score+=10; ww++;
+  var xCC = Math.random()*canvas.width;
+var yCC = Math.random()*canvas.height;
+
+
+for(var i = 0; i<lava.length; i++) {
+  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y && yCC < lava[i].y+lava[i].h) {xC=xCC+100; yC=yCC+100}
   else {
     xC = xCC;
     yC = yCC;
   }
 }
-*/
+
 }
+
 }
 
 function scoreDisplay(){
@@ -239,10 +243,10 @@ function scoreDisplay(){
 
 
 function winGame () {
-  if (score==150)
+  if (score==200)
   {cx.fillStyle="pink";
     cx.font="40px Comic Sans MS";
-  cx.fillText("You Won!!! On to the next level...", 700, 500);
+  cx.fillText("You Won!!!", 700, 500);
   window.location="game2.html";
 }
 }
@@ -261,26 +265,6 @@ for (var i=0; i<plat.length; i++){
 }
 }
 
-var boost = 0;
-
-function bonus () {
-  
-  console.log(xSpeed,ySpeed);
-  if (ww%2+1==0)
-  {boost+=20;
-   }
-}
-
-
-
 
 
 animate();
-
-
-
-
-
-
-
-
