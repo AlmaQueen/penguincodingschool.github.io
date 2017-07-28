@@ -18,7 +18,7 @@ var xM= 500;
 var yM=0;
 var mW=80;
 var mH=50;
-var mXsp=-11;
+var mXsp=-5;
 var mYsp=-10;
 var life=5;
 var xC=500;
@@ -47,7 +47,7 @@ function animate() {
   monster();
   coins();
   score_display();
-  winGame();
+if(score==100) {level_up();}
 }
 function setDirection(dir){
   if(dir=="jump" && y>0){
@@ -128,11 +128,12 @@ function platform() {
 
 
 function coins() {
+  console.log(xC,yC);
   cx.drawImage(img_fish,xC, yC, wC, hC);
   if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
   {score+=10;
-    xC = Math.random()*canvas.width-100;
-    yC= Math.random()*canvas.height-150;
+    xC = (Math.random()*(canvas.width-100))+10;
+    yC= (Math.random()*(canvas.height-200))+10;
   }}
 
 function score_display(){
@@ -161,14 +162,13 @@ function monster() {
   if (life===0) {gameover();}
 }
 
-//var lsp = 10;
 
 function obstacle() {
   cx.fillStyle="red";
   for (var i =0 ; i<lava.length;i++){
     cx. fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
     lava[0].y -=1; lava[0].h+=1;
-     if(lava[0].y<500){
+     if(lava[0].y<600){
       lava[0].y =canvas.height-80;
       lava[0].h = 160;
     }
@@ -208,14 +208,13 @@ function stop() {
   }
 }
 
+function level_up() {
+  
+  window.location = "level2game.html"
 
-function winGame() {
-  if(score==100)
-  {cx.fillStyle="orange";
-  cx.font ="100px Syncopate";
-  cx.fillText("You WON!!!",500,200);
+
   }
-}
+
 
 animate();
 
