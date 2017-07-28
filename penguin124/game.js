@@ -1,14 +1,14 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width =2000;
+canvas.width =1500;
 canvas.height=700;
 
 var img_player = document.createElement("img");
 img_player.src = "bunny.png";
 
 // var i = Math.ceil(Math.random()*plat.length);
-var x = 0;
-var y = 0;
+var x = 600;
+var y = 500;
 var playerW = 80;
 var playerH = 70;
 var xspeed = 0;
@@ -94,17 +94,10 @@ plat.push({x:400,y:400,w:100,h:10})
 plat.push({x:600,y:600,w:100,h:10})
 plat.push({x:200,y:400,w:100,h:10})
 plat.push({x:600,y:500,w:100,h:10})
-plat.push({x:500,y:500,w:100,h:10})
-plat.push({x:1600,y:600,w:100,h:10})
-plat.push({x:1800,y:400,w:100,h:10})
-plat.push({x:1400,y:600,w:100,h:10})
-plat.push({x:1100,y:400,w:100,h:10})
-plat.push({x:1500,y:500,w:100,h:10})
+plat.push({x:800,y:500,w:100,h:10})
+plat.push({x:1000,y:500,w:100,h:10})
 plat.push({x:1200,y:500,w:100,h:10})
-plat.push({x:1000,y:600,w:100,h:10})
-plat.push({x:570,y:500,w:100,h:10})
-plat.push({x:700,y:500,w:100,h:10})
-
+plat.push({x:1400,y:500,w:100,h:10})
 function platform() {
   gravity = 5;
   cx.fillStyle = "#29af24"
@@ -131,8 +124,8 @@ for (var i = 0; i<lava.length; i++) {
     x<lava[i].x+lava[i].w
     )
     {life-=1
-      x=0
-      y=0
+      x=600
+      y=500
       if(life===0) {gameover()}
     }
   }
@@ -185,8 +178,8 @@ function monster() {
   yM+=yMsp;
   if (x+playerW>xM&&xM+mW>x&&yM+mH>y&&y+playerH>yM)
   {life--;
-    x=0;
-    y=0;
+    x=600;
+    y=500;
   }
   if (xM<0 || xM>canvas.width-mW) {
     xMsp = -xMsp;
@@ -237,9 +230,8 @@ img_coin.src = "coin.png";
 function coin() {
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x &&yC+hC>y && y+playerH >yC)
-  
-{ score +=10;
-    var i = Math.ceil(Math.random()*plat.length);
+  { score +=10;
+    var i = Math.floor(Math.random()*plat.length);
     xC = plat[i].x+20;
     yC = plat[i].y-40;
 }
@@ -251,7 +243,7 @@ function scoreDisplay() {
   cx.fillStyle="black";
   cx.fillText("Score: "+score, 500,100);
   if (score===100) {
-    gamewin()
+    gamewin();
   }
   }
 

@@ -14,7 +14,7 @@ var playerH = 70;
 var xspeed = 0;
 var yspeed = 0;
 var gravity = 5;
-var life = 20;
+var life = 100;
 
 function animate() {
   req=requestAnimationFrame(animate);
@@ -189,7 +189,6 @@ function monster() {
   }
 }
 
-/*
 var xM2 = 800;
 var yM2 = 400;
 var xM2sp = 10;
@@ -199,16 +198,16 @@ var m2W = 100;
 var m2H = 100;
 
 var img_monster = document.createElement("img");
-img_monster.src = "monster.jpg";
+img_monster.src = "monster2.jpg";
 
 function monster2() {
-  cx.drawImage(img_monster,xM, yM, mW, mH);
-  xM+=xMsp;
-  yM+=yMsp;
+  cx.drawImage(img_monster,xM2, yM2, m2W, m2H);
+  xM2+=xM2sp;
+  yM2+=yM2sp;
   if (x+playerW>xM2&&xM2+m2W>x&&yM2+m2H>y&&y+playerH>yM2)
   {life--;
-    x=0;
-    y=0
+    x=600;
+    y=500
   }
   if (xM2<0 || xM2>canvas.width-m2W) {
     xM2sp = -xM2sp;
@@ -217,7 +216,7 @@ function monster2() {
     if(life===0) {gameover()}
   }
 }
-*/
+
 
 var xC = 80;
 var yC = 450;

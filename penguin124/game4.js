@@ -1,13 +1,13 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext("2d");
-canvas.width =2000;
+canvas.width =1500;
 canvas.height=700;
 
 var img_player = document.createElement("img");
 img_player.src = "bunny.png";
 
 // var i = Math.ceil(Math.random()*plat.length);
-var x = 400;
+var x = 600;
 var y = 500;
 var playerW = 80;
 var playerH = 70;
@@ -30,6 +30,7 @@ function animate() {
   monster();
   coin();
   scoreDisplay();
+  monster2();
 }
 
 function setDirection(dir) {
@@ -94,9 +95,10 @@ plat.push({x:400,y:400,w:100,h:10})
 plat.push({x:600,y:600,w:100,h:10})
 plat.push({x:200,y:400,w:100,h:10})
 plat.push({x:600,y:500,w:100,h:10})
-plat.push({x:500,y:500,w:100,h:10})
-plat.push({x:400,y:600,w:100,h:10})
-
+plat.push({x:800,y:500,w:100,h:10})
+plat.push({x:1000,y:500,w:100,h:10})
+plat.push({x:1200,y:500,w:100,h:10})
+plat.push({x:1400,y:500,w:100,h:10})
 function platform() {
   gravity = 5;
   cx.fillStyle = "#29af24"
@@ -123,7 +125,7 @@ for (var i = 0; i<lava.length; i++) {
     x<lava[i].x+lava[i].w
     )
     {life-=1
-      x=400
+      x=600
       y=500
       if(life===0) {gameover()}
     }
@@ -177,7 +179,7 @@ function monster() {
   yM+=yMsp;
   if (x+playerW>xM&&xM+mW>x&&yM+mH>y&&y+playerH>yM)
   {life--;
-    x=400;
+    x=600;
     y=500;
   }
   if (xM<0 || xM>canvas.width-mW) {
@@ -189,7 +191,7 @@ function monster() {
 }
 
 /*
-var xM2 = 800;
+var xM2 = 700;
 var yM2 = 400;
 var xM2sp = 10;
 var yM2sp = 6;
@@ -198,16 +200,16 @@ var m2W = 100;
 var m2H = 100;
 
 var img_monster = document.createElement("img");
-img_monster.src = "monster.jpg";
+img_monster.src = "monster2.jpg";
 
 function monster2() {
-  cx.drawImage(img_monster,xM, yM, mW, mH);
-  xM+=xMsp;
-  yM+=yMsp;
+  cx.drawImage(img_monster,xM2, yM2, m2W, m2H);
+  xM2+=xM2sp;
+  yM2+=yM2sp;
   if (x+playerW>xM2&&xM2+m2W>x&&yM2+m2H>y&&y+playerH>yM2)
   {life--;
-    x=0;
-    y=0
+    x=600;
+    y=500;
   }
   if (xM2<0 || xM2>canvas.width-m2W) {
     xM2sp = -xM2sp;
@@ -229,9 +231,8 @@ img_coin.src = "coin.png";
 function coin() {
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerW > xC && xC+wC >x &&yC+hC>y && y+playerH >yC)
-  
-{ score +=10;
-    var i = Math.ceil(Math.random()*plat.length);
+  { score +=10;
+    var i = Math.floor(Math.random()*plat.length);
     xC = plat[i].x+20;
     yC = plat[i].y-40;
 }
@@ -243,7 +244,7 @@ function scoreDisplay() {
   cx.fillStyle="black";
   cx.fillText("Score: "+score, 500,100);
   if (score===100) {
-    gamewin()
+    gamewin();
   }
   }
 
