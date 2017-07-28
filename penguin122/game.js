@@ -1,331 +1,221 @@
-var canvas = document.getElementById("canvas");
-var cx =  canvas.getContext("2d");
-canvas.width = 1000;
-canvas.height = 700;
+var canvas=document.getElementById('canvas');
+var cx= canvas.getContext('2d');
+canvas.width=1500;
+canvas.height=900;
 
-var img_player = document.createElement("img");
-img_player.src = "https://upload.wikimedia.org/wikipedia/az/9/99/MarioSMBW.png"
-//img_player.src = "https://upload.wikimedia.org/wikipedia/en/9/99/MarioSMBW.png"
-var img_player2 = document.createElement("img");
-img_player2.src = "Luigi1.png";
-//img_player2.src = "https://upload.wikimedia.org/wikipedia/en/f/f1/LuigiNSMBW.png"
-var x = 0;
-var x2=500;
-var y = 0;
-var y2=100;
-var playerW = 70
-var playerH = 100
-var xspeed = 0; //Mario
-var yspeed = 0;
-var xspeed2=0;//Luigi
-var yspeed2=0;
+var img_player= document.createElement('img');
+img_player.src='penguin.png';
+
+var x=5;
+var y=5;
+var playerw=60;
+var playerh=60;
+var xspeed=0;
+var yspeed=0;
 var gravity = 5;
-var gravity2 = 5;
-var life = 3
-var life2 = 3
-
-var coinsound = new Audio('smb_coin.wav');
-
+var dlava = 5;
+var xM= 500;
+var yM=0;
+var mW=80;
+var mH=50;
+var mXsp=-11;
+var mYsp=-10;
+var life=5;
+var xC=500;
+var yC=300;
+var wC=30;
+var hC=30;
+var score=0;
+var img_polarbear= document.createElement("img");
+img_polarbear.src ="polarbear.png";
+var img_fish= document.createElement("img");
+img_fish.src="fish.png";
 function animate() {
-req = requestAnimationFrame(animate);
-  cx.clearRect(0,0,canvas.width,canvas.height);
-  cx.drawImage(img_player,x,y, playerW,playerH);
-  cx.drawImage(img_player2,x2,y2, playerW,playerH);
-  x+=xspeed;
-  y+=yspeed+gravity;
-  x2+=xspeed2;
-  y2+=yspeed2+gravity2;
-//  platformG();
+    req =requestAnimationFrame(animate);
+    cx.clearRect(0,0,canvas.width, canvas.height);
+    cx.drawImage(img_player,x,y,playerw,playerh);
+    x+=xspeed;
+    y+=yspeed + gravity;
+  if(x<0 || x>canvas.width-50) {xspeed=-xspeed}
+  if (y>canvas.height-playerh) {life-=1;
+  x=0;
+  y=0;
+  if(life===0) {gameover()}}
   platform();
-  platform2();
   obstacle();
-//  obstacle2();
   lifeleft();
-//  lifeleft2()
   monster();
-  //in();
-  
-  coin2();
-  coin();
-  scoreDisplay();
-  
-  if (x<=0) {
-    xspeed = -xspeed;
+  coins();
+  score_display();
+  winGame();
+}
+function setDirection(dir){
+  if(dir=="jump" && y>0){
+      y-=250;
   }
-  if (y<=0){
-    yspeed = -yspeed;
-  }
-  if (x>canvas.width){
-    xspeed = -xspeed
-  }
-  if(y>canvas.height){
-    yspeed = -yspeed
-  }
-  
-  //Luigi
-  if (x2<=0) {
-    xspeed2 = -xspeed2;
-  }
-  if (y2<=0){
-    yspeed2 = -yspeed2;
-  }
-  if (x2>canvas.width){
-    xspeed2 = -xspeed2
-  }
-  if(y2>canvas.height){
-    yspeed2 = -yspeed2
+if(dir=="down" && y<520){
+      xspeed=0;
+      yspeed=5;
+}
+if(dir=="left" && x>0){
+      xspeed=-5;
+      yspeed=0;
+}
+if(dir=="stop"){
+  xspeed=0;
+  yspeed=0;
+}
+if(dir=="right" && x<1500){
+      xspeed=5;
+      yspeed=0;
 }
 }
 
+var keyActions ={
+    32:"jump",
+    39:"right",
+    37:"left",
+    40:"down",
+    38:"jump"
+    };
 
-function setDirection(dir) {
-  if (dir == "down"){
-    xspeed = 0;
-    yspeed = 5;
-    img_player.src = "Mario1.png"
-  }
-  if (dir == "down2"){
-    xspeed2 = 0;
-    yspeed2 = 5;
-    img_player2.src = "Luigi1.png"
-  }
-  if (dir == "right"){
-    xspeed = 5;
-    yspeed = 0;
-    img_player.src = "Mario2.png"
-  }
-   if (dir == "right2"){
-    xspeed2 = 5;
-    yspeed2 = 0;
-    img_player2.src = "Luigi3.png"
-  }
-  if (dir == "left"){
-    xspeed = -5;
-    yspeed = 0;
-    img_player.src = "Mario3.png"
-  }
-  if (dir == "left2"){
-    xspeed2 = -5;
-    yspeed2 = 0;
-    img_player2.src = "Luigi2.png"
-  }
-  if (dir == "stop"){
-    xspeed = 0;
-    yspeed = 0;
-  }
-  if (dir == "jump" && y>0){
-    y-=55;
-  }
-  if (dir == "stop2"){
-    xspeed2 = 0;
-    yspeed2 = 0;
-  }
-  if (dir == "jump2" && y>0){
-    y2-=55;
-  }
-}
+document.addEventListener('keydown', function(event){
 
-var keyActions = {
-  38: "jump",
-  37: "left",
-  39: "right",
-  40: "down",
-  87: "jump2",
-  65: "left2",
-  68: "right2",
-  83: "down2",
-};
-document.addEventListener('keydown', function(event) {
   var dir = keyActions[event.keyCode];
-  setDirection(dir)
-})
-document.addEventListener('keyup', function(event) {
+  setDirection(dir);
+});
+document.addEventListener('keyup', function(event){
+
   var dir = keyActions[event.keyCode];
   setDirection("stop");
-  setDirection("stop2");
-})
+});
 
-var plat = [];
-plat.push({x:0, y:150, w:100, h:10, color:"red"});
-plat.push({x:0, y:600, w:100, h:10, color:"orange"});
-plat.push({x:150, y:540, w:100, h:10, color:"yellow"});
-plat.push({x:400, y:300, w:100, h:10, color:"green"});
-plat.push({x:150, y:400, w:100, h:10, color:"purple"});
-plat.push({x:600, y:200, w:100, h:10, color:"purple"});
-plat.push({x:900, y:600, w:100, h:10, color:"yellow"});
-plat.push({x:750, y:600, w:100, h:10, color:"green"});
+function platform(){
+  cx.fillStyle="blue";
+  cx.fillRect(20,500,100,10);
+  if(y==500-playerh && x<100 && x> 20- playerw)
+    {gravity=0}
+   else {gravity= 5}
+}
 
-
-
-var plat2 = [];
-plat2.push({x:0, y:490, w:100, h:10, color:"blue"});
-plat2.push({x:350, y:530, w:100, h:10, color:"blue"});
+var plat=[];
+plat.push({x:0,y:500,w:200,h:10});
+plat.push({x:75,y:200,w:150,h:10});
+plat.push({x:450,y:570,w:50,h:10});
+plat.push({x:200,y:400,w:130,h:10});
+plat.push({x:504,y:50,w:100,h:10});
+plat.push({x:800,y:200,w:100,h:10});
+plat.push({x:650,y:500,w:100,h:10});
+plat.push({x:500,y:400,w:100,h:10});
+plat.push({x:200,y:600,w:100,h:10});
+plat.push({x:100,y:795,w:800,h:20});
+plat.push({x:1300,y:700,w:200,h:10});
+plat.push({x:1200,y:400,w:150,h:10});
+plat.push({x:650,y:300,w:300,h:10});
+plat.push({x:650,y:300,w:200,h:10});
 
 function platform() {
-  gravity=5; gravity2=5;
-for (var i = 0; i<plat.length; i++)
-  { cx.fillStyle=plat[i].color;
-    cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h)
-    if(y== plat[i].y-playerH &&
-      x>=plat[i].x-playerW &&
-      x<=plat[i].x+plat[i].w)
+  gravity=5;
+  cx.fillStyle="white";
+  for ( var i =0 ; i<plat.length;i++){
+    cx. fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h);
+    if (y==plat[i].y-playerh&&
+    x>plat[i].x-playerw &&
+    x<plat[i].x+plat[i].w)
     {gravity=0}
-    if(y2== plat[i].y-playerH &&
-      x2>=plat[i].x-playerW &&
-      x2<=plat[i].x+plat[i].w)
-    {gravity2=0}
-
-    if(y== plat[5].y-playerH &&
-      x>=plat[5].x-playerW &&
-      x<=plat[5].x+plat[5].w)
-    {x = plat[6].x; y = plat[6].y-playerH}
-    if(y2== plat[5].y-playerH &&
-      x2>=plat[5].x-playerW &&
-      x2<=plat[5].x+plat[5].w)
-    {x2 = plat[6].x; y2 = plat[6].y}
-    
-/*    if(y== plat[7].y-playerH &&
-      x>=plat[3].x-playerW &&
-      x<=plat[3].x+plat[3].w)
-    {x = plat[7].x; y = plat[7].y-playerH}
-    if(y2== plat[3].y-playerH &&
-      x2>=plat[3].x-playerW &&
-      x2<=plat[3].x+plat[3].w)
-    {x2 = plat[7].x; y2 = plat[7].y}
-*/
-   
   }
-
 }
 
-function platform2() {
-for (var i = 0; i<plat2.length; i++)
-  { cx.fillStyle=plat2[i].color;
-    cx.fillRect(plat2[i].x, plat2[i].y, plat2[i].w, plat2[i].h)
-    if(y== plat2[i].y-playerH &&
-      x>=plat2[i].x-playerW &&
-      x<=plat2[i].x+plat2[i].w)
-    {gravity=-80;}
-    if(y2== plat2[i].y-playerH &&
-      x2>=plat2[i].x-playerW &&
-      x2<=plat2[i].x+plat2[i].w)
-    {gravity2=-80;}
-    
-   else{}
-  }
 
+function coins() {
+  cx.drawImage(img_fish,xC, yC, wC, hC);
+  if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
+  {score+=10;
+    xC = Math.random()*canvas.width-100;
+    yC= Math.random()*canvas.height-150;
+  }}
+
+function score_display(){
+  cx.fillStyle="orange";
+  cx.font="40px Comic Sans MS"
+  cx.fillText("Score: "+score,800, 100)
 }
 
-var lava = [];
-lava.push({x:0, y:650, w:5000, h:900});
+function monster() {
+  cx.drawImage(img_polarbear,xM, yM, mW, mH);
+  xM+= mXsp;
+  yM+= mYsp;
+  if(x+playerw> xM && xM+mW>x && yM+mH > y&& y+playerh> yM)
+  {life-=1;
+    x=5;
+    y=5;
+  }
+  else if ( xM < 0 || xM> canvas.width ) {
+    mXsp= -mXsp;
+  }
+  else if ( yM<0 || yM> canvas.height)
+  {mYsp= -mYsp;
+    
+  }
+
+  if (life===0) {gameover();}
+}
+
+//var lsp = 10;
 
 function obstacle() {
   cx.fillStyle="red";
-  for (var i = 0; i<lava.length; i++)
-  {cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
-  if(y== lava[i].y-playerH &&
-  x>=lava[i].x-playerW &&
-  x<=lava[i].x+lava[i].w)
-  {life-=1;
-  x=0;
-  y=0;
-   if(life===0) {gameover()}
-  }
-  else{}
-  }
-}
-
-var xM = 800;
-var yM = 180;
-var xMsp = -5;
-var yMsp = -5
-
-var mW = 100;
-var mH = 100;
-
-var img_monster = document.createElement("img");
-img_monster.src = "bowser1.png";
-var img_monster2 = document.createElement("img");
-img_monster2.src = "bowser2.png";
-
-function monster() {
-  cx.drawImage(img_monster, xM, yM, mW, mH);
-  xM+=xMsp;
-  yM+=yMsp;
-  if (x+playerW > xM && xM+mW >x && yM+mH>y && y +playerH>yM)
-  {gameover()}
-  if (xM<0 || xM>canvas.width-mW)
-  {xMsp = -xMsp;}
-    if (yM<0 || yM>canvas.width-mW) {
-    yMsp = -yMsp;
+  for (var i =0 ; i<lava.length;i++){
+    cx. fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+    lava[0].y -=1; lava[0].h+=1;
+     if(lava[0].y<500){
+      lava[0].y =canvas.height-80;
+      lava[0].h = 160;
+    }
+    if (y==lava[i].y-playerh&&
+    x>lava[i].x-playerw &&
+    x<lava[i].x+lava[i].w)
+    {life-=1;
+    x=5;
+    y=5;
+    if(life===0) {gameover()}
+    }
+    
   }
 }
 
-function bonuspoints() {
-  score+=10000000;
+var lava=[];
+lava.push({x:0,y:canvas.height-80,w:1600,h:160});
+
+
+function lifeleft(){
+  cx.fillStyle= "green";
+  cx.font= "30px Impact";
+  cx.fillText("Lives: "+life,100,50);
 }
 
-function lifeleft() {
-  cx.lifeStyle = "green"
-  cx.font = "30px Comic Sans MS";
-  cx.fillText("Lives "+life, 875 , 40);
-}
 function gameover() {
-  cx.fillStyle = "red";
-  cx.font = "30px Comic Sans MS";
-  cx.fillText("Game Over", 25, 50);
+  cx.fillStyle="orange";
+  cx.font ="100px Syncopate";
+  cx.fillText("Game Over",500,200);
   stop();
-}
-
-var xC = 200;
-var yC = 50;
-var wC = 30;
-var hC = 30;
-var xC2 = 400;
-var yC2 = 500;
-var wC2 = 40;
-var hC2 = 40;
-var score = 0;
-
-var img_coin = document.createElement("img");
-img_coin.src = "coin.png";
-var img_coin2 = document.createElement("img");
-img_coin2.src = "coin2.png";
-
-function coin() {
-  cx.drawImage(img_coin,xC, yC, wC, hC);
-  if (x+playerW > xC && xC+wC >x && yC+hC>y && y +playerH>yC)
- {score +=10;
- coinsound.play();
-    var i = Math.ceil(Math.random()*plat.length);
-  setTimeout(xC = plat[i].x+20,1000)
-  yC=plat[i].y-40;
-  
- }
-}
-
-function coin2() {
-  cx.drawImage(img_coin2,xC2, yC2, wC2, hC2);
-  if (x+playerW > xC2 && xC2+wC2 >x && yC2+hC2>y && y +playerH>yC2)
-  {score +=50;
-  coinsound.play();
-  var i = Math.ceil(Math.random()*plat.length);
-  setTimeout(xC2 = plat[i].x+20,3000)
-  yC2=plat[i].y-40;
-  }
-}
-
-function scoreDisplay(){
-  cx.fillStyle="green";
-  cx.font = "30px 'Comic Sans MS'";
-  cx.fillText("Score "+score, 500, 100);
 }
 
 function stop() {
   if(req) {
     cancelAnimationFrame(req);
-    req = undefined;
+    req =undefined;
+  }
+}
+
+
+function winGame() {
+  if(score==100)
+  {cx.fillStyle="orange";
+  cx.font ="100px Syncopate";
+  cx.fillText("You WON!!!",500,200);
   }
 }
 
 animate();
+
