@@ -222,6 +222,8 @@ function winGame() {
   {cx.fillStyle="orange";
   cx.font ="100px Syncopate";
   cx.fillText("You WON!!!",500,200);
+  stop();
+    
   }
 }
 
