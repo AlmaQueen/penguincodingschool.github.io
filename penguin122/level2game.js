@@ -25,12 +25,22 @@ var xC=500;
 var yC=300;
 var wC=40;
 var hC=30;
+var xbM= 500;
+var ybM=0;
+var mbW=80;
+var mbH=50;
+var mbXsp=-10;
+var mbYsp=1;
 var score=100;
 var img_polarbear= document.createElement("img");
 var h=0;
 img_polarbear.src ="polarbear.png";
 var img_fish= document.createElement("img");
 img_fish.src="fish2.png";
+var img_babybear= document.createElement("img");
+img_babybear.src="polarbaby.png";
+
+
 function animate() {
     req =requestAnimationFrame(animate);
     cx.clearRect(0,0,canvas.width, canvas.height);
@@ -49,7 +59,7 @@ function animate() {
   coins();
   score_display();
   winGame();
-
+  babymonster();
 }
 
 
@@ -57,7 +67,7 @@ function animate() {
 
   
 function setDirection(dir){
-  if(dir=="jump" && y>0){
+if(dir=="jump" && y>0){
       y-=250;
   }
 if(dir=="down" && y<520){
@@ -149,6 +159,26 @@ function score_display(){
   cx.fillText("Score: "+score,800, 100)
 }
 
+function babymonster() {
+  cx.drawImage(img_babybear,xbM, ybM, mbW, mbH);
+  xbM+= mbXsp;
+  ybM+= mbYsp;
+  if(x+playerw> xbM && xbM+mbW>x && ybM+mbH > y&& y+playerh> ybM)
+  {life-=1;
+    x=5;
+    y=5;
+  }
+  else if ( xbM < 0 || xbM> canvas.width ) {
+    mbXsp= -mbXsp;
+  }
+  else if ( ybM<0 || ybM> canvas.height)
+  {mbYsp= -mbYsp;
+    
+  }
+
+  if (life===0) {gameover();}
+}
+
 function monster() {
   cx.drawImage(img_polarbear,xM, yM, mW, mH);
   xM+= mXsp;
@@ -218,7 +248,7 @@ function stop() {
   
 
 function winGame() {
-  if(score==200)
+  if(score==300)
   {cx.fillStyle="orange";
   cx.font ="100px Syncopate";
   cx.fillText("You WON!!!",500,200);

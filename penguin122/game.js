@@ -133,7 +133,7 @@ function coins() {
   if(x+playerw> xC && xC+wC>x && yC+hC > y&& y+playerh> yC)
   {score+=10;
     xC = (Math.random()*(canvas.width-100))+10;
-    yC= (Math.random()*(canvas.height-200))+10;
+    yC= (Math.random()*(canvas.height-150))+10;
   }}
 
 function score_display(){
