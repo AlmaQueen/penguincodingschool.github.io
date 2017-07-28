@@ -1,7 +1,52 @@
 <head><style>
   body {
-    background: url("animal-collage.jpg");
-  }
+    background: url("background1.jpg");}
+    .slider-holder {
+      width:800;
+      height:400;
+      margin:auto;
+      text-align:center;
+      overflow:hidden;
+    }
+    .image-holder {
+      width:8800;
+      height:400;
+      position:relative;
+      animation:slide 55s infinite;
+    }
+   .image-holder img{
+     float:left;
+     width:800;
+     height:400;
+     }
+     @keyframes slide {
+       0% {right:0px;}
+       8% {right:0px;}
+       10% {right:800px;}
+       18% {right:800px;}
+       20% {right:1600px;}
+       28% {right:1600px;}
+       20% {right:2400px;}
+       28% {right:2400px;}
+       30% {right:3200px;}
+       38% {right:3200px;}
+       40% {right:4000px;}
+       48% {right:4000px;}
+       50% {right:4800px;}
+       58% {right:4800px;}
+       60% {right:5600px;}
+       68% {right:5600px;}
+       70% {right:6400px;}
+       78% {right:6400px;}
+       80% {right:7200px;}
+       88% {right:7200px;}
+       90% {right:8000px;}
+       98% {right:8000px;}
+       
+       
+       
+     }
+  
   h1 {
     color:white;
     font-size:80;
@@ -16,18 +61,26 @@
 </style></head>
 
 <body>
-<h1><ins>Save the Animals</h1></ins>
+<h1><ins>Save the Animals</ins></h1>
 <h3>Save the animals, they need you.</h3>
 <h3>A game by the author...<a href=game.html>Emoji Adventures</a></h3>
 
 
 <h3><a href=https://www.internationalanimalrescue.org/get-involved?currency=USD>Wildlife Needs You!!!</a></h3>
-
-
-
-
-
-
-
-Copyright 2017
+       
+       <div class="slider-holder">
+       <div class="image-holder">
+       <img src="animal-collage.jpg">
+       <img src="whitetiger.jpg">
+       <img src="Gorilla.jpg">
+       <img src="turtle.jpg">
+       <img src="polarbear.jpg">
+       <img src="panda.jpg">
+       <img src="leopard.jpg">
+       <img src="lemur.jpg">
+       <img src="eagle.jpg">
+       <img src="penguins.jpg">
+       <img src="monkey.jpg">
+</div></div>
+<h3><mark>Copyright 2017</mark></h3>
 </body>
