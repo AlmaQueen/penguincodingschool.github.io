@@ -17,10 +17,12 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 0;
-var yMsp = 0;
+var xMsp = 5;
+var yMsp = 10;
 var mW = 100;
 var mH = 100;
+var audio = new Audio('coinsound.wav');
+var a = new Audio('a.wav');
 
 function animate() {
   req=requestAnimationFrame(animate);
@@ -39,6 +41,7 @@ function animate() {
 scoreDisplay();
 winGame();
 platform2();
+
  }
 
 function setDirection(dir) {
@@ -145,7 +148,7 @@ function obstacle() {
     if (y==lava[i].y-playerh &&
     x>=lava[i].x-playerw &&
     x<lava[i].x+lava[i].w)
-    {console.log("die");life-=1; score-=20;
+    {life-=1; score-=20;
     x=0;
     y=0;
     if(life===0){gameover()}
@@ -159,6 +162,7 @@ function lifeleft (){
   }
   
 function gameover (){
+  a.play();
   cx.fillStyle="red";
   cx.font="100px Comic Sans MS";
   cx.fillText("GameOver", 500, 350);
@@ -209,19 +213,19 @@ function coin() {
   cx.drawImage(img_coin, xC, yC, wC, hC);
   if (x+playerw>xC && xC+wC>x && yC+hC>y && y+playerh>yC)
   
-  {score+=10; ww++;
-  var xCC = Math.random()*canvas.width;
-  var yCC = Math.random()*canvas.height;
-
+  {audio.play(); score+=10; ww++;bonus();
+   xC = Math.round(Math.random()*canvas.width);
+   yC = Math.round(Math.random()*(canvas.height-100));
+/*
   for(var i = 0; i<lava.length; i++) {
-  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y && yCC < lava[i].y+lava[i].h)
-  {xC= Math.random()*canvas.width; yC=Math.random()*canvas.height;
-  }
+  if(xCC < lava[i].x+lava[i].w && xCC >= lava[i].x && yCC > lava[i].y-hC && yCC < lava[i].y-hC+lava[i].h)
+  {xCC= Math.round(Math.random()*canvas.width); yCC=Math.round(Math.random()*canvas.height)}
   else {
     xC = xCC;
     yC = yCC;
   }
 }
+*/
 }
 }
 
@@ -259,13 +263,15 @@ for (var i=0; i<plat.length; i++){
 
 var boost = 0;
 
-/* function bonus () {
-  if (ww%10=0)
-  {boost+=1
+function bonus () {
+  
+  console.log(xSpeed,ySpeed);
+  if (ww%2+1==0)
+  {boost+=20;
    }
 }
 
-*/
+
 
 
 

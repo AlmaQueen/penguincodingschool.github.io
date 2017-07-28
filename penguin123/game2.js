@@ -17,7 +17,7 @@ var gravity=5;
 var life=10;
 var xM = 800;
 var yM = 180
-var xMsp = 5;
+var xMsp = 10;
 var yMsp = 10;
 var mW = 100;
 var mH = 100;
@@ -135,7 +135,8 @@ var lava=[];
 var img_lava = document.createElement("img");
 img_lava.src = "https://images.pond5.com/lava-background-1080p-footage-000097699_prevstill.jpeg";
 
-lava.push({x:0, y:canvas.height-50, w:canvas.width, h:75})
+lava.push({x:0, y:canvas.height-50, w:canvas.width, h:75});
+lava.push({x:500, y:200, w:50, h:10});
 
 function obstacle() {
     for (var i=0; i<lava.length; i++) {
@@ -175,8 +176,8 @@ img_monster.src = "http://udf.by/images/usa2016/trump2.png";
 
 
 var monster = [];
-monster.push({x:500, y:100, w:40, h:50, xMsp:5, yMsp:10})
-monster.push({x:100, y:100, w:100, h:100, xMsp:10, yMsp:10})
+monster.push({x:500, y:100, w:100, h:100, xMsp:5, yMsp:10})
+monster.push({x:100, y:100, w:100, h:100, xMsp:15, yMsp:10})
 
 function poacher () {
 for (var z=0; z<monster.length; z++) {
@@ -245,7 +246,7 @@ function winGame () {
   if (score==200)
   {cx.fillStyle="pink";
     cx.font="40px Comic Sans MS";
-  cx.fillText("You Won!!! On to the next level...", 700, 500);
+  cx.fillText("You Won!!!", 700, 500);
   window.location="game2.html";
 }
 }
@@ -263,14 +264,6 @@ for (var i=0; i<plat.length; i++){
   }
 }
 }
-
-/* function boost () {
-  if (ww%10=0)
-  {
-   }
-}
-
-*/
 
 
 
