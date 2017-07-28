@@ -35,6 +35,11 @@ var cH = 50;
 var score = 0;
 
 
+var start;
+var fps=30;
+var delay=1000/fps;
+
+
 var img_monster = document.createElement("img");
 img_monster.src = "Monster.png";
 
@@ -182,9 +187,9 @@ function bonuspoints() {
 }
 
 //Music
-//var music = new Audio('smb_main-theme.mp3');
-//music.play();
-//music.loop = true;
+var music = new Audio('Super - smb_theme_song.mp3');
+music.play();
+music.loop = true;
 
 
 function monster() {
@@ -214,13 +219,13 @@ function monster2() {
 }
 
 var img_sprite = document.createElement("img");
-img_sprite.src ="applesprite6.png"
+img_sprite.src ="apple_sprite.png"
 
 var cycle=0;
 
 function coins() {
 //console.log(img_coin);
-cx.drawImage(img_sprite, cycle*96, 0, 16, 16,xC,yC, 50, 50);
+cx.drawImage(img_sprite, cycle*317, 0, 317, 272,xC,yC, 50, 50);
   cycle = (cycle+1)%6;
 //cx.drawImage(img_coin2,xC, yC, cW, cH);
 //cx.drawImage(img_coin3,xC, yC, cW, cH);
@@ -242,5 +247,34 @@ function scoreDisplay() {
   cx.font = "30px Comix Sans MS";
   cx.fillText("Score: "+score, 500,22);
 }
+
+//function youWin() {
+  //cx.fillStyle = "black";
+  //cx.font = "100px Comix Sans MS";
+  //cx.fillText("You Win!",300,400);
+  //stop();
+
+
+
+/*function animate() {
+  req=requestAnimationFrame(animate);
+  cx.clearRect(0,0,canvas.width, canvas.height);
+  cx.drawImage(img_player,x,y, playerW, playerH);
+  x+=xSpeed;
+  y+=ySpeed+gravity;
+  if(x<0 || x>canvas.width) {xSpeed = -xSpeed}
+  if(y<0 || y>canvas.width) {ySpeed = -ySpeed}
+  if(start===null){start=time;}
+  var elapsed=time-start;
+  if(elapsed<delay){return;}
+  platform();
+  obstacle();
+  lifeleft();
+  monster();
+  monster2();
+  coins();
+  
+  start=time
 }
+*/
 animate();
