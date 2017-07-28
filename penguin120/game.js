@@ -107,12 +107,12 @@ function getDistance() {
 }
 var zebra=[];
 zebra.push({x:250,y:250,r:170});
-zebra.push({x:750,y:250,r:170});
+//zebra.push({x:750,y:250,r:170});
 zebra.push({x:1250,y:250,r:170});
-zebra.push({x:1750,y:250,r:170});
-zebra.push({x:250,y:750,r:170});
+//zebra.push({x:1750,y:250,r:170});
+//zebra.push({x:250,y:750,r:170});
 zebra.push({x:750,y:750,r:170});
-zebra.push({x:1250,y:750,r:170});
+//zebra.push({x:1250,y:750,r:170});
 zebra.push({x:1750,y:750,r:170});
 
 
@@ -164,13 +164,24 @@ function coin() {
       cx.font="80px Comic Sans MS";
       cx.fillText("YOU WIN!!!",500,500);
       }
-function platform() {
-  cx.drawImage(tube_block,-70,700,200,300);
-  if(y==700-playerH && x<100) {
-    gravity=0;
-  } else {gravity=5}
-}
+      
+var plat = [];
+plat.push({x:-70, y:700, w:200, h:300})
+plat.push({x:410, y:700, w:200, h:300})
+plat.push({x:890, y:700, w:200, h:300})
+plat.push({x:1370, y:700, w:200, h:300})
 
+
+function platform() {
+  gravity=5;
+  for (var i = 0; i<plat.length;i++) {
+  cx.drawImage(tube_block, plat[i].x, plat[i].y, plat[i].w, plat[i].h);
+  if(y==plat[i].y-playerH && x<plat[i].x) {
+    gravity=0;
+  }
+  }
+}
+/*
 var plat=[]
 plat.push({x:0, y:200, w:100, h:10})
 plat.push({x:100, y:500, w:100, h:10})
@@ -179,13 +190,14 @@ plat.push({x:1000, y:10, w:100, h:10})
 plat.push({x:0, y:1000, w:100, h:10})
 plat.push({x:100, y:10, w:100, h:10})
 plat.push({x:450, y:10, w:100, h:10})
-
+*/
 
 var lava=[]
 lava.push({x:250, y:250, w:10, h:10})
 lava.push({x:80, y:250, w:10, h:10})
-
+var endsound = new Audio('gameOver.wav');
 function gameOver () {
+endsound.play();
       cx.fillStyle = "Red";
       cx.font = "80px Comic Sans MS";
       cx.fillText("Game Over",300,300);
