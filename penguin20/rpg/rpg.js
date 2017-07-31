@@ -20,6 +20,8 @@ window.onload=function() {
                {price : 10000000, description:"Destroyer of Monstrosity",num:0, id: 8}];
   var map = new Map(game.spriteWidth, game.spriteHeight);
   var foregroundMap = new Map(game.spriteWidth, game.spriteHeight);
+  var map1 = new Map(game.spriteWidth, game.spriteHeight);
+  var foregroundMap1 = new Map(game.spriteWidth, game.spriteHeight);
   var ssword;
 
 function setMaps() {
@@ -32,7 +34,7 @@ function setMaps() {
   for (var i=0; i<foregroundData.length; i++) {
     collisionData.push([]);
     for(var j=0; j<foregroundData[0].length;j++) {
-      if (foregroundData[i][j] == 2 || foregroundData[i][j] == 4 ||foregroundData[i][j] == 15 ||foregroundData[i][j] == 3 ||foregroundData[i][j] == 14 ) {
+      if (foregroundData[i][j] == 2 || foregroundData[i][j] == 4 ||foregroundData[i][j] == 3 ||foregroundData[i][j] == 14 ||foregroundData[i][j] == 21 ||foregroundData[i][j] == 22) {
         var collision = 1;
       collisionData[i][j] = collision;
     }
@@ -49,6 +51,41 @@ function setStage() {
   stage.addChild(player.statusLabel);
   game.rootScene.addChild(stage);
 }
+
+function setMaps1() {
+  map.image=game.assets['sprites.png'];
+  map.loadData(mapData1);
+  foregroundMap.image = game.assets['sprites.png'];
+  foregroundMap.loadData(foregroundData1);
+  var collisionData = [];
+
+  for (var i=0; i<foregroundData1.length; i++) {
+    collisionData.push([]);
+    for(var j=0; j<foregroundData1[0].length;j++) {
+      if (foregroundData1[i][j] == 28 || foregroundData1[i][j] == 29 ||foregroundData1[i][j] == 3 ||foregroundData1[i][j] == 14 ||foregroundData1[i][j] == 21 ||foregroundData1[i][j] == 24 ) {
+        var collision = 1;
+      collisionData[i][j] = collision;
+    }
+  }
+  map.collisionData = collisionData;
+}
+}
+
+function setStage1() {
+  var stage = new Group();
+  stage.addChild(map1);
+  stage.addChild(player);
+  stage.addChild(foregroundMap1);
+  stage.addChild(player.statusLabel);
+  game.rootScene.addChild(stage);
+}
+
+var trapdoor = {
+  action: function() {
+    setMaps1();
+    setStage1();
+  }
+};
 
 var player = new Sprite(game.spriteWidth, game.spriteHeight);
 
@@ -545,7 +582,7 @@ var dude = {
 };
 
 
-var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude];
+var spriteRoles = [,,greeter,,cat,,,,,,,,,,,dude,,,,,,,trapdoor];
 
 
 //NEW - player.square, facingSquare, facing
