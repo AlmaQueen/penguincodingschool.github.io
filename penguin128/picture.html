@@ -1,0 +1,104 @@
+<head><style>
+  #menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:none;
+  }
+  #menu li {
+    float:left;
+  }
+  #menu li a {
+    display:block;
+    color:black;
+    text-align:center;
+    padding:14;
+    text-decoration:none;
+  }
+  #menu li a:hover{
+    background-color:c6fffc;
+  }
+ .slider-holder {
+   width:800;
+   height:400;
+   margin:auto;
+   text-align: center;
+   overflow:hidden;
+ }
+  
+  .image-holder {
+    width:2400;
+    height:400;
+    position: relative;
+    animation: slide 15s infinite;
+  }
+ 
+  .image-holder img{
+    float:left;
+    width:800;
+    height:400;
+  }
+
+  @keyframes slide {
+    0% { right :0px}
+    30% { right :0px}
+    33% { right :800px}
+    63% { right :800px}
+    66% { right :1600px}
+    94% { right :1600px}
+    97% { right :0px}
+    
+  }
+.slider-holder:hover .image-holder { animation-play-state:paused;}
+
+
+
+#span1 {
+  position:absolute;
+  top:0px;
+  left:0px;
+  color:black;
+  font-size:50px;
+}
+#span2 {
+  position:absolute;
+  top:20px;
+  left:800px;
+  color:gold;
+  font-size:30px;
+}
+#span3 {
+position:absolute;
+  top:40px;
+  left:1600px;
+  color:white;
+  font-size:50px;
+}
+
+body{
+  background: url("https://st.depositphotos.com/1521428/1946/v/950/depositphotos_19468355-stock-illustration-wood-texture-background.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+
+
+
+</style></head>
+<body>
+<ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Link to video page</a></li>
+<li><a href="picture.html">Picture page</a></li>
+</ul>
+
+<div class="slider-holder">
+<div class="image-holder">
+  <img src="http://www.downundr.com/img/facts/kangaroo/headline/kangaroo.jpg">
+  <img src="https://www.interestingfacts.org/wp-content/uploads/2010/09/kangaroo.jpg">
+  <img src="https://i.ytimg.com/vi/WCcLMNcWZOc/maxresdefault.jpg">
+  <span id="span1">when you give your toddler your phone</span>
+  <span id="span2">When you're forced to take a picture</span>
+  <span id="span3">When you go into your siblings room</span>
+</div>
+</div>
+</body>
