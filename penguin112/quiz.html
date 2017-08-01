@@ -9,19 +9,50 @@
 
 
 <p>What colors are lobsters in the water?</p>
-<input type="radio" name="q2" value=0>red<br>
-<input type="radio" name="q2" value=1>blue<br>
-<input type="radio" name="q2" value=0>yellow<br>
+<input type="radio" name="q2" value=0>Red<br>
+<input type="radio" name="q2" value=1>Blue<br>
+<input type="radio" name="q2" value=0>Yellow<br>
 
 <p>What is a group of fish that swim together called?</p>
-<input type="radio" name="q3" value=0>pods<br>
-<input type="radio" name="q3" value=1>school<br>
+<input type="radio" name="q3" value=0>Pods<br>
+<input type="radio" name="q3" value=1>School<br>
 
-<input type="submit" value="submit">
+<input type="Submit" value="Done">
 
 </form>
+<p>You got<span id="grade"></span> correct out of 3.</p>
+<p id="grade2"></p>
 
 
+
+
+<script>
+  document.getElementById("form1").onsubmit=function() {
+    
+    q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+    q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+    q3=parseInt(document.getElementById("q3").value);
+    result = q1+q2+q3;
+    document.getElementById("grade").innerHTML=result;
+    
+    
+    if (result===0) {result2= "You should try to learn more about sea creatures! Try again!
+    <br><img src='0.jpg' width=300>";}
+     if (result===1) {result2= "You might want to try again, you only got one right.
+    <br><img src='1.jpg' width=300>";}
+    if (result===2) {result2= "It's pretty good, but you could to better! Try again!
+    <br><img src='2.jpg' width=300>";}
+     if (result===3) {result2= "Great job!You now know some things about sea creatures!
+     <br><img src='3.jpg' width=300>";}
+     
+     
+     document.getElementById("grade2").innerHTML=result2
+      return false;
+     
+  }
+</script>
+
+</body>
 
 
 
