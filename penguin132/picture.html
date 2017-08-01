@@ -1,0 +1,125 @@
+<head><style>
+ .slider-holder {
+   width:800;
+   height:400;
+   margin:auto;
+   text-align:center;
+   overflow:hidden;
+ }
+
+body{
+background:url(https://thumbs.dreamstime.com/t/comida-cruda-espiral-del-papel-pintado-de-los-macarrones-y-concepto-de-la-bebida-70181583.jpg)
+}
+
+.image-holder {
+  width:3200;
+  height:400;
+  position: relative;
+  animation: slide 20s infinite;
+}
+
+.image-holder img{
+  float:left;
+  width:800;
+  height:400;
+}
+
+@keyframes slide {
+0% {right:0px}
+22%{right:0px}
+25% {right:800px}
+47%{right:800px}
+50% {right:1600px}
+72%{right:1600px}
+75% {right:2400px}
+94%{right:2400px}
+97% {right:0px}
+  
+}
+.slider-holder:hover .image-holder {animation-play-state:paused;}
+
+ h1{
+   color:white;
+   font-size:90;
+   text-align:center;
+ }
+
+
+#span1 {
+ position:absolute;
+ top:0px;
+ left:0px;
+ color:black;
+ font-size:50px;
+ }
+ #span2 {
+ position:absolute;
+ top:20px;
+ left:800px;
+ color:black;
+ font-size:50px;
+ }
+ #span3 {
+ position:absolute;
+ top:0px;
+ left:1600px;
+ color:black;
+ font-size:50px;
+ }
+ #span4 {
+ position:absolute;
+ top:0px;
+ left:2725px;
+ color:black;
+ font-size:50px;
+ }
+#menu{
+  list-style:none;
+  overflow:hidden;
+  background-color:gold;
+}
+#menu li{
+float:left
+}
+
+#menu li a{
+  display:block;
+  color:black;
+  text-align:center;
+  padding:14;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:brown;
+}
+
+a{
+  color:white;
+}
+
+
+</style></head>
+<body>
+<ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Cooking Videos</a></li>
+<li><a href="picture.html">Pasta Photos</a></li>
+</ul>
+
+ 
+<h1>Pasta Photos</h1>
+
+<div class="slider-holder">
+<div class="image-holder">
+<img src="http://pizzagardenmd.com/communities/5/000/002/005/845//images/11744040.jpg">
+ <img src="http://www.alexiafoods.com/images/headers/easy-pasta-dishes.jpg">
+  <img src="http://img.taste.com.au/86bOXAkG/taste/2016/11/carbonara-sauce-28894-1.jpeg">
+ <img src="http://del.h-cdn.co/assets/16/04/1600x800/landscape-1453938164-delish-ricotta-spaghetti-2.jpg">
+  <span id="span1">Mmmmmmmm........ </span>
+  <span id="span2">Delicious! </span>
+  <span id="span3">Yum Yum Yum! </span>
+  <span id="span4">Pasta! </span>
+</div>
+</div>
+
+</body>
