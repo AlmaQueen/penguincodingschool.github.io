@@ -1,0 +1,82 @@
+<head><style>
+.slider-holder {
+  width:600;
+  height:400;
+  margin:auto;
+  text-align: center;
+  overflow:hidden;
+}
+
+
+
+
+
+.image-holder{
+  width:1800;
+  height:400;
+  position:relative;
+  animation: slide 15s infinite;
+}
+
+.image-holder img {
+float:left;
+width:600;
+height:400;
+}
+ @keyframes slide {
+   0%{right:0px}
+   30% {right:0px}
+   33% {right:600px}
+   63% {right:600px}
+   66% {right:1200px}
+   94% {right:1200px}
+   97% {right:0px}
+ }
+ .slider-holder:hover .image-holder {animation-play-state:paused;}
+ body  {
+background-color: lightblue;
+font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+#span1 {
+  position: absolute;
+  top:50px;
+  left:100px;
+  color:darkblue;
+  font-size:40px
+}
+#span2 {
+  position: absolute;
+  top:50px;
+  left:600px;
+  color:darkblue;
+  font-size:80px
+}
+#span3 {
+  position: absolute;
+  top:50px;
+  left:1400px;
+  color:darkblue;
+  font-size:40px
+}
+
+
+
+
+
+
+</style></head>
+<body>
+
+<div class="slider-holder">
+  <div class="image-holder">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Neophocaena_phocaenoides_-Miyajima_Aquarium_-Japan-8a.jpg/800px-Neophocaena_phocaenoides_-Miyajima_Aquarium_-Japan-8a.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Harbor_Porpoise_Fjord_Baelt_Denmark.JPG">
+<img src="https://c1.staticflickr.com/9/8666/16463332577_63fb683e0a_b.jpg">
+<span id="span1">Look at that smile!</span>
+<span id="span2">Wow!</span>
+<span id="span3">Who wants a hug?</span>
+
+
+</div>
+</div>
+</body>
