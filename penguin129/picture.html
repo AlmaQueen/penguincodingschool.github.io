@@ -1,1 +1,121 @@
+<head><style>
+
+.slider-holder {
+     width: 800;
+     height: 400;
+     margin: auto;
+     text-align: center;
+     overflow: hidden;
+     }
+
+
+.image-holder  {
+  width:4800;
+  height:400;
+  position:relative;
+  animation:slide 30s infinite;
+  
+  
+}
+
+.image-holder img {
+  float:left;
+  width:800;
+  height:400;
+  
+  
+}
+
+@keyframes slide {
+  0% {right:0px}
+  16% {right:800px}
+  32% {right:1600}
+  48% {right:2400}
+  64% {right:3200}
+  80% {right:4000}
+  96% {right:0px}
+
+  
+}
+#menu {
+   list-style:none;
+   overflow:hidden;
+   background-color:gray;
+ }
+ #menu li {
+   float:left;
+ }
+ #menu li a {
+   display: block;
+   color: blue;
+   text-align: center;
+   padding: 14;
+   text-decoration: none;
+ }
+ #menu li a:hover{
+   background-color:white;
+ }
+
+
+.slider-holder:hover .image-holder {animation-play-state:paused;}
+
+#span1 {
+  position: absolute;
+  top:0px;
+  left:0px;
+  color:black;
+  font-size: 30px;
+}
+
+#span3 {
+  position: absolute;
+  top:40px;
+  left:1600px;
+  color: white;
+  font-size: 40px;
+}
+
+
+
+
+</style></head>
+
+
+<ul id=menu>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">picture</a></li>
+</ul>
+
+
+
 <h1>creative pictures</h1>
+
+<div class="slider-holder">
+<div class="image-holder">
+
+
+<img  src="http://www.morganmclintic.com/wp-content/uploads/2016/03/1000820-creative-1.jpg" width=300 height=200>
+
+<img  src="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAISAAAAJDVjYjFmNDEyLTUzZDYtNDQ2ZS05ZDBhLTExN2FiZTA4MGM3Zg.jpg" width=300 height=200>
+
+<img  src="https://cdn2.scratch.mit.edu/get_image/user/5326794_60x60.png" width=300 height=200>
+
+
+<img  src="https://cauldronsandcupcakes.files.wordpress.com/2013/01/creating-grit-2.jpg" width=300 height=200>
+
+<img  src="https://s-media-cache-ak0.pinimg.com/originals/ff/6a/c5/ff6ac5990b6185a9434f2d15c2117424.jpg" width=300 height=200>
+
+<img  src="http://www.creativebloq.com/media/img/pro/pro-header.jpg" width=300 height=200>
+
+<span id="span1">paint,paint,and more paint</span>
+
+
+
+
+<span id="span3">Inside your imagination,you have a whole new world</span>s
+
+
+
+
+</div>
+</div>
