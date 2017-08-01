@@ -1,6 +1,6 @@
 var canvas = document.getElementById("canvas");
 var cx = canvas.getContext ("2d");
-canvas.width=1000;
+canvas.width=1500;
 canvas.height=700;
 
 var img_player = document.createElement("img");
@@ -13,15 +13,32 @@ var playerH = 40;
 var xSpeed = 0;
 var ySpeed =0;
 var gravity =5;
+var req;
 
 function animate()  {
-requestAnimationFrame(animate);
+req = requestAnimationFrame(animate);
 cx.clearRect(0,0,canvas.width, canvas.height);
 cx.drawImage(img_player,x,y,playerW, playerH);
 x+=xSpeed;
 y+=ySpeed+gravity;
 platform();
+obstacle();
+ if (x <0 || x>canvas.width-playerW) {
+   xSpeed=-xSpeed;
+ }
+ if (y <0 ||y >canvas.height-playerH){
+    ySpeed=-ySpeed;
+ }
+ if (x>800) {
+   gameWin();
+   }
+ }
 
+function stop() {
+ if(req){
+   cancelAnimationFrame(req);
+   req= undefined;
+ }
 
 if (x>canvas.width || x <0)  {
 xSpeed = -xSpeed;
@@ -90,12 +107,46 @@ cx.drawImage(img_player, x, y, playerW, playerH);
 
 var plat=[];
 plat.push({x: 0, y: 100, w: 100, h: 10});
-plat.push({x: 100, y: 80, w: 100, h: 10});
+plat.push({x: 90, y: 80, w: 150, h: 10});
 plat.push({x: 200, y: 60, w: 100, h: 10});
 plat.push({x: 300, y: 40, w: 100, h: 10});
 plat.push({x: 400, y: 90, w: 125, h: 10});
 plat.push({x: 500, y: 70, w: 150, h: 10});
+plat.push({x: 600,y: 80,w: 200,h: 10});
 plat.push({x: 0, y: 690, w:canvas.width, h: 10});
+
+
+function obstacle() {
+cx.fillStyle = "red";
+for (var i = 0; i<lava.length; i++) {
+  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+  if (y==lava[i].y-playerH &&
+     x>=lava[i].x-playerW &&
+     x<=lava[i].x + lava[i].w)
+    {gameOver()}
+}
+}
+
+var lava=[];
+
+
+lava.push({x: 0, y: 600, w:canvas.width, h:10});
+lava.push({x: 100, y: 100, w:10, h:10});
+
+function gameOver() {
+  cx.fillStyle ="Red";
+  cx.font = "50px Impact";
+  cx.fillText("Game Over", 10,50);
+  stop();
+}
+
+function gameWin() {
+  cx.fillStyle = "Green";
+  cx.font = "30px Impact";
+  cx.fillText = ("You Won!",10,50);
+  stop();
+}
+
 
 animate();
 
