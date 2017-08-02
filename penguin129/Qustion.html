@@ -1,0 +1,61 @@
+<head><style>
+.button {
+  display:inline-block;
+  text-align:center;
+  font-size:80px;
+  background-color:blue;
+  padding:30 45;
+  margin:5;
+  text-decoration:none;
+  border-radius: 120px;
+  color: brown;
+  animation: rainbow 5s infinite;
+}
+
+#magicbox {
+  display:none;
+}
+
+@keyframes rainbow {
+  0% {font-size:50px}
+  25% {font-size:30px}
+  50% {font-size:80px}
+  75% {font-size:100px}
+  99% {font-size:80px}
+}
+
+</style>
+</head>
+
+
+<body>
+ <h1>Answer my Question</h1>
+ <button onclick="question()">click for Question</button>
+ <a class="button">Magic Button</a>
+  
+ <script>
+ function question() {
+   alert("Hey there person!")
+   var name=prompt("What's your name?")
+   alert("Hi "+name+". You have a nice!")
+   var age=prompt("How old are you?");
+   if (age>17) {alert("Hi - your an adult");}
+   else {alert("Hi - your a kid");}
+   var q1 = prompt("Do you like creativity?");
+   if (q1 == "yes") {alert("your awesome");
+   window.location = "picture.html";}
+   else if (q1 == "no") {alert("BOOOOOO!");
+   window.location = "https://mobile.nytimes.com/2017/08/01/us/politics/trump-affirmative-action-universities.html";}
+   else {alert("please answer yes of no")
+   window.location = "index.html";
+   }
+  
+  
+  
+   
+   
+   
+ </script>
+  
+  
+</body>
