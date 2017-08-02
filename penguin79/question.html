@@ -1,0 +1,92 @@
+<head><style>
+
+.button {
+  display:inline-block;
+  text-align:center;
+  font-size:50px;
+  background-color:#50e7f4;
+  padding:30,45;
+  margin:5;
+  border-radius:120px;
+  text-decoration:none;
+  color:#ff63f2;
+  animation:rainbow 5s infinite;
+}
+
+#magicbox {
+  display:none;
+}
+
+@keyframes rainbow {
+  0% {background-color:#8eeeff;color:#ca36f7}
+  33%{background-color:#50e7f4;color:#8c097d}
+  66%{background-color:teal;color:#b3aefc}
+}
+  
+h1 {
+  color: #f177ff;
+  text-align:center;
+  font-size:60px;
+}
+body {
+  background: url(https://scontent-ams3-1.cdninstagram.com/t51.2885-15/sh0.08/e35/p320x320//12748448_812124845579886_1652067294_n.jpg);
+}
+ 
+</style></head>
+
+
+<body>
+  <a class="button" href="javascript:magic()">Magic Button</a>
+  <button onclick="hidemagic()">Hide</button>
+<div id="magicbox">
+  <iframe src="https://www.youtube.com/embed/4hDtyuXLJGs"></iframe>
+  <iframe src="https://www.youtube.com/embed/VoNai5i0qOI"></iframe>
+  <img src= "https://s-media-cache-ak0.pinimg.com/originals/93/93/12/9393121975502a237789bab02193f4e3.jpg">
+  <img src="http://image.blingee.com/images19/content/output/000/000/000/7b5/793026894_1402616.gif">
+  <img src="https://s-media-cache-ak0.pinimg.com/originals/bf/cd/71/bfcd713d3196abc50b6d16727a2a5023.jpg">
+</div>
+
+
+<script>
+function magic() {
+  var magicbox = document.getElementById("magicbox");
+  magicbox.style.display = "block";
+}
+
+function hidemagic() {
+  var magicbox = document.getElementById("magicbox");
+  magicbox.style.display = "none";
+}
+
+
+function question() {
+  alert("Greetings, this is The Panda speaking");
+  var name=prompt('What is your name?');
+  alert("Hello, "+name)
+  alert("What a nice name you have!:)");
+  var age=prompt('How old are you?');
+  if (age>18) {
+    alert("Hi, you are an adult.");
+    var q1=prompt("Do you like pandas?")
+    if (q1=="yes"||q1=="Yes") {alert("You are awesome! Pandas Rule!");window.location="index.html"}
+    else if (q1=="no"||q1=="No") {alert("Booooo!");window.location="index.html"}
+    else {alert("Please enter yes or no.")}
+    
+    
+  } else if (age<18) {
+    alert("Hi, you are a kid.");
+    var q1=prompt("Do you like pandas?")
+    if (q1=="yes"||q1=="Yes") {alert("You are awesome! Pandas Rule!");window.location="index.html"}
+    else if (q1=="no"||q1=="No") {alert("Booooo!");window.location="index.html"}
+    else {alert("Please enter yes or no.")}
+    
+  }
+}
+
+
+</script>
+
+<h1>"Panda Buttons!"</h1>
+
+<a class=button href="javascript:question()">Question Button</a>
+</body>

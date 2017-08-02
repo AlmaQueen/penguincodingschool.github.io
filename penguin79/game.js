@@ -3,14 +3,14 @@ var cx = canvas.getContext("2d");
 canvas.width=1000;
 canvas.height=700;
 var img_player = document.createElement("img");
-img_player.src = "Pokemon2.png";
+img_player.src = "pusheen.jpg";
 var x =280;
 var y =0;
 var xSpeed = 0;
 var ySpeed = 0;
 var gravity =5;
-var playerW = 80;
-var playerH = 90;
+var playerW = 100;
+var playerH = 80;
 var req;
 var xMonster = 1000;
 var yMonster = 50;
@@ -20,8 +20,8 @@ var monsterW = 30; //monster width
 var monsterH = 30; //monster height
 var xC = 500;
 var yC = 300;
-var wC = 20;
-var hC = 20;
+var wC = 50;
+var hC = 50;
 var score = 0;
 
 function animate()  {
@@ -152,22 +152,25 @@ cx.fillRect(plat[i].x, plat[i].y, plat[i].w, plat[i].h );
 }
 
 var lava=[];
-lava.push({x: 250,y: 150,w: canvas.width, h: 10});
-lava.push({x: 350,y: 250,w: 150, h: 10});
+lava.push({x: 250,y: 150,w: canvas.width, h: 30});
+lava.push({x: 350,y: 250,w: 150, h: 30});
 
 function obstacle() {
-cx.fillStyle = "red";
+cx.fillStyle = "teal";
 for (var i = 0; i<lava.length ; i++) {
 cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h );
   if (y===lava[i].y-playerH && x>lava[i].x-playerW && x<lava[i].x+ lava[i].w) {gameOver()}
   }
 }
+
+var img_coin = document.createElement("img");
+img_coin.src = "puff.png";
+
 function coin() {
-  cx.fillStyle="gold";
-  cx.fillRect(xC,yC,wC,hC);
+  cx.drawImage(img_coin, xC,yC,wC,hC);
   if (x+playerW>xC && xC+wC>x && yC+hC>y && y+playerH>yC){
 
-    score += 10;
+    score += 1;
     var i = Math.ceil(Math.random()*plat.length);
     xC =plat[i].x;
     yC =plat[i].y-40;
@@ -181,7 +184,7 @@ function scoreDisplay() {
   cx.fillText("Score: "+score, 400,70);
 }
 
-var backgroundmusic = new Audio('fire.mp3')
+var backgroundmusic = new Audio('meow.mp3')
 backgroundmusic.loop = true;
 backgroundmusic.play
 
