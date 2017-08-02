@@ -1,0 +1,98 @@
+<head><style>
+.button{
+  display:inline block;
+  text-align:center;
+  font-size:100px;
+  background-color:brown;
+  padding:30 45;
+  margin:6;
+  text-decoration:none;
+  border-radius:14px;
+  color:black;
+  animation:rainbow 5s infinite;
+}
+
+
+#magicbox {
+  background-color:brown;
+  width:300;
+  height:200;
+  display:none;
+  
+}
+
+@keyframes rainbow{
+  0%{background-color:gold;}
+  90%{background-color:brown;}
+}
+
+
+
+
+
+
+
+ body{
+ background:url(https://thumbs.dreamstime.com/t/comida-cruda-espiral-del-papel-pintado-de-los-macarrones-y-concepto-de-la-bebida-70181583.jpg);
+}
+h1{
+   color:white;
+   font-size:90;
+   text-align:center;
+ }
+
+#menu{
+  list-style:none;
+  overflow:hidden;
+  background-color:gold;
+}
+#menu li{
+float:left
+}
+
+#menu li a{
+  display:block;
+  color:black;
+  text-align:center;
+  padding:14;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:brown;
+}
+ 
+</style></head>
+
+<body>
+  <ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Cooking Videos</a></li>
+<li><a href="picture.html">Pasta Photos</a></li>
+<li><a href="question.html">You Quiz</a></li>
+</ul>
+
+ <h1>Answer My Questions</h1>
+ <button onclick="question()">Click For Questions </button>
+ 
+ <a class="button" onclick="javascript:magic()">Yummy!</a>
+ 
+<script>
+ function question(){
+  alert("Hi there!");
+  var name=prompt("What is your name?");
+  alert("Hi "+name+". I like your name!" );
+  var age=prompt("How old are you?");
+  if (age<9){
+    alert("You are too young for this website. Mabye next year!");}
+    if (age>9){
+    var q1 = prompt("Like cooking?");
+    if(q1 =="yes" || q1=="Yes") {alert("You rock!"); window.location ="picture.html"}
+    else if (q1 == "no" || q1=="No") {alert("BOOOOO!");
+     window.location ="index.html"}
+    else {alert("Please answer yes or no")}
+    }
+  }
+
+</script>
+
+</body>
