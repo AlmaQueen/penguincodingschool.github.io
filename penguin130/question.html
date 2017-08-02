@@ -1,0 +1,96 @@
+<head><style>
+  #menu{
+list-style:none;
+overflow:hidden;
+}
+
+#menu li{
+  float:left;
+}
+#menu li a{
+  display:block;
+  color:rainbow
+;
+  text-align:center;
+  padding:30;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:lightblue
+  ;}
+  .button{
+    display:inline-block;
+    text-align:center;
+    font-size:80px;
+    background-color:black;
+    padding:20 35;
+    margin:10;
+    text-decoration:none;
+    border-radius:80px;
+    color:brown;
+    animation:rainbow 6s infinite;}
+    
+#magicbox{
+      display:none;
+    }
+    
+    @keyframes rainbow{
+      0%{background-color:magenta;}
+      20%{background-color:red;}
+      40%{background-color:yellow;}
+      60%{background-color:green;}
+      80%{background-color:blue;}
+    }
+    
+  }
+  
+  
+  
+</style></head>
+<body>
+  <ul id="menu">
+<li><a href="video.html">video</a></li>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">pictures</a></li>
+<li><a href="question.html">question</a></li>
+</ul>
+<h1>Answer My Question</h1>
+  <button onclick="question()">Click for Question</button>
+  <a class="button" href="javascript:magic()">Magic Button</a>
+
+<div id="magicbox"><iframe src="https://www.youtube.com/embed/6j7oQletFbc"></iframe></div>
+
+<button onclick="erasemagic()">Hide Video</button>
+
+<script>
+  function magic(){
+  var magicbox=document.getElementById("magicbox");
+    magicbox.style.display="block";
+  }
+  
+  function erasemagic(){
+  var magicbox=document.getElementById("magicbox");
+    magicbox.style.display="none";
+  }
+  
+  
+  function question(){
+    alert("Hello! Welcome!");
+    var name=prompt("What is your name?")
+    alert("Hi "+name+ ". You have a great name! :-)");
+    var age=prompt("How old are you?");
+    if (age>18){alert("Hi adult! You can vote (awesome)!");}
+    else {alert("Hi kid! You are awesome!");}
+    var q1=prompt("Do you like dogs?");
+    if (q1=="yes" ||q1=="Yes"||q1=="Yes, I do."||q1=="I do."||q1=="I do!"){alert ("Yay! I agree! You are awesome! Here are some cute videos!");
+    window.location="video.html"
+    }
+    else if (q1=="no"||q1=="No"){alert("Awww. That's too bad! You should look at my videos.");
+    window.location="video.html"}
+    else{alert("Please answer yes or no. Yes is better because dogs are awesome.");}
+  }
+
+  
+</script>
+
+</body>
