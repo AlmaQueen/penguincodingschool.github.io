@@ -1,0 +1,135 @@
+<head><style>
+.button {
+  display:inline-block;
+  text-align:center;
+  font-size:100px;
+  background-color:rainbow;
+  padding:30 45;
+  margin:5;
+  text-decoration:none;
+  border-radius: 20px;
+  color:black;
+  animation:rainbow 5s infinite;
+}
+
+#magicbox {
+  display:none;
+  
+}
+@keyframes rainbow {
+  0% {background-color:yellow;color:white;}
+ 15% {background-color:red;color:magenta; }
+  30% {background-color:orage;font-size:90px;}
+  45% {background-color:purple;}
+  60% {background-color:green;}
+  75% {background-color:blue;}
+  90% {background-color:violet;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:none;
+  }
+  #menu li {
+    float:left;
+  }
+  #menu li a {
+    display:block;
+    color:black;
+    text-align:center;
+    padding:14;
+    text-decoration:none;
+  }
+  #menu li a:hover{
+    background-color:c6fffc;
+  }
+
+body{
+  background:url(https://s-media-cache-ak0.pinimg.com/originals/6f/47/89/6f4789224173b4bf4936cf4cbeee9a30.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+
+
+
+</style></head>
+
+<body>
+
+<ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Link to video page</a></li>
+<li><a href="picture.html">Picture page</a></li>
+<li><a href="question.html">Questions</a></li>
+</ul>
+
+
+
+
+<a class="button" href="javascript:video()">Magic button</a>
+<div id="magicbox"><iframe src="https://www.youtube.com/embed/Awf45u6zrP0"></iframe>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <h1>Answer My Questions</h1>
+  <button onclick="question()">Click For Questions</button>
+  
+  <script>
+  function question() {
+    alert("Hello there human!");
+    var name=prompt("What's your name?")
+    alert("Hi "+name +". That's a cool name :)!")
+    var age=prompt("How old are you?");
+    if(age<5){alert("You are too young to use my site!Get off little kid");}
+   else {alert("Welcome to my site non 5 year old!");}
+  var q1=prompt("Do you like Kangaroos?");
+  if (q1=="yes"||q1=="Yes" || q1=="YES" || q1=="y"){alert("You have GREAT taste!")
+  alert("lets see some cute kangaroos");
+  window.location = "index.html";
+    ;
+  }
+  else if (q1=="no" || q1=="No" || q1=="NO" || q1=="n") {alert("Then, BOY BYE!");window.location="http://google.com";}
+  else {alert("  Answer yes or no!");}
+ 
+  
+    
+  }
+    
+ function video() {
+    var video = document.getElementById("magicbox");
+    video.style.display="block";
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  </script>
+
+</body>
