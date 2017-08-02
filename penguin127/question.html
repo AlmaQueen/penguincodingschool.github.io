@@ -1,0 +1,115 @@
+<head><style>
+  .button {
+   display:inline-block;
+   text-align:center;
+   font-size:100px;
+   background-color:darkblue;
+   padding:30 45;
+   margin:5;
+   text-decoration:none;
+   border-radius: 120px;
+   color:white;
+   animation: rainbow 5s infinite;
+   
+  }
+  @keyframes rainbow {
+    0% {background-color:darkblue;}
+   33% {background-color:turquoise;}
+   66% {background-color:darkpurple;
+    }
+  }
+  body  {
+background-color: lightblue;
+font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+#menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:darkblue;
+
+}
+#menu li {
+  float:left;
+
+}
+#menu li a {
+  display:block;
+  color:white;
+  text-align: center;
+  padding:14;
+  text-decoration:none;
+
+}
+#menu li a:hover{
+  background-color:lightblue
+}
+
+#magicbox {
+  display:none;
+}
+
+
+</style></head>
+
+<body>
+  <ul id="menu">
+  
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="picture.html">Pictures</a></li>
+<li><a href="question.html">Question</a></li>
+</ul>
+  <h1>Answer My Question</h1>
+  <button onclick="question()">Click For Questions</button>
+
+<a class="button" href="javascript:magic()">Press Me!</a>
+  
+  <div id="magicbox">
+      <iframe src="https://www.youtube.com/embed/SVC4tAmwr5o"></iframe>
+    </div>
+<button onclick="magicerase()">hide video</button>
+  
+  
+  <script>
+    function magic() {
+      var magicb = document.getElementById("magicbox");
+      magicb.style.display="block";
+    }
+    function magicerase() {
+      var magicb = document.getElementById("magicbox");
+      magicb.style.display="none";
+    }
+    
+  
+    function question()  {
+    alert("Hello! Welcome to my quiz");
+    var name=prompt("What is your name?");
+    alert("Hi "+name+". Nice to meet you!");
+    var age=prompt("How old are you?");
+    if (age>18) {
+      alert("Cool! You are an awesome adult!");}
+      else {alert("Cool! You are an amazing kid!");}
+      alert("To get a suprise, after the quiz, press the, you guessed it, the press me button!")
+      
+      var q1 = prompt (" I have one last question. Do you like Porpoises?");
+      if (q1 == "yes" ||q1 == "Yes") {alert("Great! Porpoises are awesome! Learn more about them on my website!");
+      alerhttps://("I hope you enjoy!")
+        window.location = "index.html";
+      }
+      else if (q1 == "no" ||q1 == "No") {alert("That's to bad. Maybe this website will help change your mind. They are very sweet creatures after all.");
+      alert ("I hope you enjoy these videos!")
+        window.location = "video.html"
+      }
+      
+      
+      
+     else if (q1 == "maybe") {alert("I hope after reading this website your answer changes from a maybe to a yes!");
+      alert("Try reading this to learn some cool facts about Porpoises!");
+      window.location = "index.html" }
+      else {alert("Please answer yes or no!")
+    }
+    }
+    
+    
+  </script>
+</body>
