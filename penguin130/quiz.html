@@ -1,0 +1,94 @@
+<head><style>
+#menu{
+list-style:none;
+overflow:hidden;
+}
+
+#menu li{
+  float:left;
+}
+#menu li a{
+  display:block;
+  color:black;
+  text-align:center;
+  padding:30;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:lightblue;
+}
+  </style></head>
+<body>
+  <ul id="menu">
+<li><a href="video.html">video</a></li>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">pictures</a></li>
+<li><a href="question.html">question</a></li>
+<li><a href="quiz.html">quiz</a></li>
+
+</ul><h1>Dog quiz</h1>
+<form id="form1" action=" ">
+  
+  <p>How many breeds of dogs are there?</p>
+  <input type="radio" name="q1" value=0>  0-100<br>
+  <input type="radio" name="q1" value=0> 100-200<br>
+  <input type="radio" name="q1" value=0>200-300<br>
+  <input type="radio" name="q1" value=1>Over 300<br>
+  
+  <p>What colors do dogs see?</p>
+  <input type="radio" name="q2" value=0>Orange, brown, and yellow<br>
+  <input type="radio" name="q2" value=1>Tan, yellow, and blue<br>
+  <input type="radio" name="q2" value=0>Dark green, red, and pink<br>
+  <input type="radio" name="q2" value=0>Red, tan, purple, yellow<br>
+  
+  <p>Where do dogs sweat?</p>
+  <input type="radio" name="q3" value=0>Everywhere<br>
+  <input type="radio" name="q3" value=0>Inside their ears<br>
+  <input type="radio" name="q3" value=0>Their nose<br>
+  <input type="radio" name="q3" value=1>The pads on their feet<br>
+  
+   <p>Do dogs dream?</p>
+  <input type="radio" name="q4" value=1>Yes<br>
+  <input type="radio" name="q4" value=0>No<br>
+  
+  <p>Which dog can't bark?</p>
+  <input type="radio" name="q5" value=0>Labrador<br>
+  <input type="radio" name="q5" value=1>Basenji<br>
+  <input type="radio" name="q5" value=0>Poodle<br>
+  <input type="radio" name="q5" value=0>Sheepdog<br>
+  <br>
+  <input type="submit" value="Done">
+  
+  
+</form>
+<p>You got <span id="grade">_</span> correct out of 5.</p>
+  <p id="grade2"></p>
+
+<script>
+ document.getElementById("form1").onsubmit=function(){
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+  q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+  q5=parseInt(document.querySelector("input[name='q5']:checked").value);
+  result=q1+q2+q3+q4+q5;
+  document.getElementById("grade").innerHTML=result;
+  
+ 
+  if(result===0) {result2= "Boooo!  You lose! Zero right! <br><img src='https://img1.etsystatic.com/006/0/5176714/il_570xN.393927691_565h.jpg' width=300>"}
+  if(result===1) {result2= "You only got one right!  Try again! <br><img src='https://previews.123rf.com/images/pockygallery/pockygallery1507/pockygallery150700004/42667226-Try-again-red-stamp-text-on-white-Stock-Photo.jpg' width=300>"}
+ if(result===2) {result2= "Two is less than half!  Try again! <br><img src='http://www.lovethispic.com/uploaded_images/32609-Im-Just-Saying-You-Could-Do-Better.png' width=300>"}
+ if(result===3) {result2= "Better luck next time! You only got three! <br><img src='http://orig05.deviantart.net/7d8e/f/2014/145/3/3/better_luck_next_time_by_controversialhumour-d7jok2z.jpg' width=300>"}
+ if(result===4) {result2= "Almost there! Four right! <br><img src='https://s-media-cache-ak0.pinimg.com/736x/29/bc/e2/29bce2e71b2e839680f19798379bb308--words-quotes-motivation.jpg' width=300>"}
+ if(result===5) {result2= "Great job!  You rock!  Five out of five! <br><iframe src='https://giphy.com/embed/l0IykwxxedIsEXpF6' width=342 height=480 ></iframe>"}
+    document.getElementById("grade2").innerHTML=result2;
+return false;
+   
+ 
+ }
+  
+</script>
+
+
+
+</body>
