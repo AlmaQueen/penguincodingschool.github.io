@@ -1,0 +1,47 @@
+QUIZ SAMPLE
+<body>
+<h1>Creativity Quiz</h1>
+
+<form id="form1" action=" ">
+   
+<h3>How many reasons are there to be creative?</h3>
+<input type="radio" name="q1" value=0>10<br>
+<input type="radio" name="q1" value=1>100,00000<br>
+<input type="radio" name="q1" value=0>100<br>
+<input type="radio"name="q1" value=0>1,000<br>
+
+
+<h3>What is creativity?</h3>
+<input type="radio" name="q2" value=0>an object<br>
+<input type="radio" name="q2" value=0>a place<br>
+<input type="radio" name="q2" value=0>an image<br>
+<input type="radio" name="q2" value=1>an idea<br>
+
+
+<h3>What is the reason for creativity?</h3>
+<input type="radio" name="q3" value=1>you like and want to be ceative<br>
+<input type="radio" name="q3" value=0>becuase your forced to<br>
+<input type="radio" name="q3" value=0>because someone your friends with is creative<br>
+<input type="radio" name="q3" value=0>becuase it's fun<br>
+
+<input type="submit" value = "submit">
+
+</form>
+<p>You got<span id="grade"> </span> correct out of 5.</p>
+
+<script>
+document.getElementById("forml") .onsubmit=function () {
+q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+q3=parseInt(document.getElementById("q3") .value);
+   result = q1 + q2 + q3;
+
+
+
+
+
+
+
+ </form>
+
+</body>
