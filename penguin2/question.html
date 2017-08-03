@@ -1,0 +1,93 @@
+<head><style>
+.button {
+  display:inline-block;
+  text-align:center;
+  font-size:100px;
+  background-color:rainbow;
+  padding:30 40;
+  margin:5;
+  text-decoration:none;
+  border-radius:20px;
+  color:black;
+  animation:rainbow 5s infinite;
+}
+#magicbox {
+  background-color:blue;
+  width:1500;
+  height:500;
+  display:none;
+  animation:rainbow 5s infinite;
+}
+
+@keyframes rainbow {
+  0% {background-color:yellow;color:white;}
+   10% {background-color:red;color:magenta;}
+     20% {background-color:orange;font-size:90px;}
+       30% {background-color:purple;}
+         40% {background-color:green;}
+           50% {background-color:blue;}
+  60% {background-color:violet;}
+    
+  
+}
+
+ body{
+   background:url(http://38.media.tumblr.com/71c143460a18c80aad75902fb57d6a47/tumblr_inline_n41xr17lez1sxudqk.png);
+   background-repeat:no-repeat;
+   background-size:cover;
+ }
+ 
+  
+ #menu{
+   list-style:none;
+   overflow:hidden;
+   
+ }
+#menu li {
+  float: left;
+}
+ #menu li a {
+   display:block;
+   color:#002eff;
+   text-align: center;
+   padding: 14;
+   text-decoration:none;
+ }
+ #menu li a:hover {
+   background-color:#db6fe2;
+ }
+  </style></head>
+<body>
+  <ul id="menu">
+<li><a href="video.html">videos</a></li>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">pictures</a></li>
+<li><a href="question.html">questions</a></li>
+<li><a href="quiz.html">quiz</a></li>
+</ul>
+<a class="button" href="javascript:question()">magic button</a>
+  
+  
+
+  
+  
+  <h1>answer my question</h1>
+  
+  <script>
+   function question() {
+     alert("hi there greek geek!");
+    var name = prompt("what's your name?");
+    alert("hi " + name + ". that is an cool name!");
+    var age=prompt("how old are you?");
+    if(age<5){
+      alert("you are too young to use my site! Get off this site little kid!")}
+     else { alert ("welcome to my site!");}
+     var q1=prompt("do you like greek gods and goddesses?")
+     if (q1=="yes" ||q1=="Yes"||q1=="YES"){alert("you are awesome!");
+     window.location="index.html";}
+     else if (q1=="no"||q1=="No"||q1=="NO") {alert("then start liking them!");}
+     else {alert("  answer yes or no!")}
+   }
+    
+  </script>
+  </body>
