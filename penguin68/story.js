@@ -17,5 +17,3 @@ function question1() {
     {alert("Coming right up")}
     
 }
-
-elif
