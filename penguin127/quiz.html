@@ -1,0 +1,154 @@
+<head><style>
+h1 {
+color:darkblue;
+font-size:80;
+text-align:center;
+}
+
+body  {
+background-color: lightblue;
+font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+#menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:darkblue;
+
+}
+#menu li {
+  float:left;
+
+}
+#menu li a {
+  display:block;
+  color:white;
+  text-align: center;
+  padding:14;
+  text-decoration:none;
+
+}
+#menu li a:hover{
+  background-color:lightblue
+}
+</style></head>
+<ul id="menu">
+  
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="picture.html">Pictures</a></li>
+<li><a href="question.html">Question</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+</ul>
+
+  <h1>Porpoise Quiz</h1>
+  <h2>Test your knowledge!</h2>
+  <form id="form1" action=" ">
+  <h2>What Do Porpoises Mainly Eat</h2>
+  
+  <input type="radio" name="q1" value=0> Fish and Orcas<br>
+  <input type="radio" name="q1" value=0>Pizza and Frenchfries<br>
+  <input type="radio" name="q1" value=1>Fish, Squid and Crustaceans<br>
+  <input type="radio" name="q1" value=0> One and Three<br>
+  
+  <h2>How Many Species Of Porpoise Are There?</h2>
+  <input type="radio" name="q2" value=0>11 or 10<br>
+  <input type="radio" name="q2" value=1>6 or 7<br>
+  <input type="radio" name="q2" value=0>8 or 9 <br>
+  <input type="radio" name="q2" value=0>5 or 4<br>
+  
+  
+  <h2>What Is The Most Common Species Of Porpoise? </h2>
+  <input type="radio" name="q3" value=0>The Vaquita Porpoise<br>
+  <input type="radio" name="q3" value=0>The Finless Porpoise<br>
+  <input type="radio" name="q3" value=0>The Specled Noggin Porpoise<br>
+  <input type="radio" name="q3" value=1>The Harbor Porpoise<br>
+  
+  <h2>What Is The Porpoises Closest Relitive?</h2>
+  <input type="radio" name="q4" value=1>Hippo<br>
+  <input type="radio" name="q4" value=0>Beluga<br>
+  <input type="radio" name="q4" value=0>Whale<br>
+  <input type="radio" name="q4" value=0>Dolphin<br>
+  
+  <p>Which One Of These Is The Real Name Of A Porpoise?</p>
+  <select id="q5">
+    <option value=0>Choose One</option>
+   <option value=1>Dall's Porpoise</option>
+  <option value=0>Seaflume Porpoise</option>
+   <option value=0>Plink Porpoise</option>
+  <option value=0>Breezie Porpoise</option>
+  </select>
+  <br>
+  
+  <input type="submit" value="Done">
+  
+  </form>
+  
+  <p> You got <span id="grade">_</span> correct out of 5.</p> <p id="grade2"></p>
+  
+  <script>
+    document.getElementById("form1").onsubmit=function(){
+      q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+      q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+      q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+      q4=parseInt(document.querySelector("input[name='q4']:checked").value);
+      q5=parseInt(document.getElementById("q5").value);
+      result = q1 + q2 + q3 + q4 + q5;
+      document.getElementById("grade").innerHTML = result;
+      
+      if (result===0) {result2= "Try learning some more about Porpoise! Better luck next time!<br><img src='https://upload.wikimedia.org/wikipedia/commons/0/03/Jack%2C_a_harbour_porpoise_at_Vancouver_Aquarium.jpg' width=300>"}
+      if (result===1) {result2= "Try learning some more about Porpoise,they are very  beautiful creatures after all! Better luck next time! <br><img src='https://c1.staticflickr.com/6/5337/30484696422_d2b789110d_b.jpg' width=300>"}
+      if (result===2) {result2= "Try learning some more about Porpoise! This website givves you lots of information about them! <br><img src='https://upload.wikimedia.org/wikipedia/commons/2/28/Daan_Close_Up.PNG' width=300>"}
+      if (result===3) {result2= " Do the quiz again! Maybe this time you'll get all of the answers right! Better luck next time!<br><img src='https://c1.staticflickr.com/9/8666/16463332577_63fb683e0a_b.jpg' width=300>"}
+      if (result===4) {result2= "Ooooh, so close! Better luck next time!<br><img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Harbor_Porpoise_Fjord_Baelt_Denmark.JPG' width=300>"}
+      if (result===5) {result2= "Great job! The Porpoises would be proud!<br><img src='https://c1.staticflickr.com/3/2145/2523819797_59a2f9df38_z.jpg?zz=1' width=300>"}
+      
+      document.getElementById("grade2").innerHTML = result2;
+  
+      
+      return false;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</body>
