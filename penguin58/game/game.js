@@ -123,6 +123,8 @@ function platform1(){
     x <= plat1[i].x + plat1[i].w)
     {
     gravity = 0;
+    
+     
      
     }
   }
