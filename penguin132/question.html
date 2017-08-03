@@ -3,7 +3,7 @@
   display:inline block;
   text-align:center;
   font-size:100px;
-  background-color:brown;
+  background-color:gold;
   padding:30 45;
   margin:6;
   text-decoration:none;
@@ -23,6 +23,7 @@
 
 @keyframes rainbow{
   0%{background-color:gold;}
+  50%{background-color:white;}
   90%{background-color:brown;}
 }
 
@@ -33,10 +34,13 @@
 
 
  body{
- background:url(https://thumbs.dreamstime.com/t/comida-cruda-espiral-del-papel-pintado-de-los-macarrones-y-concepto-de-la-bebida-70181583.jpg);
+ background:url(http://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/12/17/4/FNM010117_Chocolate-Strawberry-Cupcakes-Recipe_s4x3.jpg.rend.hgtvcom.966.725.suffix/1482181364794.jpeg);
+ background-size:cover;
 }
+
+
 h1{
-   color:white;
+   color:gold;
    font-size:90;
    text-align:center;
  }
@@ -69,14 +73,28 @@ float:left
 <li><a href="video.html">Cooking Videos</a></li>
 <li><a href="picture.html">Pasta Photos</a></li>
 <li><a href="question.html">You Quiz</a></li>
+<li><a href="quiz.html"> Chef Quiz</a></li>
 </ul>
+
 
  <h1>Answer My Questions</h1>
  <button onclick="question()">Click For Questions </button>
+ <button onclick="hidemagic()">Hide </button>
+ <a class="button" href="javascript:magic()">Yum!</a>
+ <div id=magicbox> <iframe src="https://www.youtube.com/embed/1KAuxlzwz60?autoplay=1" width=600 height=400></iframe></div>
  
- <a class="button" onclick="javascript:magic()">Yummy!</a>
+ 
  
 <script>
+function magic() {
+  var magicbox=document.getElementById("magicbox");
+  magicbox.style.display="block"
+}
+
+function hidemagic() {
+  var magicbox=document.getElementById("magicbox");
+  magicbox.style.display="none"
+}
  function question(){
   alert("Hi there!");
   var name=prompt("What is your name?");
