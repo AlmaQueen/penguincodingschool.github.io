@@ -1,0 +1,56 @@
+<body>
+  <h1>Creative game</h1>
+  <h1 id="congrats"></h1>
+  
+  <img src="http://files.ub.ua/ist/?action=3&w=350&f=/service/service/1/692917_119642_1358943656.jpg" width=600 height=600 id="map">
+  
+  <p id="hint"></p>
+  
+  <script>
+    var map =document.getElementById("map");
+    var hint=document.getElementById("hint");
+    var congrats=document.getElementById("congrats");
+    
+    var width = 600;
+    var height = 600;
+    
+  function getRandom(size) {
+      return Math.random()*size
+  }
+  
+ var treasure = { x: getRandom(width), y: getRandom(height)}
+ 
+ function getDistance(event, treasure) {
+   var dx = event.offsetX - treasure.x;
+   var dy = event.offsetY - treasure.y;
+   return Math.sqrt((dx*dx)+(dy*dy))
+ }
+ 
+ function getHint(distance) {
+   if (distance<25) {return "Boiling Hot"}
+   else if (distance<40) {return "Hot"}
+   else if (distance<80) {return "Warm"}
+   else if (distance<160) {return "cold"}
+   else {return "Freezing"}
+ }
+ 
+ map.addEventListener("click", function(event) {
+    var distance = Math.round(getDistance(event,treasure));
+    var dhint = getHint(distance);
+    hint.textContent = dhint+" it is "+distance + " miles away"
+    if(distance<20) {
+      congrats.innerHTML = "You found the spot!<br><img src='http://www.wapppictures.com/wp-content/uploads/2015/11/animated-congratulations-pictures-2.gif' width=600px>";
+    }
+   
+ })
+ 
+ 
+ 
+ 
+ 
+
+  
+  
+    
+    
+  </script>

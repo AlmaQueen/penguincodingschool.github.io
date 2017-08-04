@@ -27,21 +27,23 @@ QUIZ SAMPLE
 <input type="submit" value = "submit">
 
 </form>
-<p>You got<span id="grade"> </span> correct out of 5.</p>
+<p>You got <span id="grade"> </span> correct out of 3.</p>
 
 <script>
-document.getElementById("forml") .onsubmit=function () {
+document.getElementById("form1").onsubmit=function () {
 q1=parseInt(document.querySelector("input[name='q1']:checked").value);
 q2=parseInt(document.querySelector("input[name='q2']:checked").value);
-q3=parseInt(document.getElementById("q3") .value);
+q3=parseInt(document.querySelector("input[name='q3']:checked").value);
    result = q1 + q2 + q3;
+   document.getElementById("grade").innerHTML = result; return false;
+
+
+}
+
+
+</script>
 
 
 
-
-
-
-
- </form>
 
 </body>
