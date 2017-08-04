@@ -1,0 +1,130 @@
+<head><style>
+h1 {
+color:darkblue;
+font-size:80;
+text-align:center;
+}
+
+body  {
+background-color: lightblue;
+font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+#menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:darkblue;
+
+}
+#menu li {
+  float:left;
+
+}
+#menu li a {
+  display:block;
+  color:white;
+  text-align: center;
+  padding:14;
+  text-decoration:none;
+
+}
+#menu li a:hover{
+  background-color:lightblue
+}
+
+</style></head>
+<body>
+
+<ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="picture.html">Pictures</a></li>
+<li><a href="question.html">Question</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="game.html">Game</a></li>
+<li><a href="help.html">Help</a></li>
+</ul>
+
+<h1>Find The Family Game!</h1>
+<h2>Directions</h2>
+<h3> Try and return the Vaquita Porpoise back to her family by clicking around the screen. If something comes up saying Bottom Of The Ocean that means that you are as far away as possible from the Vaquita. If it says Deep Sea that means that you are very far away but is closer that Bottom Of The Ocean. Middle Ocean means that you are half way there. Almost At The Surface means almost there and Land Ho means that you basicly couldn't be closer.</h3>
+
+<p id="hint"></p>
+<h1 id="CongratulationsYouHelpedTheVaquitaFindItsFamily"></h1>
+<img src="https://static.pexels.com/photos/63340/pexels-photo-63340.jpeg" width=800 height=800 id="map">
+
+
+<script>
+var map = document.getElementById("map");
+var hint = document.getElementById("hint");
+var congrats = document.getElementById("CongratulationsYouHelpedTheVaquitaFindItsFamily");
+   
+   var width = 800;
+   var height = 800;
+   
+   function getRandom(size) {
+     return Math.random()*size
+   }
+   
+   var treasure = { x: getRandom(width), y: getRandom(height)}
+   
+   function getDistance(event, treasure) {
+     var dx = event.offsetX - treasure.x;
+     var dy = event.offsetY - treasure.y;
+     return Math.sqrt((dx*dx)+(dy*dy))
+   }
+   
+   function getHint(distance) {
+ if (distance<25) {return "Land Ho!"}
+     else if (distance<60) {return "Almost At The Surface!"}
+     else if (distance<100) {return "Middle Ocean"}
+     else if (distance<160) {return "Deep Sea"}
+     else {return "Bottom Of The Ocean"}
+   }
+   map.addEventListener("click", function(event){
+     var distance = Math.round(getDistance(event,treasure));
+     var dhint = getHint(distance);
+     hint.textContent = dhint +" It is "+distance + " waves away";
+     if(distance<20) {
+       congrats.innerHTML
+       = "You Found Them!<br><img src='https://c1.staticflickr.com/3/2145/2523819797_59a2f9df38_z.jpg?zz=1' width=800>"
+     }
+   })
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+
+
+
+  
+
+</body>
