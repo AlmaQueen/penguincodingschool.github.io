@@ -1,0 +1,81 @@
+<head><style>
+
+body{
+  background:url(https://s-media-cache-ak0.pinimg.com/236x/9e/90/0f/9e900f91bdc3bb33b9d0a513ef4222a8--light-blue-wallpaper-iphone-phone-backgrounds.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+  #menu {
+  list-style:none;
+  overflow:hidden;
+  background-color:none;
+  }
+  #menu li {
+    float:left;
+  }
+  #menu li a {
+    display:block;
+    color:black;
+    text-align:center;
+    padding:14;
+    text-decoration:none;
+  }
+  #menu li a:hover{
+    background-color:c6fffc;
+  }
+
+</style></head>
+<body>
+<ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Video page</a></li>
+<li><a href="picture.html">Picture page</a></li>
+<li><a href="question.html">Questions</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="game.html">Game</a></li>
+</ul>
+
+
+
+  <h1>Find The treasure in The Kangaroo's Home</h1>
+<h1 id="congrats"></h1>
+<img src="https://www.mapsofworld.com/australia/australia-map.gif" width=900 height=700 id="map">
+
+<p id="hint"></p>
+
+<script>
+ var map = document.getElementById("map")
+ var hint = document.getElementById("hint")
+ var congrats = document.getElementById("congrats")
+
+var width = 900;
+var height = 700;
+
+  function getRandom(size) {
+      return Math.random()*size
+    }
+var treasure = { x: getRandom(width), y: getRandom(height)}
+  
+  function getDistance(event, treasure) {
+    var dX = event.offsetX - treasure.x;
+    var dY = event.offsetY - treasure.y;
+    return Math.sqrt((dX*dX)+(dY*dY))
+  }
+  function getHint(distance) {
+    if (distance<25) {return "CAUTION!HOT!"}
+    else if (distance<40) {return "Hot"}
+    else if (distance<80) {return "Warm"}
+    else if (distance<160) {return "Cold"}
+    else {return "Freezing!"}
+  }
+map.addEventListener("click", function(event) {
+var distance = Math.round(getDistance(event,treasure));
+var dhint = getHint(distance);
+hint.textContent = dhint+" It is "+distance + " pixels away";
+if (distance<20) {
+  document.getElementById("congrats").innerHTML = "You Found The Treasure!<br><img src='https://68.media.tumblr.com/c1debe54e8c5e9ddfbf0da3d06b4f999/tumblr_o5uhqxmv9m1s3h43ko1_500.gif' width=900>";
+      }
+    })
+
+</script>
+</body>
