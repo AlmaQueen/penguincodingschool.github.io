@@ -13,12 +13,39 @@ h2 {
 body {
   background: url(http://1.bp.blogspot.com/-zLOVskrpPvY/UmMbax9KRJI/AAAAAAAAFWI/QXTL3sIsjug/s1600/1019pinkpandatoss.png);
 }
+#menu {
+list-style:none;
+overflow:hidden;
+background-color:teal
+}
+#menu li {
+  float:left;
+}
+#menu li a {
+  display:block;
+  padding:14;
+  text-decoration:none;
+}
+#menu li a:hover {
+  background-color:white;
+}
+ 
   
 </style></head>
 
 
 
 <body>
+  
+  <ul id="menu">
+<li><a href="index.html">Home Page</a></li>
+<li><a href="video.html">Panda Videos</a></li>
+<li><a href="picture.html">Panda Pictures</a></li>
+<li><a href="question.html">Panda Buttons</a></li>
+<li><a href="quiz.html">Panda Quiz</a></li>
+<li><a href="treasure.html">Panda Game</a></li>
+</ul>
+
   <h1>Treasure Hunt Game</h1>
   <h1 id="congrats"></h1>
   <h2 id="hint"></h2>
@@ -45,11 +72,11 @@ function getDistance(event, treasure) {
   return Math.sqrt((dx*dx)+(dy*dy))
 }
 function getHint(distance) {
-  if(distance<20) {return "Boiling Hot"}
-  else if(distance<40) {return "Hot"}
-  else if(distance<80) {return "Warm"}
-  else if(distance<160) {return "Chilly"}
-  else if(distance<320) {return "Cold"}
+  if(distance<10) {return "Boiling Hot"}
+  else if(distance<20) {return "Hot"}
+  else if(distance<40) {return "Warm"}
+  else if(distance<80) {return "Chilly"}
+  else if(distance<160) {return "Cold"}
   else {return "Freezing Cold"}
 }
 map.addEventListener("click", function(event) {
