@@ -1,0 +1,85 @@
+<head><style>
+#menu{
+   list-style:none;
+   overflow:hidden;
+   
+ }
+#menu li {
+  float: left;
+}
+ #menu li a {
+   display:block;
+   color:#002eff;
+   text-align: center;
+   padding: 14;
+   text-decoration:none;
+ }
+ #menu li a:hover {
+   background-color:#db6fe2;
+ }
+ body{
+   background:url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0205/4280/rpurple_haze_shop_thumb.png);
+   background-repeat:no-repeat;
+   background-size:cover;
+ }
+ );
+   background-repeat:no-repeat;
+   background-size:cover;
+ }
+ 
+</style>
+</head>
+
+
+<body>
+ <ul id="menu">
+<li><a href="video.html">videos</a></li>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">pictures</a></li>
+<li><a href="question.html">questions</a></li>
+<li><a href="quiz.html">quiz</a></li>
+<li><a href="game.html">game</a></li>
+</ul>
+  
+  
+  
+ <h1>Find the treasure in the ancient greek world!</h1>
+ <h1 id="congrats"></h1>
+ <img src="http://longlivelearning.com/wp-content/uploads/2012/10/maps-odyssey.jpg" width=800 height=600 id="map">
+ 
+ <p id="hint"></p>
+ <script>
+  var map = document.getElementById("map")
+  var hint = document.getElementById("hint")
+  var congrats = document.getElementById("congrats")
+  var width = 800;
+  var height = 600;
+   function getRandom(size) {
+     return Math.random()*size
+   }
+   var treasure= { x: getRandom(width), y: getRandom(height)}
+ function getDistance(event,treasure) {
+   var dX = event.offsetX - treasure.x;
+   var dY = event.offsetY - treasure.y;
+   return Math.sqrt((dX*dX)+(dY*dY))
+   }
+   function getHint(distance) {
+     if (distance<10) {return "boiling hot!"}
+     else if (distance<40) {return "hot"}
+      else if (distance<80) {return "warm"}
+      else if (distance<160) {return "cool"}
+       else if (distance<320) {return "cold"}
+      else {return "freezing"}
+      }
+      map.addEventListener("click", function(event) {
+      var distance = Math.round(getDistance(event,treasure));
+      var dhint = getHint(distance);
+      hint.textContent = dhint+ " it is " +distance + " pixels away";
+      if (distance<20) {
+        document.getElementById("congrats").innerHTML = "you found the treasure!<br><img src='https://media.tenor.com/images/2a8c16ba3bac31f0e39648de78e14406/tenor.gif' width=800>";
+      }
+      })
+   </script>
+ </body>
+ 
+ 
