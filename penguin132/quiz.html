@@ -38,10 +38,12 @@ float:left
 <li><a href="picture.html">Pasta Photos</a></li>
 <li><a href="question.html"> You Quiz</a></li>
 <li><a href="quiz.html"> Chef Quiz</a></li>
+<li><a href="game.html"> Chef Game</a></li>
 </ul>
  <h1>Chef Quiz</h1>
- 
- <form id="form1" action="">
+ <table>
+<tr><td width=500>
+ <form id="form1" action="" >
    
    <h3>Which herb goes into Pesto?</h3>
    <input type="radio" name="q1" value=0>Mint<br>
@@ -68,9 +70,15 @@ float:left
   <input type="submit" value="Submit">
   
 </form>
+</td>
+<td>
+  <img src="pastatall.jpg" width=400 height=650>
+</td>
+</tr>
+</table>
  <p>You got <span id="grade"> _</span> correct out of 3.</p>
  <p id="grade2"></p>
- 
+
 <script>
 document.getElementById("form1").onsubmit=function(){
   q1=parseInt(document.querySelector("input[name='q1']:checked").value);

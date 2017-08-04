@@ -1,0 +1,87 @@
+ <head><style>
+h1{
+   color:white;
+   font-size:90;
+   text-align:center;
+ }
+body{
+  background:url(https://thumbs.dreamstime.com/t/comida-cruda-espiral-del-papel-pintado-de-los-macarrones-y-concepto-de-la-bebida-70181583.jpg);
+  color:white;
+}
+  #menu{
+  list-style:none;
+  overflow:hidden;
+  background-color:gold;
+}
+#menu li{
+float:left
+}
+
+#menu li a{
+  display:block;
+  color:black;
+  text-align:center;
+  padding:14;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:brown;
+}
+
+</style></head>
+
+<body>
+  <ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="video.html">Cooking Videos</a></li>
+<li><a href="picture.html">Pasta Photos</a></li>
+<li><a href="question.html"> You Quiz</a></li>
+<li><a href="quiz.html"> Chef Quiz</a></li>
+<li><a href="game.html"> Chef Game</a></li>
+</ul>
+  
+ <h1>Food Hunt!</h1>
+ <h3>You are missing your inportant ingredient! Check the kitchen and the clues to find it! </h3>
+ <h1 id="Delicious!"></h1>
+ <img src="http://generator.acmi.net.au/media/10994/10994_13258.jpg" width=900 height=700 id="map">
+ <p id="hint"></p>
+ <script>
+   var map=document.getElementById("map");
+   var hint=document.getElementById("hint");
+   var Delicious=document.getElementById("Delicious!");
+   
+   var width=900;
+   var height=700;
+   
+   function getrandom(size) {
+   return Math.random()*size
+}
+var treasure={x:getrandom(width), y: getrandom(height)}
+function getDistance(event, treasure) {
+  var dX=event.offsetX - treasure.x;
+  var dY=event.offsetY - treasure.y;
+  return Math.sqrt((dX*dX)+(dY*dY))
+}
+function getHint(distance) {
+  if (distance<25) {return "Hot Hot Hot!"}
+  else if (distance<40) {return "Hot"}
+  else if (distance<80) {return "Warm"}
+  else if (distance<160) {return "Cold"}
+  else {return "Cold Cold Cold!"
+}}
+map.addEventListener("click", function(event) {
+  var distance=Math.round(getDistance(event, treasure));
+  var dhint=getHint(distance);
+  hint.textContent=dhint+ " It is "+distance+"steps away";
+ if(distance<20){
+   document.getElementById("Delicious!").innerHTML = "You found the Missing Ingredient!<br><img src='https://s-media-cache-ak0.pinimg.com/originals/32/ac/a9/32aca9b9c7d1d4c0aad1e96be964ef97.gif' width=900px>";}
+  })
+ </script>
+ </body>
+
+
+ 
+ 
+ 
+ 
+ 
