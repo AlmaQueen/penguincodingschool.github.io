@@ -1,149 +1,90 @@
-<head>
- <style>
+<head><style>
 
-#menu {
-  list-style:none;
-    background-color:lightgrey;
-  overflow: hidden;
-}
-#menu li a {
-  float:left;
-}
-
-#menu li a {
-  color: blue;
-  text-align: center;
-  padding:14;
-  text-decoration: none;
-  display:block;
-}
-#menu li a {
-background-color:lightgrey;
-}
-
-#menu li a:hover{
-  background-color: rgb(124, 133, 147);
-}
+#menu{
+list-style-type:none;overflow: hidden;background-color:darkgray;
+}#menu li{float: left;}#menu li a{display: block;color: white;text-align: center;padding: 14;text-decoration: none;}
 
 
-body{
- 
-  background :url(https://s-media-cache-ak0.pinimg.com/originals/5f/67/d9/5f67d9ecc32184cccac99c24dc2db95c.jpg);
-background-repeat: no-repeat;
-background-size: 100%;
 
-  
-  
-}
 
-#form1 {
-  color:black;
-  font-size:20px;
-  
-}
-div {
-  background-color: lightyellow;
-  width:50%;
-  padding: 10;
 
-}
- </style>
-  </head>
+
+</style></head>
+
+
+
+
+
+
+
+
+
 
 
 <body>
- 
-    <ul id="menu">
-   <li><a href="index.html">Home</a></li>
-   <li><a href="picture.html">Pictures</a></li>
-   <li><a href="video.html">Video</a></li>
-  <li><a href="question.html">Question</a></li>
-  <li><a href="quiz.html">Quiz</a></li>
-  </ul>
-<h1>Pop Quiz</h1>
+<ul id="menu">
+<li><a href="index.html">home</a></li>
+<li><a href="video.html">video</a></li>
+<li><a href="picture.html">picture</a></li>
+<li><a href="question.html">question</a></li>
+<li><a href="quiz.html">quiz</a></li>
+<li><a href="game.html">game</a></li>
+
+</ul>
+  
+<h1>wombat quiz</h1>
 
 <form id="form1" action=" ">
-<div>
-<p>Who invented Slime?</p>
-<input type="radio" name="q1" value=1>
-Girls accidentally mixed slime ingeridents<br>
-<input type="radio" name="q1" value=0>
-scientists in a lab<br>
-<input type="radio" name="q1" value=0>
-A toy store sold it for the first time<br>
 
-<p>Whitch one do people think is better in 2017?</p>
-<input type="radio" name="q2" value=0>
-Fidget cubes<br>
-<input type="radio" name="q2" value=0>
-Slime<br>
-<input type="radio" name="q2" value=1>
-Fidget spinners<br>
+<h3>Are wombats birds,fish,or mammal?</h3>
+<input type="radio" name="q1" value=0>bird<br>
+<input type="radio" name="q1" value=0>fish<br>
+<input type="radio" name="q1" value=1>mammal<br>
 
-<p>Why do we have fidgets?</p>
-<input type="radio" name="q3" value=0>
-To play with<br>
-<input type="radio" name="q3" value=0>
-To destroy<br>
-<input type="radio" name="q3" value=1>
-To focus<br>
+<h3>How many species of wombats are there</h3>
+<input type="radio" name="q2" value=0>1<br>
+<input type="radio" name="q2" value=0>2<br>
+<input type="radio" name="q2" value=1>3<br>
 
-<p>Bonus, whats the most popular baby name in the U.S.A, 2017?</p>
-<input type="radio" name="q4" value=1>
-Emma,Liam
-<input type="radio" name="q4" value=0>
-Olivia, Noah
-<input type="radio" name="q4" value=0>
-Ava,Lucas
-
+<h3>wich one is a wombat</h3>
+<input type="radio" name="q3" value=1><img src="https://kidssearch.com/picsearch/images/wombat-pic-1246x1069-40d8c31.png" width=300 height=300>
 <br>
+<input type="radio" name="q3" value=0><img src="http://cdn.star2.com/wp-content/uploads/2015/07/AardvarkA.jpg" width=300 height=300>
 <br>
-<input type="submit" value="Submit">
+<input type="radio" name="q3" value=0><img src="http://cdn.star2.com/wp-content/uploads/2015/07/FatDogA.jpg" width=300 height=300>
 <br>
-</div>
+
+
+<input type="submit" value="done">
+
 </form>
-
-<h2>You got <span id="grade">_</span> correct out of three questions.</h2>
+  
+  
+<p>you got <span id="grade">_</span> correct out of 3.</p>
 <p id="grade2"></p>
+
+
 <script>
 document.getElementById("form1").onsubmit=function() {
-q1=parseInt(document.querySelector("input[name='q1']:checked").value);
-q2=parseInt(document.querySelector("input[name='q2']:checked").value);
-q3=parseInt(document.querySelector("input[name='q3']:checked").value);
-q4=parseInt(document.querySelector("input[name='q4']:checked"
-).value);
+  q1=parseInt(document.querySelector("input[name='q1']:checked").value);
+  q2=parseInt(document.querySelector("input[name='q2']:checked").value);
+  q3=parseInt(document.querySelector("input[name='q3']:checked").value);
+result = q1+q2+q3;
+document.getElementById("grade").innerHTML = result;
 
-  result=q1+q2+q3+q4;
-  document.getElementById("grade").innerHTML = result;
- 
-if (result==0) {result2="You failed <br><img src ='0.jpg' width=300>"}
-if (result==1) {result2="Your at Baby level <br><img src ='1.jpg' width=300>"}
-if (result==2) {result2="You got lucky <br><img src ='2.gif' width=300>"}
-if (result==3) {result2="I'm still better than you hahaha <br><img src ='3.jpg' width=300>"}
-if (result==4) {result2="Congrats! <br><img src ='4.jpg' width=300>"}
+if (result===0) {result2= "Sophie says you did a bad job!!! <br><img src='https://media.giphy.com/media/6Q2KA5ly49368/giphy.gif' width=300>"}
+if (result===1) {result2= "Sophie says you did a bad job!!! <br><img src='http://24.media.tumblr.com/1b27ae3e5eebd6fedcf52e6a6336f161/tumblr_n2mx9ioqzW1rmfml5o1_400.gif' width=300>"}
+if (result===2) {result2= "Sophie says you are good enough!!! <br><img src='https://media.tenor.com/images/d7f5ca5aa4d84715e6d1b7ee93a7e6c6/tenor.gif' width=300>"}
+if (result===3) {result2= "Sophie says you are awsome!!! <br><iframe src='https://giphy.com/embed/TZTWP8qyi7t5K' width=480 height=480></iframe>"}
 
 document.getElementById("grade2").innerHTML = result2;
 
-   return false;
-
-  
+return false;
 }
-
-
-
-</script>
-
-
-
-
-
-
-
-
+ </script>
 
 
 </body>
-
 
 
 

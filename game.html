@@ -1,15 +1,54 @@
-<head>
-<style>
-  
-#canvas {
-  background: url(http://pre13.deviantart.net/179f/th/pre/f/2012/051/c/8/grassy_plains_by_something31337-d4qdqts.png);
-  backgroud-repeat:no-repeat;
-  background-size:cover;
+<body><h1>Find the hidden wombat</h1>
+<h1 id="congrats"></h1>
+<p id="hint"></p>
+
+<img src="http://images.freeimages.com/pic/l/a/al/alexdehnel/575957_63820450.jpg" width=800 height=800 id="map">
+
+
+
+<script>
+var map = document.getElementById("map");
+var hint = document.getElementById("hint");
+var congrats = document.getElementById("congrats");
+
+
+var width = 800;
+var height = 800;
+
+function getRandom(size){
+  return Math.random()*size
 }
+
+var treasure = {x:getRandom(width),y: getRandom(height)}
+
+
+function getDistance(event, treasure) {
+  var dx = event.offsetX - treasure.x;
+  var dy = event.offsetY - treasure.y;
+  return Math.sqrt((dx*dx)+(dy*dy));
+}
+
+function getHint(distance) {
+  if (distance<25){return"Boiling Hot"}
+  else if (distance<40){return" Hot"}
+  else if (distance<80){return"warm"}
+  else if (distance<160){return"cold"}
+  else {return "Freezing" }
+}
+
+map.addEventListener('click',function(event) {
+  var distance = Math.round(getDistance(event,treasure));
+  var dhint = getHint(distance);
+  hint.textContent = dhint+" You are "+distance+" miles away";
+  if (distance<20) {
+    document.getElementById("congrats").innerHTML = "You found the Treasure!<br><img src='https://media.giphy.com/media/ehhuGD0nByYxO/giphy.gif' width=800>";
+  }
+ 
   
   
-</style>
-</head>
+})
+
+</script>
 
 
 
@@ -18,7 +57,4 @@
 
 
 
-<body>
-  <canvas id="canvas"></canvas>
-  <script src="game.js"></script>
 </body>

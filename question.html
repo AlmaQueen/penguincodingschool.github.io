@@ -1,82 +1,124 @@
- <head>
-   <style>
+<head><style>
+.button{
+  display:inline-block;
+  text-align:center;
+  font-size:100px;
+  background-color:magenta;
+  padding:30 45;
+  margin:5;
+  text-decoration:none;
+  border-radius:120px;
+  color:brown;
+  animation:rainbow 5s infinite;
+}
+#menu{
+list-style-type:none;overflow: hidden;background-color:darkgray;
+}#menu li{float: left;}#menu li a{display: block;color: white;text-align: center;padding: 14;text-decoration: none;}
 
- .button {
-   display:inline-block;
-   text-align:center;
-   font-size:90px;
-   background-color:pink;
-   padding: 150 300;
-   margin:5;
-   text-decoration:none;
-   border-radius: 12px;
-   color:black;
+#magicbox {
+  background-color:blue;
+  width:500;
+  height:500;
+  display:none;
+  animation:rainbow 5s infinite;
+}
+
+ @keyframes rainbow{
+ 0% {background-color:yellow;color:white;}
+ 15%{background-color:red;color:magenta};
+ 30%{background-color:orange;font-size:90px;}
+ 45%{background-color:purple}
+ 60%{background-color:blue}
+ 75%{background-color:green}
+ 90%{background-color darkblue}
  }
+  
+  
+  
+  
 
-body {
- background :url(https://s-media-cache-ak0.pinimg.com/736x/cf/f2/45/cff245dfed117870a495e4ef67588002.jpg);
-background-repeat: no-repeat;
-background-size: cover;
-
-}
-#menu {
-  list-style:none;
-    background-color:lightgrey;
-  overflow: hidden;
-}
-}
-#menu {
-  list-style:none;
-    background-color:lightgrey;
-  overflow: hidden;
-}
-#menu li a {
-  float:left;
-}
-
-#menu li a {
-  color: blue;
-  text-align: center;
-  padding:14;
-  text-decoration: none;
-  display:block;
-}
-#menu li a {
-background-color:lightgrey;
-}
-
-#menu li a:hover{
-  background-color: rgb(124, 133, 147);
-}
- 
-   </style>
- </head>
- 
- 
+</style></head>
 
 <body>
-    
-  <ul id="menu">
-   <li><a href="index.html">Home</a></li>
-   <li><a href="picture.html">Pictures</a></li>
-   <li><a href="video.html">Video</a></li>
-  <li><a href="question.html">Question</a></li>
-<li><a href="quiz.html">Quiz</a></li>
+  
+<ul id="menu">
+<li><a href="index.html">home</a></li>
+<li><a href="video.html">video</a></li>
+<li><a href="picture.html">picture</a></li>
+<li><a href="question.html">question</a></li>
+<li><a href="quiz.html">quiz</a></li>
+<li><a href="game.html">game</a></li>
+<li><a href="save.html">save</a></li>
+
 </ul>
- <h1>Guess Who?</h1>
- <a class="button" href="javascript:Click()">Click me</a>
- <script>
- function Click() {
-   alert("Hello Stranger, ready to see what kind of person you are?");
-   var name=prompt("What is your name");
-   alert("oh! "+ name +" What a beautiful name")
-   var stress=prompt("Do you like stress balls or fidget spinners");
-   if(stress=="stress balls" || stress=="Stress Balls") {
-     alert("You're calm and Elegant");}
-   else if(stress=="fidget spinners" || stress=="fidget spinner"){
-    alert("Your dangerous and Active");}
-   else {alert("Please Answer!")};
-   }
-   
- </script>
- </body>
+<h1>Answer My Question </h1> <button onclick = "question()"> for greetings</button>
+
+<a class="button" href="javascript:magic()">Magic Button</a>
+<div id="magicbox"></div>
+
+
+<button onclick="hidemagic()">HIDE</button>
+
+<script>
+function magic() {
+  var magicbox = document.getElementById("magicbox");
+  magicbox.style.display ="block";
+}
+function hidemagic() {
+  var magicbox = document.getElementById("magicbox");
+  magicbox.style.display ="none";
+}
+
+
+function question() {
+  alert("Hi there!");
+  var name=prompt("what is your name?");
+alert("Hi "+name+". that is a nice name. I have the same name");
+var age=prompt("How old are you");
+if(age>18)
+{alert("YOU CAN VOTE!")}
+else{alert("you are a kid!");}
+var q1 = prompt("Do you like wombats?");
+if(q1 =="yes" || q1=="Yes"){alert("you are awsome!");
+  window.location ="video.html";
+}
+else if(q1=="no"){alert("why are you on this website!");
+  window.location="index.html";
+}
+else{alert("please answer yes or no")}
+
+
+
+
+
+}
+
+
+
+  
+</script>
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+</body>
