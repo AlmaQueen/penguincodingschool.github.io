@@ -1,0 +1,91 @@
+  <head><style>
+  #menu{
+list-style:none;
+overflow:hidden;
+}
+
+#menu li{
+  float:left;
+}
+#menu li a{
+  display:block;
+  color:black;
+  text-align:center;
+  padding:30;
+  text-decoration:none;
+}
+#menu li a:hover{
+  background-color:lightblue;
+}
+  </style></head>
+  <body>
+    <ul id="menu">
+<li><a href="video.html">video</a></li>
+<li><a href="index.html">home</a></li>
+<li><a href="picture.html">pictures</a></li>
+<li><a href="question.html">question</a></li>
+<li><a href="quiz.html">quiz</a></li>
+<li><a href="game.html">game</a></li>
+</ul>
+<h1>Find The Bone</h1>
+    <h3>This game is about a dog who put his bone somewhere in his yard but now he can't find it again!  He follows the smell carefully until he discovers his bone!  Click around the picture.  The hotter it gets, the closer you are to the bone.  Get as close to 0 pixles away as you can.  When you get close enough, you will see a congradulations screen and the game is over.  Then the dog dog loses the bone again and needs help finding it!</h3>
+    
+    <h1 id="FoundBone"></h1>
+  
+  <img src="https://diaryofadogtrainer.files.wordpress.com/2012/11/beagleinyard.jpg" height=700 width=900 id="map">
+  
+  <p id="hint"></p>
+  
+  <script>
+   var map=document.getElementById("map");
+   var hint=document.getElementById("hint");
+   var FoundBone=document.getElementById("FoundBone");
+    
+    var height=700
+    var width=900
+    
+    function getRandom(size) {
+      return Math.random()*size
+    }
+    
+    var treasure= {x: getRandom(width), y:getRandom(height)}
+    
+    function getDistance(event, treasure) {
+      var dX=event.offsetX-treasure.x;
+       var dY=event.offsetY-treasure.y;
+       return Math.sqrt((dX*dX)+(dY*dY))
+    }
+
+function getHint(distance){
+  if (distance<150){return "boiling hot"}
+  else if (distance<200){return "hot"}
+  else if (distance<300){return "warm"}
+  else if (distance<450){return "cold"}
+  else {return "freezing"}
+}
+
+map.addEventListener("click", function(event){
+  var distance=Math.round(getDistance(event,treasure));
+  var dhint=getHint(distance)
+  hint.textContent=dhint+" It is "+distance+" pixels away";
+  if(distance<50){
+    FoundBone.innerHTML="You found the bone!<br><img src='https://media.giphy.com/media/qDWSxfium1oRO/giphy.gif' width=800px>";
+  }
+})
+    
+
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </script>
+  </body>
