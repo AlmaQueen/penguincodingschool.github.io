@@ -1,0 +1,67 @@
+<head><style>
+  
+  h1 {
+  color: #7711a3;
+  text-align:center;
+  font-size:60px;
+}
+
+h2 {
+  color: #7711a3;
+}
+
+body {
+  background: url(http://1.bp.blogspot.com/-zLOVskrpPvY/UmMbax9KRJI/AAAAAAAAFWI/QXTL3sIsjug/s1600/1019pinkpandatoss.png);
+}
+  
+</style></head>
+
+
+
+<body>
+  <h1>Treasure Hunt Game</h1>
+  <h1 id="congrats"></h1>
+  <h2 id="hint"></h2>
+  <img src="https://wrscomsg.files.wordpress.com/2012/10/121010-r9c0699dt1.jpg" width=1024 height=768 id="map">
+
+
+
+<script>
+  var map=document.getElementById("map");
+  var hint=document.getElementById("hint");
+  var congrats=document.getElementById("congrats");
+  
+  var width=1024
+  var height=768
+  
+  function getRandom(size) {
+    return Math.random()*size
+  }
+  var treasure={x: getRandom(width), y:getRandom(height)}
+  
+function getDistance(event, treasure) {
+  var dx=event.offsetX-treasure.x;
+  var dy=event.offsetY-treasure.y;
+  return Math.sqrt((dx*dx)+(dy*dy))
+}
+function getHint(distance) {
+  if(distance<20) {return "Boiling Hot"}
+  else if(distance<40) {return "Hot"}
+  else if(distance<80) {return "Warm"}
+  else if(distance<160) {return "Chilly"}
+  else if(distance<320) {return "Cold"}
+  else {return "Freezing Cold"}
+}
+map.addEventListener("click", function(event) {
+  var distance=Math.round(getDistance(event, treasure));
+  var dhint=getHint(distance);
+  hint.textContent=dhint+" It is "+distance +" pixels away ";
+  if(distance<20) {
+    document.getElementById("congrats").innerHTML="You found the bamboo!<br><img src=https://media.giphy.com/media/bRJRe4SUFyp2w/giphy.gif width=800px>";
+    
+  }
+
+})
+</script>
+
+</body>
