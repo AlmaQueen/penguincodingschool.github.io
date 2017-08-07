@@ -10,6 +10,8 @@
 </head>
 <body>you made it! welcome to  the CHAT page
 
+
+<table><tr><td>
 <form id="chatform" action = " ">
 
   <h3> Chat Box</h3>
@@ -21,12 +23,34 @@
 <h1><span id="result">_</span></h1>
 
 
+
+</td>
+<td>
+<form id="chatform1" action = " ">
+  <h3> Chat Box</h3>
+  <input type="text" id="chatbox1"><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+<h1><span id="result1">_</span></h1>
+</td></tr></table>
+
 <script>
   document.getElementById("chatform").onsubmit=function(){
     var chattext = document.getElementById("chatbox").value;
      document.getElementById("result").innerHTML=chattext;
 return false;
+}
+
+  document.getElementById("chatform1").onsubmit=function(){
+    var chattext1 = document.getElementById("chatbox1").value;
+     document.getElementById("result1").innerHTML=chattext1;
+return false;
+}
 
 </script>
+
+
 
 </body>
