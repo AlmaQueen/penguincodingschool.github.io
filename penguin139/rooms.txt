@@ -1,0 +1,9 @@
+5
+0
+BEDROOM
+[You arouse from a deep sleep, due to the sun dancing elegantly against your bedroom curtains.]
+_______________________________________________________________________________________		
+|--^----^----^-----~<I|Do you want to fall back to sleep?(yes/no)|I>~-----^----^----^--|
+|_/ \__/ \__/ \__________________________________________________________/ \__/ \__/ \_|
+
+                 
