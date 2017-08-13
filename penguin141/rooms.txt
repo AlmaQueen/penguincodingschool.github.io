@@ -1,0 +1,74 @@
+7
+0
+MOTEL
+You are driving alone on the highway as night settles. You are tired and hungry, and are desperate for a place to sleep.
+As you continue to drive and search, you find a motel, with its "OPEN" sign blaring red. You pull into the parking lot, and see only one other car parked, with its headlight broken. The motel looks horrible, but you're very tired, and any more driving wouldn't be safe.
+
+Do you decide to stay or leave?
+%%
+leave:1
+decide to leave:1
+stay:2
+decide to stay:2
+%%
+1
+LEAVE
+You decide the motel is too sketchy, and continue to drive. However, you underestimate your fatigue, and fall asleep on the road, causing a huge car crash.
+
+You have died. Type "quit" to die.
+%%
+quit:-1
+%%
+2
+STAY
+You park your car, and enter the motel with your car keys, phone, and wallet, in your pocket. You open the door, and head to the reception. An old lady turns her head toward you, a slight smile on her face, as if she was waiting for you. You look back at the door, but continue walking towards the desk. She pulls out a key from under the desk, and places it in front of you. Just as you are about to ask how much it cost, she holds her hand up to stop you. "Don't worry about the cost," she says. She then points her finger towards a staircase. You follow her finger, and arrive at your door. The door looks brand new, unusual for an old hotel like this. Nevertheless, you open the door, and walk inside.  
+
+Inside, there is a bed, tv, and bathroom, with the door closed. Do you decide to check out the bathroom or go straight to bed?
+%%
+sleep:3
+straight to bed:3
+bed:3
+go to sleep:3
+go to bed:3
+check out bathroom:4
+bathroom:4
+%%
+3
+SLEEP
+Unknown to you, someone had left the water running in the bathtub, and after you fall asleep, the water spills under the bathroom door, and into the room. You don't hear anything, but when you wake up at 5 am, the water has ruined everything, including the bed, and carpeted floor. You then hear a knock on your door, and when you open it, the old lady is waiting. When she peeks around your shoulder, her expression suddenly changes. She gets mad, and her face contorts. She grabs you by the shirt, pulling you down the stairs. You reach the door you entered from, and she pushes you outside, without one word. When you try to go back in for your wallet, keys, and phone, she pushes you back out, screaming for you to leave. A large man appears from behind of her, and with him there, you know you can't go back to your room to get those stuff. You start to run.
+
+You are stranded on the middle of a highway, with no help at all. Type "quit" to die.
+%%
+quit:-1
+%%
+4
+BATHROOM
+You enter the bathroom and see someone had left the bathtub faucet running. You quickly shut it off, and take a quick peek around the bathroom before heading to bed. You wake up in the morning, to your phone ringing loudly, and pick it up. "YOU HAVE TO GET OUT OF THERE." That is all you hear before the stranger hangs up, leaving you frightened. You grab your car keys and phone, before realizing that your wallet is missing.
+
+Do you risk looking around the room for it, or do you immediately run for your car without paying?
+%%
+risk it:5
+room:5
+look around room:5
+risk looking around the room:5
+look for wallet:5
+run for car:6
+car:6
+run to car without paying:6
+%%
+5
+RISK IT
+You decide to stay for your wallet, considering your credit card is in it. As you search under the bed, you hear a thump. Slowly looking up, you see the old lady close the door behind her. She turns to look at you, with a wild smile. This is the last thing you see.
+
+You have died. Type "quit" to die.
+%%
+quit:-1
+%%
+6
+RUN WITHOUT PAYING
+You run to your car, start the engine, and streak out of there, without looking back. You drive at high speeds, but are able to stay out of police radars. You arrive home, panting, and throw your stuff on the sofa. You sit down, thinking about everything that happened. You stomach grumbles, and realizing you hadn't eaten anything since yesterday morning, you head to the kitchen. But then the phone call fills your head once again, and you decide to investigate more, and also call the police. You turn around to the sofa to grab your stuff, and suddenly a hand clamps over your mouth. Your sofa is the last thing you see.
+
+You have died. Type "quit" to die.
+%%
+quit:-1
+%%
