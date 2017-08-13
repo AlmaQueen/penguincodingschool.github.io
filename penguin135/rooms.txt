@@ -1,0 +1,50 @@
+5
+
+0
+BEEEEEEP, BEEEEEEEP, is the first sound you hear as you sit up in your HBC. 
+You hear a voice welcome you to the year 4017.
+You crane your neck to see a small screen on the inside of the coffin. 
+On the screen is some small text. Do you want to read it? (yes/no)
+%%
+yes:1
+no:2
+%%
+
+1
+It reads: Hello passenger, welcome to the year 4017. 
+Although you don't remember it, you have been aboard the Sea Dragon for 50 years. 
+Most of the other passengers should be waking up soon. 
+Looking around you should see two hatches. DO NOT OPEN AIRLOCK UNLESS INSTRUCTED.
+Take the right hatch and await further instruction. 
+Press the button below to close the letter. (press button)
+%%
+press button:2
+%%
+
+2
+You see 2 hatches, One says AIRLOCK in blue letters, the other says nothing.
+Which one do you take? (enter right hatch/enter left hatch)
+%%
+enter right hatch:3
+enter left hatch:4
+%%
+
+3
+You find yourself in a long hallway lined with hatches. 
+Some are already open. A big sign on the wall tells you to follow the hallway all the way down.
+But you're curious to see what's inside the other rooms. (enter room/walk hallway)
+%%
+walk hallway:
+enter room:
+%%
+
+4
+There was nothing but empty space on the other side of the airlock. 
+You barely have time to react as the room instantly depressurizes, killing you and blowing up the entire module.
+(quit)
+%%
+quit:-1
+%%
+
+5
+You step through the hatch and find yourself in a room identical to the one you started out with
