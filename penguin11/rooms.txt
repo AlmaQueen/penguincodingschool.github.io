@@ -1,0 +1,83 @@
+8
+0
+---AT WORK---
+You are at your desk. You hear a noise behind you. Turn and look or continue working.
+%%
+turn:1
+look:1
+turn and look:1
+continue:2
+work:2
+continue working:2
+%%
+1
+---TURN TO LOOK---
+You turned to look! Behind you there is a spider. A large, hairy spider. Run away, scream, remove the spider or turn back to your work.
+%%
+run:3
+run away:3
+scream:4
+remove the spider:5
+remove spider:5
+remove:5
+turn back:2
+turn:2
+%%
+2
+---WORKING---
+Continue working... the noise continues... Ignore it, ignore it, ignore it. You snap! You finally turn around. Remove the spider that is causing the noise or run away.
+%%
+remove the spider:5
+remove:5
+remove spider:5
+run:3
+run away:3
+%%
+3
+---RUN!!!---
+You ran away! You leave the office and as you are running across the street, you get hit by a car. You died.
+Type 'quit' or 'restart'.
+%%
+quit:-1
+restart:0
+%%
+4
+---SCREAM---
+You scream as loud as you can but no one comes. Run away or remove the spider.
+%%
+remove the spider:5
+remove:5
+remove spider:5
+run:3
+run away:3
+%%
+5
+---REMOVE THE SPIDER---
+You try to remove the spider. Grab it and bring it outside or hunt for a cup to put over the spider to carry it in.
+%%
+find cup:6
+cup:6
+hunt for cup:6
+grab:7
+grab it:7
+grab spider:7
+grab the spider:7
+%%
+6
+---FIND CUP---
+You find a cup and safely bring the spider outside. 
+YOU WIN!!!!!!!!!
+Type 'quit' or 'restart'.
+%%
+quit:-1
+restart:0
+%%
+7 
+---GRAB THE SPIDER---
+On the way outside, the spider bites you.
+You died.
+Type 'quit' or 'restart'.
+%%
+quit:-1
+restart:0
+%%
