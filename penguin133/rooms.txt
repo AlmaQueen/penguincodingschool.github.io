@@ -1,0 +1,53 @@
+7
+0
+KITCHEN
+You are in the kitchen facing the window. It is dark outside. There is a "red door" to your right and a glass of "orange juice" to your left. What do you do?
+%%
+red door:1
+go to red door:1
+orange juice:2
+drink orange juice:2
+%%
+1
+RED DOOR 
+You enter a large room with a grand piano and a sleek purple sofa. The couch doesn't look too comfortable, but there is a bench in front of the piano. Do you leave the room or sit at the piano?
+%%
+piano:3
+play piano:3
+sit at piano:3
+leave room:4
+leave:4
+%%
+2
+ORANGE JUICE
+You drank the orange juice, and now you don't feel so well. You need to sit down. There is a black door and a white door behind you. Which do you choose?
+%%
+black door:5
+black:5
+white:6
+white door:6
+%%
+3
+PIANO
+You sit at the piano decide that you want to play a song you learned. When you try to press the keys, no sound comes out. Confused, you bang the instrument to listen for a sound but there is utter silence. You try to talk but you cannot. Slowly the darkness from outside creeps in. You are doomed. Type "quit" to die.
+%%
+quit:-1
+%%
+4
+LEAVE
+You left the room and are now in a dimly lit hallway. The floor creaks below you. You hear slow footsteps behind you and you turn around to find a giant monster breathing down on you. The door you just came from has disappeared. You are doomed. Type "quit" to die. 
+%%
+quit:-1
+%%
+5
+BLACK DOOR
+You open the door to reveal the bedroom of a young child. Nobody is in the room, but you notice dolls sitting on the edge of the bed. You walk around the room and their eyes follow you. Confused, you back into the wall.The dolls come to life and begin closing in on you. You are doomed. Type "quit" to die.
+%%
+quit:-1
+%%
+6
+WHITE DOOR
+You push open the white door to reveal wooden stairs leading down. You descend the stairs into a pitch black room. You hear heavy breathing all around you, and a voice behind you rasps "She is here, finally." You turn around, but as you do the lights turn on to reveal all of your friends and family. Your sister is standing in front of you and clears her throat. "Sorry, I lost my voice." she said,"Happy Birthday!". Type "quit" to join your surprise party.
+%%
+quit:-1
+%%
