@@ -1,0 +1,107 @@
+6
+0
+LEXINGTON GREEN
+You wake up suddenly, and realize that you're no longer in your bed.
+Right above you are a giant flagpole and looming clouds, realizing that you're in the Lexington Green, you stand up.
+
+You can either start "walking home" or "go to the library".
+
+%%
+walk home:1
+home:1
+walking home:1
+go to the library:2
+library:2
+go to library:2
+%%
+1
+PATH TO HOME
+On your way home, you get and eerie feeling, but can't quite place it.
+You come to the terrible realization that there's no cars or anyone in sight! Except for a tall man in a black suit.
+
+Do you "approach the man" and ask him what's going on, or "walk faster towards your home"?
+%%
+approach the man:3
+man:3
+approach man:3
+walk faster:4
+walk faster towards your home:4
+walk faster towards my home:4
+walk faster to home:4
+walk home:4
+%%
+2
+LIBRARY
+You make it to the library safely. Upon reaching the library, you see a tall man in a black suit. You also notice all the books are missing from the Sci-Fi part of the library.
+
+You can either "talk to the man" or "go get food from Panera".
+%%
+talk to man:3
+man:3
+talk to the man:3
+go get food:5
+get food:5
+food:5
+go get food from Panera:5
+%%
+3
+MAN IN SUIT
+The man is actually an alien who has come to capture you.
+
+You have been captured.
+(Type "bye" to leave planet Earth)
+%%
+bye:-1
+%%
+4
+MAN IN SUIT
+The man is actually an alien who has come to capture you.
+
+You have been captured.
+(Type "bye" to leave planet Earth)
+%%
+bye:-1
+%%
+5
+PANERA
+Nobody's here either?! You could probably get away with making yourself a sandwich.
+
+Either "eat a sandwich" or "head to the town hall" to complain about lack of security.
+%%
+eat a sandwich:6
+sandwich:6
+eat sandwich:6
+go to town hall:7
+town hall:7
+head to town hall:7
+%%
+6
+EAT THE SANDWICH
+The sandwich was poisoned by the aliens that came down to Earth! You must go to the Man in the Suit!
+
+Type "man in suit".
+%%
+man in suit:4
+%%
+7
+TOWN HALL
+You walk in and still don't see anyone, although you do hear screams coming from the floorboards.
+
+Do you think you should "go downstairs" to investigate? Or maybe they're "just mice"?
+%%
+go downstairs:8
+downstairs:8
+just mice:9
+mice:9
+%%
+8
+DOWNSTAIRS
+You slowly walk down the stairs. The screams get louder, they can't be mice. The WHOLE TOWN is down here!!! You found them!!!
+
+Type "YAY" to quit.
+%%
+YAY:-1
+%%
+9
+JUST MICE
+You turn around to leave and come face to face with the man in the suit.
