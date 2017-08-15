@@ -1,0 +1,37 @@
+<head><style>
+  .button {
+    background-color:red;
+    overflow:hidden;
+    padding:14;
+    color:white;
+    text-decoration:none;
+    font-size:80px;
+  }
+  
+</style></head>
+
+<a class="button" href=javascript:magic()>Magic Button</a>
+
+
+
+<script>
+  function magic() {
+    alert("Hello! I am the computer, and I am excited to meet you!");
+    var name= prompt("What is your name?");
+    alert("Nice to meet you "+ name);
+    var answer= prompt("Do you know some information about sea creatures?")
+    
+    if(answer=="no" || answer=="No" || answer=="N")
+    {alert("Maybe it would intrest you to learn about them!");
+      window.location="index.html"
+    }
+    else if (answer=="yes" || answer=="Yes" || answer== "Y")
+    {alert("That's fantastic!");
+      window.location="index.html"
+    }
+    else {alert("You have to answer yes or no.");}
+    
+    
+  }
+  
+</script>

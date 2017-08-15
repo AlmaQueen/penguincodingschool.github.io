@@ -17,10 +17,10 @@
 <input type="radio" name="q3" value=0>Pods<br>
 <input type="radio" name="q3" value=1>School<br>
 
-<input type="Submit" value="Done">
+<input type="submit" value="Done">
 
 </form>
-<p>You got<span id="grade"></span> correct out of 3.</p>
+<p>You got <span id="grade">-</span> correct out of 3.</p>
 <p id="grade2"></p>
 
 
@@ -31,22 +31,19 @@
     
     q1=parseInt(document.querySelector("input[name='q1']:checked").value);
     q2=parseInt(document.querySelector("input[name='q2']:checked").value);
-    q3=parseInt(document.getElementById("q3").value);
+    q3=parseInt(document.querySelector("input[name='q3']:checked").value);
     result = q1+q2+q3;
     document.getElementById("grade").innerHTML=result;
     
-    
-    if (result===0) {result2= "You should try to learn more about sea creatures! Try again!
-    <br><img src='0.jpg' width=300>";}
-     if (result===1) {result2= "You might want to try again, you only got one right.
-    <br><img src='1.jpg' width=300>";}
-    if (result===2) {result2= "It's pretty good, but you could to better! Try again!
-    <br><img src='2.jpg' width=300>";}
-     if (result===3) {result2= "Great job!You now know some things about sea creatures!
-     <br><img src='3.jpg' width=300>";}
+  
+    if (result===0) {result2= "You should try to learn more about sea creatures! Try again!<br><img src='0.jpg' width=300>";}
+     if (result===1) {result2= "You might want to try again, you only got one right.<br><img src='1.jpg' width=300>";}
+    if (result===2) {result2= "It's pretty good, but you could to better! Try again!<br><img src='2.jpg' width=300>";}
+     if (result===3) {result2= "Great job!You now know some things about sea creatures!<br><img src='3.gif' width=300>";}
      
      
-     document.getElementById("grade2").innerHTML=result2
+     document.getElementById("grade2").innerHTML=result2;
+
       return false;
      
   }
