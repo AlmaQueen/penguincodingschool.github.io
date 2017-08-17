@@ -25,6 +25,8 @@ platform();
 obstacle();
 monster();
 coin();
+scoreDisplay();
+ if (score===50) {gameWin()}
  if (x <0 || x>canvas.width-playerW) {
    xSpeed=-xSpeed;
  }
@@ -120,10 +122,14 @@ plat.push({x: 1200, y: 145,w: 250, h: 10});
 plat.push({x: 0, y: 690, w:canvas.width, h: 10});
 
 
+var img_lava = document.createElement("img");
+img_lava.src = "lava.png";
+
 function obstacle() {
-cx.fillStyle = "red";
+//cx.fillStyle = "red";
 for (var i = 0; i<lava.length; i++) {
-  cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+  //cx.fillRect(lava[i].x, lava[i].y, lava[i].w, lava[i].h);
+  cx.drawImage(img_lava,lava[i].x,lava[i].y,lava[i].w,lava[i].h);
   if (y==lava[i].y-playerH &&
      x>=lava[i].x-playerW &&
      x<=lava[i].x + lava[i].w)
@@ -133,9 +139,9 @@ for (var i = 0; i<lava.length; i++) {
 
 var lava=[];
 
-
-lava.push({x: 0, y: 600, w:canvas.width, h:10});
-lava.push({x: 100, y: 100, w:10, h:10});
+lava.push({x: 0, y: 600, w:canvas.width, h:90});
+lava.push({x: 100, y: 700, w:20, h:10});
+lava.push({x: 400, y: 80, w:40, h:20});
 
 function gameOver() {
   cx.fillStyle ="Red";
@@ -189,13 +195,13 @@ img_coin.src = "coin.png";
 
 function coin() {
   cx.drawImage(img_coin,xC,yC,wC,hC);
-  if(x+playerW > xC && xC + wC> x && yC+hC >y && y+player >yC) {
+  if(x+playerW > xC && xC + wC> x && yC+hC >y && y+playerH >yC) {
     score=+10;
   var i = Math.ceil(Math.random()*plat.length);
-  //xC = plat[i].x;
-  //yC = plat[i].y - 40;
-  xC = Math.random()*(canvas.width - 100);
-  yC = getRandomInt(1,3) * 150;
+  xC = plat[i].x;
+  yC = plat[i].y - 40;
+ // xC = Math.random()*(canvas.width - 100);
+//  yC = getRandomInt(1,3) * 150;
   
 }
 }
@@ -207,6 +213,12 @@ function getRandomInt(min,max){
 }
 
 var score = 0
+
+function scoreDisplay() {
+  cx.fillStyle = "Green";
+  cx.font = "30px Comic Sans MS";
+  cx.fillText("Score: "+score,500,100);
+}
 
 
 
