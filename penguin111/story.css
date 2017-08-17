@@ -1,0 +1,120 @@
+.button {
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  margin: 5;
+  padding: 15 32;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16;
+}
+
+#location1 {
+  background: url("cage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location2 {
+  background: url("room.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location3 {
+  background: url("hands.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location4 {
+  background: url("floor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location5 {
+  background: url("books.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location6 {
+  background: url("vent.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location7 {
+  background: url("grass.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location8 {
+  background: url("hamsterball.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location9 {
+  background: url("stairs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location10 {
+  background: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location11 {
+  background: url("hands.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location12 {
+  background: url("hallway.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location13 {
+  background: url("catdoor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location14 {
+  background: url("floor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location15 {
+  background: url("blur.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location16 {
+  background: url("blurfloor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location17 {
+  background: url("ceiling.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#location18 {
+  background: url("lock.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

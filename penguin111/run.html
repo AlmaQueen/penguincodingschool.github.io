@@ -1,0 +1,43 @@
+<head>
+  <link rel="stylesheet" href="story.css">
+</head>
+
+<body id="location14">
+  <img id="cat" class=align-left src="cat.jpg" width=400 height=400>
+  <p id="textbox" class=align-left>
+  Hey! What are YOU doing here?</p>
+  <img src="hamster.jpg" width=350 height=200 id="hamster" class="align-left">
+  
+  <form id="catform" style="display:block">
+    <select id="reply" onchange="cattalk()">
+      <option>-- Pick your response --</option>
+      <option>I just...um...fell from my cage!</option>
+      <option>PLEASE DON'T EAT ME!!!</option>
+      <option>I'm tying to escape. Will you help?</option>
+      <option>Look! Behind you!</option>
+    </select>
+  </form>
+  
+  <form id=catform2 style="display:none">
+    <select id="reply2" onchange="cattalk2()">
+      <option>-- Pick your response --</option>
+      <option>Yes. I am.</option>
+      <option>No! Why would you think that?</option>
+      <option>How did you know?</option>
+      <option>Ummmm....</option>
+    </select>
+  </form>
+  
+  <form id=catform3 style="display:none">
+    <select id="reply3" onchange="cattalk3()">
+      <option>-- Pick your response --</option>
+      <option>Yes. I am.</option>
+      <option>No! Why would you think that?</option>
+      <option>How did you know?</option>
+      <option>Ummmm....</option>
+    </select>
+  </form>
+  
+  <script src="story.js"></script>
+  
+</body>
