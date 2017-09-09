@@ -1,0 +1,34 @@
+<h1>Treasure Hunt</h1>
+This is my treasure hunt game.
+<br>
+<img src=https://www.worldmapsonline.com/images/compart/compart_world_political_antique_style_lg.jpg width=400 height=400 id="map">
+<p id="hint"></p>
+<script>
+ var map = document.getElementById("map");
+ var hint = document.getElementById("hint");
+ var width = 400;
+ var height = 400;
+ function getRandom(size) {
+   return Math.random()*size;
+ }
+  var treasure = {x: getRandom(width), y:getRandom(height)};
+ function getDistance(event, treasure) {
+   var dx = event.offsetX - treasure.x;
+   var dy = event.offsetY - treasure.y
+   return Math.sqrt((dx*dx)+(dy*dy));
+ }
+  function getHint(distance) {
+    if (distance<20) {return "You found the treasure!"}
+    else if (distance <40) {return "Hot"}
+    else if (distance <80) {return "Warm"}
+    else if (distance <160) {return "Cold"}
+    else if (distance <240) {return "Freezing"}
+    else {return "You are not close at all!"}
+  }
+ map.addEventListener('click', function(event) {
+   var distance = getDistance(event, treasure);
+   var dhint = getHint(distance);
+   hint.textContent = dhint;
+ })
+  
+</script>
