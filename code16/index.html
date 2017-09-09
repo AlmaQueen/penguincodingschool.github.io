@@ -1,0 +1,48 @@
+<h1>Look fore the Treasur</h1>
+My treasur hunt
+<br>
+<img src=https://i.pinimg.com/736x/a8/6d/46/a86d46e87323b0bea7f0da1c7c59ee2b--treasure-maps-for-kids-pirate-treasure-maps.jpg id="map" width=600
+  height=400>
+
+<p id="hint"></p>
+
+
+
+
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width=600;
+  var height=400;
+  
+  function getRandom(size) {
+    return Math.random()*size;
+  }
+  
+  var treasure = {x:getRandom(width), y:getRandom(height)};
+  
+  function getDistance(event, treasure) {
+  var dx = event.offsetX -treasure.x;
+  var dy = event.offsetY -treasure.y;
+  return Math.sqrt((dx*dx)+(dy*dy))
+}
+  
+function getHint(distance) {
+  if (distance<20) {return "You found the rteasure!!"}
+  else if(distance<40) {return "HOTTTTTTT"}
+  else if(distance<80) {return "Warmish"}
+  else if(distance<160) {return "Medium"}
+  else if(distance<240) {return "cold"}
+  else if(distance<320) {return "Freeeeezing"}
+  else {return "So Far away"}
+}
+
+  map.addEventListener('click', function(event) {
+  var distance = getDistance(event,treasure);
+  var dhint = getHint(distance);
+//  console.log(distance,dhint);
+  hint.textContent = dhint;
+})
+
+
+</script>
