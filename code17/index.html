@@ -1,0 +1,42 @@
+<h1>Treasure Hunt</h1>
+This is my treasure hunt game.
+<br>
+
+<img src=http://wikiclipart.com/wp-content/uploads/2016/12/Blank-treasure-map-clip-art-world-with-latitude-and-longitude.jpg id="map" width=900 height=500>
+
+<p id="hint"></p>
+
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  var width=900;
+  var height=500;
+  
+ function getRandom(size) {
+   return Math.random()*size;
+ }
+  
+ var treasure = {x:getRandom(width), y:getRandom(height)};
+ 
+ function getDistance(event, treasrue) {
+   var dx = event.offsetX - treasure.x;
+   var dy = event.offsetY - treasure.y;
+   return Math.sqrt((dx*dx)+(dy*dy))
+ }
+ 
+ function getHint(distance) {
+   if (distance<20) {return "you found the treasure!!"}
+   else if(distance<40) {return "HOTTTTTT"}
+   else if(distance<80) {return "warmish"}
+   else if(distance<160) {return "luke warm"}
+   else if(distance<240) {return "cold"}
+   else {return "Freezing ICE ICE!!"}
+ }
+ 
+ map.addEventListener('click', function(event) {
+   var distance = getDistance(event,treasure);
+   distance = Math.round(distance)
+   var dhint = getHint(distance);
+   hint.textContent = dhint + "You are "+distance + "pixels away"
+ })
+</script>
