@@ -1,0 +1,45 @@
+<h1>Error Hunt</h1>
+<h2>welcome coder, find the error in this website!</h2>
+
+<img src=http://deskbg.com/s3/wpp/6/6996/matrix-brain-desktop-background.jpg id="map" height="1000" width="1000">
+
+<p id="AI"></p>
+
+ 
+<script>
+  var map = document.getElementById("map");
+  var AI = document.getElementById("AI");
+  var width=1000;
+  var height=1000;
+  
+  
+  function getRandom(size) {
+    return Math.random()*size;
+  }
+  
+  var error = {x:getRandom(width), y:getRandom(height)};
+  
+  function getDistance(event, error) {
+    var dx = event.offsetX - error.x;
+    var dy = event.offsetY - error.y;
+    return Math.sqrt((dx*dx)+(dy+dy))
+  }
+  
+  function getAI(distance) {
+    if (distance<20) {return "Good job, you found it!"}
+    else if(distance<40) {return "so close!"}
+    else if(distance<60) {return "almost!"}
+    else if(distance<80) {return "not quite!"}
+    else if(distance<100) {return "It snuck away from you!"}
+    else if(distance<240) {return "hurry!"}
+    else {return "The bug is still going!"}
+  }
+  
+  map.addEventListener('click', function(event) {
+    var distance = getDistance(event,error)
+    var dAI = getAI(distance);
+    AI.textContent = dAI +"you are "+ distance +" away";
+    
+    }
+  )
+</script>
