@@ -1,0 +1,43 @@
+<h1>Treasure Hunt</h1>
+Find the Treasure
+<br>
+<img src=https://i.pinimg.com/736x/a8/6d/46/a86d46e87323b0bea7f0da1c7c59ee2b--treasure-maps-for-kids-pirate-treasure-maps.jpg width=400 height=400 id="map">
+
+<p id="hint"></p>
+
+<script>
+  var map = document.getElementById("map");
+  var hint = document.getElementById("hint");
+  
+  var width = 400;
+  var height = 400;
+  
+  function getRandom(size) {
+    return Math.random()*size;
+  }
+  
+ var treasure = {x: getRandom(width), y:getRandom(height)};
+  
+function getDistance(event, treausre) {
+  var dx = event.offsetX - treasure.x;
+  var dy = event.offsetY - treasure.y;
+  return Math.sqrt((dx*dx)+(dy*dy));
+}
+ 
+  function getHint(distance) {
+   if (distance<20) {return "Got it!"}
+   else if (distance<35) {return "FIRE FIRE"}
+   else if (distance<40) {return "Closer"}
+   else if (distance<60) {return "Close"}
+   else if (distance<160) {return "No"}
+   else if (distance<240) {return "Nope"}
+   else {return "Try harder"}
+  }
+  
+  map.addEventListener('click',function(event) {
+    var distance = getDistance(event, treasure);
+    var dhint = getHint(distance);
+    hint.textContent = dhint;
+  })
+  
+</script>
